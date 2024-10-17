@@ -91,19 +91,19 @@
         $dni=$_REQUEST['DNI_Cliente'];
         $telefono=$_REQUEST['NumTelefono_Cliente'];
         $email=$_REQUEST['Correo_Cliente'];
-        $usuario=$_REQUEST['nombre'];
-        $apellidos=$_REQUEST['apellidos'];
+        $usuario=$_REQUEST['Nombre_Cliente'];
+        $apellidos=$_REQUEST['Apellido_Cliente'];
         $contraseña=$_REQUEST['contraseña']; /*PREGUNTAR RAFA*/
-        $Fecha_Nac=$_REQUEST['Fecha_Nac'];
+        $Fecha_Nac=$_REQUEST['FechaNacimiento_Cliente'];
 
-        $Nombre_Via=$_/*PREGUNTAR RAFA*/['Nombre_Via'];
-        $Numero_Via=$_/*PREGUNTAR RAFA*/['Numero_Via'];
+        $NombreVia_Cliente=$_/*PREGUNTAR RAFA*/['Nombre_Via'];
+        $NumeroVia_Cliente=$_/*PREGUNTAR RAFA*/['Numero_Via'];
         $TipoVia_Cliente=/*PREGUNTAR RAFA*/['TipoVia_Cliente'];
 
 
 
-        $sql= "INSERT INTO Usuarios (nombre, apellidos, Fecha_Nac, URL, Telefono, email, contraseña)
-        VALUES ('$usuario', '$apellidos', $Fecha_Nac, '$telefono', '$telefono', ' $email', '$contraseña');";
+        $sql= "INSERT INTO Usuarios (DNI_Cliente, NumTelefono_Cliente, Correo_Cliente, Nombre_Cliente, Apellido_Cliente, contraseña, FechaNacimiento_Cliente,Nombre_Via,Numero_Via,TipoVia_Cliente)
+        VALUES ('$dni','$telefono', '$email', $usuario, '$apellidos', '$contraseña', ' $Fecha_Nac', '$NombreVia_Cliente','$NumeroVia_Cliente','$TipoVia_Cliente';";
    
     if (mysqli_query($conn,$sql))
     {
