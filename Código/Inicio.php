@@ -93,16 +93,15 @@
         $email=$_REQUEST['Correo_Cliente'];
         $usuario=$_REQUEST['Nombre_Cliente'];
         $apellidos=$_REQUEST['Apellido_Cliente'];
-        $contraseña=$_REQUEST['contraseña']; /*PREGUNTAR RAFA*/
+        $contraseña=$_REQUEST['Contraseña_Cliente']; 
         $Fecha_Nac=$_REQUEST['FechaNacimiento_Cliente'];
-
-        $NombreVia_Cliente=$_/*PREGUNTAR RAFA*/['Nombre_Via'];
-        $NumeroVia_Cliente=$_/*PREGUNTAR RAFA*/['Numero_Via'];
-        $TipoVia_Cliente=/*PREGUNTAR RAFA*/['TipoVia_Cliente'];
-
+        $NombreVia_Cliente=$_REQUEST['Nombre_Via'];
+        $NumeroVia_Cliente=$_REQUEST['Numero_Via'];
+        $TipoVia_Cliente=$_REQUEST['TipoVia_Cliente'];
 
 
-        $sql= "INSERT INTO Usuarios (DNI_Cliente, NumTelefono_Cliente, Correo_Cliente, Nombre_Cliente, Apellido_Cliente, contraseña, FechaNacimiento_Cliente,Nombre_Via,Numero_Via,TipoVia_Cliente)
+
+        $sql= "INSERT INTO Usuarios (DNI_Cliente, NumTelefono_Cliente, Correo_Cliente, Nombre_Cliente, Apellido_Cliente, Contraseña_Cliente, FechaNacimiento_Cliente,Nombre_Via,Numero_Via,TipoVia_Cliente)
         VALUES ('$dni','$telefono', '$email', $usuario, '$apellidos', '$contraseña', ' $Fecha_Nac', '$NombreVia_Cliente','$NumeroVia_Cliente','$TipoVia_Cliente';";
    
     if (mysqli_query($conn,$sql))
@@ -127,20 +126,37 @@ else{
                         Bienvenido
                     </div>
                     <form id="AltaUsuario" action="" method="post">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" class="caja" autofocus required placeholder="Nombre">
-                        <label for="apellidos">Apellidos:</label>
-                        <input type="text" id="apellidos" name="apellidos" class="caja" required pattern="[a-zA-Z\s]+" placeholder="Apellidos">
-                        <label for="contraseña">Contraseña:</label>
-                        <input type="password" name="contraseña" id="contraseña" class="caja"required placeholder="Contraseña">
-                        <label for="Fecha_Nac">Fecha de Nacimiento:</label>
-                        <input type="date" name="Fecha_Nac" id="Fecha_Nac" class="caja" placeholder="Fecha Nacimiento" title="Fecha Nacimiento">
-                        <label for="telefono">Teléfono: </label>
-                        <input type="tel" name="telefono"  id="telefono" class="caja"  placeholder="Telefono" required>
-                        <label for="email">e-Mail:</label>
-                        <input type="email" name="email" id="email" required class="caja" placeholder="email">
-                        <label for="url">URL:</label>
-                        <input type="url" class="caja" name="url" id="url" placeholder="Escribe la URL de tu página web personal">
+
+                        <label for="DNI_Cliente">DNI:</label>
+                        <input type="text" id="DNI_Cliente" name="DNI_Cliente" class="caja" required placeholder="DNI">
+
+                        <label for="NumTelefono_Cliente">Teléfono: </label>
+                        <input type="tel" name="NumTelefono_Cliente"  id="NumTelefono_Cliente" class="caja" required placeholder="Telefono">
+
+                        <label for="Correo_Cliente">e-Mail:</label>
+                        <input type="email" name="Correo_Cliente" id="Correo_Cliente" class="caja" required placeholder="email">
+
+                        <label for="Nombre_Cliente">Nombre:</label>
+                        <input type="text" id="Nombre_Cliente" name="Nombre_Cliente" class="caja" autofocus required placeholder="Nombre">
+
+                        <label for="Apellido_Cliente">Apellidos:</label>
+                        <input type="text" id="Apellido_Cliente" name="Apellido_Cliente" class="caja" required pattern="[a-zA-Z\s]+" placeholder="Apellidos">
+
+                        <label for="Contraseña_Cliente">Contraseña:</label>
+                        <input type="password" name="Contraseña_Cliente" id="Contraseña_Cliente" class="caja"required placeholder="Contraseña">
+
+                        <label for="FechaNacimiento_Cliente">Fecha de Nacimiento:</label>
+                        <input type="date" name="FechaNacimiento_Cliente" id="FechaNacimiento_Cliente" class="caja" placeholder="Fecha Nacimiento" title="Fecha Nacimiento">
+
+                        <label for="NombreVia_Cliente">Nombre de la via:</label>
+                        <input type="text" class="caja" name="NombreVia_Cliente" id="NombreVia_Cliente" placeholder="Escribe el nombre de la via">
+
+                        <label for="NumeroVia_Cliente">Nombre de la via:</label>
+                        <input type="text" class="caja" name="NumeroVia_Cliente" id="NumeroVia_Cliente" placeholder="Escribe el número de la via">
+
+                        <label for="TipoVia_Cliente">Nombre de la via:</label>
+                        <input type="text" class="caja" name="TipoVia_Cliente" id="TipoVia_Cliente" placeholder="Escribe el nombre de la via">
+
                         <button type="submit" title="AltaUsuario" name="Ingresar">Alta Usuario</button>
                     </form>
                     <div class="pie-form">
