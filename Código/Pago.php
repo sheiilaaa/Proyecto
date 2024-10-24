@@ -9,54 +9,65 @@
 
 <body>
 
-    <!--CABECERA-->
-    <header id="header">
-        <nav class="menu">
-            <div class="logo">
-                <img src="https://lh3.googleusercontent.com/rjTz7V4R1KdGInsOq-NBepU5OczhU6-YY4NLizB9umMtwSt4hfBGWW1oINd0bU70_1mv1reeU4a-ocGGKkhttU3TU8rIG6cvw86qx_O7kKYAeisbEeDSLvkEFz7Uxa12mlazQFH1XEiI2_iSYBXqgToZx9XVBUBhdpPp_cuo9RJQFVB1oXCo8jTpzfX5dVm4HXouLdVx-F_UumirlThyqQzkWbk9E-fXFaQzjBunMJVG4UhNi1wsBSomcGrGoiQI1rmVguEYt0k0P7Rf7KrMzgYgER263MeJ4C60g3zint3R-So6oj-gyfzLEx0BYTKHSoXSGWZhIjGCM7jchw0oDU_0FE-vu0v6NuSwsliKKQo7gi2R7V4-4x0cSB85jXhAxY5WbZDA89Dvm_2jtoM7b-ythQFUk9gOcI0bu8LN3uvtP8zfup5u8J88-mJTgsIYcxjdDY6L_YejQcu2jRY6fM5au6WgTIgs2t5uhyyqfdo_WQUh8i9GrdjwIw0EdskCOVK2Zqt2U9G_gySi9xHkN7KaVS6G56ngvU_Oxi8w2gg5_GC2_RCdCS5OLrbl2pe0fs2pyJLigMhuTT3oG7T8MZUvBWLDpPuapvEQwytMw35T1G9J7uHEybRjY_kzfqulc49rU5sHIF_ousSwiEu4379LH1e2uQSRhN4YNNAD4Q=w286-h69-no">
-                <a href="#" class="btn-menu" id="btn-menu"><i class="icono fa fa-bars" aria-hidden="true"></i></a> 
-            </div>
-            <div id="enlaces" class="enlaces" >
-                <a  href="#home"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
-                <a  href="#about"><i class="fa fa-info" aria-hidden="true"></i> Como trabajamos</a>
-                <a  href="#portafolio"><i class="fa fa-briefcase" aria-hidden="true"></i>Puesta en contacto</a>
-                <a  href="#contact"><i class="fa fa-envelope-o" aria-hidden="true"></i>Listado especialista</a>
-                <a  href="#horario"><i class="fa fa-envelope-o" aria-hidden="true"></i>Horario</a>
-            </div>
-        </nav>
-    </header>
+<!--CABECERA-->
+<header id="header">
+    <nav class="menu">
+        <div class="logo">
+            <img src="img/logo.png">
+            <a href="#" class="btn-menu" id="btn-menu"><i class="icono fa fa-bars" aria-hidden="true"></i></a> 
+        </div>
+        <div id="enlaces" class="enlaces" >
+            <a  href="Inicio.php"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
+            <a  href="ComoTrabajamos.php"><i class="fa fa-info" aria-hidden="true"></i> Como trabajamos</a>
+            <a  href="Contacto.php"><i class="fa fa-briefcase" aria-hidden="true"></i>Puesta en contacto</a>
+            <a  href="ListadoEspecialista.php"><i class="fa fa-envelope-o" aria-hidden="true"></i>Listado especialista</a>
+            <a  href="Calendario.php"><i class="fa fa-envelope-o" aria-hidden="true"></i>Calendario</a>
+        </div>
+    </nav>
+</header>
 
 
 
-    <form action="ConfirmacionPago.php" method="get">
+    <form id="Pago.php" action="Calendario.php" method="post">
 
         <fieldset>
             <legend>Alta de usuario</legend>
-            
-            <form id="FormatoPago" action="">                    
+            <div class="registro">                    
                 </div>
                 <div class="opciones">
-                    <h1>
-                        <label for="user">Nombre:</label>
-                        <input type="text" name="Nombre" id="user">
-                    </h1>
+                   
+                    <label for="Nombre_Cliente">Nombre:</label>
+                    <input type="text" id="Nombre_Cliente" name="Nombre_Cliente" class="caja" autofocus required pattern="[a-zA-Z\s]+" placeholder="Nombre" value='<?php echo $row['Nombre_Cliente']?>' >
 
-                    <h1>
-                        <label for="user">Apellido:</label>
-                        <input type="text" name="Apellido" id="user">
-                    </h1>
+                    <label for="Apellido_Cliente">Apellidos:</label>
+                    <input type="text" id="Apellido_Cliente" name="Apellido_Cliente" class="caja" required pattern="[a-zA-Z\s]+" placeholder="Apellidos" value='<?php echo $row['Apellido_Cliente']?>'>
 
-                    <h1>
-                        <label for="user">Contraseña:</label>
-                        <input type="password" name="Contraseña" id="user">
-                    </h1>
+                    <label for="DNI_Cliente">DNI:</label>
+                    <input type="text" id="DNI_Cliente" name="DNI_Cliente" class="caja" required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI" value='<?php echo $row['DNI']?>'>
+   
+                    <label for="Estado_Pago">Estado_Pago:</label>
+                    <input type="text" id="Estado_Pago" name="Estado_Pago" class="caja" required placeholder="Estado_Pago" value='<?php echo $row['Estado_Pago']?>'>
+
+                    <label for="Metodos_Pago">Metodos de Pago:</label>
+                    <input type="text" id="Metodos_Pago" name="Metodos_Pago" class="caja" required placeholder="Metodos_Pago" value='<?php echo $row['Metodos_Pago']?>'>
+
+                    <label for="Fecha_Pago">Fecha de Pago:</label>
+                    <input type="date" id="Fecha_Pago" name="Fecha_Pago" class="caja" required placeholder="Fecha_Pago" value='<?php echo $row['Fecha_Pago']?>'>
+
+                    <label for="Cantidad_Pago">Cantidad del Pago:</label>
+                    <input type="value" id="Cantidad_Pago" name="Cantidad_Pago" class="caja" required placeholder="Cantidad_Pago" value='<?php echo $row['Cantidad_Pago']?>'>
+                    
+                    
+                    
+                    <label for="user">Contraseña:</label>
+                    <input type="password" name="Contraseña" id="user">
         
                 </div>
 
             
         
-        </div>
-    </fieldset>
+             </div>
+        </fieldset>
         <br>
         <fieldset>
             <legend>Que tarifa quieres</legend>
