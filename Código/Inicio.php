@@ -21,22 +21,21 @@
 
 
 <!--CABECERA-->
-    <header id="header">
+<header id="header">
     <nav class="menu">
         <div class="logo">
-            <img src="https://lh3.googleusercontent.com/rjTz7V4R1KdGInsOq-NBepU5OczhU6-YY4NLizB9umMtwSt4hfBGWW1oINd0bU70_1mv1reeU4a-ocGGKkhttU3TU8rIG6cvw86qx_O7kKYAeisbEeDSLvkEFz7Uxa12mlazQFH1XEiI2_iSYBXqgToZx9XVBUBhdpPp_cuo9RJQFVB1oXCo8jTpzfX5dVm4HXouLdVx-F_UumirlThyqQzkWbk9E-fXFaQzjBunMJVG4UhNi1wsBSomcGrGoiQI1rmVguEYt0k0P7Rf7KrMzgYgER263MeJ4C60g3zint3R-So6oj-gyfzLEx0BYTKHSoXSGWZhIjGCM7jchw0oDU_0FE-vu0v6NuSwsliKKQo7gi2R7V4-4x0cSB85jXhAxY5WbZDA89Dvm_2jtoM7b-ythQFUk9gOcI0bu8LN3uvtP8zfup5u8J88-mJTgsIYcxjdDY6L_YejQcu2jRY6fM5au6WgTIgs2t5uhyyqfdo_WQUh8i9GrdjwIw0EdskCOVK2Zqt2U9G_gySi9xHkN7KaVS6G56ngvU_Oxi8w2gg5_GC2_RCdCS5OLrbl2pe0fs2pyJLigMhuTT3oG7T8MZUvBWLDpPuapvEQwytMw35T1G9J7uHEybRjY_kzfqulc49rU5sHIF_ousSwiEu4379LH1e2uQSRhN4YNNAD4Q=w286-h69-no">
+            <img src="img/logo.png">
             <a href="#" class="btn-menu" id="btn-menu"><i class="icono fa fa-bars" aria-hidden="true"></i></a> 
         </div>
         <div id="enlaces" class="enlaces" >
-            <a  href="#home"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
-            <a  href="#about"><i class="fa fa-info" aria-hidden="true"></i> Como trabajamos</a>
-            <a  href="#portafolio"><i class="fa fa-briefcase" aria-hidden="true"></i>Puesta en contacto</a>
-            <a  href="#contact"><i class="fa fa-envelope-o" aria-hidden="true"></i>Listado especialista</a>
-            <a  href="#horario"><i class="fa fa-envelope-o" aria-hidden="true"></i>Horario</a>
+            <a  href="Inicio.php"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
+            <a  href="ComoTrabajamos.php"><i class="fa fa-info" aria-hidden="true"></i> Como trabajamos</a>
+            <a  href="Contacto.php"><i class="fa fa-briefcase" aria-hidden="true"></i>Puesta en contacto</a>
+            <a  href="ListadoEspecialista.php"><i class="fa fa-envelope-o" aria-hidden="true"></i>Listado especialista</a>
+            <a  href="Calendario.php"><i class="fa fa-envelope-o" aria-hidden="true"></i>Calendario</a>
         </div>
     </nav>
 </header>
-
 
 
         <!-- En este código relacionamos el usuario con la contraseña para que verifique si existe el usuario y coincide con la contraseña, 
@@ -102,7 +101,7 @@
     ?> 
     
 <!-- REGISTRO USUARIO -->
-<?php
+<?php 
  session_start();
  
     include("./GestionBD/conexion.php");
@@ -147,7 +146,7 @@ else{
                     <form id="AltaUsuario" action="" method="post">
 
                         <label for="DNI_Cliente">DNI:</label>
-                        <input type="text" id="DNI_Cliente" name="DNI_Cliente" class="caja" required placeholder="DNI">
+                        <input type="text" id="DNI_Cliente" name="DNI_Cliente" class="caja" required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI">
 
                         <label for="NumTelefono_Cliente">Teléfono: </label>
                         <input type="tel" name="NumTelefono_Cliente"  id="NumTelefono_Cliente" class="caja" required placeholder="Telefono">
@@ -156,7 +155,7 @@ else{
                         <input type="email" name="Correo_Cliente" id="Correo_Cliente" class="caja" required placeholder="email">
 
                         <label for="Nombre_Cliente">Nombre:</label>
-                        <input type="text" id="Nombre_Cliente" name="Nombre_Cliente" class="caja" autofocus required placeholder="Nombre">
+                        <input type="text" id="Nombre_Cliente" name="Nombre_Cliente" class="caja" autofocus required pattern="[a-zA-Z\s]+" placeholder="Nombre">
 
                         <label for="Apellido_Cliente">Apellidos:</label>
                         <input type="text" id="Apellido_Cliente" name="Apellido_Cliente" class="caja" required pattern="[a-zA-Z\s]+" placeholder="Apellidos">
