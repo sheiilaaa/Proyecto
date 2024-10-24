@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ComoTrabajamos</title>
+    <title>Contacto</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
-
 <body>
-    <!--CABECERA-->
+<!--CABECERA-->
     <header id="header">
     <nav class="menu">
         <div class="logo">
@@ -23,11 +22,10 @@
             <a  href="#horario"><i class="fa fa-envelope-o" aria-hidden="true"></i>Horario</a>
         </div>
     </nav>
-</header>
+</header>    
 
 
-
-
+<h3>Gracias por su registro, su usuario ha sido guardado</h3>
 
 
 <!-- PIE DE PAGINA -->

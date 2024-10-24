@@ -6,7 +6,6 @@
     <title>ComoTrabajamos</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
-
 <body>
     <!--CABECERA-->
     <header id="header">
@@ -24,8 +23,6 @@
         </div>
     </nav>
 </header>
-
-
 
 
 
