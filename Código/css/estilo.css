@@ -26,12 +26,28 @@ header{
     flex-wrap: wrap;
   } */
 
+  
+  *{
+    margin: 0;;
+}
 
+.centrar_contenido{
+    display: flex;
+    justify-content: center;
+}
 
+.calendario{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 
-
-
-
+.dias_calendario{
+    margin-top: 20px;
+    width: 12.5%;
+    height: 40px;
+    border: solid;
+}
 
 
 
