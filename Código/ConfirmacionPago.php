@@ -25,7 +25,7 @@
 </header>
 
 
-<h3>Gracias por su registro, su usuario ha sido guardado</h3>
+<h3>El pago se ha realizado de manera correcta</h3>
 
 
 <!-- PIE DE PAGINA -->
