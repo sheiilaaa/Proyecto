@@ -28,12 +28,11 @@
 <main class="centrar_contenido">
     <section class="calendario"></section>
     <script src="script.js"></script>
-
     <?php
         $i;
         $contador = 1;
         for($i = 0; $i <35; $i++){
-            echo "<div class="dias_calendario">$contador</div>";
+            echo "<div dias_calendario>$contador</div>"; /*cuando sea multiple de siete, saltar */
             if($contador == 31){
                 $contador = 1;
             }
