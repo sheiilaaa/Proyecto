@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
+$username = "sea";
 $database = "coaching";
-$password = "";
+$password = "Pr0j3cts3@";
 
 
 // Creamos la conexion y seleccionamos la base de datos
