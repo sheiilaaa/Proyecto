@@ -48,27 +48,27 @@
 
     include("./GestionBD/conexion.php");
     if(isset($_REQUEST['Ingresar'])){
-        $usuario=$_REQUEST['usuario'];
-        $contraseña=$_REQUEST['password'];
+        $Nom_cliente=$_REQUEST['Nombre_Cliente'];
+        $Contra_Cliente=$_REQUEST['Contrasena_Cliente'];
         
-        $sql= "SELECT * FROM usuarios WHERE Nombre ='$usuario';";
+        $sql= "SELECT * FROM CLIENTES WHERE Nombre_Cliente ='$Nom_cliente';";
 
         $resultado = mysqli_query($conn, $sql);
         
         if(mysqli_num_rows($resultado)>0)
         {
             $row= mysqli_fetch_assoc($resultado);    
-            $_SESSION['Usuario']=$row['Nombre'];
+            $_SESSION['Nom_cliente']=$row['Nombre_Cliente'];
             
-            if ($contraseña == $row['Contraseña']){
-                header("Location:catalogo.php"); //Una vez correcto el usuario y la contraseña nos manda al catalago.
+            if ($Contra_Cliente == $row['Contrasena_Cliente']){
+                header("ComoTrabajamos.php"); //Una vez correcto el cliente y la contraseña nos manda a la pantalla de como trabajamos.
             }else{
                 echo "Contraseña erronea";
             }
         } 
          
        else{
-        echo "El usuario no existe"; 
+        echo "El cliente no existe"; 
         }
 
     }
@@ -83,13 +83,13 @@
                         Acceso a la tienda
                     </div>
                     <form id="login" action="" method="post">
-                        <input type="text" name="usuario" placeholder="Usuario" required>
-                        <input type="password" placeholder="Contraseña" name="password" required>
+                        <input type="text" name="Nombre_Cliente" placeholder="Nombre_Cliente" required>
+                        <input type="password" placeholder="Contrasena_Cliente" name="Contrasena_Cliente" required>
                         <button type="submit" title="Ingresar" name="Ingresar">Login</button>
                     </form>
                     <div class="pie-form">
-                        <a href="recuperar.php">Recuperar contraseña</a>
-                        <a href="AltaUsuario.php">Pulsa aquí para Registrate</a>
+                        <a href="recuperar.php">Recuperar contraseña</a>  <!-- CREAMOS UN PHP DE RECUPERAR CONTRASEÑA,NO?-->
+                        <a href="Inicio.php">Pulsa aquí para Registrate</a>
                     
    
                         </div>
@@ -106,26 +106,27 @@
  
     include("./GestionBD/conexion.php");
     if(isset($_REQUEST['Ingresar'])){
-        $dni=$_REQUEST['DNI_Cliente'];
-        $telefono=$_REQUEST['NumTelefono_Cliente'];
-        $email=$_REQUEST['Correo_Cliente'];
-        $usuario=$_REQUEST['Nombre_Cliente'];
-        $apellidos=$_REQUEST['Apellido_Cliente'];
-        $contrasena=$_REQUEST['Contrasena_Cliente']; 
-        $Fecha_Nac=$_REQUEST['FechaNacimiento_Cliente'];
-        $NombreVia_Cliente=$_REQUEST['Nombre_Via'];
-        $NumeroVia_Cliente=$_REQUEST['Numero_Via'];
+        $DNI_Cliente=$_REQUEST['DNI_Cliente'];
+        $NumTelefono_Cliente=$_REQUEST['NumTelefono_Cliente'];
+        $Correo_Cliente=$_REQUEST['Correo_Cliente'];
+        $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
+        $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
+        $Contrasena_Cliente=$_REQUEST['Contrasena_Cliente']; 
+        $FechaNacimiento_Cliente=$_REQUEST['FechaNacimiento_Cliente'];
+        $NombreVia_Cliente=$_REQUEST['NombreVia_Cliente'];
+        $NumeroVia_Cliente=$_REQUEST['NumeroVia_Cliente'];
         $TipoVia_Cliente=$_REQUEST['TipoVia_Cliente'];
 
 
 
-        $sql= "INSERT INTO Usuarios (DNI_Cliente, NumTelefono_Cliente, Correo_Cliente, Nombre_Cliente, Apellido_Cliente, Contrasena_Cliente, FechaNacimiento_Cliente,Nombre_Via,Numero_Via,TipoVia_Cliente)
-        VALUES ('$dni','$telefono', '$email', $usuario, '$apellidos', '$contraseña', ' $Fecha_Nac', '$NombreVia_Cliente','$NumeroVia_Cliente','$TipoVia_Cliente';";
+        $sql= "INSERT INTO CLIENTES (DNI_Cliente, NumTelefono_Cliente, Correo_Cliente, Nombre_Cliente, Apellido_Cliente, Contrasena_Cliente, FechaNacimiento_Cliente,NombreVia_Cliente,NumeroVia_Cliente,TipoVia_Cliente)
+        VALUES ('$DNI_Cliente','$NumTelefono_Cliente', '$Correo_Cliente', $Nombre_Cliente, '$Apellido_Cliente', '$Contrasena_Cliente', ' $FechaNacimiento_Cliente', '$NombreVia_Cliente','$NumeroVia_Cliente','$TipoVia_Cliente';";
    
     if (mysqli_query($conn,$sql))
     {
-        header("Location:Alta_Conf.php?nombre=$usuario");
-        /*Los campos de $usuario $apellidos $Fecha_Nac $telefono $telefono $email $contraseña se han añadido correctamente*/
+        header("Location:Alta_Conf.php?nombre=$Nombre_Cliente");
+        /*Los campos de $https://www.citapreviadnie.es/citaPreviaDni/MantenimientoPagos.actionNombre_Cliente $apellidos $Fecha_Nac $telefono $telefono $email $contraseña se han añadido correctamente*/
+        /*MIRAR*/
     }
    
     else 
