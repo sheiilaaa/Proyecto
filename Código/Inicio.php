@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-     
+</h1>  
     <head>
         
         <meta charset="utf-8">
@@ -80,7 +80,7 @@
             <div id="central">
                 <div id="login">
                     <div class="titulo">
-                        Acceso a la tienda
+                        <h1>Iniciar Sesión</h1>
                     </div>
                     <form id="login" action="" method="post">
                         <input type="text" name="Nombre_Cliente" placeholder="Nombre_Cliente" required>

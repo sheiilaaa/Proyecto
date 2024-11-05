@@ -87,6 +87,7 @@
             <select name="Metodo de pago" id="user">
                 <optgroup label="Tarjeta">
                     <option value="VISA">VISA</option>
+                    <option value="Bizum">Bizum</option>
                     <option value="MasterCard">MasterCard</option>
                     <option value="American Express">American Express</option>
                 </optgroup>
