@@ -19,6 +19,10 @@
     
     <body >
 
+<!--CONEXIÓN-->
+<?php
+session_start();
+include("./GestionBD/conexion.php");?>
 
 <!--CABECERA-->
 <header id="header">
@@ -44,9 +48,7 @@
 
 <!-- INICIO SESIÓN -->
     <?php
-    session_start();
 
-    include("./GestionBD/conexion.php");
     if(isset($_REQUEST['Ingresar'])){
         $Nombre_Es=$_REQUEST['Nombre_Especialista'];
         $Contrasena_Es=$_REQUEST['Contrasena_Especialista'];
@@ -102,9 +104,7 @@
     
 <!-- REGISTRO USUARIO -->
 <?php 
- session_start();
- 
-    include("./GestionBD/conexion.php");
+
     if(isset($_REQUEST['Ingresar2'])){
         $DNI_Especialista=$_REQUEST['DNI_Especialista'];
         $NumTelefono_Especialista=$_REQUEST['NumTelefono_Especialista'];
