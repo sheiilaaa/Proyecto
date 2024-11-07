@@ -88,7 +88,7 @@
                         <button type="submit" title="Ingresar" name="Ingresar">Login</button>
                     </form>
                     <div class="pie-form">
-                        <a href="recuperar.php">Recuperar contraseña</a>  <!-- CREAMOS UN PHP DE RECUPERAR CONTRASEÑA,NO?-->
+                        <a href="recuperar.php">Recuperar contraseña</a>  
                         <a href="Inicio.php">Pulsa aquí para Registrate</a>
                     
    
@@ -124,9 +124,9 @@
    
     if (mysqli_query($conn,$sql))
     {
-        header("Location:Alta_Conf.php?nombre=$Nombre_Cliente");
+        header("Location:Inicio.php?Nombre_Cliente=$Nombre_Cliente");
         /*Los campos de $https://www.citapreviadnie.es/citaPreviaDni/MantenimientoPagos.actionNombre_Cliente $apellidos $Fecha_Nac $telefono $telefono $email $contraseña se han añadido correctamente*/
-        /*MIRAR*/
+      
     }
    
     else 
