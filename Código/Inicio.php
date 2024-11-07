@@ -49,36 +49,37 @@ include("./GestionBD/conexion.php");?>
         también si se muestran resultados asociados en la base de datos y son corectos, se dejará abierta la sesion del usuario (que pondremos en todos los php)-->
 
 <!-- INICIO SESIÓN -->
-    <?php
+<?php
    
-    if(isset($_REQUEST['Ingresar'])){
-        $Nom_cliente=$_REQUEST['Nombre_Cliente'];
-        $Contra_Cliente=$_REQUEST['Contrasena_Cliente'];
+   if(isset($_REQUEST['Ingresar'])){
+       $Nom_cliente=$_REQUEST['Nombre_Cliente'];
+       $Contra_Cliente=$_REQUEST['Contrasena_Cliente'];
+       
+       $sql= "SELECT * FROM CLIENTES WHERE Nombre_Cliente ='$Nom_cliente';";
+
+       $resultado = mysqli_query($conn, $sql);
+       
+       if(mysqli_num_rows($resultado)>0)
+       {
+           $row= mysqli_fetch_assoc($resultado);    
+           
+           if ($Contra_Cliente == $row['Contrasena_Cliente']){
+               header("ComoTrabajamos.php"); //Una vez correcto el cliente y la contraseña nos manda a la pantalla de como trabajamos.
+               $_SESSION['Nom_cliente']=$row['Nombre_Cliente'];
+               
+           }else{
+               echo "Contraseña erronea";
+           }
+       } 
         
-        $sql= "SELECT * FROM CLIENTES WHERE Nombre_Cliente ='$Nom_cliente';";
+      else{
+       echo "El cliente no existe"; 
+       }
 
-        $resultado = mysqli_query($conn, $sql);
-        
-        if(mysqli_num_rows($resultado)>0)
-        {
-            $row= mysqli_fetch_assoc($resultado);    
-            $_SESSION['Nom_cliente']=$row['Nombre_Cliente'];
-            
-            if ($Contra_Cliente == $row['Contrasena_Cliente']){
-                header("ComoTrabajamos.php"); //Una vez correcto el cliente y la contraseña nos manda a la pantalla de como trabajamos.
-            }else{
-                echo "Contraseña erronea";
-            }
-        } 
-         
-       else{
-        echo "El cliente no existe"; 
-        }
+   }
+   else{
 
-    }
-    else{
-
-    ?>
+   ?>
         <div id="contenedor">
             <div id="central">
                 <div id="login">
@@ -106,8 +107,10 @@ include("./GestionBD/conexion.php");?>
 
 <!-- REGISTRO CLIENTES -->
 <?php
-  
-    if(isset($_REQUEST['Ingresar'])){
+    
+   
+  if ($conn) {
+    if(isset($_REQUEST['Registro'])){
         $DNI_Cliente=$_REQUEST['DNI_Cliente'];
         $NumTelefono_Cliente=$_REQUEST['NumTelefono_Cliente'];
         $Correo_Cliente=$_REQUEST['Correo_Cliente'];
@@ -118,28 +121,20 @@ include("./GestionBD/conexion.php");?>
         $NombreVia_Cliente=$_REQUEST['NombreVia_Cliente'];
         $NumeroVia_Cliente=$_REQUEST['NumeroVia_Cliente'];
         $TipoVia_Cliente=$_REQUEST['TipoVia_Cliente'];
-
-
-
-        $sql= "INSERT INTO CLIENTES (DNI_Cliente, NumTelefono_Cliente, Correo_Cliente, Nombre_Cliente, Apellido_Cliente, Contrasena_Cliente, FechaNacimiento_Cliente,NombreVia_Cliente,NumeroVia_Cliente,TipoVia_Cliente)
-        VALUES ('$DNI_Cliente','$NumTelefono_Cliente', '$Correo_Cliente', $Nombre_Cliente, '$Apellido_Cliente', '$Contrasena_Cliente', ' $FechaNacimiento_Cliente', '$NombreVia_Cliente','$NumeroVia_Cliente','$TipoVia_Cliente';";
-   
-    if (mysqli_query($conn,$sql))
-    {
-        header("Location:Inicio.php?Nombre_Cliente=$Nombre_Cliente");
-        /*Los campos de $https://www.citapreviadnie.es/citaPreviaDni/MantenimientoPagos.actionNombre_Cliente $apellidos $Fecha_Nac $telefono $telefono $email $contraseña se han añadido correctamente*/
-      
-    }
-   
-    else 
-    {
-        echo "Error:  "   . $sql . "<br>" . mysqli_error($conn);
-    }
+    
   
+        $de = "INSERT INTO clientes(DNI_Cliente,Nombre_Cliente,Apellido_Cliente,FechaNacimiento_Cliente,NumTelefono_Cliente,Correo_Cliente,TipoVia_Cliente,NombreVia_Cliente,NumeroVia_Cliente,Contrasena_Cliente)
+       VALUES ('$DNI_Cliente', '$Nombre_Cliente', '$Apellido_Cliente', '$FechaNacimiento_Cliente', '$NumTelefono_Cliente', '$Correo_Cliente', '$TipoVia_Cliente', '$NombreVia_Cliente', '$NumeroVia_Cliente', '$Contrasena_Cliente')";
 
-}   
-else{
-   
+        if (mysqli_query($conn,$de)){   
+                header("location:Inicio.php");
+            }
+            else {
+                echo "ERROR:".mysqli_error($conn);
+                echo "ERROR:".mysqli_error($de); 
+            }
+        }
+    else{ 
 ?>
     <div id="contenedor">
         <div id="central">
@@ -186,63 +181,12 @@ else{
             </div>
         </div>    
     </div>
-<?php
-
-
-   /*
-   ?>
-        <div id="contenedor">
-            <div id="central">
-                <div id="login">
-                    <div class="titulo"> Bienvenido </div>
-                    
-                    <form id="AltaUsuario" action="" method="post">
-
-                        <label for="DNI_Cliente">DNI:</label>
-                        <input type="text" id="DNI_Cliente" name="DNI_Cliente" class="caja" required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI">
-
-                        <label for="NumTelefono_Cliente">Teléfono: </label>
-                        <input type="tel" name="NumTelefono_Cliente"  id="NumTelefono_Cliente" class="caja" required placeholder="Telefono">
-
-                        <label for="Correo_Cliente">e-Mail:</label>
-                        <input type="email" name="Correo_Cliente" id="Correo_Cliente" class="caja" required placeholder="email">
-
-                        <label for="Nombre_Cliente">Nombre:</label>
-                        <input type="text" id="Nombre_Cliente" name="Nombre_Cliente" class="caja" autofocus required pattern="[a-zA-Z\s]+" placeholder="Nombre">
-
-                        <label for="Apellido_Cliente">Apellidos:</label>
-                        <input type="text" id="Apellido_Cliente" name="Apellido_Cliente" class="caja" required pattern="[a-zA-Z\s]+" placeholder="Apellidos">
-
-                        <label for="Contrasena_Cliente">Contraseña:</label>
-                        <input type="password" name="Contrasena_Cliente" id="Contrasena_Cliente" class="caja"required placeholder="Contrasena">
-
-                        <label for="FechaNacimiento_Cliente">Fecha de Nacimiento:</label>
-                        <input type="date" name="FechaNacimiento_Cliente" id="FechaNacimiento_Cliente" class="caja" placeholder="Fecha Nacimiento" title="Fecha Nacimiento">
-
-                        <label for="NombreVia_Cliente">Nombre de la via:</label>
-                        <input type="text" class="caja" name="NombreVia_Cliente" id="NombreVia_Cliente" placeholder="Escribe el nombre de la via">
-
-                        <label for="NumeroVia_Cliente">Nombre de la via:</label>
-                        <input type="text" class="caja" name="NumeroVia_Cliente" id="NumeroVia_Cliente" placeholder="Escribe el número de la via">
-
-                        <label for="TipoVia_Cliente">Nombre de la via:</label>
-                        <input type="text" class="caja" name="TipoVia_Cliente" id="TipoVia_Cliente" placeholder="Escribe el nombre de la via">
-
-                        <button type="submit" title="AltaUsuario" name="Ingresar">Alta Usuario</button>
-                    </form>
-                    <div class="pie-form">
-                        <a href="catalogo.php">Volver</a>
-                    </div>
-                </div>
-            </div>    
-        </div>
-<?php
-*/
-    }
-    
+    <?php
+}
+}
+   
 ?>
-
-
+   
 
 <!-- PIE DE PAGINA -->
 <footer>

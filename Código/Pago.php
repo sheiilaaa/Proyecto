@@ -99,13 +99,6 @@
             </select>
         </fieldset>
         <br>
-        <div class="dni">
-            <fieldset>
-                <legend>Adjunte su DNI/NIF</legend>
-                <input type="file" name="fileupload" accept="image/*" id="file"><br>
-            </fieldset>
-        </div>
-        <br>
         <input type="checkbox" name="user"  value="Acepto los terminos de la página">
         <label for="user">Acepto los terminos de la página</label>
         <br>
