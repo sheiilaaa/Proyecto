@@ -1,6 +1,8 @@
 <?php
     include ("conexion.php");
 
+/*MODIFICAR EL ORDEN */
+
     $sql = "INSERT INTO ESPECIALISTAS (DNI_Especialista, NumTelefono_Especialista,Correo_Especialista, Nombre_Especialista,
                 Apellido_Especialista, Contraseña_Cliente, 	NombreVia_Especialista, NumeroVia_Especialista, TipoVia_Especialista,FechaNacimiento_Especialista,
                 CuentaBancaria_Especialista, Cuota_Especialista)
