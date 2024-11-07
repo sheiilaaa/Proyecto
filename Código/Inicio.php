@@ -14,7 +14,10 @@
         
         <!-- Link hacia el archivo de estilos css -->
         <link rel="stylesheet" href="css/estilo.css">
-        
+
+        <!-- Link hacia el archivo de estilos css -->
+        <script src="./Inicio.js"></script>
+
     </head>
     
     <body >
@@ -37,10 +40,8 @@
     </nav>
 </header>
 
-
         <!-- En este código relacionamos el usuario con la contraseña para que verifique si existe el usuario y coincide con la contraseña, 
         también si se muestran resultados asociados en la base de datos y son corectos, se dejará abierta la sesion del usuario (que pondremos en todos los php)-->
-
 
 <!-- INICIO SESIÓN -->
     <?php
@@ -74,8 +75,7 @@
     }
     else{
 
-            ?>
-
+    ?>
         <div id="contenedor">
             <div id="central">
                 <div id="login">
@@ -100,6 +100,7 @@
     }
     ?> 
     
+
 <!-- REGISTRO CLIENTES -->
 <?php 
  session_start();
@@ -137,13 +138,63 @@
 
 }   
 else{
-    ?>
+   
+?>
+    <div id="contenedor">
+        <div id="central">
+            <div id="login">
+                <div class="titulo"> Bienvenido </div>
+                    <span> Create una cuenta para acceder a nuestra pagina </span>
+                    <form id="AltaUsuario" action="" method="post">
+
+                        <label for="DNI_Cliente">DNI:</label>
+                        <input type="text" id="DNI_Cliente" name="DNI_Cliente" class="caja" required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI">
+
+                        <label for="NumTelefono_Cliente">Teléfono: </label>
+                        <input type="tel" name="NumTelefono_Cliente"  id="NumTelefono_Cliente" class="caja" required placeholder="Telefono">
+
+                        <label for="Correo_Cliente">e-Mail:</label>
+                        <input type="email" name="Correo_Cliente" id="Correo_Cliente" class="caja" required placeholder="email">
+
+                        <label for="Nombre_Cliente">Nombre:</label>
+                        <input type="text" id="Nombre_Cliente" name="Nombre_Cliente" class="caja" autofocus required pattern="[a-zA-Z\s]+" placeholder="Nombre">
+
+                        <label for="Apellido_Cliente">Apellidos:</label>
+                        <input type="text" id="Apellido_Cliente" name="Apellido_Cliente" class="caja" required pattern="[a-zA-Z\s]+" placeholder="Apellidos">
+
+                        <label for="Contrasena_Cliente">Contraseña:</label>
+                        <input type="password" name="Contrasena_Cliente" id="Contrasena_Cliente" class="caja"required placeholder="Contrasena">
+
+                        <label for="FechaNacimiento_Cliente">Fecha de Nacimiento:</label>
+                        <input type="date" name="FechaNacimiento_Cliente" id="FechaNacimiento_Cliente" class="caja" placeholder="Fecha Nacimiento" title="Fecha Nacimiento">
+
+                        <label for="NombreVia_Cliente">Nombre de la via:</label>
+                        <input type="text" class="caja" name="NombreVia_Cliente" id="NombreVia_Cliente" placeholder="Escribe el nombre de la via">
+
+                        <label for="NumeroVia_Cliente">Nombre de la via:</label>
+                        <input type="text" class="caja" name="NumeroVia_Cliente" id="NumeroVia_Cliente" placeholder="Escribe el número de la via">
+
+                        <label for="TipoVia_Cliente">Nombre de la via:</label>
+                        <input type="text" class="caja" name="TipoVia_Cliente" id="TipoVia_Cliente" placeholder="Escribe el nombre de la via">
+
+                        <button type="submit" title="AltaUsuario" name="Ingresar">Registrarse</button>
+                    </form>
+                    <!--<div class="pie-form">
+                        <a href="catalogo.php">Volver</a>
+                    </div> -->
+            </div>
+        </div>    
+    </div>
+<?php
+
+
+   /*
+   ?>
         <div id="contenedor">
             <div id="central">
                 <div id="login">
-                    <div class="titulo">
-                        Bienvenido
-                    </div>
+                    <div class="titulo"> Bienvenido </div>
+                    
                     <form id="AltaUsuario" action="" method="post">
 
                         <label for="DNI_Cliente">DNI:</label>
@@ -185,6 +236,7 @@ else{
             </div>    
         </div>
 <?php
+*/
     }
     
 ?>
