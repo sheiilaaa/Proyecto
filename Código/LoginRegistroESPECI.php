@@ -122,10 +122,10 @@ include("./GestionBD/conexion.php");?>
         $sql= "INSERT INTO ESPECIALISTAS (DNI_Especialista, NumTelefono_Especialista, Correo_Especialista, Nombre_Especialista, Apellido_Especialista, Contrasena_Especialista, FechaNacimiento_Especialista,NombreVia_Especialista,NumeroVia_Especialista,TipoVia_Especialista,CuentaBancaria_Especialista,Cuota_Especialista)
         VALUES ('$DNI_Especialista','$NumTelefono_Especialista', '$Correo_Especialista', $Nombre_Especialista, '$Apellido_Especialista', '$Contrasena_Especialista', ' $FechaNacimiento_Especialista', '$NombreVia_Especialista','$NumeroVia_Especialista','$TipoVia_Especialista','$CuentaBancaria_Especialista','$Cuota_Especialista';";
    
+        $info= "$Nombre_Especialista,$Apellido_Especialista,$Cuota_Especialista"
     if (mysqli_query($conn,$sql))
     {
-        header("Location:Alta_Conf.php?nombre=$Nombre_Especialista");
-        /*MIRAR*/
+        header("Location:Calendario.php?info=$info ?");
     }
    
     else 
