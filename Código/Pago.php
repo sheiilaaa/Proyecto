@@ -26,7 +26,9 @@
     </nav>
 </header>
 
+<?php
 
+?>
 
     <form id="Pago.php" action="Calendario.php" method="post">
 
