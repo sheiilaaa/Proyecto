@@ -83,7 +83,7 @@ include("./GestionBD/conexion.php");
                     <input type="date" id="Fecha_Pago" name="Fecha_Pago" class="caja" required placeholder="Fecha_Pago" value='<?php echo $row['Fecha_Pago']?>'>
 
                     <label for="Cantidad_Pago">Cantidad del Pago:</label>
-                    <input type="value" id="Cantidad_Pago" name="Cantidad_Pago" class="caja" required placeholder="Cantidad_Pago" value='<?php echo $row['Cantidad_Pago']?>'>
+                    <input type="text" id="Cantidad_Pago" name="Cantidad_Pago" class="caja" required placeholder="Cantidad_Pago" value='<?php echo $row['Cantidad_Pago']?>'>
                     
                     
                     
