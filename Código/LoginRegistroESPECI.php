@@ -124,10 +124,20 @@ include("./GestionBD/conexion.php");?>
    
         $info= "$Nombre_Especialista,$Apellido_Especialista,$Cuota_Especialista"
         $id="SELECT ID_Especialista FROM ESPECIALISTAS WHERE Nombre_Especialista=".$Nombre_Especialista.";";
-        
+       
+    if (mysqli_query($conn,$id)) 
+    {
+        header("Location:Calendario.php?info=$info");
+    }
+    else 
+    {
+        echo "Error:  "   . $id . "<br>" . mysqli_error($conn);
+    }
+  
+
     if (mysqli_query($conn,$sql))
     {
-        header("Location:Calendario.php?info=$info ?");
+        header("Location:Calendario.php?info=$info");
     }
    
     else 
