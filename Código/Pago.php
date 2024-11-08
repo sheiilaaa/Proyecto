@@ -27,9 +27,44 @@
 </header>
 
 <?php
-
+session_start();
+include("./GestionBD/conexion.php");
 ?>
-
+<?php
+    
+   
+    if ($conn) {
+      if(isset($_REQUEST['Registro'])){
+/*
+        $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
+        $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
+$DNI_Cliente=$_REQUEST['DNI_Cliente'];  
+*/
+          
+          $NumTelefono_Cliente=$_REQUEST['NumTelefono_Cliente'];
+          $Correo_Cliente=$_REQUEST['Correo_Cliente'];
+     
+        
+          $Contrasena_Cliente=$_REQUEST['Contrasena_Cliente']; 
+          $FechaNacimiento_Cliente=$_REQUEST['FechaNacimiento_Cliente'];
+          $NombreVia_Cliente=$_REQUEST['NombreVia_Cliente'];
+          $NumeroVia_Cliente=$_REQUEST['NumeroVia_Cliente'];
+          $TipoVia_Cliente=$_REQUEST['TipoVia_Cliente'];
+      
+    
+          $de = "INSERT INTO clientes(DNI_Cliente,Nombre_Cliente,Apellido_Cliente,FechaNacimiento_Cliente,NumTelefono_Cliente,Correo_Cliente,TipoVia_Cliente,NombreVia_Cliente,NumeroVia_Cliente,Contrasena_Cliente)
+         VALUES ('$DNI_Cliente', '$Nombre_Cliente', '$Apellido_Cliente', '$FechaNacimiento_Cliente', '$NumTelefono_Cliente', '$Correo_Cliente', '$TipoVia_Cliente', '$NombreVia_Cliente', '$NumeroVia_Cliente', '$Contrasena_Cliente')";
+  
+          if (mysqli_query($conn,$de)){   
+                  header("location:Inicio.php");
+              }
+              else {
+                  echo "ERROR:".mysqli_error($conn);
+                  echo "ERROR:".mysqli_error($de); 
+              }
+          }
+      else{ 
+  ?>
     <form id="Pago.php" action="Calendario.php" method="post">
 
         <fieldset>
@@ -66,8 +101,10 @@
         
                 </div>
 
-            
-        
+        <?php  
+                }
+            }
+      ?>
              </div>
         </fieldset>
         <br>
@@ -108,8 +145,9 @@
             <input type="submit" value="Enviar">
         </div>
     </form>
-
-
+<?php
+}
+?>
 <!-- PIE DE PAGINA -->
 <footer>
 Todos los derechos reservados | Coaching SL Copyright © 2024
