@@ -18,24 +18,25 @@
     </head>
     
     <body >
-
-
 <!--CABECERA-->
-<header id="header">
-    <nav class="menu">
-        <div class="logo">
-            <img src="img/logo.png">
-            <a href="#" class="btn-menu" id="btn-menu"><i class="icono fa fa-bars" aria-hidden="true"></i></a> 
+    <section class="photo" id="inicio">
+        <div class="nav" id="sticker">
+            <label for="toggle">&#9776</label>
+            <input type="checkbox" id="toggle" />
+            <div class="menu">
+                <img src="IMG/logo.png" alt="" class="logo">
+                <a href=""><i class="fa fa-home"> Inicio</i></a>
+                <a href=""><i class="fa fa-info"> Como trabajar</i></a>
+                <a href=""><i class="fa fa-briefcase"> Puesta en contacto</i></a>
+                <a href=""><i class="fa fa-address-book"> Listado especialistas</i></a>
+                <a href=""><i class="fa fa-calendar-o">Calendario</i></a>
+            </div>
         </div>
-        <div id="enlaces" class="enlaces" >
-            <a  href="Inicio.php"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
-            <a  href="ComoTrabajamos.php"><i class="fa fa-info" aria-hidden="true"></i> Como trabajamos</a>
-            <a  href="Contacto.php"><i class="fa fa-briefcase" aria-hidden="true"></i>Puesta en contacto</a>
-            <a  href="ListadoEspecialista.php"><i class="fa fa-envelope-o" aria-hidden="true"></i>Listado especialista</a>
-            <a  href="Calendario.php"><i class="fa fa-envelope-o" aria-hidden="true"></i>Calendario</a>
+        <div class="photo-text">
+            <h4 data-ix="skype">Coaching sl</h4>
         </div>
-    </nav>
-</header>
+        <div class="overlay"></div>
+    </section>
 
 
         <!-- En este código relacionamos el usuario con la contraseña para que verifique si existe el usuario y coincide con la contraseña, 
