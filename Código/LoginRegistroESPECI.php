@@ -119,12 +119,13 @@ include("./GestionBD/conexion.php");?>
         $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
         $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
 
-        $sql= "INSERT INTO ESPECIALISTAS (DNI_Especialista, NumTelefono_Especialista, Correo_Especialista, Nombre_Especialista, Apellido_Especialista, Contrasena_Especialista, FechaNacimiento_Especialista,NombreVia_Especialista,NumeroVia_Especialista,TipoVia_Especialista,CuentaBancaria_Especialista,Cuota_Especialista)
-        VALUES ('$DNI_Especialista','$NumTelefono_Especialista', '$Correo_Especialista', '$Nombre_Especialista', '$Apellido_Especialista', '$Contrasena_Especialista', '$FechaNacimiento_Especialista', '$NombreVia_Especialista','$NumeroVia_Especialista','$TipoVia_Especialista','$CuentaBancaria_Especialista','$Cuota_Especialista';";
-   
+        $sql= "INSERT INTO especialistas(DNI_Especialista, Nombre_Especialista, Apellido_Especialista, FechaNacimiento_Especialista, NumTelefono_Especialista, Correo_Especialista, 
+        TipoVia_Especialista, NombreVia_Especialista, NumeroVia_Especialista, CuentaBancaria_Especialista, Cuota_Especialista, Contrasena_Especialista)
+        VALUES ('$DNI_Especialista','$Nombre_Especialista', '$Apellido_Especialista','$FechaNacimiento_Especialista', '$NumTelefono_Especialista', '$Correo_Especialista', '$TipoVia_Especialista', 
+        '$NombreVia_Especialista','$NumeroVia_Especialista','$CuentaBancaria_Especialista','$Cuota_Especialista','$Contrasena_Especialista';";
+   													
         $info= "$Nombre_Especialista,$Apellido_Especialista,$Cuota_Especialista"
-        $id="SELECT ID_Especialista FROM ESPECIALISTAS WHERE Nombre_Especialista=".$Nombre_Especialista.";";
-       
+        $id = "SELECT * FROM especialistas WHERE Nombre_Especialista='$Nombre_Especialista'";
     if (mysqli_query($conn,$id)) 
     {
         header("Location:Calendario.php?info=$info");
