@@ -120,7 +120,7 @@ include("./GestionBD/conexion.php");?>
         $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
 
         $sql= "INSERT INTO ESPECIALISTAS (DNI_Especialista, NumTelefono_Especialista, Correo_Especialista, Nombre_Especialista, Apellido_Especialista, Contrasena_Especialista, FechaNacimiento_Especialista,NombreVia_Especialista,NumeroVia_Especialista,TipoVia_Especialista,CuentaBancaria_Especialista,Cuota_Especialista)
-        VALUES ('$DNI_Especialista','$NumTelefono_Especialista', '$Correo_Especialista', $Nombre_Especialista, '$Apellido_Especialista', '$Contrasena_Especialista', ' $FechaNacimiento_Especialista', '$NombreVia_Especialista','$NumeroVia_Especialista','$TipoVia_Especialista','$CuentaBancaria_Especialista','$Cuota_Especialista';";
+        VALUES ('$DNI_Especialista','$NumTelefono_Especialista', '$Correo_Especialista', '$Nombre_Especialista', '$Apellido_Especialista', '$Contrasena_Especialista', '$FechaNacimiento_Especialista', '$NombreVia_Especialista','$NumeroVia_Especialista','$TipoVia_Especialista','$CuentaBancaria_Especialista','$Cuota_Especialista';";
    
         $info= "$Nombre_Especialista,$Apellido_Especialista,$Cuota_Especialista"
         $id="SELECT ID_Especialista FROM ESPECIALISTAS WHERE Nombre_Especialista=".$Nombre_Especialista.";";
