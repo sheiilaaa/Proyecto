@@ -136,9 +136,9 @@ include("./GestionBD/conexion.php");
             <input type="submit" value="Enviar">
         </div>
     </form>
-<?php
-}
-?>
+        
+
+
 
 <!-- PIE DE PAGINA -->
 <footer>
