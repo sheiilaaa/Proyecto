@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
         
         <!-- Link hacia el archivo de estilos css -->
-        <link rel="stylesheet" href="css/nose.css">
+        <link rel="stylesheet" href="css/estilo.css">
 
         <!-- Link hacia el archivo de estilos css -->
        
@@ -23,26 +23,30 @@
     <body >
 
 <!--CONEXIÓN-->
-<?php
+<?php/*
 session_start();
-include("./GestionBD/conexion.php");?>
+include("./GestionBD/conexion.php");*/?>
 
 <!--CABECERA-->
-<header id="header">
-    <nav class="menu">
-        <div class="logo">
-            <img src="img/logo.png">
-            <a href="#" class="btn-menu" id="btn-menu"><i class="icono fa fa-bars" aria-hidden="true"></i></a> 
+<section class="photo" id="inicio">
+        <div class="nav" id="sticker">
+            <label for="toggle">&#9776</label>
+            <input type="checkbox" id="toggle" />
+            <div class="menu">
+                <img src="IMG/logo.png" alt="" class="logo">
+                <a href=""><i class="fa fa-home"> Inicio</i></a>
+                <a href=""><i class="fa fa-info"> Como trabajar</i></a>
+                <a href=""><i class="fa fa-briefcase"> Puesta en contacto</i></a>
+                <a href=""><i class="fa fa-address-book"> Listado especialistas</i></a>
+                <a href=""><i class="fa fa-calendar-o">Calendario</i></a>
+            </div>
         </div>
-        <div id="enlaces" class="enlaces" >
-            <a  href="Inicio.php"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
-            <a  href="ComoTrabajamos.php"><i class="fa fa-info" aria-hidden="true"></i> Como trabajamos</a>
-            <a  href="Contacto.php"><i class="fa fa-briefcase" aria-hidden="true"></i>Puesta en contacto</a>
-            <a  href="ListadoEspecialista.php"><i class="fa fa-envelope-o" aria-hidden="true"></i>Listado especialista</a>
-            <a  href="Calendario.php"><i class="fa fa-envelope-o" aria-hidden="true"></i>Calendario</a>
+        <div class="photo-text">
+            <h4 data-ix="skype">Coaching sl</h4>
         </div>
-    </nav>
-</header>
+        <div class="overlay"></div>
+    </section>
+
 
         <!-- En este código relacionamos el usuario con la contraseña para que verifique si existe el usuario y coincide con la contraseña, 
         también si se muestran resultados asociados en la base de datos y son corectos, se dejará abierta la sesion del usuario (que pondremos en todos los php)-->
@@ -79,7 +83,7 @@ include("./GestionBD/conexion.php");?>
          }
 
             if (mysqli_query($conn,$de)){
-                header("Location:ComoTrabajamos.php?Nombre_Cliente=$Nombre_Cliente");
+                header("Location:Inicio.php?Nombre_Cliente=$Nombre_Cliente");
                 /*Los campos de $https://www.citapreviadnie.es/citaPreviaDni/MantenimientoPagos.actionNombre_Cliente $apellidos $Fecha_Nac $telefono $telefono $email $contraseña se han añadido correctamente*/
                 
                 }
@@ -111,7 +115,6 @@ include("./GestionBD/conexion.php");?>
     <?php
     }
     ?>
-    
     <!-- INICIO SESIÓN -->
     <?php
     if(isset($_REQUEST['Ingresar'])){
