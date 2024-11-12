@@ -59,7 +59,7 @@
         WHERE DNI_Especialista='$DNI_Especialista';";
         
         if(mysqli_query($conn,$Actualizar)){
-            header("Location:Modificar_Conf.php?Nombre_Especialista=$Nombre_Especialista");
+            header("Location:Confirmacion.php?Nombre_Especialista=$Nombre_Especialista");
          } else{
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
