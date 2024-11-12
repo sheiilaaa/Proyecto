@@ -29,6 +29,24 @@
     </section>
 
 
+
+<div id="contenedor">
+    <div class="central">
+        <div class="titulo">
+            <?php
+                session_start();
+                include ("./GestionBD/conexion.php");
+                $Nombre_Especialista = $_REQUEST["Nombre_Especialista"];
+                echo "Se ha modificado correctamente el especialista $Nombre_Especialista"
+            ?>
+        </div>
+                
+        <div class="pie-form">
+            <a href="catalogo.php">incio</a>
+        </div>   
+    </div>
+</div>       
+        
 <h3>Gracias por su registro, su usuario ha sido guardado</h3>
 
 

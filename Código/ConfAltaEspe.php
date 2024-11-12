@@ -28,9 +28,24 @@
     </section>
 
 
+<!--Confirmacion-->
 
-    
-
+<div id="contenedor">
+    <div class="central">
+        <div class="titulo">
+            <?php
+                session_start();
+                include ("./GestionBD/conexion.php");
+                $Nombre = $_REQUEST["nombre"];
+                echo "Se ha añadido correctamente el especialista $Nombre"
+            ?>
+        </div>
+                
+        <div class="pie-form">
+            <a href="catalogo.php">incio</a>
+        </div>   
+    </div>
+</div> 
 
 <!-- PIE DE PAGINA -->
 <footer>

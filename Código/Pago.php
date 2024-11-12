@@ -47,7 +47,7 @@ include("./GestionBD/conexion.php");
   						
 
           if (mysqli_query($conn,$ins)){   
-                  header("location:ConfirmacionPago.php");
+                  header("location:ConfPago.php");
               }
               else {
                   echo "ERROR:".mysqli_error($conn);

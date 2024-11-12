@@ -37,26 +37,22 @@
         <div class="overlay"></div>
     </section>
 
-
-        <div id="contenedor">
-            <div class="central">
-                <div class="titulo">
-                    <?php
-                  	    session_start();
-                        include ("./GestionBD/conexion.php");
-                        echo "Se ha eliminado correctamente el especialista"
-                    ?>
-                </div>
-                
-                <div class="pie-form">
-                     <a href="Inicio.php">Inicio</a>
-                </div>   
+    <div id="contenedor">
+        <div class="central">
+            <div class="titulo">
+                <?php
+                  	session_start();
+                    include ("./GestionBD/conexion.php");
+                    echo "Se ha eliminado correctamente el especialista"
+                ?>
             </div>
-        </div>       
-        
-        <div class="pie-form">
+                
+            <div class="pie-form">
                 <a href="Inicio.php">Inicio</a>
-         </div>   
+            </div>   
+        </div>
+    </div>       
+
     </body>
 </html>
 

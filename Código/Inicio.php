@@ -79,7 +79,7 @@ include("./GestionBD/conexion.php");?>
          }
 
             if (mysqli_query($conn,$de)){
-                header("Location:Inicio.php?Nombre_Cliente=$Nombre_Cliente");
+                header("Location:ComoTrabajamos.php?Nombre_Cliente=$Nombre_Cliente");
                 /*Los campos de $https://www.citapreviadnie.es/citaPreviaDni/MantenimientoPagos.actionNombre_Cliente $apellidos $Fecha_Nac $telefono $telefono $email $contraseña se han añadido correctamente*/
                 
                 }
@@ -111,6 +111,7 @@ include("./GestionBD/conexion.php");?>
     <?php
     }
     ?>
+    
     <!-- INICIO SESIÓN -->
     <?php
     if(isset($_REQUEST['Ingresar'])){
