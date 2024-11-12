@@ -64,7 +64,7 @@ if(isset($_REQUEST['Modificar'])){
         {
         header("Location:ConfEliminarEspe.php?Nombre_Especialista=$Nombre_Especialista");
         }
-    */
+    
 
 if (isset($_REQUEST['id_Articulo'])){ //que te envie aquí desde el boton de id, modificar 
     $id_Articulo=$_REQUEST['id_Articulo'];
