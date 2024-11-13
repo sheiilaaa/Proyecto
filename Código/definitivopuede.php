@@ -171,12 +171,17 @@ include("./GestionBD/conexion.php");*/?>
                 <h1>Iniciar Sesión</h1>
                 <input type="text" name="Nombre_Cliente" placeholder="Nombre_Cliente" required>
                 <input type="password" placeholder="Contrasena_Cliente" name="Contrasena_Cliente" required>        
-                <a href="recuperar.php">Te has olvidado la contraseña?</a>
+                <div>
+                    <a href="recuperar.php">Te has olvidado la contraseña?</a>
+                    <br>
+                    <a href="LoginRegistroESPECI.php">Campo para Especialistas</a>
+                </div>
                 <button type="submit" title="Ingresar" name="Ingresar">Login</button>
             </form>
             <div class="pie-form"> 
                 <a href="Inicio.php">Pulsa aquí para Registrate</a>
             </div>
+        
         </div>
         
         <?php
@@ -199,7 +204,7 @@ include("./GestionBD/conexion.php");*/?>
         </div>
     </div>
 
-    <?php include 'LoginRegistroESPECI.php';?>
+    
 
     <footer>
         <p>
