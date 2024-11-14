@@ -57,25 +57,24 @@ if(isset($_REQUEST['Eliminar'])){
     $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
     $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
 
-    $elimina="DELETE FROM especialistas SET ID_Especialista= '', DNI_Especialista= '$DNI_Especialista', Nombre_Especialista='$Nombre_Especialista', Apellido_Especialista='$Apellido_Especialista', FechaNacimiento_Especialista='$FechaNacimiento_Especialista', NumTelefono_Especialista='$NumTelefono_Especialista', Correo_Especialista='$Correo_Especialista', TipoVia_Especialista='$TipoVia_Especialista', NombreVia_Especialista='$NombreVia_Especialista', NumeroVia_Especialista='$NumeroVia_Especialista', CuentaBancaria_Especialista='$CuentaBancaria_Especialista', Cuota_Especialista='$Cuota_Especialista', Contrasena_Especialista='$Contrasena_Especialista' WHERE id_Articulo =$id_Articulo";	/*?*/
-    
-    if (mysqli_query($conn,$elimina))
-        {
-        header("Location:ConfEliminarEspe.php");
+    $Eliminar="DELETE FROM Especialistas WHERE ID_Especialista =$ID_Especialista";							
+        if (mysqli_query($conn,$Eliminar))
+            {
+                header("Location:ConfEliminarEspe.php");
+            }
+        else{
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
     }
-    else{
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
-}
 
-if (isset($_REQUEST['ID_Especialista'])){ //que te envie aquí desde el boton de id, modificar 
+if (isset($_REQUEST['ID_Especialista'])){
     
-    $id_Articulo=$_REQUEST['id_Articulo'];
+    $ID_Especialista=$_REQUEST['ID_Especialista'];
 
     $sql="SELECT * FROM especialistas WHERE ID_Especialista= $ID_Especialista;";
-    $resultat=mysql_query($conn,$elimina);
+    $resultado=mysql_query($conn,$sql);
 
-    if(mysqli_num_rows($resultat)>0)
+    if(mysqli_num_rows($resultado)>0)
     {
 ?>
 <div id="contenedor">
@@ -86,8 +85,8 @@ if (isset($_REQUEST['ID_Especialista'])){ //que te envie aquí desde el boton de
             </div>
             <form id="EliminarArticulos" action="catalogo.php" method="post">
 
-                        <label for="id_Articulo">DNI:</label>
-                        <input type="text" id="id_Articulo" name="id_Articulo" class="caja" placeholder="ID">
+                        <label for="id_Articulo">ID:</label>
+                        <input type="text" id="id_Articulo" name="id_Articulo" class="caja" value='<?php echo $row['ID_Especialista']?>'>
 
                         <label for="DNI_Especialista">DNI:</label>
                         <input type="text" id="DNI_Especialista" name="DNI_Especialista" class="caja" required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI" value='<?php echo $row['DNI_Especialista']?>'>
@@ -113,16 +112,16 @@ if (isset($_REQUEST['ID_Especialista'])){ //que te envie aquí desde el boton de
                         <label for="NombreVia_Especialista">Nombre de la via:</label>
                         <input type="text" class="caja" name="NombreVia_Especialista" id="NombreVia_Especialista" placeholder="Escribe el nombre de la via" value='<?php echo $row['NombreVia_Especialista']?>'>
 
-                        <label for="NumeroVia_Especialista">Nombre de la via:</label>
+                        <label for="NumeroVia_Especialista">Numero de la via:</label>
                         <input type="text" class="caja" name="NumeroVia_Especialista" id="NumeroVia_Especialista" placeholder="Escribe el número de la via" value='<?php echo $row['NumeroVia_Especialista']?>'>
 
-                        <label for="TipoVia_Especialista">Nombre de la via:</label>
+                        <label for="TipoVia_Especialista">Tipo de la via:</label>
                         <input type="text" class="caja" name="TipoVia_Especialista" id="TipoVia_Especialista" placeholder="Escribe el nombre de la via" value='<?php echo $row['TipoVia_Especialista']?>'>
 
-                        <label for="CuentaBancaria_Especialista">Nombre de la via:</label>
+                        <label for="CuentaBancaria_Especialista">Cuenta bancaria:</label>
                         <input type="text" class="caja" name="CuentaBancaria_Especialista" id="CuentaBancaria_Especialista" placeholder="Escribe su cuenta bancaría" value='<?php echo $row['CuentaBancaria_Especialista']?>'>
 
-                        <label for="Cuota_Especialista">Nombre de la via:</label>
+                        <label for="Cuota_Especialista">Cuota:</label>
                         <input type="text" class="caja" name="Cuota_Especialista" id="Cuota_Especialista" placeholder="Indica la couta del especialista" value='<?php echo $row['Cuota_Especialista']?>'>
 
 
@@ -136,22 +135,15 @@ if (isset($_REQUEST['ID_Especialista'])){ //que te envie aquí desde el boton de
 </div>
 
 <?php
-}else{
-    echo "Artículo no encontrado: " . $elimina . "<br>" .mysqli_error($conn);
-}
-
-}
-
+        }else{
+            echo "Artículo no encontrado: " . $sql . "<br>" .mysqli_error($conn);
+        }
+    }
 ?>
 
-
-
-
-
 <!-- PIE DE PAGINA -->
-<footer>
-Todos los derechos reservados | Coaching SL Copyright © 2024
-</footer>
-
+    <footer>
+        Todos los derechos reservados | Coaching SL Copyright © 2024
+    </footer>
 </body>
 </html>
