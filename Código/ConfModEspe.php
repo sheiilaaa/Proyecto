@@ -36,8 +36,11 @@
             <?php
                 session_start();
                 include ("./GestionBD/conexion.php");
+                $DNI_Especialista = $_REQUEST["DNI_Especialista"];
                 $Nombre_Especialista = $_REQUEST["Nombre_Especialista"];
-                echo "Se ha modificado correctamente el especialista $Nombre_Especialista"
+                $Apellido_Especialista = $_REQUEST["Apellido_Especialista"];
+
+                echo "Se ha modificado correctamente el especialista $Nombre_Especialista $Apellido_Especialista con DNI $DNI_Especialista"
             ?>
         </div>
                 

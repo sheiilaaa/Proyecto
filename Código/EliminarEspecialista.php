@@ -88,7 +88,7 @@ if (isset($_REQUEST['ID_Especialista'])){
             <div class="titulo">
                 ¡Bienvenido admin!
             </div>
-            <form id="EliminarArticulos" action="ListadoEspecialista.php" method="post">
+            <form id="EliminarArticulos" action="ConfEliminarEspe.php" method="post">
 
                         <label for="id_Articulo">ID:</label>
                         <input type="text" id="id_Articulo" name="id_Articulo" class="caja" value='<?php echo $row['ID_Especialista']?>'>

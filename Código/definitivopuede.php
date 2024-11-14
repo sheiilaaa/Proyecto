@@ -73,7 +73,7 @@ include("./GestionBD/conexion.php");*/?>
         
          if (mysqli_query($conn,$de))
          {
-            header("Location:Pago.php?pagos=$pagos");
+            header("Location:Pago.php?ID_Cliente=$ID_Cliente");
          
          }  else{
              echo "Error:  "   . $sql . "<br>" . mysqli_error($conn);

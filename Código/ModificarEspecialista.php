@@ -79,9 +79,9 @@
                     <div class="titulo">
                         Modifica el especialista con los siguientes datos:
                     </div>
-                    <form id="ModificaEspecialista" action="" method="post">
+                    <form id="ModificaEspecialista" action="ConfModEspe.php" method="post">
                         <!--- ID readonly, ya que es el unico que no se podrá modificar --->
-                        <label for="ID_Especialista">Id:</label>
+                        <label for="ID_Especialista">ID:</label>
                             <input type="text" id="ID_Especialista" readonly name="ID_Especialista" class="caja" value = '<?php echo $row['ID_Especialista'] ?>'>
             
                         <label for="DNI_Especialista">DNI:</label>
