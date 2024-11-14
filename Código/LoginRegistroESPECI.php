@@ -185,16 +185,16 @@ else{
                         <input type="text" class="caja" name="NombreVia_Especialista" id="NombreVia_Especialista" placeholder="Escribe el nombre de la via">
 
                         <label for="NumeroVia_Especialista">Nombre de la via:</label>
-                        <input type="text" class="caja" name="NumeroVia_Especialista" id="NumeroVia_Especialista" placeholder="Escribe el número de la via">
+                        <input type="number" class="caja" name="NumeroVia_Especialista" id="NumeroVia_Especialista" placeholder="Escribe el número de la via">
 
                         <label for="TipoVia_Especialista">Nombre de la via:</label>
                         <input type="text" class="caja" name="TipoVia_Especialista" id="TipoVia_Especialista" placeholder="Escribe el nombre de la via">
 
                         <label for="CuentaBancaria_Especialista">Nombre de la via:</label>
-                        <input type="text" class="caja" name="CuentaBancaria_Especialista" id="CuentaBancaria_Especialista" placeholder="Escribe su cuenta bancaría">
+                        <input type="number" class="caja" name="CuentaBancaria_Especialista" id="CuentaBancaria_Especialista" placeholder="Escribe su cuenta bancaría">
 
                         <label for="Cuota_Especialista">Nombre de la via:</label>
-                        <input type="text" class="caja" name="Cuota_Especialista" id="Cuota_Especialista" placeholder="Indica la couta del especialista">
+                        <input type="number" class="caja" name="Cuota_Especialista" id="Cuota_Especialista" placeholder="Indica la couta del especialista">
 
                         <button type="submit" title="AltaUsuario" name="Ingresar">Alta Usuario</button>
                     </form>

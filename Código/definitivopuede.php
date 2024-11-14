@@ -125,7 +125,7 @@ include("./GestionBD/conexion.php");*/?>
                 <input type="text" class="caja" name="NombreVia_Cliente" id="NombreVia_Cliente" placeholder="Escribe el nombre de la via">
                 
                 <label for="NumeroVia_Cliente"></label>
-                <input type="text" class="caja" name="NumeroVia_Cliente" id="NumeroVia_Cliente" placeholder="Escribe el número de la via">
+                <input type="number" class="caja" name="NumeroVia_Cliente" id="NumeroVia_Cliente" placeholder="Escribe el número de la via">
                 
                 <label for="TipoVia_Cliente"></label>
                 <input type="text" class="caja" name="TipoVia_Cliente" id="TipoVia_Cliente" placeholder="Escribe el tipo de la via">
