@@ -42,31 +42,34 @@
 session_start();
 include("./GestionBD/conexion.php");
 
-if(isset($_REQUEST['Modificar'])){
+if(isset($_REQUEST['Eliminar'])){
+    $ID_Especialista=$_REQUEST['ID_Especialista'];
     $DNI_Especialista=$_REQUEST['DNI_Especialista'];
-        $NumTelefono_Especialista=$_REQUEST['NumTelefono_Especialista'];
-        $Correo_Especialista=$_REQUEST['Correo_Especialista'];
-        $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
-        $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
-        $Contrasena_Especialista=$_REQUEST['Contrasena_Especialista']; 
-        $FechaNacimiento_Especialista=$_REQUEST['FechaNacimiento_Especialista'];
-        $NombreVia_Especialista=$_REQUEST['NombreVia_Especialista'];
-        $NumeroVia_Especialista=$_REQUEST['NumeroVia_Especialista'];
-        $TipoVia_Especialista=$_REQUEST['TipoVia_Especialista'];
-        $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
-        $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
+    $NumTelefono_Especialista=$_REQUEST['NumTelefono_Especialista'];
+    $Correo_Especialista=$_REQUEST['Correo_Especialista'];
+    $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
+    $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
+    $Contrasena_Especialista=$_REQUEST['Contrasena_Especialista']; 
+    $FechaNacimiento_Especialista=$_REQUEST['FechaNacimiento_Especialista'];
+    $NombreVia_Especialista=$_REQUEST['NombreVia_Especialista'];
+    $NumeroVia_Especialista=$_REQUEST['NumeroVia_Especialista'];
+    $TipoVia_Especialista=$_REQUEST['TipoVia_Especialista'];
+    $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
+    $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
 
-    $elimina="DELETE especialistas SET ID_Especialista= '', DNI_Especialista= '$DNI_Especialista', Nombre_Especialista='$Nombre_Especialista', Apellido_Especialista='$Apellido_Especialista', FechaNacimiento_Especialista='$FechaNacimiento_Especialista', NumTelefono_Especialista='$NumTelefono_Especialista', Correo_Especialista='$Correo_Especialista', TipoVia_Especialista='$TipoVia_Especialista', NombreVia_Especialista='$NombreVia_Especialista', NumeroVia_Especialista='$NumeroVia_Especialista', CuentaBancaria_Especialista='$CuentaBancaria_Especialista', Cuota_Especialista='$Cuota_Especialista', Contrasena_Especialista='$Contrasena_Especialista' WHERE id_Articulo =$id_Articulo";	/*?*/
-    									
-}
-//El siguiente bucle sirve para revisar si se ha modificado o no en la base de datos anterior, para luego mandarte a otro php para mostrarte un mensaje.
+    $elimina="DELETE FROM especialistas SET ID_Especialista= '', DNI_Especialista= '$DNI_Especialista', Nombre_Especialista='$Nombre_Especialista', Apellido_Especialista='$Apellido_Especialista', FechaNacimiento_Especialista='$FechaNacimiento_Especialista', NumTelefono_Especialista='$NumTelefono_Especialista', Correo_Especialista='$Correo_Especialista', TipoVia_Especialista='$TipoVia_Especialista', NombreVia_Especialista='$NombreVia_Especialista', NumeroVia_Especialista='$NumeroVia_Especialista', CuentaBancaria_Especialista='$CuentaBancaria_Especialista', Cuota_Especialista='$Cuota_Especialista', Contrasena_Especialista='$Contrasena_Especialista' WHERE id_Articulo =$id_Articulo";	/*?*/
+    
     if (mysqli_query($conn,$elimina))
         {
-        header("Location:ConfEliminarEspe.php?Nombre_Especialista=$Nombre_Especialista");
-        }
-    
+        header("Location:ConfEliminarEspe.php");
+    }
+    else{
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}
 
-if (isset($_REQUEST['id_Articulo'])){ //que te envie aquí desde el boton de id, modificar 
+if (isset($_REQUEST['ID_Especialista'])){ //que te envie aquí desde el boton de id, modificar 
+    
     $id_Articulo=$_REQUEST['id_Articulo'];
 
     $sql="SELECT * FROM especialistas WHERE ID_Especialista= $ID_Especialista;";
@@ -152,10 +155,3 @@ Todos los derechos reservados | Coaching SL Copyright © 2024
 
 </body>
 </html>
-
-
-
-
-
- 
- 
