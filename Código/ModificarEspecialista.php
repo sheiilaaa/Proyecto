@@ -28,9 +28,7 @@
         <div class="overlay"></div>
     </section>
 
-
-<!-- QUE ES? -->
-<div class="titulo2">Modificar Especialista </div>
+<div class="titulo2">Modificar Especialista</div>
 <?php
 	session_start();
     include ("./GestionBD/conexion.php");
@@ -56,19 +54,20 @@
                         Correo_Especialista='$Correo_Especialista', TipoVia_Especialista='$TipoVia_Especialista', NombreVia_Especialista='$NombreVia_Especialista',
                         NumeroVia_Especialista='$NumeroVia_Especialista', CuentaBancaria_Especialista='$CuentaBancaria_Especialista', Cuota_Especialista='$Cuota_Especialista',
                         Contrasena_Especialista='$Contrasena_Especialista'
-        WHERE DNI_Especialista='$DNI_Especialista';";
+                    
+                    WHERE ID_Especialista='$ID_Especialista';";
         
         if(mysqli_query($conn,$Actualizar)){
-            header("Location:ConfModEspe.php?Nombre_Especialista=$Nombre_Especialista");
+            header("Location:ConfModEspe.php?DNI_Especialista=$DNI_Especialista");
          } else{
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
     
     }
 
-	if(isset($_REQUEST['id'])){ 
-        $DNI_Especialista=$_REQUEST['id'];     
-        $sql= " SELECT * FROM ESPECIALISTAS WHERE DNI_Especialista= '$DNI_Especialista'; ";
+	if(isset($_REQUEST['ID_Especialista'])){ /*Quizas el ID debe de ser id*/
+        $ID_Especialista=$_REQUEST['ID_Especialista'];  /*El id de request, quizas debe ser id*/   
+        $sql= " SELECT * FROM ESPECIALISTAS WHERE ID_Especialista= '$ID_Especialista'; ";
 		$result= mysqli_query($conn,$sql);
 
             if(mysqli_num_rows($result)>0)
@@ -78,46 +77,53 @@
 				<div id="central">
                 <div id="login">
                     <div class="titulo">
-                        Modifica el Articulo:
+                        Modifica el especialista con los siguientes datos:
                     </div>
-                    <form id="ModificaArticulo" action="" method="post">
+                    <form id="ModificaEspecialista" action="" method="post">
                         <!--- ID readonly, ya que es el unico que no se podrá modificar --->
-                        <label for="DNI_Especialista">Id del Articulo:</label>
-                            <input type="text" id="DNI_Especialista" readonly name="DNI_Especialista" class="caja" autofocus value = '<?php echo $row['DNI_Especialista'] ?>' placeholder="DNI_Especialista">
+                        <label for="ID_Especialista">Id:</label>
+                            <input type="text" id="ID_Especialista" readonly name="ID_Especialista" class="caja" value = '<?php echo $row['ID_Especialista'] ?>'>
+            
+                        <label for="DNI_Especialista">DNI:</label>
+                            <input type="text" id="DNI_Especialista" name="DNI_Especialista" class="caja" value = '<?php echo $row['DNI_Especialista'] ?>'>
+                        
                         <label for="Nombre_Especialista">Nombre:</label>
-                            <input type="text" id="Nombre_Especialista" name="Nombre_Especialista" class="caja" autofocus required value = '<?php echo $row['Nombre_Especialista'] ?>' placeholder="Nombre_Especialista">
+                            <input type="text" id="Nombre_Especialista" name="Nombre_Especialista" class="caja" value = '<?php echo $row['Nombre_Especialista'] ?>'>
+                        
                         <label for="Apellido_Especialista">Apellido:</label>
-                            <input type="text" id="Apellido_Especialista" name="Apellido_Especialista" class="caja" required value = '<?php echo $row['Apellido_Especialista'] ?>' placeholder="Apellido_Especialista">
+                            <input type="text" id="Apellido_Especialista" name="Apellido_Especialista" class="caja" value = '<?php echo $row['Apellido_Especialista'] ?>'>
+                        
                         <label for="FechaNacimiento_Especialista">Fecha de nacimiento:</label>
-                            <input type="image" name="FechaNacimiento_Especialista" id="FechaNacimiento_Especialista" class="caja" value = '<?php echo $row['FechaNacimiento_Especialista'] ?>' placeholder="FechaNacimiento_Especialista">
+                            <input type="image" name="FechaNacimiento_Especialista" id="FechaNacimiento_Especialista" class="caja" value = '<?php echo $row['FechaNacimiento_Especialista'] ?>'>
+                        
                         <label for="NumTelefono_Especialista">Numero de telefono: </label>
-                            <input type="number" name="NumTelefono_Especialista"  id="NumTelefono_Especialista" class="caja" required value = '<?php echo $row['NumTelefono_Especialista'] ?>' placeholder="NumTelefono_Especialista">
+                            <input type="number" name="NumTelefono_Especialista"  id="NumTelefono_Especialista" class="caja" value = '<?php echo $row['NumTelefono_Especialista'] ?>'>
 
                         <label for="Correo_Especialista">Correo electronico: </label>
-                            <input type="number" name="Correo_Especialista"  id="Correo_Especialista" class="caja" required value = '<?php echo $row['Correo_Especialista'] ?>' placeholder="Correo_Especialista">
+                            <input type="number" name="Correo_Especialista"  id="Correo_Especialista" class="caja" value = '<?php echo $row['Correo_Especialista'] ?>'>
 
                         <label for="TipoVia_Especialista">Tipo de via: </label>
-                            <input type="number" name="TipoVia_Especialista"  id="TipoVia_Especialista" class="caja" required value = '<?php echo $row['TipoVia_Especialista'] ?>' placeholder="TipoVia_Especialista">
+                            <input type="number" name="TipoVia_Especialista"  id="TipoVia_Especialista" class="caja" value = '<?php echo $row['TipoVia_Especialista'] ?>'>
 
                         <label for="NombreVia_Especialista">Nombre de la via: </label>
-                            <input type="number" name="NombreVia_Especialista"  id="NombreVia_Especialista" class="caja" required value = '<?php echo $row['NombreVia_Especialista'] ?>' placeholder="NombreVia_Especialista">
+                            <input type="number" name="NombreVia_Especialista"  id="NombreVia_Especialista" class="caja" value = '<?php echo $row['NombreVia_Especialista'] ?>'>
 
                         <label for="NumeroVia_Especialista">Numero de la via: </label>
-                            <input type="NumeroVia_Especialista" name="NumeroVia_Especialista"  id="NumeroVia_Especialista" class="caja" required value = '<?php echo $row['NumeroVia_Especialista'] ?>' placeholder="NumeroVia_Especialista">
+                            <input type="NumeroVia_Especialista" name="NumeroVia_Especialista"  id="NumeroVia_Especialista" class="caja" value = '<?php echo $row['NumeroVia_Especialista'] ?>'>
 
                         <label for="CuentaBancaria_Especialista">Cuenta bancaria: </label>
-                            <input type="number" name="CuentaBancaria_Especialista"  id="CuentaBancaria_Especialista" class="caja" required value = '<?php echo $row['CuentaBancaria_Especialista'] ?>' placeholder="CuentaBancaria_Especialista">
+                            <input type="number" name="CuentaBancaria_Especialista"  id="CuentaBancaria_Especialista" class="caja" value = '<?php echo $row['CuentaBancaria_Especialista'] ?>'>
 
                         <label for="Cuota_Especialista">Cuota del especialista: </label>
-                            <input type="number" name="Cuota_Especialista"  id="Cuota_Especialista" class="caja" required value = '<?php echo $row['Cuota_Especialista'] ?>' placeholder="Cuota_Especialista">
+                            <input type="number" name="Cuota_Especialista"  id="Cuota_Especialista" class="caja" value = '<?php echo $row['Cuota_Especialista'] ?>'>
 
                         <label for="Contrasena_Especialista">Contraseña: </label>
-                            <input type="number" name="Contrasena_Especialista"  id="Contrasena_Especialista" class="caja" required value = '<?php echo $row['Contrasena_Especialista'] ?>' placeholder="Contrasena_Especialista">
+                            <input type="number" name="Contrasena_Especialista"  id="Contrasena_Especialista" class="caja" value = '<?php echo $row['Contrasena_Especialista'] ?>'>
                         
                         <button type="submit" title="Modificar" name="Modificar">Modificar</button>
                     </form>
                     <div class="pie-form">
-                        <a href="inicio.php">Volver</a>
+                        <a href="ListadoEspecialistas.php">Volver</a>
                     </div>
                 </div>
             </div>    
@@ -125,7 +131,7 @@
 <?php
             }
             else{
-                echo "Error articulo no encontrado: " . $sql . "<br>" . mysqli_error($conn);
+                echo "Error especialista no encontrado: " . $sql . "<br>" . mysqli_error($conn);
             }
       }
 ?>
