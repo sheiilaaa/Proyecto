@@ -37,7 +37,7 @@ CREATE TABLE ESPECIALISTAS(
 
 	CuentaBancaria_Especialista VARCHAR(100) NOT NULL,/*ENCRIPTAR*/
 
-	Cuota_Especialista DECIMAL NOT NULL,
+	Cuota_Especialista DECIMAL(4,2) NOT NULL,
 
 	Contrasena_Especialista VARCHAR(100)
 
