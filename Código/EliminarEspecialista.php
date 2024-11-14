@@ -132,6 +132,7 @@ if (isset($_REQUEST['ID_Especialista'])){
 
                 <button type="submit" title="Eliminar" name="Eliminar">Eliminar</button>
             </form>
+            
             <div class="pie-form">
                 <a href="ListadoEspecialistas.php">Volver</a>
             </div>
@@ -150,6 +151,6 @@ if (isset($_REQUEST['ID_Especialista'])){
     <footer>
         Todos los derechos reservados | Coaching SL Copyright © 2024
     </footer>
-    
+
 </body>
 </html>
