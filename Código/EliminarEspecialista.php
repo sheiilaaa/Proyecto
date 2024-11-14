@@ -86,9 +86,9 @@ if (isset($_REQUEST['ID_Especialista'])){
     <div id="central">
         <div id="login">
             <div class="titulo">
-                Bienvenido
+                ¡Bienvenido admin!
             </div>
-            <form id="EliminarArticulos" action="catalogo.php" method="post">
+            <form id="EliminarArticulos" action="ListadoEspecialista.php" method="post">
 
                         <label for="id_Articulo">ID:</label>
                         <input type="text" id="id_Articulo" name="id_Articulo" class="caja" value='<?php echo $row['ID_Especialista']?>'>
@@ -132,7 +132,7 @@ if (isset($_REQUEST['ID_Especialista'])){
 
                 <button type="submit" title="Eliminar" name="Eliminar">Eliminar</button>
             </form>
-            
+
             <div class="pie-form">
                 <a href="ListadoEspecialistas.php">Volver</a>
             </div>

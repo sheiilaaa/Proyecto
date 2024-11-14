@@ -48,7 +48,7 @@
             </div>
                 
             <div class="pie-form">
-                <a href="Inicio.php">Inicio</a>
+                <a href="ListadoEspecialistas.php">Inicio</a>
             </div>   
         </div>
     </div>       
