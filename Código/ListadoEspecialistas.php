@@ -88,7 +88,7 @@
                                 <!--- enclaces para modificar o eliminar cada articulo --->
                           <a href="ModificarEspecialista.php?id=<?php $row['id_Articulo']?>"> Modificar </a> 
                           <br>
-                          <a href="EliminarEspecialista.php?id=<?php $row['id_Articulo']?>"> Eliminar </a>
+                          <a href="EliminarEspecialista.php?id=<?php $row['id_Especialista']?>"> Eliminar </a>
                           <br>
                       <?php
 						            }
