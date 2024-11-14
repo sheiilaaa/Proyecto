@@ -180,7 +180,7 @@ else{
 
                         <label for="FechaNacimiento_Especialista">Fecha de Nacimiento:</label>
                         <input type="date" name="FechaNacimiento_Especialista" id="FechaNacimiento_Especialista" class="caja" placeholder="Fecha Nacimiento" title="Fecha Nacimiento">
-
+<!-- DEBE SER AÑO MES DIA, CON - PARA SEPARAR -->
                         <label for="NombreVia_Especialista">Nombre de la via:</label>
                         <input type="text" class="caja" name="NombreVia_Especialista" id="NombreVia_Especialista" placeholder="Escribe el nombre de la via">
 
@@ -195,7 +195,7 @@ else{
 
                         <label for="Cuota_Especialista">Nombre de la via:</label>
                         <input type="number" class="caja" name="Cuota_Especialista" id="Cuota_Especialista" placeholder="Indica la couta del especialista">
-
+<!-- DEBE DE SEPARARSE POR . -->
                         <button type="submit" title="AltaUsuario" name="Ingresar">Alta Usuario</button>
                     </form>
                     <div class="pie-form">
