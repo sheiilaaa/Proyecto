@@ -21,11 +21,11 @@
     </head>
     
     <body >
-
-<!--CONEXIÓN-->
-<?php/*
-session_start();
-include("./GestionBD/conexion.php");*/?>
+<!-- CONEXION -->
+<?php
+    session_start();
+    include ("./GestionBD/conexion.php");
+?>
 
 <!--CABECERA-->
 <section class="photo" id="inicio">

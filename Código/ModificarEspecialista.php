@@ -8,6 +8,13 @@
 </head>
 
 <body>
+
+<!-- CONEXION -->
+<?php
+    session_start();
+    include ("./GestionBD/conexion.php");
+?>
+
 <!--CABECERA-->
     <section class="photo" id="inicio">
         <div class="nav" id="sticker">
@@ -30,8 +37,6 @@
 
 <div class="titulo2">Modificar Especialista</div>
 <?php
-	session_start();
-    include ("./GestionBD/conexion.php");
 
     if(isset($_REQUEST['Modificar'])){
         $ID_Especialista=$_REQUEST['ID_Especialista'];

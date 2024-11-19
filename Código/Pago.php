@@ -8,6 +8,11 @@
 </head>
 
 <body>
+<!-- CONEXION -->
+<?php
+    session_start();
+    include ("./GestionBD/conexion.php");
+?>
 
 <!--CABECERA-->
     <section class="photo" id="inicio">
@@ -28,11 +33,6 @@
         </div>
         <div class="overlay"></div>
     </section>
-
-<?php
-session_start();
-include("./GestionBD/conexion.php");
-?>
 <?php
      
     if ($conn) {

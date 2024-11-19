@@ -21,6 +21,12 @@
     </head>
 
 <body>
+<!-- CONEXION -->
+<?php
+    session_start();
+    include ("./GestionBD/conexion.php");
+?>
+
 <!--CABECERA-->
     <section class="photo" id="inicio">
         <div class="nav" id="sticker">
@@ -44,9 +50,6 @@
 
          <!-- Aquí comprueba si el usuario está asociado a la base de datos y de ser así se cambiará la contraseña por una nueva que tú introduzcas-->
     <?php
-    session_start();
-
-    include("./GestionBD/conexion.php");
     if(isset($_REQUEST['restablecer'])){
         $usuario=$_REQUEST['Nombre_Cliente'];
         $contraseña=$_REQUEST['Contrasena_Cliente'];

@@ -22,6 +22,11 @@
     </head>
    
 <body>        
+<!-- CONEXION -->
+<?php
+    session_start();
+    include ("./GestionBD/conexion.php");
+?>
 
 <!--CABECERA-->
     <section class="photo" id="inicio">
@@ -49,10 +54,9 @@
             <div class="central">
                 <div class="titulo">
                 <?php
-                 session_start();
-                        $Nombre = $_REQUEST["Nombre_Cliente"];
-                        echo "$Nombre se ha añadido la nueva contraseña modificada correctamente" //De la pantalla de recuperar contraseña, una vez guardada la información en la base de datos nos manda a esta pantalla donde nos dice que se ha guardado correctamente
-                    ?>
+                    $Nombre = $_REQUEST["Nombre_Cliente"];
+                    echo "$Nombre se ha añadido la nueva contraseña modificada correctamente" //De la pantalla de recuperar contraseña, una vez guardada la información en la base de datos nos manda a esta pantalla donde nos dice que se ha guardado correctamente
+                ?>
                 </div>
                 <div class="pie-form">
                      <a href="Inicio.php">incio</a>

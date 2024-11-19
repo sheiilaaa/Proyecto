@@ -19,10 +19,11 @@
     
     <body >
 
-<!--CONEXIÓN-->
+<!-- CONEXION -->
 <?php
-session_start();
-include("./GestionBD/conexion.php");?>
+    session_start();
+    include ("./GestionBD/conexion.php");
+?>
 
 <!--CABECERA-->
     <section class="photo" id="inicio">

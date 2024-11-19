@@ -21,6 +21,11 @@
     </head>
 
     <body class="fondo">
+<!-- CONEXION -->
+<?php
+    session_start();
+    include ("./GestionBD/conexion.php");
+?>
 
 
 <!--CABECERA-->
@@ -50,8 +55,6 @@
       <div id="contenedor2">
 
 <?php
-	session_start();
-  include ("./GestionBD/conexion.php");
   $sql="SELECT * FROM articulos";  
   $result = mysqli_query($conn,$sql);
   
