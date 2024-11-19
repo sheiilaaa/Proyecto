@@ -283,3 +283,123 @@ footer p {
 
   cursor: pointer;
 }
+
+
+/*COMO TRABAJAMOS*/
+.apartados {
+    background: #fff;
+    padding: 60px;
+}
+
+.titulo_apartados {
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.centrar_info {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.info_ubi{
+    width: 50%;
+    float: left;
+    text-align: left;   
+}
+
+.centrar_derecha {
+    margin-bottom: 15px;
+    text-align: left;
+    padding-right: 50px;
+}
+
+.centrar_izquierda {
+    margin-top: 15px;
+    text-align: left;
+    padding-right: 50px;
+}
+
+
+.horarios {
+    width: 50%;
+    float: right;
+    text-align: right;
+}
+
+.calle {
+    margin-bottom: 15px;
+}
+
+.horarios {
+    overflow: hidden;
+}
+
+.horarios h4 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.entre-semana,.fin-semana {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.mapa {
+    width: 100%;
+    overflow: hidden;
+}
+
+.mapa iframe {
+    width: 100%;
+    max-height: 600px;
+}
+
+    /*LISTADO ESPECIALISTA*/
+#fondo_listado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100;
+    padding: 50;
+    min-width: 100vw;
+    min-height: 5vh;
+    width: 60%;
+    height: 60%;
+}
+
+.titulos {
+    font-size: 200%;
+    color:#000000;
+    text-align: center;
+    margin: 10px;
+    background-color: #8a6e57;
+    max-width: 100%;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.boton{
+    font-family: 'Overpass', sans-serif;
+    font-size: 110%;
+    color:#1b262c;
+    width: 100%;
+    height: 40px;
+    border: none;
+    
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    
+    background-color: #977960;
+    
+    margin-top: 10px;
+
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
