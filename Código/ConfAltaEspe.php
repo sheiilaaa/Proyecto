@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
+
+<!-- CONEXION -->
+<?php
+    session_start();
+    include ("./GestionBD/conexion.php");
+?>
+
 <!--CABECERA-->
     <section class="photo" id="inicio">
         <div class="nav" id="sticker">
@@ -34,8 +41,7 @@
     <div class="central">
         <div class="titulo">
             <?php
-                session_start();
-                include ("./GestionBD/conexion.php");
+
                 $Nombre = $_REQUEST["nombre"];
                 echo "Se ha añadido correctamente el especialista $Nombre"
             ?>

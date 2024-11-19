@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<!-- CONEXION -->
+<?php
+    session_start();
+    include ("./GestionBD/conexion.php");
+?>
+
 <!--CABECERA-->
     <section class="photo" id="inicio">
         <div class="nav" id="sticker">
@@ -33,7 +39,7 @@
             <div class="central">
                 <div class="titulo">
                   <?php
-                   session_start();
+
                         $Estado_Pago = $_REQUEST["Estado_Pago"];
                         echo "El articulo $nombre se ha modificado correctamente"; //Actualizamos en la página de ModificarArticulos, y aquí see muestra por pantalla el nombre del articulo que fue modificado
                     ?>

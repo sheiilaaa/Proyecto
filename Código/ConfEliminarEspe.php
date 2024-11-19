@@ -16,6 +16,11 @@
     </head>
    
     <body> 
+<!-- CONEXION -->
+    <?php
+        session_start();
+        include ("./GestionBD/conexion.php");
+    ?>
 
 <!--CABECERA-->
     <section class="photo" id="inicio">
@@ -41,8 +46,6 @@
         <div class="central">
             <div class="titulo">
                 <?php
-                  	session_start();
-                    include ("./GestionBD/conexion.php");
                     echo "Se ha eliminado correctamente el especialista"
                 ?>
             </div>

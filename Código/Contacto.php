@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
+
+<!-- CONEXION -->
+<?php
+    session_start();
+    include ("./GestionBD/conexion.php");
+?>
+
+
 <!--CABECERA-->
     <section class="photo" id="inicio">
         <div class="nav" id="sticker">
