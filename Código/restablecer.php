@@ -63,6 +63,11 @@
                 </div>   
             </div>
         </div>
-        
+
+<!-- PIE DE PAGINA -->
+<footer>
+    Todos los derechos reservados | Coaching SL Copyright © 2024
+</footer>        
+
     </body>
 </html>
