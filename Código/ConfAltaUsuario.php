@@ -26,22 +26,16 @@
         <div class="central">
             <div class="titulo">
                 <?php
-                    $Nombre = $_REQUEST["nombre"];
-                    echo "Bienvenido $Nombre"
+                    $Nombre_Cliente = $_REQUEST["Nombre_Cliente"];
+                    echo "Bienvenido $Nombre_Cliente"
                 ?>
             </div>
             
             <div class="pie-form">
-                    <a href="login.php">incio</a>
+                    <a href="ComoTrabajamos.php">Continuar</a>
             </div>   
         </div>
     </div>       
-    
-    <div class="pie-form">
-            <a href="login.php">incio</a>
-        </div>   
-
-
 
         <!-- PIE DE PAGINA -->
 <footer>

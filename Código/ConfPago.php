@@ -41,22 +41,15 @@
                   <?php
 
                         $Estado_Pago = $_REQUEST["Estado_Pago"];
-                        echo "El articulo $nombre se ha modificado correctamente"; //Actualizamos en la página de ModificarArticulos, y aquí see muestra por pantalla el nombre del articulo que fue modificado
+                        echo "El usuario $Nombre_Cliente $Apellido_Cliente ha pagado correctamente"; //Actualizamos en la página de ModificarArticulos, y aquí see muestra por pantalla el nombre del articulo que fue modificado
                     ?>
                 </div>
                 
                 <div class="pie-form">
-                     <a href="login.php">incio</a>
+                     <a href="ComoTrabajamos.php">incio</a>
                 </div>   
             </div>
         </div>       
-        
-        <div class="pie-form">
-                <a href="login.php">incio</a>
-         </div>   
-
-<h3>El pago se ha realizado de manera correcta</h3>
-
 
 <!-- PIE DE PAGINA -->
 <footer>

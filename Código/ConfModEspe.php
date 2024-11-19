@@ -41,8 +41,6 @@
     <div class="central">
         <div class="titulo">
             <?php
-                session_start();
-                include ("./GestionBD/conexion.php");
                 $DNI_Especialista = $_REQUEST["DNI_Especialista"];
                 $Nombre_Especialista = $_REQUEST["Nombre_Especialista"];
                 $Apellido_Especialista = $_REQUEST["Apellido_Especialista"];
@@ -52,13 +50,10 @@
         </div>
                 
         <div class="pie-form">
-            <a href="catalogo.php">incio</a>
+            <a href="ListadoEspecialistas.php">Continuar</a>
         </div>   
     </div>
 </div>       
-        
-<h3>Gracias por su registro, su usuario ha sido guardado</h3>
-
 
 <!-- PIE DE PAGINA -->
 <footer>

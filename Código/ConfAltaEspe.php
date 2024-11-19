@@ -42,13 +42,13 @@
         <div class="titulo">
             <?php
 
-                $Nombre = $_REQUEST["nombre"];
-                echo "Se ha añadido correctamente el especialista $Nombre"
+                $Nombre_Especialista = $_REQUEST["Nombre_Especialista"];
+                echo "Se ha añadido correctamente el especialista $Nombre_Especialista"
             ?>
         </div>
                 
         <div class="pie-form">
-            <a href="catalogo.php">incio</a>
+            <a href="ComoTrabajamos.php">Continuar</a>
         </div>   
     </div>
 </div> 

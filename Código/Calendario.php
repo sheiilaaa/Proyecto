@@ -35,6 +35,12 @@
 
 
 <body>
+<!--CONEXIÓN-->
+<?php
+    session_start();
+    include("./GestionBD/conexion.php");
+?>
+
 <!--CABECERA-->
 <section class="photo" id="inicio">
         <div class="nav" id="sticker">
@@ -77,14 +83,6 @@
             ?>
         </section>
     </main>
-
-
-
-
-
-
-
-
 
 
 

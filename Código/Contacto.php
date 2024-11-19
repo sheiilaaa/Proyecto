@@ -14,7 +14,6 @@
     include ("./GestionBD/conexion.php");
 ?>
 
-
 <!--CABECERA-->
     <section class="photo" id="inicio">
         <div class="nav" id="sticker">
@@ -36,9 +35,7 @@
     </section>
 
 
-<!-- -->
-
-
+<!-- FORMULARIO -->
 
 
 
