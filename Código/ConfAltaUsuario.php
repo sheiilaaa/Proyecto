@@ -22,6 +22,8 @@
         session_start();
         include ("./GestionBD/conexion.php");
     ?>
+
+    
     <div id="contenedor">
         <div class="central">
             <div class="titulo">

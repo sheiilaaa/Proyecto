@@ -78,7 +78,7 @@
           <li class="list-group-item">
               <input type="button" id="cantidad4" name="Añadir4" class="boton" value="Pedir Cita"> 
             <?php
-              if ($_SESSION['Nombre_Cliente']== "Admin"){  //Debe ser NOMBRECLIENTE O QUE?
+              if ($_SESSION['usuario']== "Admin"){  //Debe ser NOMBRECLIENTE O QUE?
                 //Si el usuario es Admin
             ?>
             <!--- enclaces para modificar o eliminar cada articulo --->
@@ -99,12 +99,12 @@
 
     <br>
   <?php   /*
-    }
+   }
     if ($_SESSION['Usuario']== "Admin"){ //Si el usuario es Admin, permite añadir articulos
   ?>
   <br>
     <a href="AltaArticulo.php?"> Alta Artículo</a>  <!--- enlace de la derechca --->
-  <?php  */
+  <?php  */ 
   
     }
   }

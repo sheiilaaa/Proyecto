@@ -45,48 +45,45 @@
     </section>
 
     <?php
-session_start();
-include("./GestionBD/conexion.php");
+    if(isset($_REQUEST['Eliminar'])){
+        $ID_Especialista=$_REQUEST['ID_Especialista'];
+        $DNI_Especialista=$_REQUEST['DNI_Especialista'];
+        $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
+        $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
+        $FechaNacimiento_Especialista=$_REQUEST['FechaNacimiento_Especialista'];
 
-if(isset($_REQUEST['Eliminar'])){
-    $ID_Especialista=$_REQUEST['ID_Especialista'];
-    $DNI_Especialista=$_REQUEST['DNI_Especialista'];
-    $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
-    $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
-    $FechaNacimiento_Especialista=$_REQUEST['FechaNacimiento_Especialista'];
+        $NumTelefono_Especialista=$_REQUEST['NumTelefono_Especialista'];
+        $Correo_Especialista=$_REQUEST['Correo_Especialista'];
 
-    $NumTelefono_Especialista=$_REQUEST['NumTelefono_Especialista'];
-    $Correo_Especialista=$_REQUEST['Correo_Especialista'];
+        $TipoVia_Especialista=$_REQUEST['TipoVia_Especialista'];
+        $NombreVia_Especialista=$_REQUEST['NombreVia_Especialista'];
+        $NumeroVia_Especialista=$_REQUEST['NumeroVia_Especialista'];
+        
+        $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
+        $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
+        
+        $Contrasena_Especialista=$_REQUEST['Contrasena_Especialista']; 
 
-    $TipoVia_Especialista=$_REQUEST['TipoVia_Especialista'];
-    $NombreVia_Especialista=$_REQUEST['NombreVia_Especialista'];
-    $NumeroVia_Especialista=$_REQUEST['NumeroVia_Especialista'];
-    
-    $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
-    $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
-    
-    $Contrasena_Especialista=$_REQUEST['Contrasena_Especialista']; 
+        $Eliminar="DELETE FROM Especialistas WHERE ID_Especialista =$ID_Especialista";
 
-    $Eliminar="DELETE FROM Especialistas WHERE ID_Especialista =$ID_Especialista";
-
-        if (mysqli_query($conn,$Eliminar))
-            {
-                header("Location:ConfEliminarEspe.php");
+            if (mysqli_query($conn,$Eliminar))
+                {
+                    header("Location:ConfEliminarEspe.php");
+                }
+            else{
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             }
-        else{
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-    }
 
-if (isset($_REQUEST['ID_Especialista'])){
-    
-    $ID_Especialista=$_REQUEST['ID_Especialista'];
+    if (isset($_REQUEST['ID_Especialista'])){
+        
+        $ID_Especialista=$_REQUEST['ID_Especialista'];
 
-    $sql="SELECT * FROM especialistas WHERE ID_Especialista= $ID_Especialista;";
-    $resultado=mysql_query($conn,$sql);
+        $sql="SELECT * FROM especialistas WHERE ID_Especialista= $ID_Especialista;";
+        $resultado=mysql_query($conn,$sql);
 
-    if(mysqli_num_rows($resultado)>0)
-    {
+        if(mysqli_num_rows($resultado)>0)
+        {
 ?>
 <div id="contenedor">
     <div id="central">

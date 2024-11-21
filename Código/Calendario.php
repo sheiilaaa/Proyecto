@@ -1,5 +1,33 @@
 
+<?php
+    
+    if(isset($_REQUEST['Ingresar'])){
+        $FechaHora_Cita=$_REQUEST['FechaHora_Cita'];
+        $Duracion=$_REQUEST['Duracion'];
+        $Coste_Cita=$_REQUEST['Coste_Cita'];
+       
 
+        $de= "INSERT INTO CITAS (FechaHora_Cita, Duracion, Coste_Cita)
+        VALUES ('$DNI_Cliente','$Duracion', '$Coste_Cita';";
+    
+         $pagos = "$Nombre_Cliente,$Apellido_Cliente,$DNI_Cliente"; 
+        
+        
+         if (mysqli_query($conn,$de))
+         {
+             header("Location:Pago.php?pagos=$pagos");
+         }
+     
+         else 
+         {
+             echo "Error:  "   . $sql . "<br>" . mysqli_error($conn);
+         }
+
+            if (mysqli_query($conn,$de)){
+                header("Location:Inicio.php?Nombre_Cliente=$Nombre_Cliente");
+                /*Los campos de $https://www.citapreviadnie.es/citaPreviaDni/MantenimientoPagos.actionNombre_Cliente $apellidos $Fecha_Nac $telefono $telefono $email $contraseña se han añadido correctamente*/
+                
+                }
 
 
 
@@ -37,7 +65,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+
+
+
+    
+   <!-- <title>Calendar</title>
+=======
   <title>Calendar</title>
+>>>>>>> c70b59899f13a9fc24a7dbb8d4008700ecc7d243
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -69,11 +105,21 @@
 
 
 <body>
+<<<<<<< HEAD
+--CONEXIÓN--
+</*?php 
+=======
 --CONEXIÓN--
 
 <?php/*
+>>>>>>> c70b59899f13a9fc24a7dbb8d4008700ecc7d243
     session_start();
+<<<<<<< HEAD
+    include("./GestionBD/conexion.php");
+    */
+=======
     include("./GestionBD/conexion.php");*/
+>>>>>>> c70b59899f13a9fc24a7dbb8d4008700ecc7d243
 ?>
 
 --CABECERA--
@@ -98,7 +144,11 @@
 
     <main class="centrar_contenido">
         <section class="calendario">
+<<<<<<< HEAD
+            </*?php
+=======
            <?php
+>>>>>>> c70b59899f13a9fc24a7dbb8d4008700ecc7d243
                 $diasEnElMes = 31;
                 $primerDiaDeLaSemana = 0; 
 
@@ -115,7 +165,7 @@
                 for ($i = $totalDias; $i < 35; $i++) {
                     echo "<div class='dias_calendario'></div>";
                 }
-            ?>
+            ?*/>
         </section>
     </main>
 

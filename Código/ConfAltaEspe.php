@@ -41,7 +41,6 @@
     <div class="central">
         <div class="titulo">
             <?php
-
                 $Nombre_Especialista = $_REQUEST["Nombre_Especialista"];
                 echo "Se ha añadido correctamente el especialista $Nombre_Especialista"
             ?>
