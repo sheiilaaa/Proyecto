@@ -35,22 +35,21 @@
     </section>
 
 
-<!--Confirmacion-->
-
-<div id="contenedor">
-    <div class="central">
-        <div class="titulo">
-            <?php
-                $Nombre_Especialista = $_REQUEST["Nombre_Especialista"];
-                echo "Se ha añadido correctamente el especialista $Nombre_Especialista"
-            ?>
+<!-- CONFIRMACION -->
+    <div id="contenedor">
+        <div class="central">
+            <div class="titulo">
+                <?php
+                    $Nombre_Especialista = $_REQUEST["Nombre_Especialista"];
+                    echo "Se ha añadido correctamente el especialista $Nombre_Especialista"
+                ?>
+            </div>
+                    
+            <div class="pie-form">
+                <a href="ComoTrabajamos.php">Continuar</a>
+            </div>   
         </div>
-                
-        <div class="pie-form">
-            <a href="ComoTrabajamos.php">Continuar</a>
-        </div>   
-    </div>
-</div> 
+    </div> 
 
 <!-- PIE DE PAGINA -->
 <footer>

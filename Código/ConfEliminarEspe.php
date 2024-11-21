@@ -42,6 +42,8 @@
         <div class="overlay"></div>
     </section>
 
+
+    <!-- CONFIRMACION -->
     <div id="contenedor">
         <div class="central">
             <div class="titulo">

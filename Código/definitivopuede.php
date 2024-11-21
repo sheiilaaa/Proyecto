@@ -52,6 +52,8 @@
 
         <!-- En este código relacionamos el usuario con la contraseña para que verifique si existe el usuario y coincide con la contraseña, 
         también si se muestran resultados asociados en la base de datos y son corectos, se dejará abierta la sesion del usuario (que pondremos en todos los php)-->
+    
+<!-- CODIGO -->
         <?php
     if ($conn){/* HE AÑADIDO ESTO */
 

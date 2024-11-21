@@ -23,7 +23,7 @@
         include("./GestionBD/1-conexion.php");
         ?>
 
-
+<!-- CONFIRMACION -->
     <div id="contenedor">
         <div class="central">
             <div class="titulo">

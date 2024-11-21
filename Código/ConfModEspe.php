@@ -36,24 +36,24 @@
     </section>
 
 
+<!-- CONFIRMACION -->
+    <div id="contenedor">
+        <div class="central">
+            <div class="titulo">
+                <?php
+                    $DNI_Especialista = $_REQUEST["DNI_Especialista"];
+                    $Nombre_Especialista = $_REQUEST["Nombre_Especialista"];
+                    $Apellido_Especialista = $_REQUEST["Apellido_Especialista"];
 
-<div id="contenedor">
-    <div class="central">
-        <div class="titulo">
-            <?php
-                $DNI_Especialista = $_REQUEST["DNI_Especialista"];
-                $Nombre_Especialista = $_REQUEST["Nombre_Especialista"];
-                $Apellido_Especialista = $_REQUEST["Apellido_Especialista"];
-
-                echo "Se ha modificado correctamente el especialista $Nombre_Especialista $Apellido_Especialista con DNI $DNI_Especialista"
-            ?>
+                    echo "Se ha modificado correctamente el especialista $Nombre_Especialista $Apellido_Especialista con DNI $DNI_Especialista"
+                ?>
+            </div>
+                    
+            <div class="pie-form">
+                <a href="ListadoEspecialistas.php">Continuar</a>
+            </div>   
         </div>
-                
-        <div class="pie-form">
-            <a href="ListadoEspecialistas.php">Continuar</a>
-        </div>   
-    </div>
-</div>       
+    </div>       
 
 <!-- PIE DE PAGINA -->
 <footer>

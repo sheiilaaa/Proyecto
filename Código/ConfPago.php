@@ -34,22 +34,21 @@
         <div class="overlay"></div>
     </section>
 
-<!--Confirmación Pago-->
-        <div id="contenedor">
-            <div class="central">
-                <div class="titulo">
-                  <?php
-
-                        $Estado_Pago = $_REQUEST["Estado_Pago"];
-                        echo "El usuario $Nombre_Cliente $Apellido_Cliente ha pagado correctamente"; //Actualizamos en la página de ModificarArticulos, y aquí see muestra por pantalla el nombre del articulo que fue modificado
-                    ?>
-                </div>
-                
-                <div class="pie-form">
-                     <a href="ComoTrabajamos.php">incio</a>
-                </div>   
+<!-- CONFIRMACION PAGO -->
+    <div id="contenedor">
+        <div class="central">
+            <div class="titulo">
+                <?php
+                    $Estado_Pago = $_REQUEST["Estado_Pago"];
+                    echo "El usuario $Nombre_Cliente $Apellido_Cliente ha pagado correctamente"; //Actualizamos en la página de ModificarArticulos, y aquí see muestra por pantalla el nombre del articulo que fue modificado
+                ?>
             </div>
-        </div>       
+            
+            <div class="pie-form">
+                    <a href="ComoTrabajamos.php">incio</a>
+            </div>   
+        </div>
+    </div>       
 
 <!-- PIE DE PAGINA -->
 <footer>
