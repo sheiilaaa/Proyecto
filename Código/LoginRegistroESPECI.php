@@ -193,18 +193,20 @@ else{
                         <label for="CuentaBancaria_Especialista">Cuenta bancaria:</label>
                         <input type="number" class="caja" name="CuentaBancaria_Especialista" id="CuentaBancaria_Especialista" placeholder="Escribe su cuenta bancaría">
 
+                        <label for="Cuota_Especialista">Cuota:</label>
+                        <input type="number" class="caja" name="Cuota_Especialista" id="Cuota_Especialista" placeholder="Indica la couta del especialista">
+<!-- DEBE DE SEPARARSE POR . -->
+                        
+                        <label for="Contrasena_Especialista">Contraseña:</label>
+                        <input type="password" name="Contrasena_Especialista" id="Contrasena_Especialista" class="caja"required placeholder="Contrasena">
+
+<!-- HABLAR CON RAFA como poner disponibilidad-->
 
 
                         <label for="Contrasena_Especialista">Contraseña:</label>
                         <input type="password" name="Contrasena_Especialista" id="Contrasena_Especialista" class="caja"required placeholder="Contrasena">
 
-
-
-
-
-                        <label for="Cuota_Especialista">Nombre de la via:</label>
-                        <input type="number" class="caja" name="Cuota_Especialista" id="Cuota_Especialista" placeholder="Indica la couta del especialista">
-<!-- DEBE DE SEPARARSE POR . -->
+                        
                         <button type="submit" title="AltaUsuario" name="Ingresar">Alta Usuario</button>
                     </form>
                     <div class="pie-form">

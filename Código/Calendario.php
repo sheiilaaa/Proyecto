@@ -2,18 +2,16 @@
 <?php
     
     if(isset($_REQUEST['Ingresar'])){
+        $ID_Cita=$_REQUEST['']
         $FechaHora_Cita=$_REQUEST['FechaHora_Cita'];
         $Duracion=$_REQUEST['Duracion'];
         $Coste_Cita=$_REQUEST['Coste_Cita'];
        
 
-        $de= "INSERT INTO CITAS (FechaHora_Cita, Duracion, Coste_Cita)
-        VALUES ('$DNI_Cliente','$Duracion', '$Coste_Cita';";
-    
-         $pagos = "$Nombre_Cliente,$Apellido_Cliente,$DNI_Cliente"; 
+        $insertarCi= "INSERT INTO CITAS (FechaHora_Cita, Duracion, Coste_Cita)
+        VALUES ('$FechaHora_Cita','$Duracion', '$Coste_Cita';";
         
-        
-         if (mysqli_query($conn,$de))
+         if (mysqli_query($conn,$insertarCi))
          {
              header("Location:Pago.php?pagos=$pagos");
          }
@@ -23,17 +21,10 @@
              echo "Error:  "   . $sql . "<br>" . mysqli_error($conn);
          }
 
-            if (mysqli_query($conn,$de)){
-                header("Location:Inicio.php?Nombre_Cliente=$Nombre_Cliente");
-                /*Los campos de $https://www.citapreviadnie.es/citaPreviaDni/MantenimientoPagos.actionNombre_Cliente $apellidos $Fecha_Nac $telefono $telefono $email $contraseña se han añadido correctamente*/
-                
-                }
 
 
 
-
-
-
+        }
 
 
 
