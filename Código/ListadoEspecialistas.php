@@ -28,6 +28,7 @@
 ?>
 
 <!--CABECERA-->
+<!--
   <section class="photo" id="inicio">
         <div class="nav" id="sticker">
             <label for="toggle">&#9776</label>
@@ -47,7 +48,7 @@
         <div class="overlay"></div>
     </section>
 
-
+-->
 
 
 <!-- Listado de especialistas -->
@@ -60,17 +61,17 @@
     <?php
 
       /* JOIN */
-      $sql="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, E.Cuota_Especialista, Es.Especialidad_Especialista
+      $sql="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, E.Cuota_Especialista, ES.Especialidad_Especialista
               FROM ESPECIALISTAS E
               JOIN ESPECIALISTA_ESPECIALIDAD EE ON E.ID_Especialista = EE.ID_Especialista_EspeEspe
               JOIN ESPECIALIDAD ES ON ES.ID_Especialista = E.ID_Especialidad_EspeEspe";
 
       $sql1="SELECT DE.Fecha_Disponibilidad, DE.Hora_Disponibilidad, DE.Disponibilidad_Especialista
               FROM DISPONIBILIDAD_ESPECIALISTA DE
-              JOIN ESPECIALISTAS E ON E.ID_Especialista = EE.ID_Especialista_DispoEspe";
+              JOIN ESPECIALISTAS E ON E.ID_Especialista = DE.ID_Especialista_DispoEspe";
 
 
-      $sql="SELECT * FROM ESPECIALISTAS";  
+     /* $sql="SELECT * FROM ESPECIALISTAS";  */
       $result = mysqli_query($conn,$sql,$sql1);
       
       if (mysqli_num_rows($result)>0){ //Si encuentra resultados
