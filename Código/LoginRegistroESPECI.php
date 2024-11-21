@@ -160,7 +160,7 @@ else{
                     <div class="titulo">
                         Bienvenido Especialista
                     </div>
-                    <form id="AltaUsuario" action="" method="post">
+                    <form id="AltaEspecialista" action="ConfAltaEspe.php" method="post">
 
                         <label for="DNI_Especialista">DNI:</label>
                         <input type="text" id="DNI_Especialista" name="DNI_Especialista" class="caja" required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI">
@@ -208,10 +208,10 @@ else{
 
                         
                         
-                        <button type="submit" title="AltaUsuario" name="Ingresar">Alta Usuario</button>
+                        <button type="submit" title="AltaEspecialista" name="AltaEspecialista">Alta Especialista</button>
                     </form>
                     <div class="pie-form">
-                        <a href="inicio.php">Volver</a>
+                        <a href="Inicio.php">Volver</a>
                     </div>
                 </div>
             </div>    
