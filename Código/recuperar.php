@@ -48,6 +48,7 @@
     </section>
 
 
+<!-- Codigo --->
          <!-- Aquí comprueba si el usuario está asociado a la base de datos y de ser así se cambiará la contraseña por una nueva que tú introduzcas-->
     <?php
     if(isset($_REQUEST['restablecer'])){
@@ -65,7 +66,7 @@
         header("Location:restablecer.php?Nombre_Cliente=$usuario");
     
     }else{
-        echo "El usuario introduucido no forma parte de la base de datos"; 
+        echo "El usuario introducido no forma parte de la base de datos"; 
         }
             
 }
@@ -73,14 +74,13 @@
 else{
 ?>
 
-
         <div id="contenedor">
             <div id="central">
                 <div id="login">
                     <div class="titulo">
                         Recuperar contraseña
                     </div>
-                    <form id="loginform" action =""> 
+                    <form id="loginform" action ="restablecer.php"> 
                         <input type="text" name="Nombre_Cliente" placeholder="Nombre del cliente">
                         <input type="password" name="Contrasena_Cliente" placeholder="Contraseña modificada" autofocus requiered>
                         <button type="submit" title="restablecer" name="restablecer">Restablecer</button>
