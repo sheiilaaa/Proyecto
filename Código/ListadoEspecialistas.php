@@ -71,7 +71,7 @@
 
 
       $sql="SELECT * FROM ESPECIALISTAS";  
-      $result = mysqli_query($conn,$sql);
+      $result = mysqli_query($conn,$sql,$sql1);
       
       if (mysqli_num_rows($result)>0){ //Si encuentra resultados
       while($row = mysqli_fetch_assoc($result)){
