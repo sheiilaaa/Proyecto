@@ -10,25 +10,14 @@
 
         $insertarCi= "INSERT INTO CITAS (FechaHora_Cita, Duracion, Coste_Cita)
         VALUES ('$FechaHora_Cita','$Duracion', '$Coste_Cita';";
-        
+        /**/
        $Mostrar="SELECT E.Nombre_Especialista, E.Apellido_Especialista, E.Cuota_Especialista, DE.Fecha_Disponibilidad, DE.Hora_Disponibilidad, DE.Disponiblidad_Especialista, e.Especialidad_Especialista
                     FROM DISPONIBILIDAD_ESPECIALISTA DE
                 JOIN Especialistas E ON E.ID_Especialista = DE.ID_Especialista
                 JOIN Especialistas_Especialidad ES ON E.ID_Especialista = ES.ID_Especialista_EspeEspe
                 JOIN Especilidad e ON  = ES.ID_Epecialidad_EspeEspe = e.ID_Especialidad"
     
-        
-
-
-         if (mysqli_query($conn,$insertarCi))
-         {
-             header("Location:Pago.php?pagos=$pagos");
-         }
-     
-            else 
-            {
-                echo "Error:  "   . $sql . "<br>" . mysqli_error($conn);
-            }
+    
         }
 
     

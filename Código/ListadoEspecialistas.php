@@ -61,7 +61,7 @@
     <?php
 
       /* JOIN */
-      $sql="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, E.Cuota_Especialista, ES.Especialidad_Especialista
+      $sql="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista
               FROM ESPECIALISTAS E
               JOIN ESPECIALISTA_ESPECIALIDAD EE ON E.ID_Especialista = EE.ID_Especialista_EspeEspe
               JOIN ESPECIALIDAD ES ON ES.ID_Especialista = E.ID_Especialidad_EspeEspe";
@@ -72,10 +72,12 @@
 
 
      /* $sql="SELECT * FROM ESPECIALISTAS";  */
-      $result = mysqli_query($conn,$sql,$sql1);
-      
+      $result = mysqli_query($conn,$sql);
+      $result1 = mysqli_query($conn,$sql1);
+
       if (mysqli_num_rows($result)>0){ //Si encuentra resultados
       while($row = mysqli_fetch_assoc($result)){
+        
     ?>
     <div>
       <!-- <div class="card" style="width: 18rem; margin: 10px;">
