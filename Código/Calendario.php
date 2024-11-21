@@ -2,7 +2,7 @@
 <?php
     
     if(isset($_REQUEST['Ingresar'])){
-        $ID_Cita=$_REQUEST['']
+        $ID_Cita=$_REQUEST['ID_Cita'];/*PREGUNTAR COMO SE HARÍA A RAFA*/
         $FechaHora_Cita=$_REQUEST['FechaHora_Cita'];
         $Duracion=$_REQUEST['Duracion'];
         $Coste_Cita=$_REQUEST['Coste_Cita'];
@@ -11,20 +11,22 @@
         $insertarCi= "INSERT INTO CITAS (FechaHora_Cita, Duracion, Coste_Cita)
         VALUES ('$FechaHora_Cita','$Duracion', '$Coste_Cita';";
         
+        SELECT 
+
+
+        
          if (mysqli_query($conn,$insertarCi))
          {
              header("Location:Pago.php?pagos=$pagos");
          }
      
-         else 
-         {
-             echo "Error:  "   . $sql . "<br>" . mysqli_error($conn);
-         }
-
-
-
-
+            else 
+            {
+                echo "Error:  "   . $sql . "<br>" . mysqli_error($conn);
+            }
         }
+
+    
 
 
 

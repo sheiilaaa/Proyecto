@@ -198,7 +198,7 @@ else{
 <!-- DEBE DE SEPARARSE POR . -->
                         
                         <label for="Contrasena_Especialista">Contraseña:</label>
-                        <input type="password" name="Contrasena_Especialista" id="Contrasena_Especialista" class="caja"required placeholder="Contrasena">
+                        <input type="password" name="Contrasena_Especialista" id="Contrasena_Especialista" class="caja"required placeholder="Escribe tu contraseña">
 
 <!-- HABLAR CON RAFA como poner disponibilidad-->
 
