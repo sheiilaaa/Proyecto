@@ -200,12 +200,12 @@ else{
                         <label for="Contrasena_Especialista">Contraseña:</label>
                         <input type="password" name="Contrasena_Especialista" id="Contrasena_Especialista" class="caja"required placeholder="Escribe tu contraseña">
 
+
 <!-- HABLAR CON RAFA como poner disponibilidad-->
-
-
                         <label for="Contrasena_Especialista">Contraseña:</label>
                         <input type="password" name="Contrasena_Especialista" id="Contrasena_Especialista" class="caja"required placeholder="Contrasena">
 
+                        
                         
                         <button type="submit" title="AltaUsuario" name="Ingresar">Alta Usuario</button>
                     </form>
