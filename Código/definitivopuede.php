@@ -23,10 +23,6 @@
     
     <body >
 
-
-
-
-    
 <!-- CONEXION -->
 <?php
     session_start();
