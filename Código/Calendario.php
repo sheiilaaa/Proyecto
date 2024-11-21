@@ -1,9 +1,43 @@
-<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- <title>Calendar</title>
+  <title>Calendar</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -30,18 +64,19 @@
     </style>
 </head>
 
-    -->
+    
 
 
 
 <body>
-<!--CONEXIÓN-->
-<?php
+--CONEXIÓN--
+
+<?php/*
     session_start();
-    include("./GestionBD/conexion.php");
+    include("./GestionBD/conexion.php");*/
 ?>
 
-<!--CABECERA-->
+--CABECERA--
 <section class="photo" id="inicio">
         <div class="nav" id="sticker">
             <label for="toggle">&#9776</label>
@@ -63,7 +98,7 @@
 
     <main class="centrar_contenido">
         <section class="calendario">
-            <?php
+           <?php
                 $diasEnElMes = 31;
                 $primerDiaDeLaSemana = 0; 
 
@@ -101,10 +136,11 @@
 
 
 
-<!-- PIE DE PAGINA -->
+-- PIE DE PAGINA --
 <footer>
     Todos los derechos reservados | Coaching SL Copyright © 2024
 </footer>
     
 </body>
 </html>
+-->
