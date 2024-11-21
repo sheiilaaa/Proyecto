@@ -48,14 +48,13 @@
         <div class="overlay"></div>
     </section>
 
-
-    
+<!-- Codigo inicio  -->
         <div id="contenedor">
             <div class="central">
                 <div class="titulo">
                 <?php
                     $Nombre = $_REQUEST["Nombre_Cliente"];
-                    echo "$Nombre se ha añadido la nueva contraseña modificada correctamente" //De la pantalla de recuperar contraseña, una vez guardada la información en la base de datos nos manda a esta pantalla donde nos dice que se ha guardado correctamente
+                    echo "$Nombre se ha modificado correctamente la contraseña" //De la pantalla de recuperar contraseña, una vez guardada la información en la base de datos nos manda a esta pantalla donde nos dice que se ha guardado correctamente
                 ?>
                 </div>
                 <div class="pie-form">
@@ -63,6 +62,7 @@
                 </div>   
             </div>
         </div>
+
 
 <!-- PIE DE PAGINA -->
 <footer>

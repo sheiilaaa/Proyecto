@@ -125,7 +125,7 @@
                         <label for="Contrasena_Especialista">Contraseña: </label>
                             <input type="number" name="Contrasena_Especialista"  id="Contrasena_Especialista" class="caja" value = '<?php echo $row['Contrasena_Especialista'] ?>'>
                         
-                        <button type="submit" title="Modificar" name="Modificar">Modificar</button>
+                        <button type="submit" title="Modificar" name="Modificar">Confirmar modificación</button>
                     </form>
                     <div class="pie-form">
                         <a href="ListadoEspecialistas.php">Volver</a>
@@ -140,8 +140,6 @@
             }
       }
 ?>
-
-<a href="ConfirmacionModificar.php">Confirmar registro</a>
 
 <!-- PIE DE PAGINA -->
 <footer>
