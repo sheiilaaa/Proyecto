@@ -8,11 +8,6 @@
 </head>
 
 <body>
-<!-- CONEXION -->
-<?php
-    session_start();
-    include("./GestionBD/1-conexion.php");
-?>
 
 <!--CABECERA-->
     <section class="photo" id="inicio">
@@ -34,8 +29,10 @@
         <div class="overlay"></div>
     </section>
 <?php
-     
-    if ($conn) {
+
+    session_start();
+    include("./GestionBD/1-conexion.php");
+
       if(isset($_REQUEST['Registro'])){
         $Estado_Pago=$_REQUEST['Estado_Pago']; 
         $Metodos_Pago=$_REQUEST['FechaNacimiento_Cliente'];
@@ -44,102 +41,114 @@
         
         $ins = "INSERT INTO pagos(Estado_Pago,Metodos_Pago,Fecha_Pago,Cantidad_Pago)
          VALUES ('$Estado_Pago', '$Metodos_Pago', '$Fecha_Pago', '$Cantidad_Pago')";
-  						
+        
+        $recibido="SELECT C.Nombre_Cliente, C.Apellido_Cliente, C.DNI_Cliente, E.Nombre_Especialista, E.Cuota_Especialista
+        FROM CLIENTES C
+        JOIN CITAS CI ON C.ID_Cliente = CI.ID_Cliente_Cita
+        JOIN ESPECIALISTAS ES ON ES.ID_Especialistas = ID_Especialista_Cita";
+
 
           if (mysqli_query($conn,$ins)){   
-                  header("location:ConfPago.php");
-              }
-              else {
+                  header("location:ConfirmacionPago.php");
+                }else {
                   echo "ERROR:".mysqli_error($conn);
                   echo "ERROR:".mysqli_error($ins); 
-              }
+                     }
           }
+
       else{ 
   ?>
+  <div class="Fondo_pago">
     <form id="Pago.php" action="Calendario.php" method="post">
 
-        <fieldset>
-            <legend>Alta de usuario</legend>
-            <div class="registro">                    
-                </div>
-                <div class="opciones">
-                   
-                    <label for="Nombre_Cliente">Nombre:</label>
-                    <input type="text" id="Nombre_Cliente" name="Nombre_Cliente" class="caja" autofocus required pattern="[a-zA-Z\s]+" placeholder="Nombre" value='<?php echo $row['Nombre_Cliente']?>' >
-
-                    <label for="Apellido_Cliente">Apellidos:</label>
-                    <input type="text" id="Apellido_Cliente" name="Apellido_Cliente" class="caja" required pattern="[a-zA-Z\s]+" placeholder="Apellidos" value='<?php echo $row['Apellido_Cliente']?>'>
-
-                    <label for="DNI_Cliente">DNI:</label>
-                    <input type="text" id="DNI_Cliente" name="DNI_Cliente" class="caja" required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI" value='<?php echo $row['DNI']?>'>
-   
-                    <label for="Estado_Pago">Estado_Pago:</label>
-                    <input type="text" id="Estado_Pago" name="Estado_Pago" class="caja" required placeholder="Estado_Pago" value='<?php echo $row['Estado_Pago']?>'>
-
-                    <label for="Metodos_Pago">Metodos de Pago:</label>
-                    <input type="text" id="Metodos_Pago" name="Metodos_Pago" class="caja" required placeholder="Metodos_Pago" value='<?php echo $row['Metodos_Pago']?>'>
-
-                    <label for="Fecha_Pago">Fecha de Pago:</label>
-                    <input type="date" id="Fecha_Pago" name="Fecha_Pago" class="caja" required placeholder="Fecha_Pago" value='<?php echo $row['Fecha_Pago']?>'>
-
-                    <label for="Cantidad_Pago">Cantidad del Pago:</label>
-                    <input type="text" id="Cantidad_Pago" name="Cantidad_Pago" class="caja" required placeholder="Cantidad_Pago" value='<?php echo $row['Cantidad_Pago']?>'>
-                    
-                    
-                    
-                    <label for="user">Contraseña:</label>
-                    <input type="password" name="Contraseña" id="user">
+        <div class="infoespecialista">
+            <div class="registro">Especialista</div>
+                <div class="IzqInfo"></div>
+                    <div class="TIT">Ha escogido a:</div>
+                        <div class="SuNOMBRE">
+                            <label for="Nombre_Especialista"></label>    
+                            <input type="text" id="Nombre_Especialista" name="Nombre_Especialista" class="caja" value='<?php echo $row['Nombre_Especialista']?>'>
+                        </div>
+            <hr>
+                <div class="IzqInfo"></div>
+                    <div class="TIT">Cuota del Especialista</div>
+                        <div class="MostrarCuota">
+                            <label for="Cuota_Especialista"></label>    
+                            <input type="number" id="Cuota_Especialista" name="Cuota_Especialista" class="caja" value='<?php echo $row['Cuota_Especialista']?>'>
+                        </div>          
+        </div> 
         
-                </div>
+                 
+        <div class="TarPago"> 
+            <div class="TituloPAGO">Que método quieres</div>
+                <div class="metodoPAGO">
+                    <button class="Tarjeta"> <!-- VISA -->
+                        <i class="fa fa-cc-visa" aria-hidden="true"></i>
+                    </button>
 
-        <?php  
-                }
-            }
-      ?>
-             </div>
-        </fieldset>
-        <br>
-        <fieldset>
-            <legend>Que tarifa quieres</legend>
+                    <button class="Tarjeta"> <!-- PayPal -->
+                        <i class="fa fa-cc paypal"></i>
+                    </button>
 
-            <input type="radio" name="user" value="standard">
-            <label for="user">Standard</label>
-            <input type="radio" name="user" value="Premium">
-            <label for="user">Premium</label>
-            <input type="radio" name="user" value="VIP">
-            <label for="user">VIP</label>
+                    <button class="Tarjeta"> <!-- Bizum/Móvil -->
+                        <i class="fa fa-mobile"></i>
+                    </button>
 
-        </fieldset>
-        <br>
-        <fieldset>
-            <legend>Metodo de pago</legend>
+                    <button class="Tarjeta"> <!-- American Express -->
+                        <i class="fa fa-cc amex"></i>
+                    </button>
 
-            <select name="Metodo de pago" id="user">
-                <optgroup label="Tarjeta">
-                    <option value="VISA">VISA</option>
-                    <option value="Bizum">Bizum</option>
-                    <option value="MasterCard">MasterCard</option>
-                    <option value="American Express">American Express</option>
-                </optgroup>
-                <optgroup label="Pasarela de Pago">
-                    <option value="PayPal">PayPal</option>
-                    <option value="Strype">Strype</option>
-                    <option value="Global Payment">Global Payment</option>
-                </optgroup>
-            </select>
-        </fieldset>
-        <br>
-        <input type="checkbox" name="user"  value="Acepto los terminos de la página">
-        <label for="user">Acepto los terminos de la página</label>
-        <br>
-        <div class="button">
-            <input type="submit" value="Enviar">
+                    <button class="Tarjeta"> <!-- MasterCard -->
+                        <i class="fa fa-cc-mastercard"></i>
+                    </button>
+
+             <!--   <input type="text" id="Metodos_Pago" name="Metodos_Pago" class="cajaPago"> -->
+
+            </div>   
         </div>
-    </form>
+
+
+        <div class="DatosCliente">
+
+            <div class="UsuarioPago">Datos de pago</div>
+            
+                <label for="Nombre_Cliente">Nombre:</label>
+                    <input type="text" id="Nombre_Cliente" name="Nombre_Cliente" class="cajaPago" value="<?php echo $row['Nombre_Cliente']; ?>">
+                
+                <label for="Apellido_Cliente">Apellidos:</label>
+                    <input type="text" id="Apellido_Cliente" name="Apellido_Cliente" class="cajaPago" value="<?php echo $row['Apellido_Cliente']; ?>">
+                
+                <label for="DNI_Cliente">DNI:</label>
+                    <input type="text" id="DNI_Cliente" name="DNI_Cliente" class="cajaPago" value="<?php echo $row['DNI_Cliente']; ?>">
+                
+                <label for="Estado_Pago">Estado_Pago:</label>
+                    <input type="text" id="Estado_Pago" name="Estado_Pago" class="cajaPago">
+                
+                <label for="Fecha_Pago">Fecha de Pago:</label>
+                    <input type="date" id="Fecha_Pago" name="Fecha_Pago" class="cajaPago">
+                
+                <label for="Cantidad_Pago">Cantidad del Pago:</label>
+                    <input type="text" id="Cantidad_Pago" name="Cantidad_Pago" class="cajaPago">
+            
+                    <br>
+                <input type="checkbox" name="user" value="Acepto los terminos de la página" requiered>
+                <label for="user">Acepto los terminos de la página</label>
+                
+                    <div class="button">
+                        <input type="submit" value="Enviar"> 
+        </div>
+
+            <?php  
+                }
+                
+      ?>
+             
+        </div>
+        </form>
         
 
 
-
+</div>
 <!-- PIE DE PAGINA -->
 <footer>
 Todos los derechos reservados | Coaching SL Copyright © 2024

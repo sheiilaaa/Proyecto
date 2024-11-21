@@ -14,8 +14,9 @@
         
         <!-- Link hacia el archivo de estilos css -->
         <link rel="stylesheet" href="css/estilo.css">
+                <!-- Link para que funcionen los FA FA -->
+        <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 
-        <!-- Link hacia el archivo de estilos css -->
        
 
     </head>
@@ -35,10 +36,10 @@
             <input type="checkbox" id="toggle" />
             <div class="menu">
                 <img src="IMG/logo.png" alt="" class="logo">
-                <a href=""><i class="fa fa-home"> Inicio</i></a>
-                <a href=""><i class="fa fa-info"> Como trabajar</i></a>
-                <a href=""><i class="fa fa-briefcase"> Puesta en contacto</i></a>
-                <a href=""><i class="fa fa-address-book"> Listado especialistas</i></a>
+                <a href=""><i class="fa fa-home">Inicio</i></a>
+                <a href=""><i class="fa fa-info">Como trabajar</i></a>
+                <a href=""><i class="fa fa-briefcase">Puesta en contacto</i></a>
+                <a href=""><i class="fa fa-address-book">Listado especialistas</i></a>
                 <a href=""><i class="fa fa-calendar-o">Calendario</i></a>
             </div>
         </div>
