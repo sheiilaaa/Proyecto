@@ -12,7 +12,7 @@
 <!--CONEXIÓN-->
 <?php
     session_start();
-    include("./GestionBD/conexion.php");
+    include("./GestionBD/1-conexion.php");
 ?>
 
 <!--CABECERA-->

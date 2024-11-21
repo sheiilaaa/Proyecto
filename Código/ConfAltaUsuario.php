@@ -20,10 +20,10 @@
 <!-- CONEXION -->
     <?php
         session_start();
-        include ("./GestionBD/conexion.php");
-    ?>
+        include("./GestionBD/1-conexion.php");
+        ?>
 
-    
+
     <div id="contenedor">
         <div class="central">
             <div class="titulo">

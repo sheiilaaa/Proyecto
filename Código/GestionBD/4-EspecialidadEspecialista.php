@@ -1,6 +1,6 @@
 <?php
-    include ("conexion.php");
-
+    include ("1-conexion.php");
+    
     $sql_EspEsp = "INSERT INTO ESPECIALISTA_ESPECIALIDAD (ID_Especialista_EspeEspe, ID_Especialidad_EspeEspe)
         VALUES
             ('1', '1');";

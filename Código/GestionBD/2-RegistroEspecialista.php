@@ -1,5 +1,5 @@
 <?php
-    include ("conexion.php");
+    include ("1-conexion.php");
 
     $sql_ESPECIALISTAS = "INSERT INTO ESPECIALISTAS (DNI_Especialista, Nombre_Especialista, Apellido_Especialista, FechaNacimiento_Especialista, NumTelefono_Especialista, Correo_Especialista,
             TipoVia_Especialista, NombreVia_Especialista, NumeroVia_Especialista, CuentaBancaria_Especialista, Cuota_Especialista, Contrasena_Especialista)
