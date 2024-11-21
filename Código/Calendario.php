@@ -14,8 +14,21 @@
        $Mostrar="SELECT E.Nombre_Especialista, E.Apellido_Especialista, E.Cuota_Especialista, DE.Fecha_Disponibilidad, DE.Hora_Disponibilidad, DE.Disponiblidad_especialista
                     FROM DISPONIBILIDAD_ESPECIALISTA DE
                 JOIN Especialistas E ON ID_Especialista = ID_Especialista"
+                JOIN 
         
         
+
+
+
+
+
+
+
+
+
+
+
+
         $Mostrar2="SELECT E.Nombre_Especialista, E.Apellido_Especialista, E.Cuota_Especialista, DE.Fecha_Disponibilidad, DE.Hora_Disponibilidad, DE.Disponiblidad_especialista
                     FROM DISPONIBILIDAD_ESPECIALISTA DE
                 JOIN Especialistas E ON ID_Especialista = ID_Especialista"
