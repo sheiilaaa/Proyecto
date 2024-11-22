@@ -36,7 +36,71 @@
 
 <!--FORMULARIO-->
 
+<form action="Pago.php" method="get">
+    <fieldset>
+        <legend>Reservar cita</legend>
+        <div class="registro">                    
+            </div>
+            <div class="opciones">
+                <h1>
+                    <label for="user">Nombre:</label>
+                    <input type="text" name="Nombre" id="user">
+                </h1>
+                <h1>
+                    <label for="user">Apellido:</label>
+                    <input type="text" name="Apellido" id="user">
+                </h1>
+                <h1>
+                    <label for="user">Contraseña:</label>
+                    <input type="password" name="Contraseña" id="user">
+                </h1>
+            </div>
+        </div>
+    </fieldset>
+    <br>
+    <fieldset> <!-- CAJA GRANDE-->
+        <legend>¿Qué horario quieres?</legend><!-- NOMBRE CAJA GRANDE-->
 
+        <input type="radio" name="user" value="standard">
+        <label for="user">Standard</label>
+        <input type="radio" name="user" value="Premium">
+        <label for="user">Premium</label>
+        <input type="radio" name="user" value="VIP">
+        <label for="user">VIP</label>
+
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>orgghtk n jm</legend>
+
+        <select name="Metodo de pago" id="user">
+            <optgroup label="Tarjeta">
+                <option value="VISA">VISA</option>
+                <option value="MasterCard">MasterCard</option>
+                <option value="American Express">American Express</option>
+            </optgroup>
+            <optgroup label="Pasarela de Pago">
+                <option value="PayPal">PayPal</option>
+                <option value="Strype">Strype</option>
+                <option value="Global Payment">Global Payment</option>
+            </optgroup>
+        </select>
+    </fieldset>
+    <br>
+    <div class="dni">
+        <fieldset>
+            <legend>Adjunte su DNI/NIF</legend>
+            <input type="file" name="fileupload" accept="image/*" id="file"><br>
+        </fieldset>
+    </div>
+    <br>
+    <input type="checkbox" name="user"  value="Acepto los terminos de la página">
+    <label for="user">Acepto los terminos de la página</label>
+    <br>
+    <div class="button">
+        <input type="submit" value="Enviar">
+    </div>
+</form>
 
 
 
