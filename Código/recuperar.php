@@ -22,60 +22,57 @@
         
     </head>
 
-<body>
+    <body>
 <!-- CONEXION -->
-<?php
-    session_start();
-    include("./GestionBD/1-conexion.php");
-?>
+        <?php
+            session_start();
+            include("./GestionBD/1-conexion.php");
+        ?>
 
 <!--CABECERA-->
-    <section class="photo" id="inicio">
-        <div class="nav" id="sticker">
-            <label for="toggle">&#9776</label>
-            <input type="checkbox" id="toggle" />
-            <div class="menu">
-                <img src="IMG/logo.png" alt="" class="logo">
-                <a href=""><i class="fa fa-home"> Inicio</i></a>
-                <a href=""><i class="fa fa-info"> Como trabajar</i></a>
-                <a href=""><i class="fa fa-briefcase"> Puesta en contacto</i></a>
-                <a href=""><i class="fa fa-address-book"> Listado especialistas</i></a>
-                <a href=""><i class="fa fa-calendar">Calendario</i></a>
+        <section class="photo" id="inicio">
+            <div class="nav" id="sticker">
+                <label for="toggle">&#9776</label>
+                <input type="checkbox" id="toggle" />
+                <div class="menu">
+                    <img src="IMG/logo.png" alt="" class="logo">
+                    <a href=""><i class="fa fa-home"> Inicio</i></a>
+                    <a href=""><i class="fa fa-info"> Como trabajar</i></a>
+                    <a href=""><i class="fa fa-briefcase"> Puesta en contacto</i></a>
+                    <a href=""><i class="fa fa-address-book"> Listado especialistas</i></a>
+                    <a href=""><i class="fa fa-calendar">Calendario</i></a>
+                </div>
             </div>
-        </div>
-        <div class="photo-text">
-            <h4 data-ix="skype">Coaching sl</h4>
-        </div>
-        <div class="overlay"></div>
-    </section>
-
+            <div class="photo-text">
+                <h4 data-ix="skype">Coaching sl</h4>
+            </div>
+            <div class="overlay"></div>
+        </section>
 
 <!-- Codigo --->
          <!-- Aquí comprueba si el usuario está asociado a la base de datos y de ser así se cambiará la contraseña por una nueva que tú introduzcas-->
-    <?php
-    if(isset($_REQUEST['restablecer'])){
-        $usuario=$_REQUEST['Nombre_Cliente'];
-        $contraseña=$_REQUEST['Contrasena_Cliente'];
-        
-        $sql= "SELECT * FROM Clientes WHERE Nombre_Cliente ='$usuario';";
-
-        $resultado = mysqli_query($conn, $sql);
-        
-    if(mysqli_num_rows($resultado)>0)
-    {  
-        $modificar= "UPDATE Clientes SET Contrasena_Cliente='$contraseña' WHERE Nombre_Cliente='$usuario';";
-        $resultado=mysqli_query($conn,$modificar);
-        header("Location:restablecer.php?Nombre_Cliente=$usuario");
-    
-    }else{
-        echo "El usuario introducido no forma parte de la base de datos"; 
-        }
+        <?php
+        if(isset($_REQUEST['restablecer'])){
+            $usuario=$_REQUEST['Nombre_Cliente'];
+            $contraseña=$_REQUEST['Contrasena_Cliente'];
             
-}
+            $sql= "SELECT * FROM Clientes WHERE Nombre_Cliente ='$usuario';";
 
-else{
-?>
+            $resultado = mysqli_query($conn, $sql);
+            if(mysqli_num_rows($resultado)>0)
+            {  
+                $modificar= "UPDATE Clientes SET Contrasena_Cliente='$contraseña' WHERE Nombre_Cliente='$usuario';";
+                $resultado=mysqli_query($conn,$modificar);
+                header("Location:restablecer.php?Nombre_Cliente=$usuario");
+            
+            }else{
+                echo "El usuario introducido no forma parte de la base de datos"; 
+            }          
+        }
 
+        else{
+        
+        ?>
         <div id="contenedor">
             <div id="central">
                 <div id="login">
@@ -93,15 +90,14 @@ else{
                 </div>
             </div>
         </div>
-
         <?php
-    }
-?>
+            }
+        ?>
 
 <!-- PIE DE PAGINA -->
-<footer>
-Todos los derechos reservados | Coaching SL Copyright © 2024
-</footer>
+        <footer>
+        Todos los derechos reservados | Coaching SL Copyright © 2024
+        </footer>
 
     </body>
 </html>
