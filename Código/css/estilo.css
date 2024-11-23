@@ -403,3 +403,161 @@ footer p {
 
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
+ /*PAGO*/
+ /* General Styles 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}*/
+
+
+/* Fondo Pago */
+.Fondo_pago {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Información Especialista */
+.infoespecialista {
+    padding: 20px;
+    background-color: #a399b1;
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.infoespecialista .registro {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.infoespecialista .TIT {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.infoespecialista input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Mostrar Cuota */
+.MostrarCuota {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 10px;
+}
+
+/* Tarjeta de Pago */
+.TarPago {
+    padding: 20px;
+    background-color: #161b21;
+    border-radius: 10px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.TarPago .TituloPAGO {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.TarPago .metodoPAGO {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.TarPago .Tarjeta {
+    flex: 1;
+    padding: 15px;
+    background: linear-gradient(to right, rgb(113, 102, 238) 0%, rgba(70, 62, 111, 1) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.TarPago .Tarjeta:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, rgba(70, 62, 111, 1) 0%, rgba(113, 102, 238, 1) 100%);
+}
+
+/* Datos Cliente */
+.DatosCliente {
+    margin-top: 20px; /* Puedes ajustar este valor según sea necesario */
+    display: flex;
+    align-items: center; /* Centrado vertical */
+    flex-direction: column; /* Alinea los elementos en columna si hay varios */
+    background-color: rgb(238 238 239);
+}
+
+.DatosCliente label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.DatosCliente input {
+    
+    padding: 7px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+.DatosCliente input:focus {
+    outline: none;
+    border-color: #6666cc;
+}
+
+/* Botón Enviar */
+.button input[type="submit"] {
+    background-color: #242831;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 20px; /* Puedes ajustar este valor según sea necesario */
+    display: flex;
+    align-items: center; /* Centrado vertical */
+    flex-direction: column; /* Alinea los elementos en columna si hay varios */
+
+}
+
+.button input[type="submit"]:hover {
+    background-color: #161b21;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 20px;
+}

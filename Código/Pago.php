@@ -41,7 +41,7 @@
         
         $ins = "INSERT INTO pagos(Estado_Pago,Metodos_Pago,Fecha_Pago,Cantidad_Pago)
          VALUES ('$Estado_Pago', '$Metodos_Pago', '$Fecha_Pago', '$Cantidad_Pago')";
-        
+  		
         $recibido="SELECT C.Nombre_Cliente, C.Apellido_Cliente, C.DNI_Cliente, E.Nombre_Especialista, E.Cuota_Especialista
         FROM CLIENTES C
         JOIN CITAS CI ON C.ID_Cliente = CI.ID_Cliente_Cita
@@ -59,8 +59,7 @@
       else{ 
   ?>
   <div class="Fondo_pago">
-    <form id="Pago.php" action="Calendario.php" method="post">
-
+    <form id="Pago.php" action="ESPECIALISTA.php" method="post"><!--CAMBIAR DEPENDIENDO DE DONDE VENGA-->
         <div class="infoespecialista">
             <div class="registro">Especialista</div>
                 <div class="IzqInfo"></div>
@@ -77,9 +76,10 @@
                             <input type="number" id="Cuota_Especialista" name="Cuota_Especialista" class="caja" value='<?php echo $row['Cuota_Especialista']?>'>
                         </div>          
         </div> 
-        
+    </form>    
                  
-        <div class="TarPago"> 
+        <div class="TarPago">
+        <form id="PagoS.php" action="pago.php" method="post">
             <div class="TituloPAGO">Que método quieres</div>
                 <div class="metodoPAGO">
                     <button class="Tarjeta"> <!-- VISA -->
@@ -137,14 +137,14 @@
                     <div class="button">
                         <input type="submit" value="Enviar"> 
         </div>
-
+        </form> 
             <?php  
                 }
                 
       ?>
              
         </div>
-        </form>
+        
         
 
 
