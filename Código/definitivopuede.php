@@ -23,30 +23,30 @@
     <body>
 
 <!-- CONEXION -->
-<?php
-    session_start();
-    include("./GestionBD/1-conexion.php");
-?>
+        <?php
+            session_start();
+            include("./GestionBD/1-conexion.php");
+        ?>
 
 <!--CABECERA-->
-<section class="photo" id="inicio">
-        <div class="nav" id="sticker">
-            <label for="toggle">&#9776</label>
-            <input type="checkbox" id="toggle" />
-            <div class="menu">
-                <img src="IMG/logo.png" alt="" class="logo">
-                <a href=""><i class="fa fa-home">Inicio</i></a>
-                <a href=""><i class="fa fa-info">Como trabajar</i></a>
-                <a href=""><i class="fa fa-briefcase">Puesta en contacto</i></a>
-                <a href=""><i class="fa fa-address-book">Listado especialistas</i></a>
-                <a href=""><i class="fa fa-calendar-o">Calendario</i></a>
-            </div>
-        </div>
-        <div class="photo-text">
-            <h4 data-ix="skype">Coaching sl</h4>
-        </div>
-        <div class="overlay"></div>
-    </section>
+        <section class="photo" id="inicio">
+                <div class="nav" id="sticker">
+                    <label for="toggle">&#9776</label>
+                    <input type="checkbox" id="toggle" />
+                    <div class="menu">
+                        <img src="IMG/logo.png" alt="" class="logo">
+                        <a href=""><i class="fa fa-home">Inicio</i></a>
+                        <a href=""><i class="fa fa-info">Como trabajar</i></a>
+                        <a href=""><i class="fa fa-briefcase">Puesta en contacto</i></a>
+                        <a href=""><i class="fa fa-address-book">Listado especialistas</i></a>
+                        <a href=""><i class="fa fa-calendar">Calendario</i></a>
+                    </div>
+                </div>
+                <div class="photo-text">
+                    <h4 data-ix="skype">Coaching sl</h4>
+                </div>
+                <div class="overlay"></div>
+            </section>
 
 
         <!-- En este código relacionamos el usuario con la contraseña para que verifique si existe el usuario y coincide con la contraseña, 
@@ -54,49 +54,49 @@
     
 <!-- CODIGO -->
         <?php
-    if ($conn){/* HE AÑADIDO ESTO */
+        if ($conn){/* HE AÑADIDO ESTO */
 
-    if(isset($_REQUEST['Ingresar'])){
-        $DNI_Cliente=$_REQUEST['DNI_Cliente'];
-        $NumTelefono_Cliente=$_REQUEST['NumTelefono_Cliente'];
-        $Correo_Cliente=$_REQUEST['Correo_Cliente'];
-        $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
-        $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
-        $Contrasena_Cliente=$_REQUEST['Contrasena_Cliente']; 
-        $FechaNacimiento_Cliente=$_REQUEST['FechaNacimiento_Cliente'];
-        $NombreVia_Cliente=$_REQUEST['NombreVia_Cliente'];
-        $NumeroVia_Cliente=$_REQUEST['NumeroVia_Cliente'];
-        $TipoVia_Cliente=$_REQUEST['TipoVia_Cliente'];
+        if(isset($_REQUEST['Ingresar'])){
+            $DNI_Cliente=$_REQUEST['DNI_Cliente'];
+            $NumTelefono_Cliente=$_REQUEST['NumTelefono_Cliente'];
+            $Correo_Cliente=$_REQUEST['Correo_Cliente'];
+            $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
+            $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
+            $Contrasena_Cliente=$_REQUEST['Contrasena_Cliente']; 
+            $FechaNacimiento_Cliente=$_REQUEST['FechaNacimiento_Cliente'];
+            $NombreVia_Cliente=$_REQUEST['NombreVia_Cliente'];
+            $NumeroVia_Cliente=$_REQUEST['NumeroVia_Cliente'];
+            $TipoVia_Cliente=$_REQUEST['TipoVia_Cliente'];
 
-        $de= "INSERT INTO CLIENTES (DNI_Cliente, NumTelefono_Cliente, Correo_Cliente, Nombre_Cliente, Apellido_Cliente, Contrasena_Cliente, FechaNacimiento_Cliente,NombreVia_Cliente,NumeroVia_Cliente,TipoVia_Cliente)
-        VALUES ('$DNI_Cliente','$NumTelefono_Cliente', '$Correo_Cliente', $Nombre_Cliente, '$Apellido_Cliente', '$Contrasena_Cliente', ' $FechaNacimiento_Cliente', '$NombreVia_Cliente','$NumeroVia_Cliente','$TipoVia_Cliente';";
-    
-         $pagos = "$Nombre_Cliente,$Apellido_Cliente,$DNI_Cliente"; 
+            $de= "INSERT INTO CLIENTES (DNI_Cliente, NumTelefono_Cliente, Correo_Cliente, Nombre_Cliente, Apellido_Cliente, Contrasena_Cliente, FechaNacimiento_Cliente,NombreVia_Cliente,NumeroVia_Cliente,TipoVia_Cliente)
+            VALUES ('$DNI_Cliente','$NumTelefono_Cliente', '$Correo_Cliente', $Nombre_Cliente, '$Apellido_Cliente', '$Contrasena_Cliente', ' $FechaNacimiento_Cliente', '$NombreVia_Cliente','$NumeroVia_Cliente','$TipoVia_Cliente';";
         
-        
-         if (mysqli_query($conn,$de))
-         {
-            header("Location:Pago.php?ID_Cliente=$ID_Cliente");
-         
-         }  else{
-             echo "Error:  "   . $sql . "<br>" . mysqli_error($conn);
-            }
-
-            if (mysqli_query($conn,$de)){
-                header("Location:Inicio.php?Nombre_Cliente=$Nombre_Cliente");
-                /*Los campos de $https://www.citapreviadnie.es/citaPreviaDni/MantenimientoPagos.actionNombre_Cliente $apellidos $Fecha_Nac $telefono $telefono $email $contraseña se han añadido correctamente*/
-                   
+            $pagos = "$Nombre_Cliente,$Apellido_Cliente,$DNI_Cliente"; 
+            
+            
+            if (mysqli_query($conn,$de))
+            {
+                header("Location:Pago.php?ID_Cliente=$ID_Cliente");
+            
+            }  else{
+                echo "Error:  "   . $sql . "<br>" . mysqli_error($conn);
                 }
-                else {
-                    echo "Error:  "   . $de . "<br>" . mysqli_error($conn);
+
+                if (mysqli_query($conn,$de)){
+                    header("Location:Inicio.php?Nombre_Cliente=$Nombre_Cliente");
+                    /*Los campos de $https://www.citapreviadnie.es/citaPreviaDni/MantenimientoPagos.actionNombre_Cliente $apellidos $Fecha_Nac $telefono $telefono $email $contraseña se han añadido correctamente*/
                     
-                    /* PORÍA AÑADIR ESTO, 
-                    echo "ERROR:".mysqli_error($conn);
-                    echo "ERROR:".mysqli_error($de); */
-                }
-            }   
-        else{
-    ?>
+                    }
+                    else {
+                        echo "Error:  "   . $de . "<br>" . mysqli_error($conn);
+                        
+                        /* PORÍA AÑADIR ESTO, 
+                        echo "ERROR:".mysqli_error($conn);
+                        echo "ERROR:".mysqli_error($de); */
+                    }
+                }   
+            else{
+        ?>
     <h2></h2>
     <div class="container" id="container">
         <div class="form-container sign-up-container">

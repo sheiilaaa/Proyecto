@@ -21,80 +21,77 @@
     
     <body >
 <!-- CONEXION -->
-<?php
-    session_start();
-    include("./GestionBD/1-conexion.php");
-?>
+        <?php
+            session_start();
+            include("./GestionBD/1-conexion.php");
+        ?>
 
 <!--CABECERA-->
-    <section class="photo" id="inicio">
-        <div class="nav" id="sticker">
-            <label for="toggle">&#9776</label>
-            <input type="checkbox" id="toggle" />
-            <div class="menu">
-                <img src="IMG/logo.png" alt="" class="logo">
-                <a href=""><i class="fa fa-home"> Inicio</i></a>
-                <a href=""><i class="fa fa-info"> Como trabajar</i></a>
-                <a href=""><i class="fa fa-briefcase"> Puesta en contacto</i></a>
-                <a href=""><i class="fa fa-address-book"> Listado especialistas</i></a>
-                <a href=""><i class="fa fa-calendar-o">Calendario</i></a>
+        <section class="photo" id="inicio">
+            <div class="nav" id="sticker">
+                <label for="toggle">&#9776</label>
+                <input type="checkbox" id="toggle" />
+                <div class="menu">
+                    <img src="IMG/logo.png" alt="" class="logo">
+                    <a href=""><i class="fa fa-home"> Inicio</i></a>
+                    <a href=""><i class="fa fa-info"> Como trabajar</i></a>
+                    <a href=""><i class="fa fa-briefcase"> Puesta en contacto</i></a>
+                    <a href=""><i class="fa fa-address-book"> Listado especialistas</i></a>
+                    <a href=""><i class="fa fa-calendar">Calendario</i></a>
+                </div>
             </div>
-        </div>
-        <div class="photo-text">
-            <h4 data-ix="skype">Coaching sl</h4>
-        </div>
-        <div class="overlay"></div>
-    </section>
+            <div class="photo-text">
+                <h4 data-ix="skype">Coaching sl</h4>
+            </div>
+            <div class="overlay"></div>
+        </section>
 
-    <?php
-    if(isset($_REQUEST['Eliminar'])){
-        $ID_Especialista=$_REQUEST['ID_Especialista'];
-        $DNI_Especialista=$_REQUEST['DNI_Especialista'];
-        $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
-        $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
-        $FechaNacimiento_Especialista=$_REQUEST['FechaNacimiento_Especialista'];
+        <?php
+        if(isset($_REQUEST['Eliminar'])){
+            $ID_Especialista=$_REQUEST['ID_Especialista'];
+            $DNI_Especialista=$_REQUEST['DNI_Especialista'];
+            $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
+            $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
+            $FechaNacimiento_Especialista=$_REQUEST['FechaNacimiento_Especialista'];
 
-        $NumTelefono_Especialista=$_REQUEST['NumTelefono_Especialista'];
-        $Correo_Especialista=$_REQUEST['Correo_Especialista'];
+            $NumTelefono_Especialista=$_REQUEST['NumTelefono_Especialista'];
+            $Correo_Especialista=$_REQUEST['Correo_Especialista'];
 
-        $TipoVia_Especialista=$_REQUEST['TipoVia_Especialista'];
-        $NombreVia_Especialista=$_REQUEST['NombreVia_Especialista'];
-        $NumeroVia_Especialista=$_REQUEST['NumeroVia_Especialista'];
-        
-        $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
-        $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
-        
-        $Contrasena_Especialista=$_REQUEST['Contrasena_Especialista']; 
+            $TipoVia_Especialista=$_REQUEST['TipoVia_Especialista'];
+            $NombreVia_Especialista=$_REQUEST['NombreVia_Especialista'];
+            $NumeroVia_Especialista=$_REQUEST['NumeroVia_Especialista'];
+            
+            $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
+            $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
+            
+            $Contrasena_Especialista=$_REQUEST['Contrasena_Especialista']; 
 
-        $Eliminar="DELETE FROM Especialistas WHERE ID_Especialista =$ID_Especialista";
+            $Eliminar="DELETE FROM Especialistas WHERE ID_Especialista =$ID_Especialista";
 
-            if (mysqli_query($conn,$Eliminar))
-                {
-                    header("Location:ConfEliminarEspe.php");
+                if (mysqli_query($conn,$Eliminar))
+                    {
+                        header("Location:ConfEliminarEspe.php");
+                    }
+                else{
+                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
-            else{
-                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             }
-        }
 
-    if (isset($_REQUEST['ID_Especialista'])){
-        
-        $ID_Especialista=$_REQUEST['ID_Especialista'];
+        if (isset($_REQUEST['ID_Especialista'])){
+            
+            $ID_Especialista=$_REQUEST['ID_Especialista'];
 
-        $sql="SELECT * FROM especialistas WHERE ID_Especialista= $ID_Especialista;";
-        $resultado=mysql_query($conn,$sql);
+            $sql="SELECT * FROM especialistas WHERE ID_Especialista= $ID_Especialista;";
+            $resultado=mysql_query($conn,$sql);
 
-        if(mysqli_num_rows($resultado)>0)
-        {
-?>
-<div id="contenedor">
-    <div id="central">
-        <div id="login">
-            <div class="titulo">
-                ¡Bienvenido admin!
-            </div>
-            <form id="EliminarArticulos" action="ConfEliminarEspe.php" method="post">
-
+            if(mysqli_num_rows($resultado)>0)
+            {
+        ?>
+        <div id="contenedor">
+            <div id="central">
+                <div id="login">
+                    <div class="titulo">¡Bienvenido admin!</div>
+                    <form id="EliminarArticulos" action="ConfEliminarEspe.php" method="post">
                         <label for="id_Articulo">ID:</label>
                         <input type="text" id="id_Articulo" name="id_Articulo" class="caja" value='<?php echo $row['ID_Especialista']?>'>
 
@@ -133,29 +130,26 @@
                         
                         <label for="Contrasena_Especialista">Contraseña:</label>
                         <input type="password" name="Contrasena_Especialista" id="Contrasena_Especialista" class="caja"required placeholder="Contrasena" value='<?php echo $row['Contrasena_Especialista']?>'>
-
-
-                <button type="submit" title="Eliminar" name="Eliminar">Eliminar</button>
-            </form>
-
-            <div class="pie-form">
-                <a href="ListadoEspecialistas.php">Volver</a>
-            </div>
+                        <button type="submit" title="Eliminar" name="Eliminar">Eliminar</button>
+                    </form>
+                    <div class="pie-form">
+                        <a href="ListadoEspecialistas.php">Volver</a>
+                    </div>
+                </div>
+            </div>    
         </div>
-    </div>    
-</div>
 
-<?php
-        }else{
-            echo "Especialisya no encontrado: " . $sql . "<br>" .mysqli_error($conn);
-        }
-    }
-?>
+        <?php
+                }else{
+                    echo "Especialisya no encontrado: " . $sql . "<br>" .mysqli_error($conn);
+                }
+            }
+        ?>
 
 <!-- PIE DE PAGINA -->
-    <footer>
-        Todos los derechos reservados | Coaching SL Copyright © 2024
-    </footer>
+        <footer>
+            Todos los derechos reservados | Coaching SL Copyright © 2024
+        </footer>
 
-</body>
+    </body>
 </html>

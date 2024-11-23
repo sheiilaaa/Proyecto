@@ -24,93 +24,88 @@
 
   <body class="fondo"> <!-- Falta comprobar-->
 <!--CONEXIÓN-->
-<?php
-    session_start();
-    include("./GestionBD/1-conexion.php");
-?>
+    <?php
+        session_start();
+        include("./GestionBD/1-conexion.php");
+    ?>
 
 <!--CABECERA-->
-<!--
-  <section class="photo" id="inicio">
-        <div class="nav" id="sticker">
-            <label for="toggle">&#9776</label>
-            <input type="checkbox" id="toggle" />
-            <div class="menu">
-                <img src="IMG/logo.png" alt="" class="logo">
-                <a href=""><i class="fa fa-home"> Inicio</i></a>
-                <a href=""><i class="fa fa-info"> Como trabajar</i></a>
-                <a href=""><i class="fa fa-briefcase"> Puesta en contacto</i></a>
-                <a href=""><i class="fa fa-address-book"> Listado especialistas</i></a>
-                <a href=""><i class="fa fa-calendar-o">Calendario</i></a>
-            </div>
-        </div>
-        <div class="photo-text">
-            <h4 data-ix="skype">Coaching sl</h4>
-        </div>
-        <div class="overlay"></div>
-    </section>
-
--->
+    <section class="photo" id="inicio">
+          <div class="nav" id="sticker">
+              <label for="toggle">&#9776</label>
+              <input type="checkbox" id="toggle" />
+              <div class="menu">
+                  <img src="IMG/logo.png" alt="" class="logo">
+                  <a href=""><i class="fa fa-home"> Inicio</i></a>
+                  <a href=""><i class="fa fa-info"> Como trabajar</i></a>
+                  <a href=""><i class="fa fa-briefcase"> Puesta en contacto</i></a>
+                  <a href=""><i class="fa fa-address-book"> Listado especialistas</i></a>
+                  <a href=""><i class="fa fa-calendar">Calendario</i></a>
+              </div>
+          </div>
+          <div class="photo-text">
+              <h4 data-ix="skype">Coaching sl</h4>
+          </div>
+          <div class="overlay"></div>
+      </section>
 
 
 <!-- Listado de especialistas -->
-
     <!-- Link hacia las librerias jsp de bootstrap -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-<div class="titulos"> Listado de especialistas </div>
-<div id="fondo_listado">
+    <div class="titulos"> Listado de especialistas </div>
+    <div id="fondo_listado">
     <?php
 
-      /* JOIN */
-      $sql="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista
-              FROM ESPECIALISTAS E
-              JOIN ESPECIALISTA_ESPECIALIDAD EE ON E.ID_Especialista = EE.ID_Especialista_EspeEspe
-              JOIN ESPECIALIDAD ES ON ES.ID_Especialista = E.ID_Especialidad_EspeEspe";
+    /* JOIN */
+    $sql="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista
+            FROM ESPECIALISTAS E
+            JOIN ESPECIALISTA_ESPECIALIDAD EE ON E.ID_Especialista = EE.ID_Especialista_EspeEspe
+            JOIN ESPECIALIDAD ES ON ES.ID_Especialista = E.ID_Especialidad_EspeEspe";
 
-      $sql1="SELECT DE.Fecha_Disponibilidad, DE.Hora_Disponibilidad, DE.Disponibilidad_Especialista
-              FROM DISPONIBILIDAD_ESPECIALISTA DE
-              JOIN ESPECIALISTAS E ON E.ID_Especialista = DE.ID_Especialista_DispoEspe";
+    $sql1="SELECT DE.Fecha_Disponibilidad, DE.Hora_Disponibilidad, DE.Disponibilidad_Especialista
+            FROM DISPONIBILIDAD_ESPECIALISTA DE
+            JOIN ESPECIALISTAS E ON E.ID_Especialista = DE.ID_Especialista_DispoEspe";
 
 
-     /* $sql="SELECT * FROM ESPECIALISTAS";  */
-      $result = mysqli_query($conn,$sql);
-      $result1 = mysqli_query($conn,$sql1);
+    /* $sql="SELECT * FROM ESPECIALISTAS";  */
+    $result = mysqli_query($conn,$sql);
+    $result1 = mysqli_query($conn,$sql1);
 
-      if (mysqli_num_rows($result)>0){ //Si encuentra resultados
-      while($row = mysqli_fetch_assoc($result)){
-        
+    if (mysqli_num_rows($result)>0){ //Si encuentra resultados
+    while($row = mysqli_fetch_assoc($result)){
     ?>
+    
     <div>
-      <!-- <div class="card" style="width: 18rem; margin: 10px;">
+      <div class="card" style="width: 18rem; margin: 10px;"><!--
         <img src="  <?php   /* echo $row['Foto']  */   ?>" class="card-img-top" alt="img3">
       -->
-
-        <div class="card-body">
-          <h5 class="card-title">Nombre: <?php echo $row['Nombre_Especialista']?> <?php echo $row['Apellido_Especialista']?></h5>
-          <p class="card-text">Especialidades: <?php echo $row['Especialidad_Especialista']?></p> <!-- Como se hace-->
-          <p class="card-text">Cuota: <?php echo $row['Cuota_Especialista']?><label name="Precio4"></label></p>
-          <p class="card-text">Disponibilidad: <?php echo $row['Disponibilidad_Especialista']?></p> <!-- Como se hace-->
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-              <input type="button" id="cantidad4" name="Añadir4" class="boton" value="Pedir Cita"> 
-            <?php
-              if ($_SESSION['usuario']== "Admin"){  //Debe ser NOMBRECLIENTE O QUE?
-                //Si el usuario es Admin
-            ?>
-            <!--- enclaces para modificar o eliminar cada articulo --->
-              <a href="ModificarEspecialista.php?id=<?php $row['ID_Especialista']?>"> Modificar </a> 
-                <br>
-              <a href="EliminarEspecialista.php?id=<?php $row['ID_Especialista']?>"> Eliminar </a>
-                <br>
+          <div class="card-body">
+            <h5 class="card-title">Nombre: <?php echo $row['Nombre_Especialista']?> <?php echo $row['Apellido_Especialista']?></h5>
+            <p class="card-text">Especialidades: <?php echo $row['Especialidad_Especialista']?></p> <!-- Como se hace-->
+            <p class="card-text">Cuota: <?php echo $row['Cuota_Especialista']?><label name="Precio4"></label></p>
+            <p class="card-text">Disponibilidad: <?php echo $row['Disponibilidad_Especialista']?></p> <!-- Como se hace-->
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <input type="button" id="cantidad4" name="Añadir4" class="boton" value="Pedir Cita"> 
               <?php
-                }
+                if ($_SESSION['usuario']== "Admin"){  //Debe ser NOMBRECLIENTE O QUE?
+                  //Si el usuario es Admin
               ?>
-            </li>
-        </ul>
-      </div>
-  </div>
+              <!--- enclaces para modificar o eliminar cada articulo --->
+                <a href="ModificarEspecialista.php?id=<?php $row['ID_Especialista']?>"> Modificar </a> 
+                  <br>
+                <a href="EliminarEspecialista.php?id=<?php $row['ID_Especialista']?>"> Eliminar </a>
+                  <br>
+                <?php
+                  }
+                ?>
+              </li>
+          </ul>
+        </div>
+    </div>
 
 
 

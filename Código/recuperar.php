@@ -40,7 +40,7 @@
                 <a href=""><i class="fa fa-info"> Como trabajar</i></a>
                 <a href=""><i class="fa fa-briefcase"> Puesta en contacto</i></a>
                 <a href=""><i class="fa fa-address-book"> Listado especialistas</i></a>
-                <a href=""><i class="fa fa-calendar-o">Calendario</i></a>
+                <a href=""><i class="fa fa-calendar">Calendario</i></a>
             </div>
         </div>
         <div class="photo-text">
