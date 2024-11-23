@@ -16,9 +16,11 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
         
-        <!-- Link hacia el archivo de estilos css -->
-        <link rel="stylesheet" href="css/estilo.css">
-        
+    <!-- Link hacia el archivo de estilos css -->
+    <link rel="stylesheet" href="css/estilo.css">
+    <!-- Link para que funcionen los FA FA -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     </head>
    
 <body>        
