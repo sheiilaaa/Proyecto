@@ -76,6 +76,9 @@
             $ID_Especialista=$_REQUEST['ID_Especialista'];
 
             $sql="SELECT * FROM especialistas WHERE ID_Especialista= $ID_Especialista;";
+
+/* HACER CONTROL AQUI DE SI EXISTE O NO LA ESPECIALIDAD*/
+
             $resultado=mysql_query($conn,$sql);
             
             if(mysqli_num_rows($resultado)>0)
