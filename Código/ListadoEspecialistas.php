@@ -84,11 +84,11 @@
                     <p class="card-text">Disponibilidad: <?php echo $row['Disponibilidad_Especialista']?></p> <!-- Como se hace-->
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <input type="button" id="cantidad4" name="Añadir4" class="boton" value="Pedir Cita"> 
+                  <li class="list-group-item">
+                    <input type="button" id="cantidad4" name="Añadir4" class="boton" value="Pedir Cita"> 
                     <?php
-                        if ($_SESSION['usuario']== "Admin"){  //Debe ser NOMBRECLIENTE O QUE?
-                        //Si el usuario es Admin
+                      if ($_SESSION['usuario']== "Admin"){  //Debe ser NOMBRECLIENTE O QUE?
+                      //Si el usuario es Admin
                     ?>
                     <!--- enclaces para modificar o eliminar cada articulo --->
                     <a href="ModificarEspecialista.php?id=<?php $row['ID_Especialista']?>"> Modificar </a> 
@@ -98,7 +98,7 @@
                     <?php
                     }
                     ?>
-                    </li>
+                  </li>
                 </ul>
                 </div>
             </div>

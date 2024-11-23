@@ -210,7 +210,7 @@
                 </div> <!-- CENTRAL -->
             </div> <!-- CONTENEDOR-->
         <?php
-            }  
+        }  
         ?>
 
 <!-- PIE DE PAGINA -->
