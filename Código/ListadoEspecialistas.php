@@ -68,7 +68,8 @@ include("./GestionBD/1-conexion.php");
                 $row = mysqli_fetch_assoc($result); // Avanzar a la siguiente fila
             }
             echo '</ul>';
-            echo '<input type="button" id="cantidad4" name="Añadir4" class="boton" value="Pedir Cita">';
+            echo '<a href="PedirCita.php"><input type="button" id="cantidad4" name="Añadir4" class="boton" value="Pedir Cita"></a>';
+
             /*if ($_SESSION['usuario'] == "Admin") { // Si es Admin, mostrar opciones adicionales
                 echo '<br><a href="ModificarEspecialista.php?id='.$Esp_Anterior.'">Modificar</a>';
                 echo '<br><a href="EliminarEspecialista.php?id='.$Esp_Anterior.'">Eliminar</a>';

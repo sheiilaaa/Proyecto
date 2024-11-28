@@ -126,6 +126,12 @@
                 TipoVia_Especialista, NombreVia_Especialista, NumeroVia_Especialista, CuentaBancaria_Especialista, Cuota_Especialista, Contrasena_Especialista)
                 VALUES ('$DNI_Especialista','$Nombre_Especialista', '$Apellido_Especialista','$FechaNacimiento_Especialista', '$NumTelefono_Especialista', '$Correo_Especialista', '$TipoVia_Especialista', 
                 '$NombreVia_Especialista','$NumeroVia_Especialista','$CuentaBancaria_Especialista','$Cuota_Especialista','$Contrasena_Especialista';";
+
+                SELECT id_especialista from especialistas WHERE dni=$dni_especialista
+
+                $row=id
+
+                INSERT into disponibilidad where 
                                                             
             $info= "$Nombre_Especialista,$Apellido_Especialista,$Cuota_Especialista";
             $id= "SELECT `ID_Especialista` FROM `especialistas` WHERE Nombre_Especialista='$Nombre_Especialista';";
@@ -196,7 +202,58 @@
                             <label for="Contrasena_Especialista">Contraseña:</label>
                             <input type="password" name="Contrasena_Especialista" id="Contrasena_Especialista" class="caja"required placeholder="Escribe tu contraseña">
 
-                            <a href="DisponibilidadEspecialista.php?id=<?php $row['ID_Especialista']?>"> Registrar Especialidad</a> 
+
+                            <fieldset>
+                <legend>Disponibilidad Diaria</legend>
+                <input type="checkbox" id="Fecha_Dispo" value="Lunes">
+                    <label for="Fecha_Dispo">Lunes</label>
+
+                <input type="checkbox" id="Fecha_Dispo" value="Martes">
+                    <label for="Fecha_Dispo">Martes</label>
+
+                <input type="checkbox" id="Fecha_Dispo" value="Miércoles">
+                    <label for="Fecha_Dispo">Miércoles</label>
+                   
+                <input type="checkbox" id="Fecha_Dispo" value="Jueves">
+                    <label for="Fecha_Dispo">Jueves</label>
+                
+                <input type="checkbox" id="Fecha_Dispo" value="Viernes">
+                    <label for="Fecha_Dispo">Viernes</label>
+                          
+            </fieldset>
+            
+            <fieldset>
+                <legend>Horario Laboral</legend>
+                    <input type="checkbox" id="Hora_Dispo" value="8:00-9:00">
+                        <label for="Hora_Dispo">8:00-9:00</label>
+                        
+                    <input type="checkbox" id="Hora_Dispo" value="9:00-10:00">
+                        <label for="Hora_Dispo">9:00-10:00</label>
+
+                    <input type="checkbox" id="Hora_Dispo" value="10:00-11:00">
+                        <label for="Hora_Dispo">10:00-11:00</label>
+
+                    <input type="checkbox" id="Hora_Dispo" value="11:00-12:00">
+                        <label for="Hora_Dispo">11:00-12:00</label>
+                        
+                    <input type="checkbox" id="Hora_Dispo" value="15:00-16:00">
+                        <label for="Hora_Dispo">15:00-16:00</label>
+
+                    <input type="checkbox" id="Hora_Dispo" value="16:00-17:00">
+                        <label for="Hora_Dispo">16:00-17:00</label>
+
+                    <input type="checkbox" id="Hora_Dispo" value="17:00-18:00">
+                        <label for="Hora_Dispo">17:00-18:00</label>
+
+                    <input type="checkbox" id="Hora_Dispo" value="18:00-19:00">
+                        <label for="Hora_Dispo">18:00-19:00</label>
+
+                    <input type="checkbox" id="Hora_Dispo" value="19:00-20:00">
+                        <label for="Hora_Dispo">19:00-20:00</label>
+                        
+                    <input type="checkbox" id="Hora_Dispo" value="20:00-21:00">
+                        <label for="Hora_Dispo">20:00-21:00</label>
+            </fieldset>
                             
                             <button type="submit" title="AltaEspecialista" name="AltaEspecialista">Alta Especialista</button>
                               
