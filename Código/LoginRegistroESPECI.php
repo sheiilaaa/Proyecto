@@ -196,7 +196,8 @@
                             <label for="Contrasena_Especialista">Contraseña:</label>
                             <input type="password" name="Contrasena_Especialista" id="Contrasena_Especialista" class="caja"required placeholder="Escribe tu contraseña">
 
-                            <a href="ModificarEspecialista.php?id=<?php $row['ID_Especialista']?>"> Modificar </a> 
+                            <a href="DisponibilidadEspecialista.php?id=<?php $row['ID_Especialista']?>"> Registrar Especialidad</a> 
+                            
                             <button type="submit" title="AltaEspecialista" name="AltaEspecialista">Alta Especialista</button>
                               
                         </form>
