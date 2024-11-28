@@ -72,6 +72,24 @@
 
             if (mysqli_num_rows($result)>0){ //Si encuentra resultados
             while($row = mysqli_fetch_assoc($result)){
+                $Final = 0
+            $row = mysqli_fetch_assoc($result)
+                while($Final<= $result) /*1. controlo que el especialista anetrior sea igual que el actual, por lo que se que esa especilidad es de ese especialista*/
+                $Esp_Anterior = $row[ESPECIALISTAS]
+                <div>
+                ESPECIALISTAS.value = $row[ESPECIALISTAS]
+                    $i=1
+                while $Esp_Anterior == $row[ESPECIALISTAS]
+                {
+                    ESPECIALIDADi.value = $row[ESPECIALIDAD]
+                    $Final++
+                    $i++
+                    $row = mysqli_fetch_assoc($result) /*con esto salto de línea*/
+                }
+                </div>
+                                
+
+                                        /*2. que muestre todas las especialidades*/
             ?>
         
             <div>
@@ -114,7 +132,8 @@
                 
                 }
             }
-            ?>      
+            ?> 
+             
         </div> <!--- cierra div--->       
 
 <!-- PIE DE PAGINA -->
