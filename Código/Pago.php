@@ -14,6 +14,13 @@
 
     <body>
 
+<!-- CONEXION -->
+        <?php
+            session_start();
+            include("./GestionBD/1-conexion.php");
+        ?>
+<!--CABECERA-->
+
 <!--CABECERA-->
         <section class="photo" id="inicio">
             <div class="nav" id="sticker">
@@ -36,8 +43,7 @@
 
 <!-- CODIGO -->        
         <?php
-        session_start();
-        include("./GestionBD/1-conexion.php");
+
 
         if(isset($_REQUEST['Registro'])){
             $Estado_Pago=$_REQUEST['Estado_Pago']; 
