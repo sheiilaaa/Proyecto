@@ -73,7 +73,7 @@ CREATE TABLE ESPECIALIDAD(
 	ID_Especialidad INT AUTO_INCREMENT PRIMARY KEY,
 	Especialidad_Especialista ENUM ('Coaching Empresarial','Coaching Personal','Coaching con Inteligencia Emocional',
 									'Coaching Deportivo','Coaching Ontológico','Coaching Cognitivo',
-                                    'Coaching PNL (Programación Neurolingüística)','Coaching Coercitivo') UNIQUE
+                                    'Coaching PNL (Programación Neurolingüística)','Coaching Coercitivo')
 	/*Claves Foráneas*/
 );
 
