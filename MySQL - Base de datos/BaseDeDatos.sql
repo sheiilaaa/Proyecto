@@ -92,10 +92,7 @@ CREATE TABLE DISPONIBILIDAD_ESPECIALISTA(
     '19:00-20:00','20:00-21:00'),
 
 	/*Claves Foráneas*/
-	ID_Especialista_DispoEspe INT,
-
-	/*Primary key*/
-	PRIMARY KEY (Fecha_Disponibilidad, Hora_Disponibilidad, ID_Especialista_DispoEspe)
+	ID_Especialista_DispoEspe INT
 );
 
 /*RELACIONES*/
