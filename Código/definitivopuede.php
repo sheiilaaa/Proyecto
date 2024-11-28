@@ -23,10 +23,10 @@
     <body>
 
 <!-- CONEXION -->
-        <?php
-            session_start();
-            include("./GestionBD/1-conexion.php");
-        ?>
+    <?php
+    session_start();
+    include("./GestionBD/1-conexion.php");
+    ?>
 
 <!--CABECERA-->
         <section class="photo" id="inicio">

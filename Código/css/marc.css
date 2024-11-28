@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*, *:before, *:after {
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+body{
+    background: #bdc3c7;
+    line-height: 1.5;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+#header{
+    background: #b1d6f0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+#header::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+.logo{
+    float: left;
+    padding: 20px 0 15px;
+}
+.logo img{
+    width: 10%;
+    margin-left: 30px;
+}
+nav{
+    float: right;
+}
+nav>ul{
+    float: left;
+    position: relative;
+}
+nav li{
+    list-style: none;
+    float: left;
+}
+nav li a{
+    float: left;
+    padding: 35px;
+}
+nav li a:hover{
+    background: #2C3E50;
+    color: white;
+}
+nav li ul{
+    display: none;
+}
+nav li:hover ul{
+    display: inline;
+}
+nav li li{
+    float: none;
+}
+nav li li a{
+    float: none;
+    color: #333;
+    display: block;
+    padding: 8px 10px;
+    border-radius:3px;
+    font-size: 13px;
+}
+nav li li a:hover{
+    background: #bdc3c7; 
+    background: #FAFBFB;
+}
+.container {
+    background-image: url('https://images.unsplash.com/photo-1505635552518-3448ff116af3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGRhcmt8ZW58MHx8MHx8fDA%3D');
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    max-width: 100%;
+    overflow: hidden;
+
+    /* Ajuste dinámico */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column; /* Alinea el contenido en columna */
+    justify-content: center; /* Centra verticalmente el contenido dentro del contenedor */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto; /* Asegura que el formulario ajuste su altura según el contenido */
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s;
+    color: #FFFFFF;
+}
+
+.tab-button.active {
+    color: #FFFFFF;
+    border-bottom: 2px solid #FFFFFF;
+}
+
+.tab-content {
+    display: none;
+    height: calc(100% - 50px); 
+}
+
+.tab-content.active {
+    display: flex; 
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+form h2 {
+    margin-bottom: 20px;
+    color: #FFFFFF;
+    border-bottom: 1px solid white;
+}
+
+form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 14px;
+}
+
+form input:focus {
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+}
+
+form button {
+    padding: 10px;
+    border: none;
+    border-radius: 14px;
+    background-color: #FFFFFF;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+form button:hover {
+    background-color: #000000; 
+    color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                 0 0 20px rgba(255, 255, 255, 0.6), 
+                 0 0 30px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                0 0 20px rgba(255, 255, 255, 0.6), 
+                0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+
