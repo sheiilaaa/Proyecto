@@ -86,13 +86,14 @@ CREATE TABLE PAGOS(
 );
 
 CREATE TABLE DISPONIBILIDAD_ESPECIALISTA(
-	Fecha_Disponibilidad DATE,
-	Hora_Disponibilidad TIME,
-	Disponibilidad_Especialista ENUM('SI','NO') NOT NULL,
-    
+	ID_Dispo INT AUTO_INCREMENT PRIMARY KEY,
+    Fecha_Dispo ENUM ('Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'),
+	Hora_Dispo ENUM ('8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','15:00-16:00','16:00-17:00','17:00-18:00','18:00-19:00',
+    '19:00-20:00','20:00-21:00'),
+
 	/*Claves Foráneas*/
 	ID_Especialista_DispoEspe INT,
-    
+
 	/*Primary key*/
 	PRIMARY KEY (Fecha_Disponibilidad, Hora_Disponibilidad, ID_Especialista_DispoEspe)
 );
