@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
 
         <!-- Link hacia el archivo de estilos css -->
@@ -22,10 +22,11 @@
 
 if(isset($_REQUEST['Ingresar2'])){
     $Fecha_Dispo=$_REQUEST['Fecha_Dispo'];
-    $Hora_Dispo=$_REQUEST['NumTelefono_Especialista'];
+    $Hora_Dispo=$_REQUEST['Hora_Inicio'];
+   
     
-    $Disp= "INSERT INTO DISPONIBILIDAD_ESPECIALISTA(Fecha_Dispo, NumTelefono_Especialista)
-        VALUES ('$Fecha_Dispo','$NumTelefono_Especialista';";
+    $Disp= "INSERT INTO DISPONIBILIDAD_ESPECIALISTA(Fecha_Dispo, Hora_Dispo)
+        VALUES ('$Fecha_Dispo','$Hora_Dispo';";
                                                     
     if (mysqli_query($conn,$Disp))
     {
@@ -39,33 +40,7 @@ if(isset($_REQUEST['Ingresar2'])){
 
 }else{
     ?>
-    <form action="mensaje final.html" method="get">
-        <br>
-        <fieldset>
-            <legend>Metodo de pago</legend>
-
-            <select name="Metodo de pago" id="user">
-                <optgroup label="Tarjeta">
-                    <option value="VISA">VISA</option>
-                    <option value="MasterCard">MasterCard</option>
-                    <option value="American Express">American Express</option>
-                </optgroup>
-                <optgroup label="Pasarela de Pago">
-                    <option value="PayPal">PayPal</option>
-                    <option value="Strype">Strype</option>
-                    <option value="Global Payment">Global Payment</option>
-                </optgroup>
-            </select>
-        </fieldset>
-     
-        <br>
-        <input type="checkbox" name="user"  value="Acepto los terminos de la página" required>
-        <label for="user">Acepto los terminos de la página</label>
-        <br>
-        <div class="button">
-            <input type="submit" value="Enviar">
-        </div>
-    </form>
+    <form action=""method="get">
 
     <div id="contenedor">
             <div class="central">
@@ -80,45 +55,68 @@ if(isset($_REQUEST['Ingresar2'])){
 
                 </div>
             <fieldset>
-                <legend>Lunes</legend>
+                <legend>Disponibilidad Diaria</legend>
+                <input type="checkbox" id="Fecha_Dispo" value="Lunes">
+                    <label for="Fecha_Dispo">Lunes</label>
 
-                    <input type="radio" name="Hora_Dispo" value="8:00-9:00">
+                <input type="checkbox" id="Fecha_Dispo" value="Martes">
+                    <label for="Fecha_Dispo">Martes</label>
+
+                <input type="checkbox" id="Fecha_Dispo" value="Miércoles">
+                    <label for="Fecha_Dispo">Miércoles</label>
+                   
+                <input type="checkbox" id="Fecha_Dispo" value="Jueves">
+                    <label for="Fecha_Dispo">Jueves</label>
+                
+                <input type="checkbox" id="Fecha_Dispo" value="Viernes">
+                    <label for="Fecha_Dispo">Viernes</label>
+                          
+            </fieldset>
+            
+            <fieldset>
+                <legend>Horario Laboral</legend>
+                    <input type="checkbox" id="Hora_Dispo" value="8:00-9:00">
                         <label for="Hora_Dispo">8:00-9:00</label>
                         
-                    <input type="radio" name="Hora_Dispo" value="9:00-10:00">
+                    <input type="checkbox" id="Hora_Dispo" value="9:00-10:00">
                         <label for="Hora_Dispo">9:00-10:00</label>
 
-                    <input type="radio" name="Hora_Dispo" value="10:00-11:00">
+                    <input type="checkbox" id="Hora_Dispo" value="10:00-11:00">
                         <label for="Hora_Dispo">10:00-11:00</label>
 
-                    <input type="radio" name="Hora_Dispo" value="11:00-12:00">
+                    <input type="checkbox" id="Hora_Dispo" value="11:00-12:00">
                         <label for="Hora_Dispo">11:00-12:00</label>
                         
-                    <input type="radio" name="Hora_Dispo" value="15:00-16:00">
+                    <input type="checkbox" id="Hora_Dispo" value="15:00-16:00">
                         <label for="Hora_Dispo">15:00-16:00</label>
 
-                    <input type="radio" name="Hora_Dispo" value="16:00-17:00">
+                    <input type="checkbox" id="Hora_Dispo" value="16:00-17:00">
                         <label for="Hora_Dispo">16:00-17:00</label>
 
-                    <input type="radio" name="Hora_Dispo" value="17:00-18:00">
+                    <input type="checkbox" id="Hora_Dispo" value="17:00-18:00">
                         <label for="Hora_Dispo">17:00-18:00</label>
 
-                    <input type="radio" name="Hora_Dispo" value="18:00-19:00">
+                    <input type="checkbox" id="Hora_Dispo" value="18:00-19:00">
                         <label for="Hora_Dispo">18:00-19:00</label>
 
-                    <input type="radio" name="Hora_Dispo" value="19:00-20:00">
+                    <input type="checkbox" id="Hora_Dispo" value="19:00-20:00">
                         <label for="Hora_Dispo">19:00-20:00</label>
                         
-                    <input type="radio" name="Hora_Dispo" value="20:00-21:00">
+                    <input type="checkbox" id="Hora_Dispo" value="20:00-21:00">
                         <label for="Hora_Dispo">20:00-21:00</label>
-
             </fieldset>
+            <input type="checkbox" id="user"  value="Acepto los terminos de la página" required>
+            <label for="user">Acepto los terminos de la página</label>
+            <br>
+
                         
                 <div class="pie-form">
-                    <a href="ListadoEspecialistas.php">Continuar</a>
+                    <a href="LoginRegistroESPECI.php">Continuar</a>
                 </div>   
             </div>   
         </div>
+    </form>
+
     <?php
     }  
     ?>      
