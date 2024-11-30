@@ -14,6 +14,15 @@
         <!-- Link para que funcionen los FA FA -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />        
+        
+<!-- ESTILO del mapa-->
+        <style>
+            #mapa {
+                width: 100%;
+                height: 400px;
+            }
+        </style>
 
    </head>
 
@@ -215,27 +224,28 @@
 
         <hr> <!-- SEPARADOR-->
 
-<!-- MAPA-->
-<h1> Ubicación del centro en Barcelona</h1>
-        <div id="map"></div>
-        <script src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyCIlNRSJ9O2L-zzcA3_IzBhYLjRyaytZUg&callback=initMap" async defer></script>
+
+
+<!-- MAPA -->
+    <h3 class="titulo mapa">Centro Coaching S.L en Barcelona</h3>
+
+    <div id="mapa"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        function initMap(){
-            var ocpiones = {
-                center: {lat: 41.38073947589196, lng: 2.144549110755943},
-                zoom: 19
-            };
-            var mapa=new google.maps.Map(document.getElemenyById('map'), opciones);
+        // Crear el mapa centrado en una ubicación (ejemplo: Madrid)
+        var mapa = L.map('mapa').setView([41.38052522449038, 2.144449785579248], 13);
 
-            var marcador = new google.maps.Marker({
-                position: {lat: 41.38073947589196, lng: 2.144549110755943},
-                map: mapa,
-                title: 'Coaching S.L, Barcelona'
-            });
-        }
+        // Añadir capa de mapa con OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(mapa);
+
+        // Añadir marcador en la ubicación
+        L.marker([41.38052522449038, 2.144449785579248]).addTo(mapa)
+            .bindPopup('Coaching S.L, Barcelona')
+            .openPopup();
     </script>
-
-        <hr> <!-- SEPARADOR-->
 
 <!-- PIE DE PAGINA -->
         <footer>
