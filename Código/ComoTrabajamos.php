@@ -61,7 +61,7 @@
 
         <section class="apartados" id="apartados">
             <h1>Sobre nosotras</h1>
-            <p class="centrado">Somos una empresa </p>
+            <p class="centrado">Somos una empresa psofjòwiegjoap </p>
         </section>
 
         <section class="apartados" id="apartados">
@@ -216,13 +216,26 @@
         <hr> <!-- SEPARADOR-->
 
 <!-- MAPA-->
+<h1> Ubicación del centro en Barcelona</h1>
+        <div id="map"></div>
+        <script src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyCIlNRSJ9O2L-zzcA3_IzBhYLjRyaytZUg&callback=initMap" async defer></script>
+    <script>
+        function initMap(){
+            var ocpiones = {
+                center: {lat: 41.38073947589196, lng: 2.144549110755943},
+                zoom: 19
+            };
+            var mapa=new google.maps.Map(document.getElemenyById('map'), opciones);
 
-        <section class="mapa">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d3733.3836847970842!2d-103.39386822512469!3d20.653963595389975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e0!4m0!4m3!3m2!1d20.6544405!2d-103.391583!5e0!3m2!1ses!2smx!4v1460436070427" width="1600" height="552" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </section>
+            var marcador = new google.maps.Marker({
+                position: {lat: 41.38073947589196, lng: 2.144549110755943},
+                map: mapa,
+                title: 'Coaching S.L, Barcelona'
+            });
+        }
+    </script>
 
         <hr> <!-- SEPARADOR-->
-
 
 <!-- PIE DE PAGINA -->
         <footer>
