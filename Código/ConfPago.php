@@ -23,7 +23,7 @@
         include("./GestionBD/1-conexion.php");
     ?>
 
-<!--CABECERA-->
+<!-- CABECERA -->
         <section class="photo" id="inicio">
             <div class="nav" id="sticker">
                 <label for="toggle">&#9776</label>
@@ -43,7 +43,7 @@
             <div class="overlay"></div>
         </section>
 
-<!--CABECERA-->
+<!-- CODIGO CABECERA -->
 <div id="header">
         <div class="logo">
             <img src="img/logo.png" alt="COACHING SL">

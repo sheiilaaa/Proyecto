@@ -55,7 +55,7 @@
     </div>
 
 
-<!-- CONFIRMACION -->
+<!-- CODIGO CONFIRMACION -->
         <div id="contenedor">
             <div class="central">
                 <div class="titulo">

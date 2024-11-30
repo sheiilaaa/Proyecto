@@ -58,6 +58,12 @@
     <hr> <!-- SEPARADOR-->
 
 <!-- SOBRE EL TRABAJO-->
+
+        <section class="apartados" id="apartados">
+            <h1>Sobre nosotras</h1>
+            <p class="centrado">Somos una empresa </p>
+        </section>
+
         <section class="apartados" id="apartados">
             <div class="centrar_info">
                 <h3 class="titulo_apartados"> Acerca de </h3>

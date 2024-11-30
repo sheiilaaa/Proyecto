@@ -24,7 +24,7 @@
         include("./GestionBD/1-conexion.php");
     ?>
 
-<!--CABECERA-->
+<!-- CABECERA -->
 <div id="header">
         <div class="logo">
             <img src="img/logo.png" alt="COACHING SL">
@@ -56,7 +56,7 @@
     </div>
 
 
-<!-- CONFIRMACION -->
+<!-- CODIGO CONFIRMACION -->
 
         <div id="contenedor">
             <div class="central">

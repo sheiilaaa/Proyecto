@@ -54,12 +54,7 @@
         </nav>
     </div>
 
-
-
-
-
-
-<!-- CÓDIGO -->
+<!-- CODIGO PHP -->
 
 <?php 
 
@@ -83,6 +78,7 @@ if(isset($_REQUEST['Ingresar2'])){
 
 }else{
     ?>
+<!-- CODIGO HTML -->
     <form action=""method="get">
 
     <div id="contenedor">
@@ -93,11 +89,12 @@ if(isset($_REQUEST['Ingresar2'])){
                         $Nombre_Especialista = $_REQUEST["Nombre_Especialista"];
                         $Apellido_Especialista = $_REQUEST["Apellido_Especialista"];
 
-                        echo "Bienvenido $Nombre_Especialista $Apellido_Especialista aquí debes de registrar tu disponibilidad"
+                        echo "¡Bienvenido $Nombre_Especialista $Apellido_Especialista! Aquí debes de registrar tu disponibilidad horaria"
                     ?>
 
                 </div>
-            <fieldset>
+
+            <fieldset> <!-- Pedir disponibilidad de dias en checkbox -->
                 <legend>Disponibilidad Diaria</legend>
                 <input type="checkbox" id="Fecha_Dispo" value="Lunes">
                     <label for="Fecha_Dispo">Lunes</label>
@@ -116,7 +113,7 @@ if(isset($_REQUEST['Ingresar2'])){
                           
             </fieldset>
             
-            <fieldset>
+            <fieldset> <!-- Pedir disponibilidad horaria en checkbox -->
                 <legend>Horario Laboral</legend>
                     <input type="checkbox" id="Hora_Dispo" value="8:00-9:00">
                         <label for="Hora_Dispo">8:00-9:00</label>
@@ -148,11 +145,12 @@ if(isset($_REQUEST['Ingresar2'])){
                     <input type="checkbox" id="Hora_Dispo" value="20:00-21:00">
                         <label for="Hora_Dispo">20:00-21:00</label>
             </fieldset>
-            <input type="checkbox" id="user"  value="Acepto los terminos de la página" required>
-            <label for="user">Acepto los terminos de la página</label>
-            <br>
 
-                        
+            <input type="checkbox" id="user"  value="Acepto los terminos de la página" required>
+                <label for="user">Acepto los terminos de la página</label> <!-- Exigir  -->
+            
+                <br>
+       
                 <div class="pie-form">
                     <a href="LoginRegistroESPECI.php">Continuar</a>
                 </div>   

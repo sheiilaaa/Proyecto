@@ -32,7 +32,7 @@
     include("./GestionBD/1-conexion.php");
     ?>
 
-<!--CABECERA-->
+<!-- CABECERA -->
 <div id="header">
         <div class="logo">
             <img src="img/logo.png" alt="COACHING SL">
@@ -62,8 +62,6 @@
             </ul>
         </nav>
     </div>
-
-
 
         <!-- En este código relacionamos el usuario con la contraseña para que verifique si existe el usuario y coincide con la contraseña, 
         también si se muestran resultados asociados en la base de datos y son corectos, se dejará abierta la sesion del usuario (que pondremos en todos los php)-->
