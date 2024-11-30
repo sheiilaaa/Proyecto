@@ -88,21 +88,21 @@ CREATE TABLE PAGOS(
 	ID_Pago_Cliente INT
 );
 
-CREATE TABLE DISPONIBILIDAD_ESPECIALISTA(
-	ID_Dispo INT AUTO_INCREMENT PRIMARY KEY,
-
-	Lunes BOOLEAN;
-	Lunes BOOLEAN;
-	Lunes BOOLEAN;
-	Lunes BOOLEAN;
-	Lunes BOOLEAN;
-	
-	Hora_Dispo ENUM ('8:00-9:00','9:00-10:00','10:00-11:00','11:00-12:00','15:00-16:00','16:00-17:00','17:00-18:00','18:00-19:00',
-    		'19:00-20:00','20:00-21:00'),
-	
+CREATE TABLE DISPONIBILIDAD_ESPECIALISTA (
+    ID_Dispo INT AUTO_INCREMENT PRIMARY KEY,
+    Lunes BOOLEAN,
+    Martes BOOLEAN,
+    Miercoles BOOLEAN,
+    Jueves BOOLEAN,
+    Viernes BOOLEAN,
+    Hora_Dispo ENUM('8:00-9:00', '9:00-10:00', '10:00-11:00', '11:00-12:00', 
+                    '15:00-16:00', '16:00-17:00', '17:00-18:00', '18:00-19:00', 
+                    '19:00-20:00', '20:00-21:00'),
+    
 	/*Claves Foráneas*/
 	ID_Especialista_DispoEspe INT
 );
+
 
 /*RELACIONES*/
 
