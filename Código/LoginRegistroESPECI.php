@@ -85,12 +85,12 @@
                 if ($Contrasena_Es == $row['Contrasena_Especialista']){
                     header("Location:Calendario.php"); //Una vez correcto el usuario y la contraseña nos manda al Calendario.
                 }else{
-                    echo "Contraseña erronea";
+                    echo "<script>alert('Contraseña erronea');</script>";
                 }
             } 
             
         else{
-            echo "El especialista no existe"; 
+            echo "<script>alert('Especialista no registrado');</script>"; 
             }
 
         }

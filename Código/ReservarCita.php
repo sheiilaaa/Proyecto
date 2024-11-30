@@ -69,7 +69,7 @@
             $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
 
         /*INFO FORMULARIO*/
-            $Espe_escogeida=$_REQUEST['Espe_escogeida'];
+            $Espe_escogida=$_REQUEST['Espe_escogida'];
 
         /*RECOPILAR INFORMACION*/
             $sql_espe="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista
@@ -153,14 +153,14 @@
                     <legend>¿Qué especialidad deseas escoger?</legend>
                     <select name="Especialidad" id="user" required>
                         <optgroup label="Tipos de coaching que ofrecemos">
-                            <option value="Espe_escogeida">Coaching Empresarial</option>
-                            <option value="Espe_escogeida">Coaching Personal</option>
-                            <option value="Espe_escogeida">Coaching con Inteligencia Emocional</option>
-                            <option value="Espe_escogeida">Coaching Deportivo</option>
-                            <option value="Espe_escogeida">Coaching Ontológico</option>
-                            <option value="Espe_escogeida">Coaching Cognitivo</option>
-                            <option value="Espe_escogeida">Coaching PNL (Programación Neurolingüística)</option>
-                            <option value="Espe_escogeida">Coaching Coercitivo</option>
+                            <option value="Espe_escogida">Coaching Empresarial</option>
+                            <option value="Espe_escogida">Coaching Personal</option>
+                            <option value="Espe_escogida">Coaching con Inteligencia Emocional</option>
+                            <option value="Espe_escogida">Coaching Deportivo</option>
+                            <option value="Espe_escogida">Coaching Ontológico</option>
+                            <option value="Espe_escogida">Coaching Cognitivo</option>
+                            <option value="Espe_escogida">Coaching PNL (Programación Neurolingüística)</option>
+                            <option value="Espe_escogida">Coaching Coercitivo</option>
                         </optgroup>
                     </select>
                 </fieldset>
