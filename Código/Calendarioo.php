@@ -1,3 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ComoTrabajamos</title>
+        
+        <!-- Link hacia el archivo de estilos css -->
+        <link rel="stylesheet" href="css/estilo.css">
+
+        <!-- Link favicon -->
+        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+
+        <!-- Link para que funcionen los FA FA -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    </head>
+
+
+    <body>
+<!--CONEXIÓN-->
+        <?php
+            session_start();
+            include("./GestionBD/1-conexion.php");
+        ?>
+
+<!--CABECERA-->
+<div id="header">
+        <div class="logo">
+            <img src="img/logo.png" alt="COACHING SL">
+        </div>
+        <nav>
+            <ul>
+                <li><a href=""><i class="fa fa-home"></i> <span data-translate="inicio">Inicio</span></a></li>
+                <li><a href=""><i class="fa fa-briefcase"></i> <span data-translate="como_trabajar">Como Trabajar</span></a></li>
+                <li><a href=""><i class="fa fa-phone-square"></i> <span data-translate="contacto">Puesta en contacto</span></a></li>
+                <li><a href=""><i class="fa fa-address-book"></i> <span data-translate="especialistas">Especialistas</span></a></li>
+                <li><a href=""><i class="fa fa-calendar"></i> <span data-translate="calendario">Calendario</span></a></li>
+                <li>               
+                    <div class="lenguage-selector">
+                        <label for="lenguage"></label>
+                        <select name="lenguage" id="lenguage">
+                            <option value="es" data-translate="espanol">Español</option>
+                            <option value="ca" data-translate="catalan">Catalan</option>
+                            <option value="en" data-translate="ingles">Inglés</option>
+                            <option value="fr" data-translate="frances">Francés</option>
+                            <option value="it" data-translate="italiano">Italiano</option>
+                            <option value="eu" data-translate="euskera">Euskera</option>
+                            <option value="gl" data-translate="gallego">Gallego</option>
+                            <option value="su" data-translate="sueco">Sueco</option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <hr> <!-- SEPARADOR-->
 
 <?php
     
@@ -20,15 +80,7 @@
     
         }
 
-
-
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
+?>
 
     
    <!-- <title>Calendar</title>
@@ -57,10 +109,6 @@
         }
     </style>
 </head>
-
-    
-
-
 
 <body>
 --CONEXIÓN--
@@ -92,11 +140,7 @@
 
     <main class="centrar_contenido">
         <section class="calendario">
-<<<<<<< HEAD
             </*?php
-=======
-           <?php
->>>>>>> c70b59899f13a9fc24a7dbb8d4008700ecc7d243
                 $diasEnElMes = 31;
                 $primerDiaDeLaSemana = 0; 
 
@@ -118,27 +162,14 @@
     </main>
 
 
+    -->
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
--- PIE DE PAGINA --
+<!-- PIE DE PAGINA -->
 <footer>
     Todos los derechos reservados | Coaching SL Copyright © 2024
 </footer>
     
 </body>
 </html>
--->
