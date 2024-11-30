@@ -27,15 +27,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
 
 
 
     
    <!-- <title>Calendar</title>
-=======
-  <title>Calendar</title>
->>>>>>> c70b59899f13a9fc24a7dbb8d4008700ecc7d243
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -67,21 +63,11 @@
 
 
 <body>
-<<<<<<< HEAD
 --CONEXIÓN--
 </*?php 
-=======
---CONEXIÓN--
-
-<?php/*
->>>>>>> c70b59899f13a9fc24a7dbb8d4008700ecc7d243
     session_start();
-<<<<<<< HEAD
     include("./GestionBD/conexion.php");
     */
-=======
-    include("./GestionBD/conexion.php");*/
->>>>>>> c70b59899f13a9fc24a7dbb8d4008700ecc7d243
 ?>
 
 --CABECERA--
@@ -156,4 +142,3 @@
 </body>
 </html>
 -->
-

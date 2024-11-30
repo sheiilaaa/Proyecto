@@ -67,5 +67,5 @@
         <footer>
             Todos los derechos reservados | Coaching SL Copyright © 2024
         </footer>        
-    </body>
-</html>
+    </body> dame dos minutoos y lo miro valeeee
+</html> mira como te queda el cabezado, vale
