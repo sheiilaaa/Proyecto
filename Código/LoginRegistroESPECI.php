@@ -13,10 +13,6 @@
         
         <!-- Link hacia el archivo de estilos css -->
         <link rel="stylesheet" href="css/estilo.css">
-
-        <!-- Link favicon -->
-        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-
         <!-- Link para que funcionen los FA FA -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         
@@ -30,36 +26,24 @@
         ?>
 
 <!--CABECERA-->
-<div id="header">
-        <div class="logo">
-            <img src="img/logo.png" alt="COACHING SL">
-        </div>
-        <nav>
-            <ul>
-                <li><a href=""><i class="fa fa-home"></i> <span data-translate="inicio">Inicio</span></a></li>
-                <li><a href=""><i class="fa fa-briefcase"></i> <span data-translate="como_trabajar">Como Trabajar</span></a></li>
-                <li><a href=""><i class="fa fa-phone-square"></i> <span data-translate="contacto">Puesta en contacto</span></a></li>
-                <li><a href=""><i class="fa fa-address-book"></i> <span data-translate="especialistas">Especialistas</span></a></li>
-                <li><a href=""><i class="fa fa-calendar"></i> <span data-translate="calendario">Calendario</span></a></li>
-                <li>               
-                    <div class="lenguage-selector">
-                        <label for="lenguage"></label>
-                        <select name="lenguage" id="lenguage">
-                            <option value="es" data-translate="espanol">Español</option>
-                            <option value="ca" data-translate="catalan">Catalan</option>
-                            <option value="en" data-translate="ingles">Inglés</option>
-                            <option value="fr" data-translate="frances">Francés</option>
-                            <option value="it" data-translate="italiano">Italiano</option>
-                            <option value="eu" data-translate="euskera">Euskera</option>
-                            <option value="gl" data-translate="gallego">Gallego</option>
-                            <option value="su" data-translate="sueco">Sueco</option>
-                        </select>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
+        <section class="photo" id="inicio">
+            <div class="nav" id="sticker">
+                <label for="toggle">&#9776</label>
+                <input type="checkbox" id="toggle" />
+                <div class="menu">
+                    <img src="IMG/logo.png" alt="" class="logo">
+                    <a href=""><i class="fa fa-home"> Inicio</i></a>
+                    <a href=""><i class="fa fa-info"> Como trabajar</i></a>
+                    <a href=""><i class="fa fa-briefcase"> Puesta en contacto</i></a>
+                    <a href=""><i class="fa fa-address-book"> Listado especialistas</i></a>
+                    <a href=""><i class="fa fa-calendar">Calendario</i></a>
+                </div>
+            </div>
+            <div class="photo-text">
+                <h4 data-ix="skype">Coaching sl</h4>
+            </div>
+            <div class="overlay"></div>
+        </section>
 
 
         <!-- En este código relacionamos el usuario con la contraseña para que verifique si existe el usuario y coincide con la contraseña, 
@@ -85,12 +69,12 @@
                 if ($Contrasena_Es == $row['Contrasena_Especialista']){
                     header("Location:Calendario.php"); //Una vez correcto el usuario y la contraseña nos manda al Calendario.
                 }else{
-                    echo "<script>alert('Contraseña erronea');</script>";
+                    echo "Contraseña erronea";
                 }
             } 
             
         else{
-            echo "<script>alert('Especialista no registrado');</script>"; 
+            echo "El especialista no existe"; 
             }
 
         }
@@ -218,8 +202,7 @@
                             <label for="Contrasena_Especialista">Contraseña:</label>
                             <input type="password" name="Contrasena_Especialista" id="Contrasena_Especialista" class="caja"required placeholder="Escribe tu contraseña">
 
-
-                            <fieldset>
+                <fieldset>
                 <legend>Disponibilidad Diaria</legend>
                 <input type="checkbox" id="Fecha_Dispo" value="Lunes">
                     <label for="Fecha_Dispo">Lunes</label>
@@ -290,3 +273,62 @@
         </footer>
     </body>
 </html>
+
+
+<?php
+    $Lunes=$_REQUEST['Lunes'];
+    $Martes=$_REQUEST['Martes'];
+    $Miercoles=$_REQUEST['Miercoles'];
+    $Jueves=$_REQUEST['Jueves'];
+    $Viernes=$_REQUEST['Viernes'];
+
+
+    $sql="INSERT INTO DISPONIBILIDAD_ESPECIALISTA (ID_ESPE, Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo) VALUES "
+
+/*PARTE DERECHA FOTO*/
+
+    if(isset('AltaEspecialista')){
+        $Lunes=if(isset('Lunes'),$_REQUEST['Lunes'],0)
+        $Martes=if(isset('Martes'),$_REQUEST['Martes'],0)
+        $Miercoles=if(isset('Miercoles'),$_REQUEST['Miercoles'],0)
+        $Jueves=if(isset('Jueves'),$_REQUEST['Jueves'],0)
+        $Viernes=if(isset('Viernes'),$_REQUEST['Viernes'],0)
+    }
+
+
+
+/*PRINCIPIO FOTO - PARTE IZQUIERDA*/
+    if(isset($_REQUEST['8:00-9:00'])){
+        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"8:00-9:00")
+    }
+    if(isset($_REQUEST['9:00-10:00'])){
+        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"9:00-10:00")
+    }
+    if(isset($_REQUEST['10:00-11:00'])){
+        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"10:00-11:00")
+    }
+    if(isset($_REQUEST['11:00-12:00'])){
+        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"11:00-12:00")
+    }
+    if(isset($_REQUEST['15:00-16:00'])){
+        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"15:00-16:00")
+    }
+    if(isset($_REQUEST['16:00-17:00'])){
+        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"16:00-17:00")
+    }
+    if(isset($_REQUEST['17:00-18:00'])){
+        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"17:00-18:00")
+    }
+    if(isset($_REQUEST['18:00-19:00'])){
+        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"18:00-19:00")
+    }
+    if(isset($_REQUEST['19:00-20:00'])){
+        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"19:00-20:00")
+    }
+    if(isset($_REQUEST['20:00-21:00'])){
+        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"20:00-21:00")
+    }
+
+
+?>
+
