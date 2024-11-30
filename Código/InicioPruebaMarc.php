@@ -109,9 +109,22 @@
 </body>
 </html>
 
-<php?
+<?php
+$sql = "SELECT DNI, contraseña FROM clientes WHERE DNI=$DNI"
 
+if(mysqli_query($conn,$sql)){
+    header("Location:ConfModEspe.php?DNI_Especialista=$DNI_Especialista");
+}else{
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
 
+else{
+    "<script >"
+}
 
+else{
+    error_log("Error al preparar la consulta: " . mysqli_error($conn));
+    echo ""
+}
 
 ?>

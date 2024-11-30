@@ -160,12 +160,12 @@ else{
             if ($Contra_Cliente == $row['Contrasena_Cliente']){
                 header("ComoTrabajamos.php"); //Una vez correcto el cliente y la contraseña nos manda a la pantalla de como trabajamos.
             }else{
-                echo "Contraseña erronea";
+                echo "<script>alert('Contraseña erronea');</script>";
             }
         } 
          
        else{
-        echo "El cliente no existe"; 
+        echo "<script>alert('El cliente no existe');</script>"; 
         }
 
     }
