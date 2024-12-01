@@ -1,3 +1,7 @@
+<?php
+session_start()
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 </h1>  
@@ -65,6 +69,10 @@
         <!-- En este código relacionamos el usuario con la contraseña para que verifique si existe el usuario y coincide con la contraseña, 
         también si se muestran resultados asociados en la base de datos y son corectos, se dejará abierta la sesion del usuario (que pondremos en todos los php)-->
        
+        <!--! Comentarios: Marc Perarnau 
+              Yo esto lo pondira delante de todo porque asi tienes todo el css de una, y la conexion aunque sea codigo de mas la haria siempre en el mismo documento
+              Tampoco pondira request, pondria automaticamente POST
+        -->
         <?php
             if(isset($_REQUEST['Ingresar'])){
                 $DNI_Cliente=$_REQUEST['DNI_Cliente'];

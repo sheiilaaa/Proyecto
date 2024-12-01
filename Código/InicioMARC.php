@@ -63,6 +63,50 @@
             </form>
         </div>
 
+
+        <?php
+            if(isset($_REQUEST['Ingresar'])){
+                $DNI_Cliente=$_REQUEST['DNI_Cliente'];
+                $NumTelefono_Cliente=$_REQUEST['NumTelefono_Cliente'];
+                $Correo_Cliente=$_REQUEST['Correo_Cliente'];
+                $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
+                $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
+                $Contrasena_Cliente=$_REQUEST['Contrasena_Cliente']; 
+                $FechaNacimiento_Cliente=$_REQUEST['FechaNacimiento_Cliente'];
+                $NombreVia_Cliente=$_REQUEST['NombreVia_Cliente'];
+                $NumeroVia_Cliente=$_REQUEST['NumeroVia_Cliente'];
+                $TipoVia_Cliente=$_REQUEST['TipoVia_Cliente'];
+
+
+
+                $de= "INSERT INTO CLIENTES (DNI_Cliente, NumTelefono_Cliente, Correo_Cliente, Nombre_Cliente, Apellido_Cliente, Contrasena_Cliente, FechaNacimiento_Cliente,NombreVia_Cliente,NumeroVia_Cliente,TipoVia_Cliente)
+                VALUES ('$DNI_Cliente','$NumTelefono_Cliente', '$Correo_Cliente', $Nombre_Cliente, '$Apellido_Cliente', '$Contrasena_Cliente', ' $FechaNacimiento_Cliente', '$NombreVia_Cliente','$NumeroVia_Cliente','$TipoVia_Cliente';";
+            
+                $pagos = "$Nombre_Cliente,$Apellido_Cliente,$DNI_Cliente"; 
+                
+                
+                if (mysqli_query($conn,$de))
+                {
+                    header("Location:Pago.php?pagos=$pagos");
+                }
+            
+                else 
+                {
+                    echo "Error:  "   . $sql . "<br>" . mysqli_error($conn);
+                }
+
+                    if (mysqli_query($conn,$de)){
+                        header("Location:Inicio.php?Nombre_Cliente=$Nombre_Cliente");
+                        /*Los campos de $https://www.citapreviadnie.es/citaPreviaDni/MantenimientoPagos.actionNombre_Cliente $apellidos $Fecha_Nac $telefono $telefono $email $contraseña se han añadido correctamente*/
+                        
+                        }
+                        else {
+                            echo "Error:  "   . $de . "<br>" . mysqli_error($conn);
+                        }
+                    }   
+                else{
+            ?>
+        
         <div class="tab-content" id="register">
             <form action="" method="post">
                 <h2 data-translate="registro_titulo">Registro</h2>
