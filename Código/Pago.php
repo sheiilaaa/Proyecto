@@ -143,13 +143,13 @@
                         <label for="DNI_Cliente">DNI:</label>
                             <input type="text" id="DNI_Cliente" name="DNI_Cliente" class="cajaPago" value="<?php echo $row['DNI_Cliente']; ?>">
                         
-                        <label for="Estado_Pago">Estado_Pago:</label>
+                        <label for="Estado_Pago">Estado_Pago:</label> 
                             <input type="text" id="Estado_Pago" name="Estado_Pago" class="cajaPago">
                         
                         <label for="Fecha_Pago">Fecha de Pago:</label>
                             <input type="date" id="Fecha_Pago" name="Fecha_Pago" class="cajaPago">
                         
-                        <label for="Cantidad_Pago">Cantidad del Pago:</label>
+                        <label for="Cantidad_Pago">Cantidad del Pago:</label> <!---->
                             <input type="text" id="Cantidad_Pago" name="Cantidad_Pago" class="cajaPago">
                             <br>
                         <input type="checkbox" name="user" value="Acepto los terminos de la página" requiered>
