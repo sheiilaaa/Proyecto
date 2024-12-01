@@ -76,24 +76,24 @@ include("./GestionBD/1-conexion.php");
     if (mysqli_num_rows($result) > 0) { // Si encuentra resultados
         $Final = 0;
         $row = mysqli_fetch_assoc($result);
-
         while ($row) { 
             $Esp_Anterior = $row['Nombre_Especialista'];
             echo '<div class="especialista-contenedor">';
-            echo '<h5>Especialista: '.$row['Nombre_Especialista'].' '.$row['Apellido_Especialista'].'</h5>';
-            echo '<p>Cuota: '.$row['Cuota_Especialista'].'€</p>';
-            echo '<ul>';
+                echo '<h5>Especialista: '.$row['Nombre_Especialista'].' '.$row['Apellido_Especialista'].'</h5>';
+                echo '<p>Cuota: '.$row['Cuota_Especialista'].'€</p>';
+                echo '<ul>';
+                    // Agrupar especialidades por especialista
+                    $i = 1;
+                    while ($row && $Esp_Anterior == $row['Nombre_Especialista']) {
+                        echo '<li>Especialidad '.$i.': '.$row['Especialidad_Especialista'].'</li>';
+                        $Final++;
+                        $i++;
+                        $row = mysqli_fetch_assoc($result); // Avanzar a la siguiente fila
+                    }
+                echo '</ul>';
+                echo '<a href="PedirCita.php"><input type="button" id="cantidad4" name="Añadir4" class="boton" value="Pedir Cita"></a>';
+            echo '</div>';
 
-            // Agrupar especialidades por especialista
-            $i = 1;
-            while ($row && $Esp_Anterior == $row['Nombre_Especialista']) {
-                echo '<li>Especialidad '.$i.': '.$row['Especialidad_Especialista'].'</li>';
-                $Final++;
-                $i++;
-                $row = mysqli_fetch_assoc($result); // Avanzar a la siguiente fila
-            }
-            echo '</ul>';
-            echo '<a href="PedirCita.php"><input type="button" id="cantidad4" name="Añadir4" class="boton" value="Pedir Cita"></a>';
 
             /*if ($_SESSION['usuario'] == "Admin") { // Si es Admin, mostrar opciones adicionales
                 echo '<br><a href="ModificarEspecialista.php?id='.$Esp_Anterior.'">Modificar</a>';

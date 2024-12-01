@@ -71,37 +71,73 @@ Hacer un SELECT * FROM CITAS WHERE ID_Cliente=$_SESSION[ID_Cliente]
 
 <?php
 
-        /*INFO ESPECIALISTA*/
-            $ID_Especialista=$_REQUEST['ID_Especialista'];
-            $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
-            $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
-            $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
-        /*INFO CLIENTE*/
-            $ID_Cliente=$_REQUEST['ID_Cliente'];
-            $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
-            $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
+if (isset(ALGO NO LO SE))
 
-        /*INFO FORMULARIO*/
-            $Espe_escogida=$_REQUEST['Espe_escogida'];
+    /*INFO ESPECIALISTA*/
+        $ID_Especialista=$_REQUEST['ID_Especialista'];
+        $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
+        $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
 
-        /*RECOPILAR INFORMACION*/
-            $sql_espe="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista
-                FROM ESPECIALISTAS E
-                JOIN ESPECIALISTA_ESPECIALIDAD EE ON E.ID_Especialista = EE.ID_Especialista_EspeEspe
-                JOIN ESPECIALIDAD ES ON ES.ID_Especialista = E.ID_Especialidad_EspeEspe";
+    /*INFO CLIENTE*/
+        $ID_Cliente=$_REQUEST['ID_Cliente'];
+        $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
+        $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
+        $DNI_Cliente=$_REQUEST['DNI_Cliente'];
 
-            $sql_dispo="SELECT DE.Fecha_Disponibilidad, DE.Hora_Disponibilidad, DE.Disponibilidad_Especialista
-                FROM DISPONIBILIDAD_ESPECIALISTA DE
-                JOIN ESPECIALISTAS E ON E.ID_Especialista = DE.ID_Especialista_DispoEspe";
+    /*INFO FORMULARIO*/
+        $Espe_escogida=$_REQUEST['Espe_escogida'];
 
-            $sql_usr= " SELECT * FROM CLIENTES WHERE ID_Cliente= '$ID_Cliente'; ";
+    /*INFO CITAS*/
+        $Fecha_Cita=$_REQUEST['Fecha_Cita'];
+        $Hora_Cita=$_REQUEST['Hora_Cita'];
+        $Coste_Cita=$_REQUEST['Coste_Cita'];
 
+        $sql_todo="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista, C.Fecha_Cita,
+            C.Hora_Cita,C.Coste_Cita, Cl.Nombre_Cliente, Cl.Apellido_Cliente, Cl.DNI_Cliente, E.ID_Especialista
+            FROM ESPECIALIDAD ES
+            JOIN ESPECIALISTA_ESPECIALIDAD EE ON EE.ID_Especialidad_EspeEspe = ES.ID_Especialista
+            JOIN ESPECIALISTAS E ON E.ID_Especialista = EE.ID_Especialista_EspeEspe
+            JOIN CITAS C ON C.ID_Especialista_Cita = E.ID_Especialista
+            JOIN CLIENTES Cl ON C.ID_Cliente_Cita = Cl.ID_Cliente";
 
+            $sql_usr= "SELECT * FROM CLIENTES WHERE ID_Cliente= '$ID_Cliente';";
+   
+        $result = mysqli_query($conn, $sql_todo)
 
+        if (mysqli_num_rows($result) > 0) { // Si encuentra resultados
+            $Final = 0;
+            $row = mysqli_fetch_assoc($result);
+    
+            while ($row) { 
+                $Esp_Anterior = $row['Nombre_Especialista'];
+                echo '<div class="INFO MIERDA">';
+                    //Info usuario
+                    echo '<h5>Usuario: '.$row['Nombre_Cliente'].' '.$row['Apellido_Cliente'].'</h5>';
+                    echo '<h5>DNI: '.$row['DNI_Cliente'].'</h5>';
+                    //Info especialista
+                    echo '<h5>Especialista: '.$row['Nombre_Especialista'].' '.$row['Apellido_Especialista'].'</h5>';
+                    echo '<p>Cuota: '.$row['Cuota_Especialista'].'€</p>';
+                    echo '<ul>';
+                        // Agrupar especialidades por especialista
+                        $i = 1;
+                        while ($row && $Esp_Anterior == $row['Nombre_Especialista']) {
+                            echo '<li>Especialidad '.$i.': '.$row['Especialidad_Especialista'].'</li>';
+                            $Final++;
+                            $i++;
+                            $row = mysqli_fetch_assoc($result); // Avanzar a la siguiente fila
+                        }
+                    echo '</ul>';
+                    //Info cita
+                    echo '<h5> Cita reservada para el dia: '.$row['Fecha_Cita'].' a las '.$row['Hora_Cita'].'</h5>';
+                    echo '<p>Cuota: '.$row['Coste_Cita'].'€</p>';
 
-
-    ?>
-
+                    echo '<a href="Pago.php"><input type="button" id="cantidad4" name="Añadir4" class="boton" value="Pagar Cita"></a>';
+                echo '</div>';
+            }
+        } else {
+            echo '<p>No se encontraron especialistas.</p>';
+        }
+        ?>
 
 <hr> <!-- SEPARADOR-->
 
