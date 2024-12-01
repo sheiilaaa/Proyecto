@@ -37,11 +37,11 @@
         </div>
         <nav>
             <ul>
-                <li><a href=""><i class="fa fa-home"></i> <span data-translate="inicio">Inicio</span></a></li>
-                <li><a href=""><i class="fa fa-briefcase"></i> <span data-translate="como_trabajar">Como Trabajar</span></a></li>
-                <li><a href=""><i class="fa fa-phone-square"></i> <span data-translate="contacto">Puesta en contacto</span></a></li>
-                <li><a href=""><i class="fa fa-address-book"></i> <span data-translate="especialistas">Especialistas</span></a></li>
-                <li><a href=""><i class="fa fa-calendar"></i> <span data-translate="calendario">Calendario</span></a></li>
+                <li><a href="Inicio.php"><i class="fa fa-home"></i> <span data-translate="inicio">Inicio</span></a></li>
+                <li><a href="ComoTrabajamos.php"><i class="fa fa-briefcase"></i> <span data-translate="como_trabajar">¿Quiénes somos?</span></a></li>
+                <li><a href="Contacto.php"><i class="fa fa-phone-square"></i> <span data-translate="contacto">Puesta en contacto</span></a></li>
+                <li><a href="ListadoEspecialistas.php"><i class="fa fa-address-book"></i> <span data-translate="especialistas">Especialistas</span></a></li>
+                <li><a href="Calendario.html"><i class="fa fa-calendar"></i> <span data-translate="calendario">Calendario</span></a></li>
                 <li>               
                     <div class="lenguage-selector">
                         <label for="lenguage"></label>
@@ -60,6 +60,7 @@
             </ul>
         </nav>
     </div>
+
 
 <!-- CODIGO -->
 
@@ -169,6 +170,10 @@
         <footer>
             Todos los derechos reservados | Coaching SL Copyright © 2024
         </footer>
+
+    <!-- Link a JavaScript -->
+    <script src="JS/InicioMarc.js"></script>
+    <script src="JS/traducciones.js"></script>
 
     </body>
 </html>

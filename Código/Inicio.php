@@ -94,17 +94,19 @@ if ($_SESSION['rol'] == 'cliente') {
 
 </head>
 <body>
-    <div id="header">
+    
+<!--CABECERA-->
+<div id="header">
         <div class="logo">
-            <img src="IMG/logo.png" alt="COACHING SL">
+            <img src="img/logo.png" alt="COACHING SL">
         </div>
         <nav>
             <ul>
-                <li><a href=""><i class="fa fa-home"></i> <span data-translate="inicio">Inicio</span></a></li>
-                <li><a href=""><i class="fa fa-briefcase"></i> <span data-translate="como_trabajar">Como Trabajar</span></a></li>
-                <li><a href=""><i class="fa fa-phone-square"></i> <span data-translate="contacto">Puesta en contacto</span></a></li>
-                <li><a href=""><i class="fa fa-address-book"></i> <span data-translate="especialistas">Especialistas</span></a></li>
-                <li><a href=""><i class="fa fa-calendar"></i> <span data-translate="calendario">Calendario</span></a></li>
+                <li><a href="Inicio.php"><i class="fa fa-home"></i> <span data-translate="inicio">Inicio</span></a></li>
+                <li><a href="ComoTrabajamos.php"><i class="fa fa-briefcase"></i> <span data-translate="como_trabajar">¿Quiénes somos?</span></a></li>
+                <li><a href="Contacto.php"><i class="fa fa-phone-square"></i> <span data-translate="contacto">Puesta en contacto</span></a></li>
+                <li><a href="ListadoEspecialistas.php"><i class="fa fa-address-book"></i> <span data-translate="especialistas">Especialistas</span></a></li>
+                <li><a href="Calendario.html"><i class="fa fa-calendar"></i> <span data-translate="calendario">Calendario</span></a></li>
                 <li>               
                     <div class="lenguage-selector">
                         <label for="lenguage"></label>
@@ -123,7 +125,6 @@ if ($_SESSION['rol'] == 'cliente') {
             </ul>
         </nav>
     </div>
-
 
     <div class="container">
         <div class="tabs">
@@ -233,6 +234,7 @@ if ($_SESSION['rol'] == 'cliente') {
             }
     ?>
 
+    <!-- Link a JavaScript -->
     <script src="JS/InicioMarc.js"></script>
     <script src="JS/traducciones.js"></script>
 
