@@ -144,7 +144,6 @@ if ($_SESSION['rol'] == 'cliente') {
         Todos los derechos reservados | Coaching SL Copyright © 2024
         </footer>
     <!-- Link a JavaScript -->
-    <script src="JS/InicioMarc.js"></script>
     <script src="JS/traducciones.js"></script>
 
     </body>

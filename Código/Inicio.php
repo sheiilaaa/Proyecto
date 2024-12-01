@@ -240,7 +240,7 @@ if ($_SESSION['rol'] == 'cliente') {
 
 
     <!-- Link a JavaScript -->
-    <script src="JS/InicioMarc.js"></script>
+    <script src="JS/Inicio.js"></script>
     <script src="JS/traducciones.js"></script>
 
 </body>

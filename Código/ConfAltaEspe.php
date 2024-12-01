@@ -78,7 +78,6 @@
         </footer>
 
     <!-- Link a JavaScript -->
-    <script src="JS/InicioMarc.js"></script>
     <script src="JS/traducciones.js"></script>
 
     </body>
