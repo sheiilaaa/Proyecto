@@ -132,7 +132,7 @@
 
             $sql_Es="SELECT id_especialista FROM especialistas WHERE dni=$dni_especialista";
 
-                $row=id
+            $row=id_especialista
 
             $sql_dis="INSERT INTO disponibilidad WHERE ";
 
@@ -279,25 +279,23 @@
 
 
 <?php
-    $Lunes=$_REQUEST['Lunes'];
+   /* $Lunes=$_REQUEST['Lunes'];
     $Martes=$_REQUEST['Martes'];
     $Miercoles=$_REQUEST['Miercoles'];
     $Jueves=$_REQUEST['Jueves'];
-    $Viernes=$_REQUEST['Viernes'];
-
-    $sql="INSERT INTO DISPONIBILIDAD_ESPECIALISTA (ID_ESPE, Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo) 
-     VALUES " . ( $Lunes ? '1' : '0' ), ( $Martes ? '1' : '0' ), ( $Miercoles ? '1' : '0' ), ( $Jueves ? '1' : '0' ), ( $Viernes ? '1' : '0' ), ( $Hora_Dispo ? '1' : '0' )")";
-
-/*PARTE DERECHA FOTO*/
+    $Viernes=$_REQUEST['Viernes'];*/
 
     if(isset('AltaEspecialista')){
+        $Lunes=isset($_REQUEST['Lunes']) ? 1 : 0;
+        $Martes=isset($_REQUEST['Martes']) ? 1 : 0;
+        $Miercoles=isset($_REQUEST['Miercoles']) ? 1 : 0;
+        $Jueves=isset($_REQUEST['Jueves']) ? 1 : 0;
+        $Viernes=isset($_REQUEST['Viernes']) ? 1 : 0;
+        $Hora_Dispo = isset($_REQUEST['Hora_Dispo']) ? 1 : 0;
 
-        $Lunes=if(isset($_REQUEST['Lunes']) ? 1 : 0);
-        $Martes=if(isset($_REQUEST['Martes']) ? 1 : 0);
-        $Miercoles=if(isset($_REQUEST['Miercoles']) ? 1 : 0);
-        $Jueves=if(isset($_REQUEST['Jueves']) ? 1 : 0);
-        $Viernes=if(isset($_REQUEST['Viernes']) ? 1 : 0);
-
+        $sql="INSERT INTO DISPONIBILIDAD_ESPECIALISTA (Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo) 
+        VALUES "( $Lunes), ( $Martes), ( $Miercoles), ( $Jueves), ( $Viernes), ( $Hora_Dispo)")";
+   
         /*
         $Lunes=if(isset('Lunes'),$_REQUEST['Lunes'],0)
         $Martes=if(isset('Martes'),$_REQUEST['Martes'],0)
