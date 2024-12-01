@@ -208,19 +208,19 @@
 
             <fieldset>
                 <legend>Disponibilidad Diaria</legend>
-                <input type="checkbox" id="Fecha_Dispo" name="Lunes"  value="1">
+                <input type="checkbox" id="Fecha_Dispo" name="Lunes"  value="1" checked>
 =                    <label for="Fecha_Dispo">Lunes</label>
 
-                <input type="checkbox" id="Fecha_Dispo" name="Martes" value="1">
+                <input type="checkbox" id="Fecha_Dispo" name="Martes" value="1" checked>
                     <label for="Fecha_Dispo">Martes</label>
 
-                <input type="checkbox" id="Fecha_Dispo" name="Miércoles" value="1">
+                <input type="checkbox" id="Fecha_Dispo" name="Miércoles" value="1" checked>
                     <label for="Fecha_Dispo">Miércoles</label>
                    
-                <input type="checkbox" id="Fecha_Dispo" name="Jueves" value="1">
+                <input type="checkbox" id="Fecha_Dispo" name="Jueves" value="1" checked>
                     <label for="Fecha_Dispo">Jueves</label>
                 
-                <input type="checkbox" id="Fecha_Dispo" name="Viernes" value="1">
+                <input type="checkbox" id="Fecha_Dispo" name="Viernes" value="1" checked>
                     <label for="Fecha_Dispo">Viernes</label>
             </fieldset>
             
@@ -277,14 +277,8 @@
     </body>
 </html>
 
-
 <?php
-   /* $Lunes=$_REQUEST['Lunes'];
-    $Martes=$_REQUEST['Martes'];
-    $Miercoles=$_REQUEST['Miercoles'];
-    $Jueves=$_REQUEST['Jueves'];
-    $Viernes=$_REQUEST['Viernes'];*/
-
+ 
     if(isset('AltaEspecialista')){
         $Lunes=isset($_REQUEST['Lunes']) ? 1 : 0;
         $Martes=isset($_REQUEST['Martes']) ? 1 : 0;
@@ -293,48 +287,145 @@
         $Viernes=isset($_REQUEST['Viernes']) ? 1 : 0;
         $Hora_Dispo = isset($_REQUEST['Hora_Dispo']) ? 1 : 0;
 
+        // Lista de horarios disponibles
+       /* $horarios = [
+            "8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00",
+            "15:00-16:00", "16:00-17:00", "17:00-18:00", "18:00-19:00",
+            "19:00-20:00", "20:00-21:00"
+            ];*/
+
         $sql="INSERT INTO DISPONIBILIDAD_ESPECIALISTA (Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo) 
-        VALUES "( $Lunes), ( $Martes), ( $Miercoles), ( $Jueves), ( $Viernes), ( $Hora_Dispo)")";
+        VALUES "($Lunes), ($Martes), ($Miercoles), ($Jueves), ($Viernes), ($Hora_Dispo)")";
+        }
+
+        // Iterar sobre los horarios para construir la consulta
+        foreach ($Hora_Dispo as $hora) {
+            if (isset($_REQUEST[$hora])) {
+                // Si el horario está seleccionado, agregarlo a la lista de valores
+                $valores[] = "($Lunes, $Martes, $Miercoles, $Jueves, $Viernes, '$hora')";
+            }
+        }
+    
+        // Si hay valores seleccionados, ejecutar la consulta
+        if (!empty($valores)) {
+            // Completar la consulta concatenando los valores
+            $sql .= implode(", ", $valores);
+    
+            // Ejecutar la consulta
+            if ($conn->query($sql)) {
+                //que te lleve al otro sitio
+                echo "Disponibilidad registrada correctamente.";
+            } else {
+                echo "Error al registrar la disponibilidad: " . $conn->error;
+                echo "<script>alert('Error al registrar la disponibilidad:  " . $sql . "\\n" . mysqli_error($conn) . "');</script>";
+
+            }
+        } else {
+            echo "<script>alert('No se seleccionaron horarios.');</script>";
+        }
    
-        /*
+    
+        echo "<script>alert('Especialista no encontrado: " . $sql . "\\n" . mysqli_error($conn) . "');</script>";
+
+        
+/*PRINCIPIO FOTO - PARTE IZQUIERDA*/
+    /* $Lunes=$_REQUEST['Lunes'];
+        $Martes=$_REQUEST['Martes'];
+        $Miercoles=$_REQUEST['Miercoles'];
+        $Jueves=$_REQUEST['Jueves'];
+        $Viernes=$_REQUEST['Viernes'];
+    */
+
+    /*
         $Lunes=if(isset('Lunes'),$_REQUEST['Lunes'],0)
         $Martes=if(isset('Martes'),$_REQUEST['Martes'],0)
         $Miercoles=if(isset('Miercoles'),$_REQUEST['Miercoles'],0)
         $Jueves=if(isset('Jueves'),$_REQUEST['Jueves'],0)
         $Viernes=if(isset('Viernes'),$_REQUEST['Viernes'],0)
     */
+    /*
+        if(isset($_REQUEST['8:00-9:00'])){
+            $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"8:00-9:00")
         }
-
-/*PRINCIPIO FOTO - PARTE IZQUIERDA*/
-    if(isset($_REQUEST['8:00-9:00'])){
-        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"8:00-9:00")
-    }
-    if(isset($_REQUEST['9:00-10:00'])){
-        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"9:00-10:00")
-    }
-    if(isset($_REQUEST['10:00-11:00'])){
-        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"10:00-11:00")
-    }
-    if(isset($_REQUEST['11:00-12:00'])){
-        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"11:00-12:00")
-    }
-    if(isset($_REQUEST['15:00-16:00'])){
-        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"15:00-16:00")
-    }
-    if(isset($_REQUEST['16:00-17:00'])){
-        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"16:00-17:00")
-    }
-    if(isset($_REQUEST['17:00-18:00'])){
-        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"17:00-18:00")
-    }
-    if(isset($_REQUEST['18:00-19:00'])){
-        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"18:00-19:00")
-    }
-    if(isset($_REQUEST['19:00-20:00'])){
-        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"19:00-20:00")
-    }
-    if(isset($_REQUEST['20:00-21:00'])){
-        $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"20:00-21:00")
-    }
-
+        if(isset($_REQUEST['9:00-10:00'])){
+            $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"9:00-10:00")
+        }
+        if(isset($_REQUEST['10:00-11:00'])){
+            $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"10:00-11:00")
+        }
+        if(isset($_REQUEST['11:00-12:00'])){
+            $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"11:00-12:00")
+        }
+        if(isset($_REQUEST['15:00-16:00'])){
+            $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"15:00-16:00")
+        }
+        if(isset($_REQUEST['16:00-17:00'])){
+            $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"16:00-17:00")
+        }
+        if(isset($_REQUEST['17:00-18:00'])){
+            $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"17:00-18:00")
+        }
+        if(isset($_REQUEST['18:00-19:00'])){
+            $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"18:00-19:00")
+        }
+        if(isset($_REQUEST['19:00-20:00'])){
+            $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"19:00-20:00")
+        }
+        if(isset($_REQUEST['20:00-21:00'])){
+            $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"20:00-21:00")
+        }
+    */
 ?>
+
+
+-----------
+
+ <?php /*
+// Verificar si el formulario fue enviado
+if (isset($_REQUEST['AltaEspecialista'])) {
+    // Inicializar las variables para los días
+    $Lunes = isset($_REQUEST['Lunes']) ? 1 : 0;
+    $Martes = isset($_REQUEST['Martes']) ? 1 : 0;
+    $Miercoles = isset($_REQUEST['Miercoles']) ? 1 : 0;
+    $Jueves = isset($_REQUEST['Jueves']) ? 1 : 0;
+    $Viernes = isset($_REQUEST['Viernes']) ? 1 : 0;
+
+    // Lista de horarios disponibles
+    $horarios = [
+        "8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00",
+        "15:00-16:00", "16:00-17:00", "17:00-18:00", "18:00-19:00",
+        "19:00-20:00", "20:00-21:00"
+    ];
+
+    // Inicializar una lista para los valores de la consulta
+    $valores = [];
+
+    // Iterar sobre los horarios seleccionados
+    foreach ($horarios as $hora) {
+        if (isset($_REQUEST[$hora])) {
+            // Agregar la fila a los valores
+            $valores[] = "($Lunes, $Martes, $Miercoles, $Jueves, $Viernes, '$hora')";
+        }
+    }
+
+    // Verificar si hay valores seleccionados
+    if (!empty($valores)) {
+        // Construir la consulta SQL
+        $sql = "INSERT INTO DISPONIBILIDAD_ESPECIALISTA (Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo) VALUES ";
+        $sql .= implode(", ", $valores);
+
+        // Conexión a la base de datos
+        include("./GestionBD/1-conexion.php");
+
+        // Ejecutar la consulta
+        if ($conn->query($sql)) {
+            echo "<script>alert('Disponibilidad registrada correctamente.');</script>";
+        } else {
+            echo "<script>alert('Error al registrar la disponibilidad: " . $conn->error . "');</script>";
+        }
+    } else {
+        echo "<script>alert('No se seleccionaron horarios.');</script>";
+    }
+}
+?>
+*/
