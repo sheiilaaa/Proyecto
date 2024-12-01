@@ -130,12 +130,13 @@
                 '$NombreVia_Especialista','$NumeroVia_Especialista','$CuentaBancaria_Especialista','$Cuota_Especialista','$Contrasena_Especialista';";
 
 
-                SELECT id_especialista from especialistas WHERE dni=$dni_especialista
+            $sql_Es="SELECT id_especialista FROM especialistas WHERE dni=$dni_especialista";
 
                 $row=id
 
-                INSERT into disponibilidad where 
-                                                            
+            $sql_dis="INSERT INTO disponibilidad WHERE ";
+
+
             $info= "$Nombre_Especialista,$Apellido_Especialista,$Cuota_Especialista";
             $id= "SELECT `ID_Especialista` FROM `especialistas` WHERE Nombre_Especialista='$Nombre_Especialista';";
             
