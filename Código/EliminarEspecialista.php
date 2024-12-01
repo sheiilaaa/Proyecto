@@ -64,6 +64,7 @@
 <!-- CODIGO -->
 
         <?php
+
         if(isset($_REQUEST['Eliminar'])){
             $ID_Especialista=$_REQUEST['ID_Especialista'];
             $DNI_Especialista=$_REQUEST['DNI_Especialista'];
@@ -101,6 +102,7 @@
             $sql="SELECT * FROM especialistas WHERE ID_Especialista= $ID_Especialista;";
             $resultado=mysql_query($conn,$sql);
 
+            //! Que estas 
             if(mysqli_num_rows($resultado)>0)
             {
             ?>

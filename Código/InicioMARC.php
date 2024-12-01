@@ -1,3 +1,86 @@
+<!-- INICIO SESIÓN -->
+<?php
+//Esto deberas poner si quieres que todos vayan a la misma pagina
+/**<?php
+session_start(); // Asegúrate de que la sesión está iniciada
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['rol'])) {
+    // Si no está logueado, redirigir a la página de login
+    header("Location: login.php");
+    exit;
+}
+
+// Mostrar contenido basado en el rol
+if ($_SESSION['rol'] == 'cliente') {
+    echo "<h1>Bienvenido, Cliente " . $_SESSION['nombre'] . "</h1>";
+    // Aquí puedes agregar contenido específico para los clientes
+    echo "<p>Contenido exclusivo para clientes...</p>";
+} elseif ($_SESSION['rol'] == 'especialista') {
+    echo "<h1>Bienvenido, Especialista " . $_SESSION['nombre'] . "</h1>";
+    // Aquí puedes agregar contenido específico para los especialistas
+    echo "<p>Contenido exclusivo para especialistas...</p>";
+} elseif ($_SESSION['rol'] == 'admin') {
+    echo "<h1>Hola admin</h1>";
+}else { pero igualmente se debe poner un else con rol desconocido
+    echo "<h1>Rol desconocido</h1>";
+    // Opcional: Mensaje de error si el rol no es válido
+}
+?>*/ 
+
+
+    session_start(); // Asegúrate de que la sesión está iniciada
+
+    if (isset($_REQUEST['Iniciar'])) {
+        // Obtener los datos del formulario
+        $dni = htmlspecialchars(trim($_POST['DNI-login']));
+        $pwd = trim($_POST['login-password']);
+
+        // Conexión a la base de datos
+        include('conexion.php');  // Asegúrate de incluir la conexión
+
+        // Verificar si es un usuario CLIENTE
+        $sql = "SELECT * FROM CLIENTES WHERE DNI = ?"; 
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "s", $dni);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_bind_result($stmt, $dni_bd, $password_hash, $nombre);
+            
+            if (mysqli_stmt_fetch($stmt)) {
+                if ($dni === "un dni") { //esto admin 
+                    $_SESSION['rol'] = 'admin';
+                    $_SESSION['DNI-login'] = $dni;
+                    header("Location: ListadoEspecialistas.php");
+                } else {
+                    $_SESSION['rol'] = 'usuario'; // usuario normal 
+                    $_SESSION['DNI-login'] = $dni;
+                    header("Location: ComoTrabajamos.php")
+                }
+            }
+        }
+        // Verificar si es un especialista
+        $sql = "SELECT * FROM ESPECIALISTAS WHERE DNI = ?"; 
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "s", $dni);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_bind_result($stmt, $dni_bd, $password_hash, $nombre);
+            
+            if (mysqli_stmt_fetch($stmt)) {
+                if (password_verify($pwd, $password_hash)) {
+                    $_SESSION['rol'] = 'especialista'; //especialistas
+                    $_SESSION['nombre'] = $nombre;
+                    header("Location: ListadoEspecialistas.php");
+                    exit;
+                }
+            }
+        }
+
+        // Si no se encontró el usuario o la contraseña es incorrecta
+        echo "Usuario o contraseña incorrectos.";
+    }
+
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,24 +131,26 @@
             <button class="tab-button" onclick="openTab('register')" data-translate="registrar">Registrar</button>
         </div>      
 
+
         <div class="tab-content active" id="login">
             <form method="post">
                 <h2 data-translate="iniciar_sesion_titulo">Iniciar Sesión</h2>
                 <div class="form-group">
-                    <input type="email" name="email" id="login-email" required placeholder="Introduce tu correo" data-translate="correo_placeholder">
+                    <!--! Esto se tiene que cambiar para que pida el DNI-->
+                    <input type="text" name="dni" id="DNI-login" required placeholder="Introduce tu DNI" data-translate="DNI_placeholder">
                 </div>
                 <div class="form-group">
                     <input type="password" name="password" id="login-password" required placeholder="Introduce tu contraseña" data-translate="contrasena_placeholder">
                 </div>
                 <div class="form-group">
-                    <button type="submit" data-translate="boton_iniciar_sesion">Iniciar Sesión</button>
+                    <button type="submit" data-translate="boton_iniciar_sesion" name="Iniciar">Iniciar Sesión</button>
                 </div>
             </form>
         </div>
-
-
+    <!-- REGISTRO -->
+   
         <?php
-            if(isset($_REQUEST['Ingresar'])){
+            if(isset($_REQUEST['Register'])){
                 $DNI_Cliente=$_REQUEST['DNI_Cliente'];
                 $NumTelefono_Cliente=$_REQUEST['NumTelefono_Cliente'];
                 $Correo_Cliente=$_REQUEST['Correo_Cliente'];
@@ -76,9 +161,6 @@
                 $NombreVia_Cliente=$_REQUEST['NombreVia_Cliente'];
                 $NumeroVia_Cliente=$_REQUEST['NumeroVia_Cliente'];
                 $TipoVia_Cliente=$_REQUEST['TipoVia_Cliente'];
-
-
-
                 $de= "INSERT INTO CLIENTES (DNI_Cliente, NumTelefono_Cliente, Correo_Cliente, Nombre_Cliente, Apellido_Cliente, Contrasena_Cliente, FechaNacimiento_Cliente,NombreVia_Cliente,NumeroVia_Cliente,TipoVia_Cliente)
                 VALUES ('$DNI_Cliente','$NumTelefono_Cliente', '$Correo_Cliente', $Nombre_Cliente, '$Apellido_Cliente', '$Contrasena_Cliente', ' $FechaNacimiento_Cliente', '$NombreVia_Cliente','$NumeroVia_Cliente','$TipoVia_Cliente';";
             
@@ -146,6 +228,10 @@
             </form>
         </div>
     </div>
+
+    <?php
+            }
+    ?>
 
     <script src="JS/InicioMarc.js"></script>
     <script src="JS/traducciones.js"></script>
