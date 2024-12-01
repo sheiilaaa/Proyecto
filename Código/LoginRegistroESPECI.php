@@ -284,12 +284,8 @@
     $Jueves=$_REQUEST['Jueves'];
     $Viernes=$_REQUEST['Viernes'];
 
-    $Lunes = true;
-    $sql="INSERT INTO DISPONIBILIDAD_ESPECIALISTA (ID_ESPE, Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo) VALUES " . ( $Lunes ? '1' : '0' ) . ")";
-
-
-    $activo = true; // Puede ser true/false, 1/0
-$sql = "INSERT INTO ejemplo_booleano (activo) VALUES (" . ($activo ? '1' : '0') . ")";
+    $sql="INSERT INTO DISPONIBILIDAD_ESPECIALISTA (ID_ESPE, Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo) 
+     VALUES " . ( $Lunes ? '1' : '0' ), ( $Martes ? '1' : '0' ), ( $Miercoles ? '1' : '0' ), ( $Jueves ? '1' : '0' ), ( $Viernes ? '1' : '0' ), ( $Hora_Dispo ? '1' : '0' )")";
 
 /*PARTE DERECHA FOTO*/
 
@@ -301,13 +297,14 @@ $sql = "INSERT INTO ejemplo_booleano (activo) VALUES (" . ($activo ? '1' : '0') 
         $Jueves=if(isset($_REQUEST['Jueves']) ? 1 : 0);
         $Viernes=if(isset($_REQUEST['Viernes']) ? 1 : 0);
 
-        
+        /*
         $Lunes=if(isset('Lunes'),$_REQUEST['Lunes'],0)
         $Martes=if(isset('Martes'),$_REQUEST['Martes'],0)
         $Miercoles=if(isset('Miercoles'),$_REQUEST['Miercoles'],0)
         $Jueves=if(isset('Jueves'),$_REQUEST['Jueves'],0)
         $Viernes=if(isset('Viernes'),$_REQUEST['Viernes'],0)
-    }
+    */
+        }
 
 /*PRINCIPIO FOTO - PARTE IZQUIERDA*/
     if(isset($_REQUEST['8:00-9:00'])){
@@ -341,20 +338,4 @@ $sql = "INSERT INTO ejemplo_booleano (activo) VALUES (" . ($activo ? '1' : '0') 
         $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"20:00-21:00")
     }
 
-?>
-
-<?php
-
-// Insertar directamente usando una consulta simple
-$activo = true; // Puede ser true/false, 1/0
-$sql = "INSERT INTO ejemplo_booleano (activo) VALUES (" . ($activo ? '1' : '0') . ")";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Registro insertado correctamente.";
-} else {
-    echo "Error: " . $conn->error;
-}
-
-// Cerrar conexión
-$conn->close();
 ?>
