@@ -205,55 +205,54 @@
                             <label for="Contrasena_Especialista">Contraseña:</label>
                             <input type="password" name="Contrasena_Especialista" id="Contrasena_Especialista" class="caja"required placeholder="Escribe tu contraseña">
 
-                <fieldset>
+            <fieldset>
                 <legend>Disponibilidad Diaria</legend>
-                <input type="checkbox" id="Fecha_Dispo" value="Lunes">
-                    <label for="Fecha_Dispo">Lunes</label>
+                <input type="checkbox" id="Fecha_Dispo" name="Lunes"  value="1">
+=                    <label for="Fecha_Dispo">Lunes</label>
 
-                <input type="checkbox" id="Fecha_Dispo" value="Martes">
+                <input type="checkbox" id="Fecha_Dispo" name="Martes" value="1">
                     <label for="Fecha_Dispo">Martes</label>
 
-                <input type="checkbox" id="Fecha_Dispo" value="Miércoles">
+                <input type="checkbox" id="Fecha_Dispo" name="Miércoles" value="1">
                     <label for="Fecha_Dispo">Miércoles</label>
                    
-                <input type="checkbox" id="Fecha_Dispo" value="Jueves">
+                <input type="checkbox" id="Fecha_Dispo" name="Jueves" value="1">
                     <label for="Fecha_Dispo">Jueves</label>
                 
-                <input type="checkbox" id="Fecha_Dispo" value="Viernes">
+                <input type="checkbox" id="Fecha_Dispo" name="Viernes" value="1">
                     <label for="Fecha_Dispo">Viernes</label>
-                          
             </fieldset>
             
             <fieldset>
                 <legend>Horario Laboral</legend>
-                    <input type="checkbox" id="Hora_Dispo" value="8:00-9:00">
+                    <input type="checkbox" id="Hora_Dispo" name="8:00-9:00" value="1">
                         <label for="Hora_Dispo">8:00-9:00</label>
                         
-                    <input type="checkbox" id="Hora_Dispo" value="9:00-10:00">
+                    <input type="checkbox" id="Hora_Dispo" name="9:00-10:00" value="1">
                         <label for="Hora_Dispo">9:00-10:00</label>
 
-                    <input type="checkbox" id="Hora_Dispo" value="10:00-11:00">
+                    <input type="checkbox" id="Hora_Dispo" name="10:00-11:00" value="1">
                         <label for="Hora_Dispo">10:00-11:00</label>
 
-                    <input type="checkbox" id="Hora_Dispo" value="11:00-12:00">
+                    <input type="checkbox" id="Hora_Dispo" name="11:00-12:00" value="1">
                         <label for="Hora_Dispo">11:00-12:00</label>
                         
-                    <input type="checkbox" id="Hora_Dispo" value="15:00-16:00">
+                    <input type="checkbox" id="Hora_Dispo" name="15:00-16:00" value="1">
                         <label for="Hora_Dispo">15:00-16:00</label>
 
-                    <input type="checkbox" id="Hora_Dispo" value="16:00-17:00">
+                    <input type="checkbox" id="Hora_Dispo" name="16:00-17:00" value="1">
                         <label for="Hora_Dispo">16:00-17:00</label>
 
-                    <input type="checkbox" id="Hora_Dispo" value="17:00-18:00">
+                    <input type="checkbox" id="Hora_Dispo" name="17:00-18:00" value="1">
                         <label for="Hora_Dispo">17:00-18:00</label>
 
-                    <input type="checkbox" id="Hora_Dispo" value="18:00-19:00">
+                    <input type="checkbox" id="Hora_Dispo" name="18:00-19:00" value="1">
                         <label for="Hora_Dispo">18:00-19:00</label>
 
-                    <input type="checkbox" id="Hora_Dispo" value="19:00-20:00">
+                    <input type="checkbox" id="Hora_Dispo" name="19:00-20:00" value="1">
                         <label for="Hora_Dispo">19:00-20:00</label>
                         
-                    <input type="checkbox" id="Hora_Dispo" value="20:00-21:00">
+                    <input type="checkbox" id="Hora_Dispo" name="20:00-21:00" value="1">
                         <label for="Hora_Dispo">20:00-21:00</label>
             </fieldset>
                             
@@ -285,13 +284,24 @@
     $Jueves=$_REQUEST['Jueves'];
     $Viernes=$_REQUEST['Viernes'];
 
+    $Lunes = true;
+    $sql="INSERT INTO DISPONIBILIDAD_ESPECIALISTA (ID_ESPE, Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo) VALUES " . ( $Lunes ? '1' : '0' ) . ")";
 
-    $sql="INSERT INTO DISPONIBILIDAD_ESPECIALISTA (ID_ESPE, Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo) VALUES "
 
+    $activo = true; // Puede ser true/false, 1/0
+$sql = "INSERT INTO ejemplo_booleano (activo) VALUES (" . ($activo ? '1' : '0') . ")";
 
 /*PARTE DERECHA FOTO*/
 
     if(isset('AltaEspecialista')){
+
+        $Lunes=if(isset($_REQUEST['Lunes']) ? 1 : 0);
+        $Martes=if(isset($_REQUEST['Martes']) ? 1 : 0);
+        $Miercoles=if(isset($_REQUEST['Miercoles']) ? 1 : 0);
+        $Jueves=if(isset($_REQUEST['Jueves']) ? 1 : 0);
+        $Viernes=if(isset($_REQUEST['Viernes']) ? 1 : 0);
+
+        
         $Lunes=if(isset('Lunes'),$_REQUEST['Lunes'],0)
         $Martes=if(isset('Martes'),$_REQUEST['Martes'],0)
         $Miercoles=if(isset('Miercoles'),$_REQUEST['Miercoles'],0)
@@ -331,6 +341,20 @@
         $sql.=($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,"20:00-21:00")
     }
 
-
 ?>
 
+<?php
+
+// Insertar directamente usando una consulta simple
+$activo = true; // Puede ser true/false, 1/0
+$sql = "INSERT INTO ejemplo_booleano (activo) VALUES (" . ($activo ? '1' : '0') . ")";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Registro insertado correctamente.";
+} else {
+    echo "Error: " . $conn->error;
+}
+
+// Cerrar conexión
+$conn->close();
+?>
