@@ -105,6 +105,7 @@ if ($_SESSION['rol'] == 'cliente') {
         </body>
     </html>
 
+
 <?php
 /* ESPECIALISTA */
 } elseif ($_SESSION['rol'] == 'especialista') {
@@ -199,6 +200,8 @@ if ($_SESSION['rol'] == 'cliente') {
         </body>
     </html>
 
+
+    
 <?php
 
 /* ADMIN */
