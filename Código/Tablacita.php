@@ -1,7 +1,7 @@
 <!-- INICIO SESIÓN -->
 <?php
 //Esto deberas poner si quieres que todos vayan a la misma pagina
-/**<?php
+<?php
 session_start(); // Asegúrate de que la sesión está iniciada
 
 // Verificar si el usuario ha iniciado sesión
@@ -22,11 +22,11 @@ if ($_SESSION['rol'] == 'cliente') {
     echo "<p>Contenido exclusivo para especialistas...</p>";
 } elseif ($_SESSION['rol'] == 'admin') {
     echo "<h1>Hola admin</h1>";
-}else { pero igualmente se debe poner un else con rol desconocido
+}else {
     echo "<h1>Rol desconocido</h1>";
     // Opcional: Mensaje de error si el rol no es válido
 }
-?>*/ 
+?>
 
 
 

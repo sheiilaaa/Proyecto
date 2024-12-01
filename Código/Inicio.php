@@ -1,43 +1,102 @@
+<!-- INICIO SESIÓN -->
 <?php
-session_start()
+//Esto deberas poner si quieres que todos vayan a la misma pagina
+/**<?php
+session_start(); // Asegúrate de que la sesión está iniciada
 
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['rol'])) {
+    // Si no está logueado, redirigir a la página de login
+    header("Location: login.php");
+    exit;
+}
+
+// Mostrar contenido basado en el rol
+if ($_SESSION['rol'] == 'cliente') {
+    echo "<h1>Bienvenido, Cliente " . $_SESSION['nombre'] . "</h1>";
+    // Aquí puedes agregar contenido específico para los clientes
+    echo "<p>Contenido exclusivo para clientes...</p>";
+} elseif ($_SESSION['rol'] == 'especialista') {
+    echo "<h1>Bienvenido, Especialista " . $_SESSION['nombre'] . "</h1>";
+    // Aquí puedes agregar contenido específico para los especialistas
+    echo "<p>Contenido exclusivo para especialistas...</p>";
+} elseif ($_SESSION['rol'] == 'admin') {
+    echo "<h1>Hola admin</h1>";
+}else {
+    echo "<h1>Rol desconocido</h1>";
+    // Opcional: Mensaje de error si el rol no es válido
+}
+?>*/ 
+
+
+    session_start(); // Asegúrate de que la sesión está iniciada
+
+    if (isset($_REQUEST['Iniciar'])) {
+        // Obtener los datos del formulario
+        $dni = htmlspecialchars(trim($_POST['DNI-login']));
+        $pwd = trim($_POST['login-password']);
+
+        // Conexión a la base de datos
+        include('conexion.php');  // Asegúrate de incluir la conexión
+
+        // Verificar si es un usuario CLIENTE
+        $sql = "SELECT * FROM CLIENTES WHERE DNI = ?"; 
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "s", $dni);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_bind_result($stmt, $dni_bd, $password_hash, $nombre);
+            
+            if (mysqli_stmt_fetch($stmt)) {
+                if ($dni === "un dni") { //esto admin 
+                    $_SESSION['rol'] = 'admin';
+                    $_SESSION['DNI-login'] = $dni;
+                    header("Location: ListadoEspecialistas.php");
+                } else {
+                    $_SESSION['rol'] = 'usuario'; // usuario normal 
+                    $_SESSION['DNI-login'] = $dni;
+                    header("Location: ComoTrabajamos.php")
+                }
+            }
+        }
+        // Verificar si es un especialista
+        $sql = "SELECT * FROM ESPECIALISTAS WHERE DNI = ?"; 
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "s", $dni);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_bind_result($stmt, $dni_bd, $password_hash, $nombre);
+            
+            if (mysqli_stmt_fetch($stmt)) {
+                if (password_verify($pwd, $password_hash)) {
+                    $_SESSION['rol'] = 'especialista'; //especialistas
+                    $_SESSION['nombre'] = $nombre;
+                    header("Location: ListadoEspecialistas.php");
+                    exit;
+                }
+            }
+        }
+
+        // Si no se encontró el usuario o la contraseña es incorrecta
+        echo "Usuario o contraseña incorrectos.";
+    }
+
+    
 ?>
 <!DOCTYPE html>
-<html lang="es">
-</h1>  
-    <head>
-        
-        <meta charset="utf-8">
-        
-        <title> Login </title>    
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         
-        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
-        <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
-        
-        <!-- Link hacia el archivo de estilos css -->
-        <link rel="stylesheet" href="css/estilo.css">
-
-        <!-- Link favicon -->
-        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-
-        <!-- Link para que funcionen los FA FA -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-       
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="titulo_pagina">COACHING SL | Iniciar Sesión</title>
     
-    <body >
-<!-- CONEXION -->
-        <?php
-            session_start();
-            include("./GestionBD/1-conexion.php");
-        ?>
+    <link rel="stylesheet" href="CSS/marc.css">
+    <link rel="shortcut icon" href="IMG/logo.png" type="image/x-icon"> <!--FAVICON-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<!--CABECERA-->
-<div id="header">
+</head>
+<body>
+    <div id="header">
         <div class="logo">
-            <img src="img/logo.png" alt="COACHING SL">
+            <img src="IMG/logo.png" alt="COACHING SL">
         </div>
         <nav>
             <ul>
@@ -66,15 +125,32 @@ session_start()
     </div>
 
 
-        <!-- En este código relacionamos el usuario con la contraseña para que verifique si existe el usuario y coincide con la contraseña, 
-        también si se muestran resultados asociados en la base de datos y son corectos, se dejará abierta la sesion del usuario (que pondremos en todos los php)-->
-       
-        <!--! Comentarios: Marc Perarnau 
-              Yo esto lo pondira delante de todo porque asi tienes todo el css de una, y la conexion aunque sea codigo de mas la haria siempre en el mismo documento
-              Tampoco pondira request, pondria automaticamente POST
-        -->
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('login')" data-translate="iniciar_sesion">Iniciar Sesión</button>
+            <button class="tab-button" onclick="openTab('register')" data-translate="registrar">Registrar</button>
+        </div>      
+
+
+        <div class="tab-content active" id="login">
+            <form method="post">
+                <h2 data-translate="iniciar_sesion_titulo">Iniciar Sesión</h2>
+                <div class="form-group">
+                    <!--! Esto se tiene que cambiar para que pida el DNI-->
+                    <input type="text" name="dni" id="DNI-login" required placeholder="Introduce tu DNI" data-translate="DNI_placeholder">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="login-password" required placeholder="Introduce tu contraseña" data-translate="contrasena_placeholder">
+                </div>
+                <div class="form-group">
+                    <button type="submit" data-translate="boton_iniciar_sesion" name="Iniciar">Iniciar Sesión</button>
+                </div>
+            </form>
+        </div>
+    <!-- REGISTRO -->
+   
         <?php
-            if(isset($_REQUEST['Ingresar'])){
+            if(isset($_REQUEST['Register'])){
                 $DNI_Cliente=$_REQUEST['DNI_Cliente'];
                 $NumTelefono_Cliente=$_REQUEST['NumTelefono_Cliente'];
                 $Correo_Cliente=$_REQUEST['Correo_Cliente'];
@@ -85,9 +161,6 @@ session_start()
                 $NombreVia_Cliente=$_REQUEST['NombreVia_Cliente'];
                 $NumeroVia_Cliente=$_REQUEST['NumeroVia_Cliente'];
                 $TipoVia_Cliente=$_REQUEST['TipoVia_Cliente'];
-
-
-
                 $de= "INSERT INTO CLIENTES (DNI_Cliente, NumTelefono_Cliente, Correo_Cliente, Nombre_Cliente, Apellido_Cliente, Contrasena_Cliente, FechaNacimiento_Cliente,NombreVia_Cliente,NumeroVia_Cliente,TipoVia_Cliente)
                 VALUES ('$DNI_Cliente','$NumTelefono_Cliente', '$Correo_Cliente', $Nombre_Cliente, '$Apellido_Cliente', '$Contrasena_Cliente', ' $FechaNacimiento_Cliente', '$NombreVia_Cliente','$NumeroVia_Cliente','$TipoVia_Cliente';";
             
@@ -115,109 +188,53 @@ session_start()
                     }   
                 else{
             ?>
-        <h2></h2>
-        <div class="container" id="container">
-            <div class="form-container sign-up-container">
-                <form id="AltaUsuario" action="" method="post">
-                    <h1>Registrate</h1>
-                    <span>or use your email for registration</span>
-                    <input type="text" id="DNI_Cliente" name="DNI_Cliente" class="caja" autofocus required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI">
-                    <input type="tel" name="NumTelefono_Cliente"  id="NumTelefono_Cliente" class="caja" required placeholder="Telefono">
-                    <input type="email" name="Correo_Cliente" id="Correo_Cliente" class="caja" required placeholder="email">
-                    <input type="text" id="Nombre_Cliente" name="Nombre_Cliente" class="caja" required pattern="[a-zA-Z\s]+" placeholder="Nombre">
-                    <input type="text" id="Apellido_Cliente" name="Apellido_Cliente" class="caja" required pattern="[a-zA-Z\s]+" placeholder="Apellidos">
-                    <input type="password" name="Contrasena_Cliente" id="Contrasena_Cliente" class="caja"required placeholder="Contrasena">
-                    <input type="date" name="FechaNacimiento_Cliente" id="FechaNacimiento_Cliente" class="caja" placeholder="Fecha Nacimiento" title="Fecha Nacimiento">
-<!-- DEBE SER AÑO MES DIA, CON - PARA SEPARAR -->
-                    <input type="text" class="caja" name="NombreVia_Cliente" id="NombreVia_Cliente" placeholder="Escribe el nombre de la via">
-                    <input type="text" class="caja" name="NumeroVia_Cliente" id="NumeroVia_Cliente" placeholder="Escribe el número de la via">
-                    <input type="text" class="caja" name="TipoVia_Cliente" id="TipoVia_Cliente" placeholder="Escribe el tipo de la via">
-                    <button type="submit" title="AltaUsuario" name="Ingresar">Registrarse</button>
-                </form>
-            </div>
-        <?php
-        }
-        ?>
-
-<!-- INICIO SESIÓN -->
-        <?php
-        if(isset($_REQUEST['Ingresar'])){
-            $Nom_cliente=$_REQUEST['Nombre_Cliente'];
-            $Contra_Cliente=$_REQUEST['Contrasena_Cliente'];
-            
-            $sql= "SELECT * FROM CLIENTES WHERE Nombre_Cliente ='$Nom_cliente';";
-
-            $resultado = mysqli_query($conn, $sql);
-            
-            if(mysqli_num_rows($resultado)>0)
-            {
-                $row= mysqli_fetch_assoc($resultado);    
-                $_SESSION['Nom_cliente']=$row['Nombre_Cliente'];
-                
-                if ($Contra_Cliente == $row['Contrasena_Cliente']){
-                    header("ComoTrabajamos.php"); //Una vez correcto el cliente y la contraseña nos manda a la pantalla de como trabajamos.
-                }else{
-                    echo "Contraseña erronea";
-                }
-            } 
-            
-        else{
-            echo "El cliente no existe"; 
-            }
-
-        }
-        else{
-        ?>
-            <div class="form-container sign-in-container">
-                <form id="login" action="" method="post">
-                    <h1>Iniciar Sesión</h1>
-                    <input type="text" name="Nombre_Cliente" placeholder="Nombre_Cliente" required>
-                    <input type="password" placeholder="Contrasena_Cliente" name="Contrasena_Cliente" required>        
-                    <a href="recuperar.php">Te has olvidado la contraseña?</a>
-                    <button type="submit" title="Ingresar" name="Ingresar">Login</button>
-                </form>
-                <div class="pie-form"> 
-                    <a href="Inicio.php">Pulsa aquí para Registrate</a>
+        
+        <div class="tab-content" id="register">
+            <form action="" method="post">
+                <h2 data-translate="registro_titulo">Registro</h2>
+                <div class="form-group">
+                    <input type="text" name="dni" id="DNI_Cliente" required placeholder="Introduce tu DNI" pattern="[0-9]{8}[a-zA-Z]{1}" data-translate="dni_placeholder">
                 </div>
-            </div>
-            
-            <?php
-            }
-            ?>
-            <div class="overlay-container">
-                <div class="overlay">
-                    <div class="overlay-panel overlay-left">
-                        <h1>¡Bienvenido de nuevo!</h1>
-                        <p>Quieres iniciar sesión para poder acceder a la pagina web</p>
-                        <button class="ghost" id="signIn">Iniciar sesión</button>
-                    </div>
-
-                    <div class="overlay-panel overlay-right">
-                        <h1>¿Eres nuevo?</h1>
-                        <p>Haz clic y registrate en nuestra pagina para poder acceder</p>
-                        <button class="ghost" id="signUp">Registrarse</button>
-                    </div>
+                <div class="form-group">
+                    <input type="tel" name="telefono" id="Telefono_Cliente" required placeholder="Introduce tu telefono" minlength="9" maxlength="9" data-translate="telefono_placeholder">
                 </div>
-            </div>
+                <div class="form-group">
+                    <input type="email" name="correo" id="Correo_Cliente" required placeholder="Introduce tu email" data-translate="correo_placeholder">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="nombre" id="Nombre_Cliente" required placeholder="Introduce tu nombre" data-translate="nombre_placeholder">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="apellidos" id="Apellidos_Cliente" required placeholder="Introduce tus apellidos" data-translate="apellidos_placeholder">
+                </div>
+                <div class="form-group">
+                    <input type="date" name="nacimiento" id="Nacimiento_Cliente" required placeholder="Introduce tu fecha de nacimiento" data-translate="fecha_nacimiento_placeholder">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="via" id="Via_Cliente" required placeholder="Introduce tipo de via de su calle" data-translate="via_placeholder">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="calle" id="Calle_Cliente" required placeholder="Introduce el nombre de su calle" data-translate="calle_placeholder">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="numero" id="Numero_Cliente" required placeholder="Introduce el numero de su calle" data-translate="numero_placeholder">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="contrasena" id="Contrasena_Cliente" required placeholder="Introduce su contraseña" data-translate="contrasena_placeholder">
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="Register" name="Register" data-translate="boton_registrar">Registrarse</button>
+                </div>
+            </form>
         </div>
+    </div>
 
+    <?php
+            }
+    ?>
 
-        <footer>
-            <p>
-                Created with <i class="fa fa-heart"></i> by
-                <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-                - Read how I created this and how you can join the challenge
-                <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-            </p>
-        </footer>
+    <script src="JS/InicioMarc.js"></script>
+    <script src="JS/traducciones.js"></script>
 
-<!--ENLACE JS-->
-        <script src="js/Inicio.js"></script>
-
-<!-- PIE DE PAGINA -->
-        <footer>
-            Todos los derechos reservados | Coaching SL Copyright © 2024
-        </footer>
-
-    </body>
+</body>
 </html>
