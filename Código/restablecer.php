@@ -97,10 +97,16 @@ if ($_SESSION['rol'] == 'cliente') {
                 </div>
             </div>
 
+    
     <!-- PIE DE PAGINA -->
-            <footer>
+    <footer>
                 Todos los derechos reservados | Coaching SL Copyright © 2024
-            </footer>        
+            </footer>   
+            
+                <!-- Link a JavaScript -->
+    <script src="JS/InicioMarc.js"></script>
+    <script src="JS/traducciones.js"></script>
+      
         </body>
     </html>
 
