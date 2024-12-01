@@ -64,77 +64,44 @@ Hacer un SELECT * FROM CITAS WHERE ID_Cliente=$_SESSION[ID_Cliente]
             </ul>
         </nav>
     </div>
+
     <hr> <!-- SEPARADOR-->
 
 <!-- SOBRE EL TRABAJO-->
 
 
 
+<?php
+
+/*INFO ESPECIALISTA*/
+            $ID_Especialista=$_REQUEST['ID_Especialista'];
+            $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
+            $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
+            $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
+        /*INFO CLIENTE*/
+            $ID_Cliente=$_REQUEST['ID_Cliente'];
+            $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
+            $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
+
+        /*INFO FORMULARIO*/
+            $Espe_escogida=$_REQUEST['Espe_escogida'];
+
+        /*RECOPILAR INFORMACION*/
+            $sql_espe="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista
+                FROM ESPECIALISTAS E
+                JOIN ESPECIALISTA_ESPECIALIDAD EE ON E.ID_Especialista = EE.ID_Especialista_EspeEspe
+                JOIN ESPECIALIDAD ES ON ES.ID_Especialista = E.ID_Especialidad_EspeEspe";
+
+            $sql_dispo="SELECT DE.Fecha_Disponibilidad, DE.Hora_Disponibilidad, DE.Disponibilidad_Especialista
+                FROM DISPONIBILIDAD_ESPECIALISTA DE
+                JOIN ESPECIALISTAS E ON E.ID_Especialista = DE.ID_Especialista_DispoEspe";
+
+            $sql_usr= " SELECT * FROM CLIENTES WHERE ID_Cliente= '$ID_Cliente'; ";
+
+    ?>
 
 
-
-
-
-
-
-        <section class="apartados" id="apartados">
-            <h1>Sobre nosotras</h1>
-            <p class="centrado">Somos una empresa psofjòwiegjoap </p>
-        </section>
-
-        <section class="apartados" id="apartados">
-            <div class="centrar_info">
-                <h3 class="titulo_apartados"> Acerca de </h3>
-                <div class="info_ubi">
-                    <h4>¿Cómo trabajamos?</h4>
-                    <p class="centrar_derecha">Sabemos que existe servicio de coaching, los cuales
-                        puedes encontrar por internet. Nosotras ofrecemos velocidad,
-                        calidad y te brinda apoyo durante el proceso de estancia con nosotros. 
-                        Brindamos novedades, como la máxima eficacia, desde la primera puesta en
-                        contacto con nosotras hasta la primera visita, aprenderás a crecer,
-                        desarrollar aquellas habilidades que todavía no conozcas y llegar a alcanzartus metas más soñadas.
-                    </p>
-
-                    <h4>Prácticas</h4>
-                    <p class="centrar_derecha">Sabemos que existe servicio de coaching, los cuales
-                        puedes encontrar por internet. Nosotras ofrecemos velocidad,
-                        calidad y te brinda apoyo durante el proceso de estancia con nosotros. 
-                        Brindamos novedades, como la máxima eficacia, desde la primera puesta en
-                        contacto con nosotras hasta la primera visita, aprenderás a crecer,
-                        desarrollar aquellas habilidades que todavía no conozcas y llegar a alcanzartus metas más soñadas.
-                    </p>
-
-                </div>
-                <div class="horarios">
-                    <h4>¿Quiénes somos?</h4>
-                    <p class="centrar_izquierda">Sabemos que existe servicio de coaching, los cuales
-                        puedes encontrar por internet. Nosotras ofrecemos velocidad,
-                        calidad y te brinda apoyo durante el proceso de estancia con nosotros. 
-                        Brindamos novedades, como la máxima eficacia, desde la primera puesta en
-                        contacto con nosotras hasta la primera visita, aprenderás a crecer,
-                        desarrollar aquellas habilidades que todavía no conozcas y llegar a alcanzar
-                        tus metas más soñadas.
-                    </p>
-
-                    <h4>¿Cómo trabajamos?</h4>
-                    <p class="centrar_derecha">Sabemos que existe servicio de coaching, los cuales
-                        puedes encontrar por internet. Nosotras ofrecemos velocidad,
-                        calidad y te brinda apoyo durante el proceso de estancia con nosotros. 
-                        Brindamos novedades, como la máxima eficacia, desde la primera puesta en
-                        contacto con nosotras hasta la primera visita, aprenderás a crecer,
-                        desarrollar aquellas habilidades que todavía no conozcas y llegar a alcanzartus metas más soñadas.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-    <hr> <!-- SEPARADOR-->
-
-
-
-
-
-        <hr> <!-- SEPARADOR-->
+<hr> <!-- SEPARADOR-->
 
 <!-- PIE DE PAGINA -->
         <footer>

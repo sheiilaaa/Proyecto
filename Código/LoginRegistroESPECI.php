@@ -285,6 +285,11 @@
 
     $sql="INSERT INTO DISPONIBILIDAD_ESPECIALISTA (ID_ESPE, Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo) VALUES "
 
+
+
+
+
+    
 /*PARTE DERECHA FOTO*/
 
     if(isset('AltaEspecialista')){
