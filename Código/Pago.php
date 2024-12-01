@@ -149,9 +149,9 @@
                         <label for="Fecha_Pago">Fecha de Pago:</label>
                             <input type="date" id="Fecha_Pago" name="Fecha_Pago" class="cajaPago">
                         
-                        <label for="Cantidad_Pago">Cantidad del Pago:</label> <!---->
+                        <label for="Cantidad_Pago">Cantidad del Pago:</label> <!--puede dar la opcion de pagar todo tarjeta o efectivo -->
                             <input type="text" id="Cantidad_Pago" name="Cantidad_Pago" class="cajaPago">
-                            <br>
+                        <br>
                         <input type="checkbox" name="user" value="Acepto los terminos de la página" requiered>
                             <label for="user">Acepto los terminos de la página</label>
                         
