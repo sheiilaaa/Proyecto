@@ -75,7 +75,7 @@
                 JOIN ESPECIALISTAS ES ON ES.ID_Especialistas = ID_Especialista_Cita";
 
             if (mysqli_query($conn,$ins)){   
-                header("location:ConfirmacionPago.php");
+                header("location:ConfPago.php");
             }else {
                 echo "ERROR:".mysqli_error($conn);
                 echo "ERROR:".mysqli_error($ins); 
