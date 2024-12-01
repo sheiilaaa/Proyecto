@@ -11,7 +11,6 @@
         <!-- Link favicon -->
         <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 
-
         <!-- Link para que funcionen los FA FA -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -22,8 +21,10 @@
 <!-- CONEXION -->
         <?php
             session_start();
-            include("./GestionBD/1-conexion.php");
+            // Asegúrate de que la ruta del archivo es segura y no se pueda manipular
+            include(realpath(dirname(__FILE__) . "/GestionBD/1-conexion.php"));
         ?>
+
 <!--CABECERA-->
 <div id="header">
         <div class="logo">
@@ -55,33 +56,50 @@
         </nav>
     </div>
 
-
 <!-- Codigo -->
         <div class="titulo2">Modificar Especialista</div>
         <?php
         if(isset($_REQUEST['Modificar'])){
-            $ID_Especialista=$_REQUEST['ID_Especialista'];
-            
-            $DNI_Especialista=$_REQUEST['DNI_Especialista'];
-            $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
-            $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
-            $FechaNacimiento_Especialista=$_REQUEST['FechaNacimiento_Especialista'];
-            $NumTelefono_Especialista=$_REQUEST['NumTelefono_Especialista'];
-            $Correo_Especialista=$_REQUEST['Correo_Especialista'];
-            $TipoVia_Especialista=$_REQUEST['TipoVia_Especialista'];
-            $NombreVia_Especialista=$_REQUEST['NombreVia_Especialista'];
-            $NumeroVia_Especialista=$_REQUEST['NumeroVia_Especialista'];
-            $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
-            $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
-            $Contrasena_Especialista=$_REQUEST['Contrasena_Especialista'];
+            // Sanear y validar las entradas del formulario
+            $ID_Especialista = filter_input(INPUT_REQUEST, 'ID_Especialista', FILTER_SANITIZE_NUMBER_INT);
+            $DNI_Especialista = filter_input(INPUT_REQUEST, 'DNI_Especialista', FILTER_SANITIZE_STRING);
+            $Nombre_Especialista = filter_input(INPUT_REQUEST, 'Nombre_Especialista', FILTER_SANITIZE_STRING);
+            $Apellido_Especialista = filter_input(INPUT_REQUEST, 'Apellido_Especialista', FILTER_SANITIZE_STRING);
+            $FechaNacimiento_Especialista = filter_input(INPUT_REQUEST, 'FechaNacimiento_Especialista', FILTER_SANITIZE_STRING);
+            $NumTelefono_Especialista = filter_input(INPUT_REQUEST, 'NumTelefono_Especialista', FILTER_SANITIZE_STRING);
+            $Correo_Especialista = filter_input(INPUT_REQUEST, 'Correo_Especialista', FILTER_SANITIZE_EMAIL);
+            $TipoVia_Especialista = filter_input(INPUT_REQUEST, 'TipoVia_Especialista', FILTER_SANITIZE_STRING);
+            $NombreVia_Especialista = filter_input(INPUT_REQUEST, 'NombreVia_Especialista', FILTER_SANITIZE_STRING);
+            $NumeroVia_Especialista = filter_input(INPUT_REQUEST, 'NumeroVia_Especialista', FILTER_SANITIZE_STRING);
+            $CuentaBancaria_Especialista = filter_input(INPUT_REQUEST, 'CuentaBancaria_Especialista', FILTER_SANITIZE_STRING);
+            $Cuota_Especialista = filter_input(INPUT_REQUEST, 'Cuota_Especialista', FILTER_SANITIZE_STRING);
+            $Contrasena_Especialista = filter_input(INPUT_REQUEST, 'Contrasena_Especialista', FILTER_SANITIZE_STRING);
 
-            $Actualizar = "UPDATE ESPECIALISTAS SET Nombre_Especialista='$Nombre_Especialista', Apellido_Especialista='$Apellido_Especialista',
-                            FechaNacimiento_Especialista='$FechaNacimiento_Especialista', NumTelefono_Especialista='$NumTelefono_Especialista'
-                            Correo_Especialista='$Correo_Especialista', TipoVia_Especialista='$TipoVia_Especialista', NombreVia_Especialista='$NombreVia_Especialista',
-                            NumeroVia_Especialista='$NumeroVia_Especialista', CuentaBancaria_Especialista='$CuentaBancaria_Especialista', Cuota_Especialista='$Cuota_Especialista',
-                            Contrasena_Especialista='$Contrasena_Especialista'
-                        
-                        WHERE ID_Especialista='$ID_Especialista';";
+            $Contrasena_Especialista_EN = password_hash($Contrasena_Especialista, PASSWORD_DEFAULT);
+
+            $sql = "UPDATE ESPECIALISTAS 
+            SET Nombre_Especialista = ?, 
+                Apellido_Especialista = ?, 
+                FechaNacimiento_Especialista = ?, 
+                NumTelefono_Especialista = ?, 
+                Correo_Especialista = ?, 
+                TipoVia_Especialista = ?, 
+                NombreVia_Especialista = ?, 
+                NumeroVia_Especialista = ?, 
+                CuentaBancaria_Especialista = ?, 
+                Cuota_Especialista = ?, 
+                Contrasena_Especialista = ?
+            WHERE ID_Especialista = ?";
+
+            $stmt = mysqli_prepare($conn, $sql);
+
+            mysqli_stmt_bind_param($stmt, 'sssssssssssi', $Nombre_Especialista, $Apellido_Especialista, $FechaNacimiento_Especialista, 
+            $NumTelefono_Especialista, $Correo_Especialista, $TipoVia_Especialista, $NombreVia_Especialista, $NumeroVia_Especialista, 
+            $CuentaBancaria_Especialista, $Cuota_Especialista, $Contrasena_Especialista, $ID_Especialista);
+
+            if ($stmt === false) {
+                die("Error en la preparación de la consulta: " . mysqli_error($conn));
+            }
             
             if(mysqli_query($conn,$Actualizar)){
                 header("Location:ConfModEspe.php?DNI_Especialista=$DNI_Especialista");

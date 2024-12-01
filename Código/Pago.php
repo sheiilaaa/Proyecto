@@ -84,7 +84,7 @@
         else{ 
         ?>
         <div class="Fondo_pago">
-            <form id="Pago.php" action="ESPECIALISTA.php" method="post"><!--CAMBIAR DEPENDIENDO DE DONDE VENGA-->
+            <form id="Pago.php" action="" method="post"><!--CAMBIAR DEPENDIENDO DE DONDE VENGA-->
                 <div class="infoespecialista">
                     <div class="registro">Especialista</div>
                     <div class="IzqInfo"></div>
@@ -104,7 +104,7 @@
             </form>    
 
             <div class="TarPago">
-                <form id="PagoS.php" action="pago.php" method="post">
+                <form id="PagoS.php" action="" method="post">
                     <div class="TituloPAGO">Que método quieres</div>
                     <div class="metodoPAGO">
                         <button class="Tarjeta"> <!-- VISA -->
@@ -128,10 +128,11 @@
                         </button>
                         <!--   <input type="text" id="Metodos_Pago" name="Metodos_Pago" class="cajaPago"> -->
                     </div> <!-- metodoPAGO -->  
-
-                </div> <!-- NO SE QUE CIERRA -->
+                </form>
+            </div> <!-- TarPago -->
                     
-                    <div class="DatosCliente">
+                <div class="DatosCliente">
+                    <form id="PClien.php" action="" method="post">
                         <div class="UsuarioPago">Datos de pago</div>
                         <label for="Nombre_Cliente">Nombre:</label>
                             <input type="text" id="Nombre_Cliente" name="Nombre_Cliente" class="cajaPago" value="<?php echo $row['Nombre_Cliente']; ?>">
@@ -157,14 +158,14 @@
                         <div class="button">
                             <input type="submit" value="Enviar"> 
                         </div>
-
+                        </form>
  <!-- DIV DatosCliente -->
+                
 
-                </form> 
         <?php  
         }        
         ?>     
-            </div><!-- TarPago -->
+            </div><!-- Datos Cliente -->
         </div>  <!-- Fondo_pago -->
 <!-- PIE DE PAGINA -->
         <footer>

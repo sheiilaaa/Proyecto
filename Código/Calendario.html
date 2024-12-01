@@ -62,83 +62,105 @@
     </div>
 
     <script>
-        let fechaActual = new Date();  // Fecha actual
+let fechaActual = new Date();  // Fecha actual
 
-        // Función para generar el calendario
-        function generarCalendario(fecha, citas) {
-            const tbody = document.querySelector("#calendario tbody");
-            tbody.innerHTML = ""; // Limpiar el contenido del calendario
+// Función para generar el calendario
+function generarCalendario(fecha, citas) {
+    const tbody = document.querySelector("#calendario tbody");
+    tbody.innerHTML = ""; // Limpiar el contenido del calendario
 
-            const primerDia = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
-            const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0);
+    const primerDia = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
+    const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0);
 
-            let diaActual = 1 - primerDia.getDay(); // Ajustar para comenzar en domingo
-            while (diaActual <= ultimoDia.getDate()) {
-                const fila = document.createElement("tr");
-                for (let i = 0; i < 7; i++) {
-                    const celda = document.createElement("td");
+    let diaActual = 1 - primerDia.getDay(); // Ajustar para comenzar en domingo
+    while (diaActual <= ultimoDia.getDate()) {
+        const fila = document.createElement("tr");
+        for (let i = 0; i < 7; i++) {
+            const celda = document.createElement("td");
 
-                    if (diaActual > 0 && diaActual <= ultimoDia.getDate()) {
-                        celda.textContent = diaActual;
+            if (diaActual > 0 && diaActual <= ultimoDia.getDate()) {
+                celda.textContent = diaActual;
 
-                        // Verificar si la fecha está ocupada
-                        const fechaString = `${fecha.getFullYear()}-${(fecha.getMonth() + 1).toString().padStart(2, '0')}-${diaActual.toString().padStart(2, '0')}`;
-                        const cita = citas.find(c => c.Fecha_Cita === fechaString);
+                // Verificar si la fecha está ocupada
+                const fechaString = `${fecha.getFullYear()}-${(fecha.getMonth() + 1).toString().padStart(2, '0')}-${diaActual.toString().padStart(2, '0')}`;
+                const cita = citas.find(c => c.Fecha_Cita === fechaString);
 
-                        if (cita) {
-                            celda.classList.add("ocupado");
-                            celda.onclick = () => mostrarDetalle(cita);
-                        }
-                    }
-
-                    fila.appendChild(celda);
-                    diaActual++;
+                if (cita) {
+                    celda.classList.add("ocupado");
+                    celda.onclick = () => mostrarDetalle(cita);
                 }
-                tbody.appendChild(fila);
             }
 
-            // Mostrar el nombre del mes
-            document.getElementById("mesTitulo").textContent = obtenerNombreMes(fecha);
+            fila.appendChild(celda);
+            diaActual++;
+        }
+        tbody.appendChild(fila);
+    }
+
+    // Mostrar el nombre del mes
+    document.getElementById("mesTitulo").textContent = obtenerNombreMes(fecha);
+}
+
+// Función para obtener el nombre del mes
+function obtenerNombreMes(fecha) {
+    const nombresMeses = [
+        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+    return `${nombresMeses[fecha.getMonth()]} ${fecha.getFullYear()}`;
+}
+
+// Función para cambiar de mes
+function cambiarMes(direccion) {
+    fechaActual.setMonth(fechaActual.getMonth() + direccion);
+    obtenerCitas(); // Volver a obtener citas para el mes actualizado
+}
+
+// Mostrar detalles de una cita en un popup
+function mostrarDetalle(cita) {
+    const popup = document.getElementById("popup");
+    document.getElementById("detalle").textContent = `
+        Especialista: ${cita.Nombre_Especialista} ${cita.Apellido_Especialista}
+        Hora: ${cita.Hora_Cita}`;
+    popup.style.display = "block";
+}
+
+// Cerrar el popup
+function cerrarPopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+// Obtener citas del servidor
+async function obtenerCitas() {
+    try {
+        const token = localStorage.getItem('auth_token'); // Obtener token de autenticación
+        const respuesta = await fetch(`citas.php?ID_Cliente=1&mes=${fechaActual.getMonth() + 1}&año=${fechaActual.getFullYear()}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`  // Incluir token de autenticación
+            }
+        });
+        
+        if (!respuesta.ok) {
+            throw new Error('Error al obtener las citas');
         }
 
-        // Función para obtener el nombre del mes
-        function obtenerNombreMes(fecha) {
-            const nombresMeses = [
-                "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
-                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-            ];
-            return `${nombresMeses[fecha.getMonth()]} ${fecha.getFullYear()}`;
+        const citas = await respuesta.json();
+
+        // Validar que las citas sean un array
+        if (!Array.isArray(citas)) {
+            throw new Error('Datos de citas inválidos');
         }
 
-        // Función para cambiar de mes
-        function cambiarMes(direccion) {
-            fechaActual.setMonth(fechaActual.getMonth() + direccion);
-            obtenerCitas(); // Volver a obtener citas para el mes actualizado
-        }
+        generarCalendario(fechaActual, citas);
+    } catch (error) {
+        console.error('Error al obtener las citas:', error);
+        alert('Hubo un problema al cargar las citas. Por favor, inténtalo más tarde.');
+    }
+}
 
-        // Mostrar detalles de una cita en un popup
-        function mostrarDetalle(cita) {
-            const popup = document.getElementById("popup");
-            document.getElementById("detalle").textContent = `
-                Especialista: ${cita.Nombre_Especialista} ${cita.Apellido_Especialista}
-                Hora: ${cita.Hora_Cita}`;
-            popup.style.display = "block";
-        }
+// Inicializar el calendario al cargar la página
+obtenerCitas();
 
-        // Cerrar el popup
-        function cerrarPopup() {
-            document.getElementById("popup").style.display = "none";
-        }
-
-        // Obtener citas del servidor
-        async function obtenerCitas() {
-            const respuesta = await fetch(`citas.php?ID_Cliente=1&mes=${fechaActual.getMonth() + 1}&año=${fechaActual.getFullYear()}`);
-            const citas = await respuesta.json();
-            generarCalendario(fechaActual, citas);
-        }
-
-        // Inicializar el calendario al cargar la página
-        obtenerCitas();
     </script>
 </body>
 </html>

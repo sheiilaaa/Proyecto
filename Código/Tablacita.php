@@ -69,11 +69,9 @@ Hacer un SELECT * FROM CITAS WHERE ID_Cliente=$_SESSION[ID_Cliente]
 
 <!-- SOBRE EL TRABAJO-->
 
-
-
 <?php
 
-/*INFO ESPECIALISTA*/
+        /*INFO ESPECIALISTA*/
             $ID_Especialista=$_REQUEST['ID_Especialista'];
             $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
             $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
@@ -97,6 +95,10 @@ Hacer un SELECT * FROM CITAS WHERE ID_Cliente=$_SESSION[ID_Cliente]
                 JOIN ESPECIALISTAS E ON E.ID_Especialista = DE.ID_Especialista_DispoEspe";
 
             $sql_usr= " SELECT * FROM CLIENTES WHERE ID_Cliente= '$ID_Cliente'; ";
+
+
+
+
 
     ?>
 

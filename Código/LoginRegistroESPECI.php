@@ -13,6 +13,10 @@
         
         <!-- Link hacia el archivo de estilos css -->
         <link rel="stylesheet" href="css/estilo.css">
+
+        <!-- Link favicon -->
+        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+
         <!-- Link para que funcionen los FA FA -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         
@@ -45,10 +49,8 @@
             <div class="overlay"></div>
         </section>
 
-
         <!-- En este código relacionamos el usuario con la contraseña para que verifique si existe el usuario y coincide con la contraseña, 
         también si se muestran resultados asociados en la base de datos y son corectos, se dejará abierta la sesion del usuario (que pondremos en todos los php)-->
-
 
 <!-- INICIO SESIÓN -->
         <?php
@@ -126,6 +128,7 @@
                 TipoVia_Especialista, NombreVia_Especialista, NumeroVia_Especialista, CuentaBancaria_Especialista, Cuota_Especialista, Contrasena_Especialista)
                 VALUES ('$DNI_Especialista','$Nombre_Especialista', '$Apellido_Especialista','$FechaNacimiento_Especialista', '$NumTelefono_Especialista', '$Correo_Especialista', '$TipoVia_Especialista', 
                 '$NombreVia_Especialista','$NumeroVia_Especialista','$CuentaBancaria_Especialista','$Cuota_Especialista','$Contrasena_Especialista';";
+
 
                 SELECT id_especialista from especialistas WHERE dni=$dni_especialista
 
@@ -286,10 +289,6 @@
     $sql="INSERT INTO DISPONIBILIDAD_ESPECIALISTA (ID_ESPE, Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo) VALUES "
 
 
-
-
-
-    
 /*PARTE DERECHA FOTO*/
 
     if(isset('AltaEspecialista')){
@@ -299,8 +298,6 @@
         $Jueves=if(isset('Jueves'),$_REQUEST['Jueves'],0)
         $Viernes=if(isset('Viernes'),$_REQUEST['Viernes'],0)
     }
-
-
 
 /*PRINCIPIO FOTO - PARTE IZQUIERDA*/
     if(isset($_REQUEST['8:00-9:00'])){
