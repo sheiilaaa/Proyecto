@@ -161,7 +161,7 @@
 
         <?php
             }else{
-                echo "Especialisya no encontrado: " . $sql . "<br>" .mysqli_error($conn);
+                echo "Especialista no encontrado: " . $sql . "<br>" .mysqli_error($conn);
             }
         }
         ?>
