@@ -111,7 +111,7 @@
                 <div id="central">
                     <div id="login">
                         <div class="titulo">¡Bienvenido admin!</div>
-                        <form id="EliminarArticulos" action="ConfEliminarEspe.php" method="post">
+                        <form id="EliminarArticulos" action="ConfEliminarEspe.php" method="POST">
                             <label for="id_Articulo">ID:</label>
                             <input type="text" id="id_Articulo" name="id_Articulo" class="caja" value='<?php echo $row['ID_Especialista']?>'>
 

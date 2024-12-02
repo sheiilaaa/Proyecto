@@ -178,7 +178,7 @@
                 <div id="central">
                     <div id="login">
                         <div class="titulo">Bienvenido Especialista</div>
-                        <form id="AltaEspecialista" action="ConfAltaEspe.php" method="post">
+                        <form id="AltaEspecialista" action="ConfAltaEspe.php" method="POST">
                             <label for="DNI_Especialista">DNI:</label>
                             <input type="text" id="DNI_Especialista" name="DNI_Especialista" class="caja" required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI">
                             

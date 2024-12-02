@@ -85,7 +85,7 @@
         else{ 
         ?>
         <div class="Fondo_pago">
-            <form id="Pago.php" action="" method="post"><!--CAMBIAR DEPENDIENDO DE DONDE VENGA-->
+            <form id="Pago.php" action="" method="POST"><!--CAMBIAR DEPENDIENDO DE DONDE VENGA-->
                 <div class="infoespecialista">
                     <div class="registro">Especialista</div>
                     <div class="IzqInfo"></div>

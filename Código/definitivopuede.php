@@ -115,7 +115,7 @@
     <h2></h2>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form id="AltaUsuario" action="" method="post">
+            <form id="AltaUsuario" action="" method="POST">
                 <h1>Registrate</h1>
                 <span>or use your email for registration</span>
                 <label for="DNI_Cliente"></label>

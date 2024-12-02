@@ -205,7 +205,7 @@ session_start()
 
         ?>
             <div class="form-container sign-in-container">
-                <form id="login" action="" method="POST">
+                <form id="login" action="" method="post">
                     <h1>Iniciar Sesión</h1>
                     <input type="text" name="DNI_Cliente" placeholder="DNI_Cliente" required>
                     <input type="password" placeholder="Contrasena_Cliente" name="Contrasena_Cliente" required>        

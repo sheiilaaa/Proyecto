@@ -155,7 +155,6 @@
                     <select name="Especialidad" id="user" required>
                         <optgroup label="Tipos de coaching que ofrecemos">
 
-
             <!-- CHECKBOX para ver especialidad -->
                             <option value="Espe_escogida">Coaching Empresarial</option>
                             <option value="Espe_escogida">Coaching Personal</option>
