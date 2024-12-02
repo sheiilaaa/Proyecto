@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">  
+<!doctype html>
+<html lang="es">
     <head>
-        
         <meta charset="utf-8">
         
-        <title> Login </title>    
+        <title> Confirmacion Eliminar </title>    
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
          
@@ -21,13 +20,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         
     </head>
-    <body>
-
+   
+    <body> 
 <!-- CONEXION -->
         <?php
             session_start();
             include("./GestionBD/1-conexion.php");
-        ?>
+            ?>
 
 <!--CABECERA-->
 <div id="header">
@@ -62,41 +61,25 @@
 
 
 
-<!-- REGISTRO USUARIO -->
-<?php 
-
-    if(isset($_REQUEST['Ingresar2'])){
-     
-/*MISMO CÓDIGO QUE LISTADO ESPECIALISTAS, pero añadiendo enlace mod y elim*/
-
-
-
-
-
-
-}   
-else{
-?>
-
-
-
-       
-<div class="pie-form">
-    <a href="Inicio.php">Volver</a>
-</div>
-  
-<?php
-}  
-?>
-
-
-
-
-
-
+    <!-- CONFIRMACION ELIMINAR -->
+        <div id="contenedor">
+            <div class="central">
+                <div class="titulo">
+                    <?php
+                        echo "Se ha eliminado correctamente el cliente seleccionado"
+                    ?>
+                </div>
+                    
+                <div class="pie-form">
+                    <a href="ListadoEspecialistas.php">Inicio</a>
+                </div>   
+            </div>
+        </div>    
+    
+    
 <!-- PIE DE PAGINA -->
         <footer>
-        Todos los derechos reservados | Coaching SL Copyright © 2024
+            Todos los derechos reservados | Coaching SL Copyright © 2024
         </footer>
 
     <!-- Link a JavaScript -->

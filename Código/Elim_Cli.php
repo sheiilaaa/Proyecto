@@ -67,40 +67,37 @@
         <?php
 
         if(isset($_REQUEST['Eliminar'])){
-            $ID_Especialista=$_REQUEST['ID_Especialista'];
-            $DNI_Especialista=$_REQUEST['DNI_Especialista'];
-            $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
-            $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
-            $FechaNacimiento_Especialista=$_REQUEST['FechaNacimiento_Especialista'];
+            $ID_Cliente=$_REQUEST['ID_Cliente'];
+            $DNI_Cliente=$_REQUEST['DNI_Cliente'];
+            $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
+            $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
+            $FechaNacimiento_Cliente=$_REQUEST['FechaNacimiento_Cliente'];
 
-            $NumTelefono_Especialista=$_REQUEST['NumTelefono_Especialista'];
-            $Correo_Especialista=$_REQUEST['Correo_Especialista'];
+            $NumTelefono_Cliente=$_REQUEST['NumTelefono_Cliente'];
+            $Correo_Cliente=$_REQUEST['Correo_Cliente'];
 
-            $TipoVia_Especialista=$_REQUEST['TipoVia_Especialista'];
-            $NombreVia_Especialista=$_REQUEST['NombreVia_Especialista'];
-            $NumeroVia_Especialista=$_REQUEST['NumeroVia_Especialista'];
+            $TipoVia_Cliente=$_REQUEST['TipoVia_Cliente'];
+            $NombreVia_Cliente=$_REQUEST['NombreVia_Cliente'];
+            $NumeroVia_Cliente=$_REQUEST['NumeroVia_Cliente'];
             
-            $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
-            $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
-            
-            $Contrasena_Especialista=$_REQUEST['Contrasena_Especialista']; 
+            $Contrasena_Cliente=$_REQUEST['Contrasena_Cliente']; 
 
-            $Eliminar="DELETE FROM Especialistas WHERE ID_Especialista =$ID_Especialista";
+            $Eliminar="DELETE FROM CLIENTES WHERE ID_Cliente =$ID_Cliente";
 
             if (mysqli_query($conn,$Eliminar))
                 {
-                    header("Location:ConfEliminarEspe.php");
+                    header("Location:ConfElimCli.php");
                 }
             else{
                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             }
         }
 
-        if (isset($_REQUEST['ID_Especialista'])){
+        if (isset($_REQUEST['ID_Cliente'])){
             
-            $ID_Especialista=$_REQUEST['ID_Especialista'];
+            $ID_Cliente=$_REQUEST['ID_Cliente'];
 
-            $sql="SELECT * FROM especialistas WHERE ID_Especialista= $ID_Especialista;";
+            $sql="SELECT * FROM CLIENTES WHERE ID_Cliente= $ID_Cliente;";
             $resultado=mysql_query($conn,$sql);
 
             //! Que estas 
@@ -111,49 +108,44 @@
                 <div id="central">
                     <div id="login">
                         <div class="titulo">¡Bienvenido admin!</div>
-                        <form id="EliminarArticulos" action="ConfEliminarEspe.php" method="POST">
-                            <label for="id_Articulo">ID:</label>
-                            <input type="text" id="id_Articulo" name="id_Articulo" class="caja" value='<?php echo $row['ID_Especialista']?>'>
+                        <form id="EliminarCliente" action="ConfElimCli.php" method="POST">
+                            <label for="ID_Cliente">ID:</label>
+                                <input type="text" id="ID_Cliente" name="ID_Cliente" class="caja" value='<?php echo $row['ID_Cliente']?>'>
 
-                            <label for="DNI_Especialista">DNI:</label>
-                            <input type="text" id="DNI_Especialista" name="DNI_Especialista" class="caja" required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI" value='<?php echo $row['DNI_Especialista']?>'>
+                            <label for="DNI_Cliente">DNI:</label>
+                                <input type="text" id="DNI_Cliente" name="DNI_Cliente" class="caja" required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI" value='<?php echo $row['DNI_Cliente']?>'>
 
-                            <label for="Nombre_Especialista">Nombre:</label>
-                            <input type="text" id="Nombre_Especialista" name="Nombre_Especialista" class="caja" autofocus required pattern="[a-zA-Z\s]+" placeholder="Nombre" value='<?php echo $row['Nombre_Especialista']?>'>
+                            <label for="Nombre_Cliente">Nombre:</label>
+                                <input type="text" id="Nombre_Cliente" name="Nombre_Cliente" class="caja" autofocus required pattern="[a-zA-Z\s]+" placeholder="Nombre" value='<?php echo $row['Nombre_Cliente']?>'>
 
-                            <label for="Apellido_Especialista">Apellidos:</label>
-                            <input type="text" id="Apellido_Especialista" name="Apellido_Especialista" class="caja" required pattern="[a-zA-Z\s]+" placeholder="Apellidos" value='<?php echo $row['Apellido_Especialista']?>'>
+                            <label for="Apellido_Cliente">Apellidos:</label>
+                                <input type="text" id="Apellido_Cliente" name="Apellido_Cliente" class="caja" required pattern="[a-zA-Z\s]+" placeholder="Apellidos" value='<?php echo $row['Apellido_Cliente']?>'>
 
-                            <label for="FechaNacimiento_Especialista">Fecha de Nacimiento:</label>
-                            <input type="date" name="FechaNacimiento_Especialista" id="FechaNacimiento_Especialista" class="caja" placeholder="Fecha Nacimiento" title="Fecha Nacimiento" value='<?php echo $row['FechaNacimiento_Especialista']?>'>
+                            <label for="FechaNacimiento_Cliente">Fecha de Nacimiento:</label>
+                                <input type="date" name="FechaNacimiento_Cliente" id="FechaNacimiento_Cliente" class="caja" placeholder="Fecha Nacimiento (Año - Mes - Dia)" title="Fecha Nacimiento" value='<?php echo $row['FechaNacimiento_Cliente']?>'>
 
-                            <label for="NumTelefono_Especialista">Teléfono: </label>
-                            <input type="tel" name="NumTelefono_Especialista"  id="NumTelefono_Especialista" class="caja" required placeholder="Telefono" value='<?php echo $row['NumTelefono_Especialista']?>'>
+                            <label for="NumTelefono_Cliente">Teléfono: </label>
+                                <input type="tel" name="NumTelefono_Cliente"  id="NumTelefono_Cliente" class="caja" required placeholder="Telefono" value='<?php echo $row['NumTelefono_Cliente']?>'>
 
-                            <label for="Correo_Especialista">e-Mail:</label>
-                            <input type="email" name="Correo_Especialista" id="Correo_Especialista" class="caja" required placeholder="email" value='<?php echo $row['Correo_Especialista']?>'>
+                            <label for="Correo_Cliente">e-Mail:</label>
+                                <input type="email" name="Correo_Cliente" id="Correo_Cliente" class="caja" required placeholder="email" value='<?php echo $row['Correo_Cliente']?>'>
 
-                            <label for="TipoVia_Especialista">Tipo de la via:</label>
-                            <input type="text" class="caja" name="TipoVia_Especialista" id="TipoVia_Especialista" placeholder="Escribe el nombre de la via" value='<?php echo $row['TipoVia_Especialista']?>'>
+                            <label for="TipoVia_Cliente">Tipo de la via:</label>
+                                <input type="text" class="caja" name="TipoVia_Cliente" id="TipoVia_Cliente" placeholder="Escribe el nombre de la via" value='<?php echo $row['TipoVia_Cliente']?>'>
                             
-                            <label for="NombreVia_Especialista">Nombre de la via:</label>
-                            <input type="text" class="caja" name="NombreVia_Especialista" id="NombreVia_Especialista" placeholder="Escribe el nombre de la via" value='<?php echo $row['NombreVia_Especialista']?>'>
+                            <label for="NombreVia_Cliente">Nombre de la via:</label>
+                                <input type="text" class="caja" name="NombreVia_Cliente" id="NombreVia_Cliente" placeholder="Escribe el nombre de la via" value='<?php echo $row['NombreVia_Cliente']?>'>
 
-                            <label for="NumeroVia_Especialista">Numero de la via:</label>
-                            <input type="text" class="caja" name="NumeroVia_Especialista" id="NumeroVia_Especialista" placeholder="Escribe el número de la via" value='<?php echo $row['NumeroVia_Especialista']?>'>
-
-                            <label for="CuentaBancaria_Especialista">Cuenta bancaria:</label>
-                            <input type="text" class="caja" name="CuentaBancaria_Especialista" id="CuentaBancaria_Especialista" placeholder="Escribe su cuenta bancaría" value='<?php echo $row['CuentaBancaria_Especialista']?>'>
+                            <label for="NumeroVia_Cliente">Numero de la via:</label>
+                                <input type="text" class="caja" name="NumeroVia_Cliente" id="NumeroVia_Cliente" placeholder="Escribe el número de la via" value='<?php echo $row['NumeroVia_Cliente']?>'>
                             
-                            <label for="Cuota_Especialista">Cuota:</label>
-                            <input type="text" class="caja" name="Cuota_Especialista" id="Cuota_Especialista" placeholder="Indica la couta del especialista" value='<?php echo $row['Cuota_Especialista']?>'>
+                            <label for="Contrasena_Cliente">Contraseña:</label>
+                                <input type="password" name="Contrasena_Cliente" id="Contrasena_Cliente" class="caja"required placeholder="Contrasena" value='<?php echo $row['Contrasena_Cliente']?>'>
                             
-                            <label for="Contrasena_Especialista">Contraseña:</label>
-                            <input type="password" name="Contrasena_Especialista" id="Contrasena_Especialista" class="caja"required placeholder="Contrasena" value='<?php echo $row['Contrasena_Especialista']?>'>
                             <button type="submit" title="Eliminar" name="Eliminar">Eliminar</button>
                         </form>
                         <div class="pie-form">
-                            <a href="ListadoEspecialistas.php">Volver</a>
+                            <a href="ConfElimCli.php">Volver</a>
                         </div>
                     </div>
                 </div>    
@@ -161,7 +153,7 @@
 
         <?php
             }else{
-                echo "Especialisya no encontrado: " . $sql . "<br>" .mysqli_error($conn);
+                echo "Cliente no encontrado: " . $sql . "<br>" .mysqli_error($conn);
             }
         }
         ?>

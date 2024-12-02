@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">  
+<html lang="es">
     <head>
-        
-        <meta charset="utf-8">
-        
-        <title> Login </title>    
-        
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         
-        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
-        <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
-        
+        <title>Contacto</title>
+
         <!-- Link hacia el archivo de estilos css -->
         <link rel="stylesheet" href="css/estilo.css">
 
@@ -19,16 +13,18 @@
 
         <!-- Link para que funcionen los FA FA -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        
+
     </head>
+
     <body>
 
 <!-- CONEXION -->
-        <?php
-            session_start();
-            include("./GestionBD/1-conexion.php");
-        ?>
+    <?php
+        session_start();
+        include("./GestionBD/1-conexion.php");
+    ?>
 
+<!-- CABECERA -->
 <!--CABECERA-->
 <div id="header">
         <div class="logo">
@@ -61,47 +57,33 @@
     </div>
 
 
+<!-- CODIGO CONFIRMACION -->
 
-<!-- REGISTRO USUARIO -->
-<?php 
+        <div id="contenedor">
+            <div class="central">
+                <div class="titulo">
+                    <?php
+                        $DNI_Cliente = $_REQUEST["DNI_Cliente"];
+                        $Nombre_Cliente = $_REQUEST["Nombre_Cliente"];
+                        $Apellido_Cliente = $_REQUEST["Apellido_Cliente"];
 
-    if(isset($_REQUEST['Ingresar2'])){
-     
-/*MISMO CÓDIGO QUE LISTADO ESPECIALISTAS, pero añadiendo enlace mod y elim*/
-
-
-
-
-
-
-}   
-else{
-?>
-
-
-
-       
-<div class="pie-form">
-    <a href="Inicio.php">Volver</a>
-</div>
-  
-<?php
-}  
-?>
-
-
-
-
-
+                        echo "Se ha modificado correctamente el especialista $Nombre_Cliente $Apellido_Cliente con DNI $DNI_Cliente"
+                    ?>
+                </div>
+                        
+                <div class="pie-form">
+                    <a href="ListadoEspecialistas.php">Continuar</a>
+                </div>   
+            </div>
+        </div>       
 
 <!-- PIE DE PAGINA -->
         <footer>
         Todos los derechos reservados | Coaching SL Copyright © 2024
         </footer>
-
+        
     <!-- Link a JavaScript -->
     <script src="JS/traducciones.js"></script>
 
     </body>
 </html>
-
