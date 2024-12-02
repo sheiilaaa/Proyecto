@@ -258,11 +258,8 @@ session_start()
     </body>
 </html>
 
-            <>!-- -        <!-- -- Link al  JavaScript<!-- PIE DE PAGINA -->
-        <footer>
-            Todos los derechos reservados | Coaching SL Copyright © 2024
-        </footer>
-    <!-- Link <!-- PIE DE PAGINA -->
+        
+    <!--PIE DE PAGINA -->
         <footer>
             Todos los derechos reservados | Coaching SL Copyright © 2024
         </footer>
