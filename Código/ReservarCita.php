@@ -136,17 +136,56 @@
                 </fieldset>
 
                 <br>
-                <fieldset> <!-- CAJA GRANDE-->
-                    <legend>¿Qué horario deseas hacer?</legend><!-- NOMBRE CAJA GRANDE-->
-                        <div required> <!-- Como hacer que sea obligatorio-->
-                            <input type="radio" name="user" value="Manana">
-                                <label for="user">Manana</label>
-                            <input type="radio" name="user" value="Mediodia">
-                                <label for="user">Mediodia</label>
-                            <input type="radio" name="user" value="Tarde">
-                                <label for="user">Tarde</label>
-                        </div>
-                </fieldset>
+                <fieldset>
+                                <legend>Disponibilidad Diaria</legend>
+                                <input type="checkbox" id="Fecha_Dispo" name="Lunes"  value="1" checked>
+                                    <label for="Fecha_Dispo">Lunes</label>
+
+                                <input type="checkbox" id="Fecha_Dispo" name="Martes" value="1" checked>
+                                    <label for="Fecha_Dispo">Martes</label>
+
+                                <input type="checkbox" id="Fecha_Dispo" name="Miércoles" value="1" checked>
+                                    <label for="Fecha_Dispo">Miércoles</label>
+                                
+                                <input type="checkbox" id="Fecha_Dispo" name="Jueves" value="1" checked>
+                                    <label for="Fecha_Dispo">Jueves</label>
+                                
+                                <input type="checkbox" id="Fecha_Dispo" name="Viernes" value="1" checked>
+                                    <label for="Fecha_Dispo">Viernes</label>
+                            </fieldset>
+                            
+                            <fieldset>
+                                <legend>Horario Laboral</legend>
+                                    <input type="checkbox" id="Hora_Dispo" name="8:00-9:00" value="1">
+                                        <label for="Hora_Dispo">8:00-9:00</label>
+                                        
+                                    <input type="checkbox" id="Hora_Dispo" name="9:00-10:00" value="1">
+                                        <label for="Hora_Dispo">9:00-10:00</label>
+
+                                    <input type="checkbox" id="Hora_Dispo" name="10:00-11:00" value="1">
+                                        <label for="Hora_Dispo">10:00-11:00</label>
+
+                                    <input type="checkbox" id="Hora_Dispo" name="11:00-12:00" value="1">
+                                        <label for="Hora_Dispo">11:00-12:00</label>
+                                        
+                                    <input type="checkbox" id="Hora_Dispo" name="15:00-16:00" value="1">
+                                        <label for="Hora_Dispo">15:00-16:00</label>
+
+                                    <input type="checkbox" id="Hora_Dispo" name="16:00-17:00" value="1">
+                                        <label for="Hora_Dispo">16:00-17:00</label>
+
+                                    <input type="checkbox" id="Hora_Dispo" name="17:00-18:00" value="1">
+                                        <label for="Hora_Dispo">17:00-18:00</label>
+
+                                    <input type="checkbox" id="Hora_Dispo" name="18:00-19:00" value="1">
+                                        <label for="Hora_Dispo">18:00-19:00</label>
+
+                                    <input type="checkbox" id="Hora_Dispo" name="19:00-20:00" value="1">
+                                        <label for="Hora_Dispo">19:00-20:00</label>
+                                        
+                                    <input type="checkbox" id="Hora_Dispo" name="20:00-21:00" value="1">
+                                        <label for="Hora_Dispo">20:00-21:00</label>
+                            </fieldset>
                 <br>
 
                 <br>
