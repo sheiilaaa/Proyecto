@@ -14,9 +14,6 @@ include("./GestionBD/1-conexion.php");
 
 
     <!--<script src="script_listado.js" defer></script>-->
-
-
-
     
         <!-- Link hacia el archivo de estilos css -->
         <link rel="stylesheet" href="css/estilo.css">

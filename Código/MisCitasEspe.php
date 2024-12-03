@@ -98,10 +98,7 @@ Hacer un SELECT * FROM CITAS WHERE ID_Cliente=$_SESSION[ID_Cliente]
         </nav>
     </div>
 
-
     <hr> <!-- SEPARADOR-->
-
-<!-- SOBRE EL TRABAJO-->
 
 <?php
 

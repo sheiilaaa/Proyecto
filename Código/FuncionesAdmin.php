@@ -41,6 +41,7 @@
                 <li><a href="Contacto.php"><i class="fa fa-phone-square"></i> <span data-translate="contacto">Puesta en contacto</span></a></li>
                 <li><a href="ListadoEspecialistas.php"><i class="fa fa-address-book"></i> <span data-translate="especialistas">Especialistas</span></a></li>
                 <li><a href="Calendario.html"><i class="fa fa-calendar"></i> <span data-translate="calendario">Calendario</span></a></li>
+                
                 <li>               
                     <div class="lenguage-selector">
                         <label for="lenguage"></label>
@@ -60,33 +61,20 @@
         </nav>
     </div>
 
-
-
-<!-- REGISTRO USUARIO -->
-<?php 
-
-    if(isset($_REQUEST['Ingresar2'])){
-
-
-}   
-else{
-?>
-
-
-
-       
-<div class="pie-form">
-    <a href="Inicio.php">Volver</a>
-</div>
-  
-<?php
-}  
-?>
-
-
-
-
-
+<!-- CODIGO -->
+<div id="contenedor">
+            <div class="central">
+                <div class="titulo">¡Bienvenido Admin!</div>
+                <div class="texto">¿Qué deseas hacer?</div>   
+                <div>
+                    <a href="GestionEspe.php">Gestionar Especialistas</a>
+                    <a href="GestionCli.php">Gestionar Clientes</a>
+                </div>
+                <div class="pie-form">
+                    <a href="ComoTrabajamos.php">Continuar</a>
+                </div>   
+            </div>
+        </div> 
 
 <!-- PIE DE PAGINA -->
         <footer>

@@ -60,36 +60,25 @@
         </nav>
     </div>
 
+<?php
+    $DNI_Cliente = $_REQUEST["DNI_Especialista"];
+    $Nombre_Cliente = $_REQUEST["Nombre_Especialista"];
+    $Apellido_Cliente = $_REQUEST["Apellido_Especialista"];
 
-
-<!-- REGISTRO USUARIO -->
-<?php 
-
-    if(isset($_REQUEST['Ingresar2'])){
-    
-
-}   
-else{
+    echo "Se ha modificado correctamente el especialista $Nombre_Especialista $Apellido_Especialista con DNI $DNI_Especialista"
 ?>
 
 <!-- CODIGO -->
-<div id="contenedor">
+        <div id="contenedor">
             <div class="central">
-                <div class="titulo">¡Bienvenido Admin!</div>
-                <div class="texto">¿Qué deseas hacer?</div>   
+                <div class="">¡Bienvenido <?php echo $Nombre_Especialista $Apellido_Especialista?>!</div>
+                <div class="texto">¿Deseas ver las citas que tienes asignadas?</div>   
                 <div>
-                    <a>Gestionar Especialistas</a>
-                    <a>Gestionar Clientes</a>
-                </div>
-                <div class="pie-form">
-                    <a href="ComoTrabajamos.php">Continuar</a>
-                </div>   
+                    <a href="MisCitasEspe.php">Haz clic aquí </a>
+                </div>  
             </div>
         </div> 
 
-<?php
-}  
-?>
 
 <!-- PIE DE PAGINA -->
         <footer>
