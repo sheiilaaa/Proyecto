@@ -18,7 +18,7 @@ CREATE TABLE CLIENTES(
 
 	Contrasena_Cliente VARCHAR(100) NOT NULL,
 
-	Tipo ENUM('cliente','admin')
+	Tipo ENUM('cliente','admin') NOT NULL
 
 	/*Claves Foráneas*/
 );
