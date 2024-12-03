@@ -16,7 +16,9 @@ CREATE TABLE CLIENTES(
 	NombreVia_Cliente VARCHAR(100) NULL,
 	NumeroVia_Cliente INT NULL,
 
-	Contrasena_Cliente VARCHAR(100) NOT NULL
+	Contrasena_Cliente VARCHAR(100) NOT NULL,
+
+	Tipo ENUM('usuario','admin')
 
 	/*Claves Foráneas*/
 );
