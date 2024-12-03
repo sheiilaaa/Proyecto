@@ -105,26 +105,6 @@ Hacer un SELECT * FROM CITAS WHERE ID_Cliente=$_SESSION[ID_Cliente]
 
 <?php
 
-if (isset(ALGO NO LO SE))
-
-    /*INFO ESPECIALISTA*/
-        $ID_Especialista=$_REQUEST['ID_Especialista'];
-        $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
-        $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
-
-    /*INFO CLIENTE*/
-        $ID_Cliente=$_REQUEST['ID_Cliente'];
-        $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
-        $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
-        $DNI_Cliente=$_REQUEST['DNI_Cliente'];
-
-    /*INFO FORMULARIO*/
-        $Espe_escogida=$_REQUEST['Espe_escogida'];
-
-    /*INFO CITAS*/
-        $Fecha_Cita=$_REQUEST['Fecha_Cita'];
-        $Hora_Cita=$_REQUEST['Hora_Cita'];
-        $Coste_Cita=$_REQUEST['Coste_Cita'];
 
         $sql_todo="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista, C.Fecha_Cita,
             C.Hora_Cita,C.Coste_Cita, Cl.Nombre_Cliente, Cl.Apellido_Cliente, Cl.DNI_Cliente, E.ID_Especialista
@@ -132,9 +112,7 @@ if (isset(ALGO NO LO SE))
             JOIN ESPECIALISTA_ESPECIALIDAD EE ON EE.ID_Especialidad_EspeEspe = ES.ID_Especialista
             JOIN ESPECIALISTAS E ON E.ID_Especialista = EE.ID_Especialista_EspeEspe
             JOIN CITAS C ON C.ID_Especialista_Cita = E.ID_Especialista
-            JOIN CLIENTES Cl ON C.ID_Cliente_Cita = Cl.ID_Cliente";
-
-            $sql_usr= "SELECT * FROM CLIENTES WHERE ID_Cliente= '$ID_Cliente';";
+            JOIN CLIENTES Cl ON C.ID_Cliente_Cita = Cl.ID_Cliente WHERE ID_Cliente= '$ID_Cliente';";
    
         $result = mysqli_query($conn, $sql_todo)
 

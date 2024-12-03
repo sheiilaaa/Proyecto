@@ -1,16 +1,20 @@
+<?php
+session_start();
+include("./GestionBD/1-conexion.php");
+?>
+
 <!DOCTYPE html>
-<html lang="es">  
-    <head>
-        
-        <meta charset="utf-8">
-        
-        <title> Login </title>    
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         
-        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
-        <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
-        
+<html lang="es"> 
+<head>
+    <meta charset="utf-8">
+    <title>Listado Especialista</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+
+
+    <!--<script src="script_listado.js" defer></script>-->
+    
         <!-- Link hacia el archivo de estilos css -->
         <link rel="stylesheet" href="css/estilo.css">
 
@@ -19,16 +23,10 @@
 
         <!-- Link para que funcionen los FA FA -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        
-    </head>
-    <body>
 
-<!-- CONEXION -->
-        <?php
-            session_start();
-            include("./GestionBD/1-conexion.php");
-        ?>
+</head>
 
+<body class="fondo">
 <!--CABECERA-->
 <div id="header">
         <div class="logo">
@@ -62,46 +60,52 @@
 
 
 
-<!-- REGISTRO USUARIO -->
-<?php 
+<!-- Listado de especialistas -->
+<div class="titulos">Listado de especialistas</div>
+<div id="fondo_listado">
+    <?php
+    $sql = "SELECT E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista, E.Cuota_Especialista
+            FROM ESPECIALISTAS E
+            JOIN ESPECIALISTA_ESPECIALIDAD EE ON E.ID_Especialista = EE.ID_Especialista_EspeEspe
+            JOIN ESPECIALIDAD ES ON EE.ID_Especialidad_EspeEspe = ES.ID_Especialidad";
 
-    if(isset($_REQUEST['Ingresar2'])){
-     
-/*MISMO CÓDIGO QUE LISTADO ESPECIALISTAS, pero añadiendo enlace mod y elim*/
+    $result = mysqli_query($conn, $sql);
 
-
-
-
-
-
-}   
-else{
-?>
-
-
-
-       
-<div class="pie-form">
-    <a href="Inicio.php">Volver</a>
+    if (mysqli_num_rows($result) > 0) { // Si encuentra resultados
+        $Final = 0;
+        $row = mysqli_fetch_assoc($result);
+        while ($row) { 
+            $Esp_Anterior = $row['Nombre_Especialista'];
+            echo '<div class="especialista-contenedor">';
+                echo '<h5>Especialista: '.$row['Nombre_Especialista'].' '.$row['Apellido_Especialista'].'</h5>';
+                echo '<p>Cuota: '.$row['Cuota_Especialista'].'€</p>';
+                echo '<ul>';
+                    // Agrupar especialidades por especialista
+                    $i = 1;
+                    while ($row && $Esp_Anterior == $row['Nombre_Especialista']) {
+                        echo '<li>Especialidad '.$i.': '.$row['Especialidad_Especialista'].'</li>';
+                        $Final++;
+                        $i++;
+                        $row = mysqli_fetch_assoc($result); // Avanzar a la siguiente fila
+                    }
+                echo '</ul>';
+                echo '<br><a href="ModificarEspecialista.php?id='.$Esp_Anterior.'">Modificar</a>';
+                echo '<br><a href="EliminarEspecialista.php?id='.$Esp_Anterior.'">Eliminar</a>';
+            echo '</div>';
+        }
+    } else {
+        echo '<p>No se encontraron especialistas.</p>';
+    }
+    ?>
 </div>
-  
-<?php
-}  
-?>
-
-
-
-
-
 
 <!-- PIE DE PAGINA -->
-        <footer>
-        Todos los derechos reservados | Coaching SL Copyright © 2024
-        </footer>
+<footer>
+    Todos los derechos reservados | Coaching SL Copyright © 2024
+</footer>
 
     <!-- Link a JavaScript -->
     <script src="JS/traducciones.js"></script>
 
-    </body>
+</body>
 </html>
-
