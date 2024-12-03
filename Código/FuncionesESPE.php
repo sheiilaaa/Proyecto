@@ -66,28 +66,30 @@
 <?php 
 
     if(isset($_REQUEST['Ingresar2'])){
-     
-
+    
 
 }   
 else{
 ?>
 
+<!-- CODIGO -->
+<div id="contenedor">
+            <div class="central">
+                <div class="titulo">¡Bienvenido Admin!</div>
+                <div class="texto">¿Qué deseas hacer?</div>   
+                <div>
+                    <a>Gestionar Especialistas</a>
+                    <a>Gestionar Clientes</a>
+                </div>
+                <div class="pie-form">
+                    <a href="ComoTrabajamos.php">Continuar</a>
+                </div>   
+            </div>
+        </div> 
 
-
-       
-<div class="pie-form">
-    <a href="Inicio.php">Volver</a>
-</div>
-  
 <?php
 }  
 ?>
-
-
-
-
-
 
 <!-- PIE DE PAGINA -->
         <footer>
