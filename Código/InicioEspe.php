@@ -79,7 +79,7 @@
                 $_SESSION['Nombre_Especialista']=$row['Nombre_Especialista'];
                 
                 if ($Contrasena_Es == $row['Contrasena_Especialista']){
-                    header("Location:Calendario.php"); //Una vez correcto el usuario y la contraseña nos manda al Calendario.
+                    header("Location:FuncionesESPE.php"); //Una vez correcto el usuario y la contraseña, irá a 
                 }else{
                     echo "Contraseña erronea";
                 }

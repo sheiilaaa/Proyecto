@@ -144,7 +144,7 @@ if (isset(ALGO NO LO SE))
     
             while ($row) { 
                 $Esp_Anterior = $row['Nombre_Especialista'];
-                echo '<div class="INFO MIERDA">';
+                echo '<div class="INFO">';
                     //Info usuario
                     echo '<h5>Usuario: '.$row['Nombre_Cliente'].' '.$row['Apellido_Cliente'].'</h5>';
                     echo '<h5>DNI: '.$row['DNI_Cliente'].'</h5>';
