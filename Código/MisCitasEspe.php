@@ -96,10 +96,10 @@
                     //Info cita
                     echo '<h5> Cita reservada para el dia: '.$row['Fecha_Cita'].' a las '.$row['Hora_Cita'].'</h5>';
                     echo '<p>Cuota: '.$row['Coste_Cita'].'€</p>';
-
-                    echo '<a href="Pago.php"><input type="button" id="cantidad4" name="Añadir4" class="boton" value="Pagar Cita"></a>';
                 echo '</div>';
             }
+            echo '<a href="FuncionesESPE.php"><input type="button" id="volver" name="volver" class="boton" value="">Volver</a>';
+
         } else {
             echo '<p>No se encontraron especialistas.</p>';
         }
