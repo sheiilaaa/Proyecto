@@ -93,7 +93,7 @@
             $row=ID_Especialista;*/
 
             $info= "$Nombre_Especialista,$Apellido_Especialista,$Cuota_Especialista";
-            $id= "SELECT 'ID_Especialista' FROM especialistas WHERE Nombre_Especialista='$Nombre_Especialista';";
+            $id= "SELECT 'ID_Especialista' FROM especialistas WHERE ID_Especialista='$ID_Especialista';";
             
             if (mysqli_query($conn,$sql))
             {
@@ -251,6 +251,36 @@
                                         
                             </fieldset>
                             
+                            <fieldset>
+                                <legend>Especialidad</legend>
+                                    <label for="Coaching Empresarial">Coaching Empresarial</label>
+                                <input type="checkbox" id="Coaching Empresarial" name="Coaching Empresarial" value="1">
+                                    
+                                    <label for="Coaching Personal">Coaching Personal</label>        
+                                <input type="checkbox" id="Coaching Personal" name="Coaching Personal" value="1">
+                                
+                                    <label for="Coaching con Inteligencia Emocional">Coaching con Inteligencia Emocional</label>
+                                <input type="checkbox" id="Coaching con Inteligencia Emocional" name="Coaching con Inteligencia Emocional" value="1">
+                                
+                                    <label for="Coaching Deportivo">Coaching Deportivo</label>
+                                <input type="checkbox" id="Coaching Deportivo" name="Coaching Deportivo" value="1">
+                                
+                                    <label for="Coaching Ontológico'">Coaching Ontológico</label>    
+                                <input type="checkbox" id="Coaching Ontológico'" name="Coaching Ontológico'" value="1">
+                                
+                                    <label for="Coaching Cognitivo">Coaching Cognitivo</label>
+                                <input type="checkbox" id="Coaching Cognitivo" name="Coaching Cognitivo" value="1">
+                                
+                                    <label for="Coaching PNL (Programación Neurolingüística)">Coaching PNL (Programación Neurolingüística)</label>
+                                <input type="checkbox" id="Coaching PNL (Programación Neurolingüística)" name="Coaching PNL (Programación Neurolingüística)" value="1">
+                                
+                                    <label for="Coaching Coercitivo">Coaching Coercitivo</label>
+                                <input type="checkbox" id="Coaching Coercitivo" name="Coaching Coercitivo" value="1">        
+                            </fieldset>
+
+
+
+
                             <button type="submit" title="AltaEspecialista" name="AltaEspecialista">Alta Especialista</button>
                               
                         </form>

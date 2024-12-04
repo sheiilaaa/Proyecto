@@ -76,6 +76,10 @@
                 <div>
                     <a href="MisCitasEspe.php">Haz clic aquí </a>
                 </div>  
+                <div class="texto">¿Deseas ver las citas que tienes asignadas?</div>   
+                <div>
+                    <a href="MisCitasEspe.php">Haz clic aquí </a>
+                </div> 
             </div>
         </div> 
 

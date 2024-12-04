@@ -1,44 +1,3 @@
-<!-- INICIO SESIÓN -->
-<?php
-//Esto deberas poner si quieres que todos vayan a la misma pagina
-
-session_start(); // Asegúrate de que la sesión está iniciada
-
-// Verificar si el usuario ha iniciado sesión
-if (!isset($_SESSION['rol'])) {
-    // Si no está logueado, redirigir a la página de login
-    header("Location: login.php");
-    exit;
-}
-
-// Mostrar contenido basado en el rol
-if ($_SESSION['rol'] == 'cliente') {
-    echo "<h1>Bienvenido, Cliente " . $_SESSION['nombre'] . "</h1>";
-    // Aquí puedes agregar contenido específico para los clientes
-    echo "<p>Contenido exclusivo para clientes...</p>";
-} elseif ($_SESSION['rol'] == 'especialista') {
-    echo "<h1>Bienvenido, Especialista " . $_SESSION['nombre'] . "</h1>";
-    // Aquí puedes agregar contenido específico para los especialistas
-    echo "<p>Contenido exclusivo para especialistas...</p>";
-} elseif ($_SESSION['rol'] == 'admin') {
-    echo "<h1>Hola admin</h1>";
-}else {
-    echo "<h1>Rol desconocido</h1>";
-    // Opcional: Mensaje de error si el rol no es válido
-}
-?>
-
-
-
-ver cita, pasa href con el parametro que quieres mostrar hacia pago 
-if pago va ser igual solo s viene de esat pantalla
-Nunca va a ver el boton pagar en ReservarCita si vienes de Tabla cita
-
-podemos hacer dos enlaces 1.que pueda ver y el 2.que pueda ir a pagar
-
-
-Hacer un SELECT * FROM CITAS WHERE ID_Cliente=$_SESSION[ID_Cliente]
-
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -101,28 +60,6 @@ Hacer un SELECT * FROM CITAS WHERE ID_Cliente=$_SESSION[ID_Cliente]
     <hr> <!-- SEPARADOR-->
 
 <?php
-
-if (isset(ALGO NO LO SE))
-
-    /*INFO ESPECIALISTA*/
-        $ID_Especialista=$_REQUEST['ID_Especialista'];
-        $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
-        $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
-
-    /*INFO CLIENTE*/
-        $ID_Cliente=$_REQUEST['ID_Cliente'];
-        $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
-        $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
-        $DNI_Cliente=$_REQUEST['DNI_Cliente'];
-
-    /*INFO FORMULARIO*/
-        $Espe_escogida=$_REQUEST['Espe_escogida'];
-
-    /*INFO CITAS*/
-        $Fecha_Cita=$_REQUEST['Fecha_Cita'];
-        $Hora_Cita=$_REQUEST['Hora_Cita'];
-        $Coste_Cita=$_REQUEST['Coste_Cita'];
-
         $sql_todo="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista, C.Fecha_Cita,
             C.Hora_Cita,C.Coste_Cita, Cl.Nombre_Cliente, Cl.Apellido_Cliente, Cl.DNI_Cliente, E.ID_Especialista
             FROM ESPECIALIDAD ES
