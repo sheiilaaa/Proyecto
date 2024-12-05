@@ -80,14 +80,14 @@
                 $TipoVia_Especialista=$_POST['TipoVia_Especialista'];
                 $CuentaBancaria_Especialista=$_POST['CuentaBancaria_Especialista'];
                 $Cuota_Especialista=$_POST['Cuota_Especialista'];
-                $Coaching1 = $_POST['Coaching Empresarial'];
-                $Coaching2 = $_POST['Coaching Personal'];
-                $Coaching3 = $_POST['Coaching con Inteligencia Emocional'];
-                $Coaching4 = $_POST['Coaching Deportivo'];
-                $Coaching5 = $_POST['Coaching Ontológico'];
-                $Coaching6 = $_POST['Coaching Cognitivo'];
-                $Coaching7 = $_POST['Coaching PNL (Programación Neurolingüística)'];
-                $Coaching8 = $_POST['Coaching Coercitivo'];
+                $Coaching1 = $_POST['Coaching_Empresarial'];
+                $Coaching2 = $_POST['Coaching_Personal'];
+                $Coaching3 = $_POST['Coaching_con_Inteligencia_Emocional'];
+                $Coaching4 = $_POST['Coaching_Deportivo'];
+                $Coaching5 = $_POST['Coaching_Ontológico'];
+                $Coaching6 = $_POST['Coaching_Cognitivo'];
+                $Coaching7 = $_POST['Coaching_PNL_(Programación_Neurolingüística)'];
+                $Coaching8 = $_POST['Coaching_Coercitivo'];
 
                 //INSERTAR INFORMACION ESPECIALISTA
                 $sql= "INSERT INTO especialistas(DNI_Especialista, Nombre_Especialista, Apellido_Especialista, FechaNacimiento_Especialista, NumTelefono_Especialista, Correo_Especialista, 
