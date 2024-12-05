@@ -63,41 +63,34 @@ include("./GestionBD/1-conexion.php");
 <!-- Listado de especialistas -->
 <div class="titulos">Listado de clientes</div>
 <div id="fondo_listado">
-    <?php
-    $sql = "SELECT * FROM CLIENTES";
+<?php
+    $sql = "SELECT * FROM `clientes` WHERE Tipo = 'cliente'";
     
+
     $result = mysqli_query($conn, $sql);
+    $registro=mysqli_num_rows($result);
 
-    if (mysqli_num_rows($result) > 0) { // Si encuentra resultados
-        $Final = 0;
+    if ($registro > 0) { // Si encuentra resultados
+        $Final = 1; 
         $row = mysqli_fetch_assoc($result);
-        while ($row) { 
-            $Esp_Anterior = $row['Nombre_Cliente'];
-            echo '<div class="especialista-contenedor">';
-                echo '<h5>Cliente: '.$row['Nombre_Cliente'].' '.$row['Apellido_Cliente'].'</h5>';
-                echo '<h5>Cliente: '.$row['Nombre_Cliente'].' '.$row['Apellido_Cliente'].'</h5>';
+      
+        $Cli_Anterior = $row['Nombre_Cliente'];
 
+        while ($Final <= $registro) {
+            $Final++;
+             // Avanzar a la siguiente fila
+            echo '<div class="cliente-contenedor">';
+            echo '<h5>Cliente: '.$row['Nombre_Cliente'].' '.$row['Apellido_Cliente'].'</h5>';
+            echo '<br><a href="Mod_Cli.php?id='.$row['DNI_Cliente'].'">Modificar</a>';
+            echo '<br><a href="Elim_Cli.php?id='.$row['DNI_Cliente'].'">Eliminar</a>';
+            echo '</div>'; 
+            $row = mysqli_fetch_assoc($result);
+        }
+       
+                 
                 
                 
-                /*echo '<p>Cuota: '.$row['Cuota_Especialista'].'€</p>';
-                echo '<ul>';
-                    // Agrupar especialidades por especialista
-                    $i = 1;
-                    while ($row && $Esp_Anterior == $row['Nombre_Cliente']) {
-                        echo '<li>Especialidad '.$i.': '.$row['Especialidad_Especialista'].'</li>';
-                        $Final++;
-                        $i++;
-                        $row = mysqli_fetch_assoc($result); // Avanzar a la siguiente fila
-                    
-                    */
-                
-                    echo '</ul>';
-                    echo '<br><a href="ModificarEspecialista.php?id='.$Esp_Anterior.'">Modificar</a>';
-                    echo '<br><a href="EliminarEspecialista.php?id='.$Esp_Anterior.'">Eliminar</a>';
-                    echo '</div>';
-                }
-
-
+        
     } else {
         echo '<p>No se encontraron especialistas.</p>';
     }

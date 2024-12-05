@@ -89,8 +89,8 @@ include("./GestionBD/1-conexion.php");
                         $row = mysqli_fetch_assoc($result); // Avanzar a la siguiente fila
                     }
                 echo '</ul>';
-                echo '<br><a href="ModificarEspecialista.php?id='.$Esp_Anterior.'">Modificar</a>';
-                echo '<br><a href="EliminarEspecialista.php?id='.$Esp_Anterior.'">Eliminar</a>';
+                echo '<br><a href="Mod_Espe.php?id='.$Esp_Anterior.'">Modificar</a>';
+                echo '<br><a href="Elim_Espe.php?id='.$Esp_Anterior.'">Eliminar</a>';
             echo '</div>';
         }
     } else {

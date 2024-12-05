@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 <html lang="es">
     <head>
         <meta charset="UTF-8">
@@ -46,6 +48,16 @@
                 <li><a href="Contacto.php"><i class="fa fa-phone-square"></i> <span data-translate="contacto">Puesta en contacto</span></a></li>
                 <li><a href="ListadoEspecialistas.php"><i class="fa fa-address-book"></i> <span data-translate="especialistas">Especialistas</span></a></li>
                 <li><a href="Calendario.html"><i class="fa fa-calendar"></i> <span data-translate="calendario">Calendario</span></a></li>
+                <?php
+                if ($_SESSION['Tipo'] == "admin") { // Si es Admin, mostrar opciones adicionales
+                    echo "<li><a href='FuncionesAdmin.php'><i class='fa fa-address-book'></i><span data-translate='ADMIN'>Admin</span></a></li>";
+                    echo '<br>';
+                }
+                if ($_SESSION['Tipo'] == "Espe") { // Si es Admin, mostrar opciones adicionales
+                    echo "<li><a href='FuncionesESPE.php><i class='fa fa-address-book'></i><span data-translate='ESPECIALISTAS'>ESPECIALISTAS</span></a></li>";
+                    echo '<br>';
+                }
+                ?>
                 <li>               
                     <div class="lenguage-selector">
                         <label for="lenguage"></label>

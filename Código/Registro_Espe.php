@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
         
         <!-- Link hacia el archivo de estilos css -->
-        <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="">
 
         <!-- Link favicon -->
         <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
@@ -80,23 +80,54 @@
                 $TipoVia_Especialista=$_REQUEST['TipoVia_Especialista'];
                 $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
                 $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
-                
+                $Coaching1 = 
 
                 $sql= "INSERT INTO especialistas(DNI_Especialista, Nombre_Especialista, Apellido_Especialista, FechaNacimiento_Especialista, NumTelefono_Especialista, Correo_Especialista, 
                 TipoVia_Especialista, NombreVia_Especialista, NumeroVia_Especialista, CuentaBancaria_Especialista, Cuota_Especialista, Contrasena_Especialista)
                 VALUES ('$DNI_Especialista','$Nombre_Especialista', '$Apellido_Especialista','$FechaNacimiento_Especialista', '$NumTelefono_Especialista', '$Correo_Especialista', '$TipoVia_Especialista', 
                 '$NombreVia_Especialista','$NumeroVia_Especialista','$CuentaBancaria_Especialista','$Cuota_Especialista','$Contrasena_Especialista');";
-             
-            /*
-            $sql_Es = "SELECT ID_Especialista FROM especialistas WHERE DNI_Especialista='$DNI_Especialista'";
 
-            $row=ID_Especialista;*/
+         
 
-            $info= "$Nombre_Especialista,$Apellido_Especialista,$Cuota_Especialista";
-            $id= "SELECT 'ID_Especialista' FROM especialistas WHERE ID_Especialista='$ID_Especialista';";
-            
-            if (mysqli_query($conn,$sql))
+                
+
+
+
+
+
+
+
+
+
+
+
+                // Assume $conn is your active database connection
+                $especialidadesSeleccionadas = $_POST['especialidades']; // Array of selected checkbox values
+                $ID_ES = $ID_Especialista; // Replace with actual ID retrieval logic
+
+                foreach ($especialidadesSeleccionadas as $especialidadID) {
+                    // Check if the combination already exists
+                    $checkQuery = "SELECT * FROM especialista_especialidad 
+                                WHERE ID_Especialista_EspeEspe = '$ID_ES' 
+                                AND ID_Especialidad_EspeEspe = '$especialidadID'";
+                    $checkResult = mysqli_query($conn, $checkQuery);
+                
+                    if (mysqli_num_rows($checkResult) == 0) {
+                        // Insert only if the combination doesn't exist
+                        $sqlEspecialidad = "INSERT INTO especialista_especialidad (ID_Especialista_EspeEspe, ID_Especialidad_EspeEspe) 
+                            VALUES ('$ID_ES', '$especialidadID')";
+                        mysqli_query($conn, $sqlEspecialidad);
+                    }
+                }        
+
+            $id= "SELECT ID_Especialista FROM especialistas WHERE DNI_Especialista='$DNI_Especialista';";
+            $result=mysqli_query($conn,$id);
+
+            if ($result)
             {
+                $row=mysqli_fetch_assoc($result);
+                $id=$row ['ID_Especialista'];
+                
                 if(isset($_REQUEST['AltaEspecialista'])){
                     $Lunes=isset($_REQUEST['Lunes']) ? 1 : 0;
                     $Martes=isset($_REQUEST['Martes']) ? 1 : 0;
@@ -104,45 +135,70 @@
                     $Jueves=isset($_REQUEST['Jueves']) ? 1 : 0;
                     $Viernes=isset($_REQUEST['Viernes']) ? 1 : 0;
                 
-                    $sql="INSERT INTO DISPONIBILIDAD_ESPECIALISTA (Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo) VALUES ";
+                    $sql="INSERT INTO DISPONIBILIDAD_ESPECIALISTA (Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo,ID_Especialista_DispoEspe) VALUES ";
 
                 }
             
                 if(isset($_REQUEST['8:00-9:00'])){
-                    $sql.= "( $Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'8:00-9:00'),";
+                    $sql.= "( $Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'8:00-9:00', $id)";
                 }
                 if(isset($_REQUEST['9:00-10:00'])){
-                    $sql.="($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'9:00-10:00'),";
+                    $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'9:00-10:00', $id)";
                 }
                 if(isset($_REQUEST['10:00-11:00'])){
-                    $sql.="($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'10:00-11:00'),";
+                    $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'10:00-11:00', $id)";
                 }
                 if(isset($_REQUEST['11:00-12:00'])){
-                    $sql.="($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'11:00-12:00'),";
+                    $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'11:00-12:00', $id)";
                 }
                 if(isset($_REQUEST['15:00-16:00'])){
-                    $sql.="($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'15:00-16:00'),";
+                    $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'15:00-16:00', $id)";
                 }
                 if(isset($_REQUEST['16:00-17:00'])){
-                    $sql.="($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'16:00-17:00'),";
+                    $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'16:00-17:00', $id)";
                 }
                 if(isset($_REQUEST['17:00-18:00'])){
-                    $sql.="($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'17:00-18:00'),";
+                    $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'17:00-18:00', $id)";
                 }
                 if(isset($_REQUEST['18:00-19:00'])){
-                    $sql.="($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'18:00-19:00'),";
+                    $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'18:00-19:00', $id)";
                 }
                 if(isset($_REQUEST['19:00-20:00'])){
-                    $sql.="($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'19:00-20:00'),";
+                    $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'19:00-20:00', $id)";
                 }
                 if(isset($_REQUEST['20:00-21:00'])){
-                    $sql.="($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'20:00-21:00');";
+                    $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'20:00-21:00', $id)";
                 }
-                  
-                    
+                $sql.=";";
+                 echo $sql;    
+                 
+                 
                 if (mysqli_query($conn,$sql))
                 {
-                    header("Location:Calendario.php?info=$info");
+                    header("Location:Calendario.php");
+                }
+            
+                else 
+                {
+                    echo "Error:  "   . $sql . "<br>" . mysqli_error($conn);
+                }
+                /*ASIGNACION ESPECIALIDADES*/
+                
+                $sql= "INSERT INTO especialista_especialidad (Id_Especialista_EspeEspe, Id_Especialidad_EspeEspe) Values"
+                
+                if(isset($_REQUEST['Coachin_Empresarial'])){
+                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                }
+
+
+                
+                $sql.=";";
+                 echo $sql;    
+                 
+                 
+                if (mysqli_query($conn,$sql))
+                {
+                    header("Location:Calendario.php");
                 }
             
                 else 
@@ -151,14 +207,16 @@
                 }
         
             } 
-        }   
+            
+            } 
+      
         else{
             ?>
             <div id="contenedor">
                 <div id="central">
                     <div id="login">
                         <div class="titulo">Bienvenido Especialista</div>
-                        <form id="AltaEspecialista" action="ConfAltaEspe.php" method="POST">
+                        <form id="AltaEspecialista" action="" method="POST">
                             <label for="DNI_Especialista">DNI:</label>
                             <input type="text" id="DNI_Especialista" name="DNI_Especialista" class="caja" required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI">
                             
@@ -248,34 +306,35 @@
                                     
                                         <label for="20:00-21:00">20:00-21:00</label>    
                                     <input type="checkbox" id="20:00-21:00" name="20:00-21:00" value="1">
-                                        
                             </fieldset>
                             
                             <fieldset>
+
                                 <legend>Especialidad</legend>
                                     <label for="Coaching Empresarial">Coaching Empresarial</label>
-                                <input type="checkbox" id="Coaching Empresarial" name="Coaching Empresarial" value="1">
+                                <input type="checkbox" id="Coaching_Empresarial" name="Coaching_Empresarial" value="1">
                                     
                                     <label for="Coaching Personal">Coaching Personal</label>        
-                                <input type="checkbox" id="Coaching Personal" name="Coaching Personal" value="1">
+                                <input type="checkbox" id="Coaching_Personal" name="Coaching_Personal" value="2">
                                 
                                     <label for="Coaching con Inteligencia Emocional">Coaching con Inteligencia Emocional</label>
-                                <input type="checkbox" id="Coaching con Inteligencia Emocional" name="Coaching con Inteligencia Emocional" value="1">
+                                <input type="checkbox" id="Coaching_con_Inteligencia_Emocional" name="Coaching_con_Inteligencia_Emocional" value="3">
                                 
                                     <label for="Coaching Deportivo">Coaching Deportivo</label>
-                                <input type="checkbox" id="Coaching Deportivo" name="Coaching Deportivo" value="1">
+                                <input type="checkbox" id="Coaching_Deportivo" name="Coaching_Deportivo" value="4">
                                 
                                     <label for="Coaching Ontológico'">Coaching Ontológico</label>    
-                                <input type="checkbox" id="Coaching Ontológico'" name="Coaching Ontológico'" value="1">
+                                <input type="checkbox" id="Coaching_Ontológico" name="Coaching_Ontológico" value="5">
                                 
                                     <label for="Coaching Cognitivo">Coaching Cognitivo</label>
-                                <input type="checkbox" id="Coaching Cognitivo" name="Coaching Cognitivo" value="1">
+                                <input type="checkbox" id="Coaching_Cognitivo" name="Coaching_Cognitivo" value="6">
                                 
                                     <label for="Coaching PNL (Programación Neurolingüística)">Coaching PNL (Programación Neurolingüística)</label>
-                                <input type="checkbox" id="Coaching PNL (Programación Neurolingüística)" name="Coaching PNL (Programación Neurolingüística)" value="1">
+                                <input type="checkbox" id="Coaching_PNL_(Programación_Neurolingüística)" name="Coaching_PNL_(Programación_Neurolingüística)" value="7">
                                 
                                     <label for="Coaching Coercitivo">Coaching Coercitivo</label>
-                                <input type="checkbox" id="Coaching Coercitivo" name="Coaching Coercitivo" value="1">        
+                                <input type="checkbox" id="Coaching_Coercitivo" name="Coaching_Coercitivo" value="8">        
+
                             </fieldset>
 
 

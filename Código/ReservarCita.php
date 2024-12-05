@@ -83,6 +83,13 @@
                 FROM DISPONIBILIDAD_ESPECIALISTA DE
                 JOIN ESPECIALISTAS E ON E.ID_Especialista = DE.ID_Especialista_DispoEspe";
 
+            $sql_espe="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista,
+                DE.Fecha_Disponibilidad, DE.Hora_Disponibilidad, DE.Disponibilidad_Especialista
+                FROM ESPECIALIDAD ES
+                JOIN ESPECIALISTA_ESPECIALIDAD EE ON ES.ID_Especialista = E.ID_Especialidad_EspeEspe
+                JOIN ESPECIALISTAS E.ID_Especialista = EE.ID_Especialista_EspeEspe
+                JOIN DISPONIBILIDAD_ESPECIALISTA DE ON E.ID_Especialista = DE.ID_Especialista_DispoEspe";
+
             $sql_usr= " SELECT * FROM CLIENTES WHERE ID_Cliente= '$ID_Cliente'; ";
 
             if (mysqli_query($conn,$Eliminar))
@@ -187,7 +194,7 @@
                                         <label for="Hora_Dispo">20:00-21:00</label>
                             </fieldset>
                 <br>
-
+                hacer un bucle de disponibilidad_especialistas
                 <br>
                 <fieldset>
                     <legend>¿Qué especialidad deseas escoger?</legend>
