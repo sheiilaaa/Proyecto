@@ -194,7 +194,11 @@
                                         <label for="Hora_Dispo">20:00-21:00</label>
                             </fieldset>
                 <br>
+
                 hacer un bucle de disponibilidad_especialistas
+
+
+                
                 <br>
                 <fieldset>
                     <legend>¿Qué especialidad deseas escoger?</legend>
@@ -213,6 +217,9 @@
                         </optgroup>
                     </select>
                 </fieldset>
+
+
+
                 <br>
                 <input type="checkbox" name="user" required value="Acepto los terminos de la página">
                     <label for="user">Acepto los terminos de la página</label>

@@ -68,7 +68,7 @@
 <!-- REGISTRO USUARIO -->
         <?php 
             if(isset($_REQUEST['AltaEspecialista'])){
-                $DNI_Especialista=$_REQUEST['DNI_Especialista'];
+                $DNI_Especialista=$POST['DNI_Especialista'];
                 $NumTelefono_Especialista=$_REQUEST['NumTelefono_Especialista'];
                 $Correo_Especialista=$_REQUEST['Correo_Especialista'];
                 $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
@@ -80,25 +80,18 @@
                 $TipoVia_Especialista=$_REQUEST['TipoVia_Especialista'];
                 $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
                 $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
-                $Coaching1 = 
-
+                $Coaching1 = $_POST['Coaching Empresarial'];
+                $Coaching2 = $_POST['Coaching Personal'];
+                $Coaching3 = $_POST['Coaching con Inteligencia Emocional'];
+                $Coaching4 = $_POST['Coaching Deportivo'];
+                $Coaching5 = $_POST['Coaching Ontológico'];
+                $Coaching6 = $_POST['Coaching Cognitivo'];
+                $Coaching7 = $_POST[''];
+                $Coaching8 = $_POST[''];
                 $sql= "INSERT INTO especialistas(DNI_Especialista, Nombre_Especialista, Apellido_Especialista, FechaNacimiento_Especialista, NumTelefono_Especialista, Correo_Especialista, 
                 TipoVia_Especialista, NombreVia_Especialista, NumeroVia_Especialista, CuentaBancaria_Especialista, Cuota_Especialista, Contrasena_Especialista)
                 VALUES ('$DNI_Especialista','$Nombre_Especialista', '$Apellido_Especialista','$FechaNacimiento_Especialista', '$NumTelefono_Especialista', '$Correo_Especialista', '$TipoVia_Especialista', 
                 '$NombreVia_Especialista','$NumeroVia_Especialista','$CuentaBancaria_Especialista','$Cuota_Especialista','$Contrasena_Especialista');";
-
-         
-
-                
-
-
-
-
-
-
-
-
-
 
 
                 // Assume $conn is your active database connection
@@ -171,31 +164,44 @@
                 }
                 $sql.=";";
                  echo $sql;    
-                 
-                 
-                if (mysqli_query($conn,$sql))
-                {
-                    header("Location:Calendario.php");
-                }
-            
-                else 
-                {
-                    echo "Error:  "   . $sql . "<br>" . mysqli_error($conn);
-                }
+                
                 /*ASIGNACION ESPECIALIDADES*/
                 
-                $sql= "INSERT INTO especialista_especialidad (Id_Especialista_EspeEspe, Id_Especialidad_EspeEspe) Values"
+                $sql= "INSERT INTO especialista_especialidad (Id_Especialista_EspeEspe, Id_Especialidad_EspeEspe) VALUES"
                 
                 if(isset($_REQUEST['Coachin_Empresarial'])){
                     $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
                 }
 
+                if(isset($_REQUEST['Coachin_Empresarial'])){
+                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                }
+
+                if(isset($_REQUEST['Coachin_Empresarial'])){
+                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                }
+
+                if(isset($_REQUEST['Coachin_Empresarial'])){
+                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                }
+
+                if(isset($_REQUEST['Coachin_Empresarial'])){
+                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                }
+                if(isset($_REQUEST['Coachin_Empresarial'])){
+                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                }
+                if(isset($_REQUEST['Coachin_Empresarial'])){
+                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                }
+                if(isset($_REQUEST['Coachin_Empresarial'])){
+                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                }
 
                 
                 $sql.=";";
                  echo $sql;    
-                 
-                 
+                
                 if (mysqli_query($conn,$sql))
                 {
                     header("Location:Calendario.php");

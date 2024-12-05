@@ -92,7 +92,7 @@ include("./GestionBD/1-conexion.php");
                 
         
     } else {
-        echo '<p>No se encontraron especialistas.</p>';
+        echo '<p>No se encontraron clientes.</p>';
     }
     ?>
 </div>

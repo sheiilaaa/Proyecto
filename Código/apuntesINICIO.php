@@ -75,7 +75,7 @@ session_start()
         -->
         <?php
             if(isset($_REQUEST['Ingresar'])){
-                $DNI_Cliente=$_REQUEST['DNI_Cliente'];
+                $DNI_Cliente=$_POST['DNI_Cliente'];
                 $NumTelefono_Cliente=$_REQUEST['NumTelefono_Cliente'];
                 $Correo_Cliente=$_REQUEST['Correo_Cliente'];
                 $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
