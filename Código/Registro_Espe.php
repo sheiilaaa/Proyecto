@@ -67,27 +67,29 @@
 
 <!-- REGISTRO USUARIO -->
         <?php 
-            if(isset($_REQUEST['AltaEspecialista'])){
+            if(isset($_POST['AltaEspecialista'])){
                 $DNI_Especialista=$POST['DNI_Especialista'];
-                $NumTelefono_Especialista=$_REQUEST['NumTelefono_Especialista'];
-                $Correo_Especialista=$_REQUEST['Correo_Especialista'];
-                $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
-                $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
-                $Contrasena_Especialista=$_REQUEST['Contrasena_Especialista']; 
-                $FechaNacimiento_Especialista=$_REQUEST['FechaNacimiento_Especialista'];
-                $NombreVia_Especialista=$_REQUEST['NombreVia_Especialista'];
-                $NumeroVia_Especialista=$_REQUEST['NumeroVia_Especialista'];
-                $TipoVia_Especialista=$_REQUEST['TipoVia_Especialista'];
-                $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
-                $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
+                $NumTelefono_Especialista=$_POST['NumTelefono_Especialista'];
+                $Correo_Especialista=$_POST['Correo_Especialista'];
+                $Nombre_Especialista=$_POST['Nombre_Especialista'];
+                $Apellido_Especialista=$_POST['Apellido_Especialista'];
+                $Contrasena_Especialista=$_POST['Contrasena_Especialista']; 
+                $FechaNacimiento_Especialista=$_POST['FechaNacimiento_Especialista'];
+                $NombreVia_Especialista=$_POST['NombreVia_Especialista'];
+                $NumeroVia_Especialista=$_POST['NumeroVia_Especialista'];
+                $TipoVia_Especialista=$_POST['TipoVia_Especialista'];
+                $CuentaBancaria_Especialista=$_POST['CuentaBancaria_Especialista'];
+                $Cuota_Especialista=$_POST['Cuota_Especialista'];
                 $Coaching1 = $_POST['Coaching Empresarial'];
                 $Coaching2 = $_POST['Coaching Personal'];
                 $Coaching3 = $_POST['Coaching con Inteligencia Emocional'];
                 $Coaching4 = $_POST['Coaching Deportivo'];
                 $Coaching5 = $_POST['Coaching Ontológico'];
                 $Coaching6 = $_POST['Coaching Cognitivo'];
-                $Coaching7 = $_POST[''];
-                $Coaching8 = $_POST[''];
+                $Coaching7 = $_POST['Coaching PNL (Programación Neurolingüística)'];
+                $Coaching8 = $_POST['Coaching Coercitivo'];
+
+                //INSERTAR INFORMACION ESPECIALISTA
                 $sql= "INSERT INTO especialistas(DNI_Especialista, Nombre_Especialista, Apellido_Especialista, FechaNacimiento_Especialista, NumTelefono_Especialista, Correo_Especialista, 
                 TipoVia_Especialista, NombreVia_Especialista, NumeroVia_Especialista, CuentaBancaria_Especialista, Cuota_Especialista, Contrasena_Especialista)
                 VALUES ('$DNI_Especialista','$Nombre_Especialista', '$Apellido_Especialista','$FechaNacimiento_Especialista', '$NumTelefono_Especialista', '$Correo_Especialista', '$TipoVia_Especialista', 
@@ -113,6 +115,8 @@
                     }
                 }        
 
+            
+            //INSERTAR DISPONIBILIDAD
             $id= "SELECT ID_Especialista FROM especialistas WHERE DNI_Especialista='$DNI_Especialista';";
             $result=mysqli_query($conn,$id);
 
@@ -121,84 +125,83 @@
                 $row=mysqli_fetch_assoc($result);
                 $id=$row ['ID_Especialista'];
                 
-                if(isset($_REQUEST['AltaEspecialista'])){
-                    $Lunes=isset($_REQUEST['Lunes']) ? 1 : 0;
-                    $Martes=isset($_REQUEST['Martes']) ? 1 : 0;
-                    $Miercoles=isset($_REQUEST['Miercoles']) ? 1 : 0;
-                    $Jueves=isset($_REQUEST['Jueves']) ? 1 : 0;
-                    $Viernes=isset($_REQUEST['Viernes']) ? 1 : 0;
+                if(isset($_POST['AltaEspecialista'])){
+                    $Lunes=isset($_POST['Lunes']) ? 1 : 0;
+                    $Martes=isset($_POST['Martes']) ? 1 : 0;
+                    $Miercoles=isset($_POST['Miercoles']) ? 1 : 0;
+                    $Jueves=isset($_POST['Jueves']) ? 1 : 0;
+                    $Viernes=isset($_POST['Viernes']) ? 1 : 0;
                 
                     $sql="INSERT INTO DISPONIBILIDAD_ESPECIALISTA (Lunes, Martes, Miercoles, Jueves, Viernes, Hora_Dispo,ID_Especialista_DispoEspe) VALUES ";
 
                 }
             
-                if(isset($_REQUEST['8:00-9:00'])){
+                if(isset($_POST['8:00-9:00'])){
                     $sql.= "( $Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'8:00-9:00', $id)";
                 }
-                if(isset($_REQUEST['9:00-10:00'])){
+                if(isset($_POST['9:00-10:00'])){
                     $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'9:00-10:00', $id)";
                 }
-                if(isset($_REQUEST['10:00-11:00'])){
+                if(isset($_POST['10:00-11:00'])){
                     $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'10:00-11:00', $id)";
                 }
-                if(isset($_REQUEST['11:00-12:00'])){
+                if(isset($_POST['11:00-12:00'])){
                     $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'11:00-12:00', $id)";
                 }
-                if(isset($_REQUEST['15:00-16:00'])){
+                if(isset($_POST['15:00-16:00'])){
                     $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'15:00-16:00', $id)";
                 }
-                if(isset($_REQUEST['16:00-17:00'])){
+                if(isset($_POST['16:00-17:00'])){
                     $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'16:00-17:00', $id)";
                 }
-                if(isset($_REQUEST['17:00-18:00'])){
+                if(isset($_POST['17:00-18:00'])){
                     $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'17:00-18:00', $id)";
                 }
-                if(isset($_REQUEST['18:00-19:00'])){
+                if(isset($_POST['18:00-19:00'])){
                     $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'18:00-19:00', $id)";
                 }
-                if(isset($_REQUEST['19:00-20:00'])){
+                if(isset($_POST['19:00-20:00'])){
                     $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'19:00-20:00', $id)";
                 }
-                if(isset($_REQUEST['20:00-21:00'])){
+                if(isset($_POST['20:00-21:00'])){
                     $sql.=", ($Lunes,$Martes,$Miercoles,$Jueves,$Viernes,'20:00-21:00', $id)";
                 }
                 $sql.=";";
                  echo $sql;    
                 
+
                 /*ASIGNACION ESPECIALIDADES*/
                 
                 $sql= "INSERT INTO especialista_especialidad (Id_Especialista_EspeEspe, Id_Especialidad_EspeEspe) VALUES"
                 
-                if(isset($_REQUEST['Coachin_Empresarial'])){
-                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                if(isset($_POST['Coaching_Empresarial'])){
+                    $sql .= "($id, '" . $_POST['Coaching Empresarial'] . "');";
                 }
 
-                if(isset($_REQUEST['Coachin_Empresarial'])){
-                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                if(isset($_POST['Coaching_Personal'])){
+                    $sql.= ", ($id, $_POST['Coaching_Personal'] )";
                 }
 
-                if(isset($_REQUEST['Coachin_Empresarial'])){
-                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                if(isset($_POST['Coaching_con_Inteligencia_Emocional'])){
+                    $sql.= ", ($id, $_POST['Coaching_con_Inteligencia_Emocional'] )";
                 }
 
-                if(isset($_REQUEST['Coachin_Empresarial'])){
-                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                if(isset($_POST['Coaching_Deportivo'])){
+                    $sql.= ", ($id, $_POST['Coaching_Deportivo'] )";
                 }
 
-                if(isset($_REQUEST['Coachin_Empresarial'])){
-                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                if(isset($_POST['Coaching_Ontológico'])){
+                    $sql.= ", ($id, $_POST['Coaching_Ontológico'] )";
                 }
-                if(isset($_REQUEST['Coachin_Empresarial'])){
-                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                if(isset($_POST['Coaching_Cognitivo'])){
+                    $sql.= ", ($id, $_POST['Coaching_Cognitivo'] )";
                 }
-                if(isset($_REQUEST['Coachin_Empresarial'])){
-                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                if(isset($_POST['Coaching_PNL_(Programación_Neurolingüística)'])){
+                    $sql.= ", ($id, $_POST['Coaching_PNL_(Programación_Neurolingüística)'] )";
                 }
-                if(isset($_REQUEST['Coachin_Empresarial'])){
-                    $sql.= "($id, $_REQUEST['Coaching_Empresarial'] )";
+                if(isset($_POST['Coaching_Coercitivo'])){
+                    $sql.= ", ($id, $_POST['Coaching_Coercitivo'] )";
                 }
-
-                
                 $sql.=";";
                  echo $sql;    
                 

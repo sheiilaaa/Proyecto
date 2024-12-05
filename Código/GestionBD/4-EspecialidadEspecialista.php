@@ -35,9 +35,9 @@
 
     $sql_EspEsp .= "INSERT INTO ESPECIALISTA_ESPECIALIDAD (ID_Especialista_EspeEspe, ID_Especialidad_EspeEspe)
     VALUES
-        ('9', '9');";
+        ('9', '1');";
 
-    $Resultado= mysqli_multi_query($conn, $sql_ESPECIALISTAS);
+    $Resultado= mysqli_multi_query($conn, $sql_EspEsp);
 
     if ($Resultado)
     {
@@ -46,7 +46,7 @@
     } 
     else 
     {
-        echo "Error: " . $sql_ESPECIALISTAS . "<br>" . mysqli_error($conn);
+        echo "Error: " . $sql_EspEsp . "<br>" . mysqli_error($conn);
     }
 
     mysqli_close($conn);
