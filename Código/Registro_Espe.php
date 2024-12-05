@@ -172,35 +172,35 @@
 
                 /*ASIGNACION ESPECIALIDADES*/
                 
-                $sql= "INSERT INTO especialista_especialidad (Id_Especialista_EspeEspe, Id_Especialidad_EspeEspe) VALUES"
+                $sql= "INSERT INTO especialista_especialidad (Id_Especialista_EspeEspe, Id_Especialidad_EspeEspe) VALUES";
                 
-                if(isset($_POST['Coaching_Empresarial'])){
+                if(isset($_POST['CoachingEmpresarial'])){
                     $sql .= "($id, '" . $_POST['Coaching Empresarial'] . "');";
                 }
 
                 if(isset($_POST['Coaching_Personal'])){
-                    $sql.= ", ($id, $_POST['Coaching_Personal'] )";
+                    $sql .= "($id, '" . $_POST['Coaching Personal'] . "');"; 
                 }
 
                 if(isset($_POST['Coaching_con_Inteligencia_Emocional'])){
-                    $sql.= ", ($id, $_POST['Coaching_con_Inteligencia_Emocional'] )";
+                    $sql .= "($id, '" . $_POST['Coaching con Inteligencia Emocional'] . "');";
                 }
 
                 if(isset($_POST['Coaching_Deportivo'])){
-                    $sql.= ", ($id, $_POST['Coaching_Deportivo'] )";
+                    $sql .= "($id, '" . $_POST['Coaching Deportivo'] . "');";
                 }
 
                 if(isset($_POST['Coaching_Ontológico'])){
-                    $sql.= ", ($id, $_POST['Coaching_Ontológico'] )";
+                    $sql .= "($id, '" . $_POST['Coaching Ontológico'] . "');";
                 }
                 if(isset($_POST['Coaching_Cognitivo'])){
-                    $sql.= ", ($id, $_POST['Coaching_Cognitivo'] )";
+                    $sql .= "($id, '" . $_POST['Coaching Cognitivo'] . "');";
                 }
                 if(isset($_POST['Coaching_PNL_(Programación_Neurolingüística)'])){
-                    $sql.= ", ($id, $_POST['Coaching_PNL_(Programación_Neurolingüística)'] )";
+                    $sql .= "($id, '" . $_POST['Coaching PNL (Programación Neurolingüística)'] . "');";
                 }
                 if(isset($_POST['Coaching_Coercitivo'])){
-                    $sql.= ", ($id, $_POST['Coaching_Coercitivo'] )";
+                    $sql .= "($id, '" . $_POST['Coaching Coercitivo'] . "');";
                 }
                 $sql.=";";
                  echo $sql;    
@@ -321,28 +321,28 @@
 
                                 <legend>Especialidad</legend>
                                     <label for="Coaching Empresarial">Coaching Empresarial</label>
-                                <input type="checkbox" id="Coaching_Empresarial" name="Coaching_Empresarial" value="1">
+                                <input type="checkbox" id="Coaching_Empresarial" name="Coaching Empresarial" value="1">
                                     
                                     <label for="Coaching Personal">Coaching Personal</label>        
-                                <input type="checkbox" id="Coaching_Personal" name="Coaching_Personal" value="2">
+                                <input type="checkbox" id="Coaching_Personal" name="Coaching Personal" value="2">
                                 
                                     <label for="Coaching con Inteligencia Emocional">Coaching con Inteligencia Emocional</label>
-                                <input type="checkbox" id="Coaching_con_Inteligencia_Emocional" name="Coaching_con_Inteligencia_Emocional" value="3">
+                                <input type="checkbox" id="Coaching_con_Inteligencia_Emocional" name="Coaching con Inteligencia Emocional" value="3">
                                 
                                     <label for="Coaching Deportivo">Coaching Deportivo</label>
-                                <input type="checkbox" id="Coaching_Deportivo" name="Coaching_Deportivo" value="4">
+                                <input type="checkbox" id="Coaching_Deportivo" name="Coaching Deportivo" value="4">
                                 
                                     <label for="Coaching Ontológico'">Coaching Ontológico</label>    
-                                <input type="checkbox" id="Coaching_Ontológico" name="Coaching_Ontológico" value="5">
+                                <input type="checkbox" id="Coaching_Ontológico" name="Coaching Ontológico" value="5">
                                 
                                     <label for="Coaching Cognitivo">Coaching Cognitivo</label>
-                                <input type="checkbox" id="Coaching_Cognitivo" name="Coaching_Cognitivo" value="6">
+                                <input type="checkbox" id="Coaching_Cognitivo" name="Coaching Cognitivo" value="6">
                                 
                                     <label for="Coaching PNL (Programación Neurolingüística)">Coaching PNL (Programación Neurolingüística)</label>
-                                <input type="checkbox" id="Coaching_PNL_(Programación_Neurolingüística)" name="Coaching_PNL_(Programación_Neurolingüística)" value="7">
+                                <input type="checkbox" id="Coaching_PNL_(Programación_Neurolingüística)" name="Coaching PNL (Programación Neurolingüística)" value="7">
                                 
                                     <label for="Coaching Coercitivo">Coaching Coercitivo</label>
-                                <input type="checkbox" id="Coaching_Coercitivo" name="Coaching_Coercitivo" value="8">        
+                                <input type="checkbox" id="Coaching_Coercitivo" name="Coaching Coercitivo" value="8">        
 
                             </fieldset>
 

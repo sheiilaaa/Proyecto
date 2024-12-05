@@ -97,9 +97,9 @@ if ($_SESSION['rol'] == 'cliente') {
 <!-- Codigo --->
          <!-- Aquí comprueba si el usuario está asociado a la base de datos y de ser así se cambiará la contraseña por una nueva que tú introduzcas-->
         <?php
-        if(isset($_REQUEST['restablecer'])){
-            $usuario=$_REQUEST['Nombre_Cliente'];
-            $contraseña=$_REQUEST['Contrasena_Cliente'];
+        if(isset($_POST['restablecer'])){
+            $usuario=$_POST['Nombre_Cliente'];
+            $contraseña=$_POST['Contrasena_Cliente'];
             
             $sql= "SELECT * FROM Clientes WHERE Nombre_Cliente ='$usuario';";
 

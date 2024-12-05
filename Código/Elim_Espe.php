@@ -66,24 +66,24 @@
 
         <?php
 
-        if(isset($_REQUEST['Eliminar'])){
-            $ID_Especialista=$_REQUEST['ID_Especialista'];
-            $DNI_Especialista=$_REQUEST['DNI_Especialista'];
-            $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
-            $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
-            $FechaNacimiento_Especialista=$_REQUEST['FechaNacimiento_Especialista'];
+        if(isset($_POST['Eliminar'])){
+            $ID_Especialista=$_POST['ID_Especialista'];
+            $DNI_Especialista=$_POST['DNI_Especialista'];
+            $Nombre_Especialista=$_POST['Nombre_Especialista'];
+            $Apellido_Especialista=$_POST['Apellido_Especialista'];
+            $FechaNacimiento_Especialista=$_POST['FechaNacimiento_Especialista'];
 
-            $NumTelefono_Especialista=$_REQUEST['NumTelefono_Especialista'];
-            $Correo_Especialista=$_REQUEST['Correo_Especialista'];
+            $NumTelefono_Especialista=$_POST['NumTelefono_Especialista'];
+            $Correo_Especialista=$_POST['Correo_Especialista'];
 
-            $TipoVia_Especialista=$_REQUEST['TipoVia_Especialista'];
-            $NombreVia_Especialista=$_REQUEST['NombreVia_Especialista'];
-            $NumeroVia_Especialista=$_REQUEST['NumeroVia_Especialista'];
+            $TipoVia_Especialista=$_POST['TipoVia_Especialista'];
+            $NombreVia_Especialista=$_POST['NombreVia_Especialista'];
+            $NumeroVia_Especialista=$_POST['NumeroVia_Especialista'];
             
-            $CuentaBancaria_Especialista=$_REQUEST['CuentaBancaria_Especialista'];
-            $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
+            $CuentaBancaria_Especialista=$_POST['CuentaBancaria_Especialista'];
+            $Cuota_Especialista=$_POST['Cuota_Especialista'];
             
-            $Contrasena_Especialista=$_REQUEST['Contrasena_Especialista']; 
+            $Contrasena_Especialista=$_POST['Contrasena_Especialista']; 
 
             $Eliminar="DELETE FROM Especialistas WHERE ID_Especialista =$ID_Especialista";
 
@@ -96,9 +96,9 @@
             }
         }
 
-        if (isset($_REQUEST['ID_Especialista'])){
+        if (isset($_POST['ID_Especialista'])){
             
-            $ID_Especialista=$_REQUEST['ID_Especialista'];
+            $ID_Especialista=$_POST['ID_Especialista'];
 
             $sql="SELECT * FROM especialistas WHERE ID_Especialista= $ID_Especialista;";
             $resultado=mysql_query($conn,$sql);

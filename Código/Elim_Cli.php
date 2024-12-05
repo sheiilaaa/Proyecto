@@ -66,21 +66,21 @@
 
         <?php
 
-        if(isset($_REQUEST['Eliminar'])){
-            $ID_Cliente=$_REQUEST['ID_Cliente'];
-            $DNI_Cliente=$_REQUEST['DNI_Cliente'];
-            $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
-            $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
-            $FechaNacimiento_Cliente=$_REQUEST['FechaNacimiento_Cliente'];
+        if(isset($_POST['Eliminar'])){
+            $ID_Cliente=$_POST['ID_Cliente'];
+            $DNI_Cliente=$_POST['DNI_Cliente'];
+            $Nombre_Cliente=$_POST['Nombre_Cliente'];
+            $Apellido_Cliente=$_POST['Apellido_Cliente'];
+            $FechaNacimiento_Cliente=$_POST['FechaNacimiento_Cliente'];
 
-            $NumTelefono_Cliente=$_REQUEST['NumTelefono_Cliente'];
-            $Correo_Cliente=$_REQUEST['Correo_Cliente'];
+            $NumTelefono_Cliente=$_POST['NumTelefono_Cliente'];
+            $Correo_Cliente=$_POST['Correo_Cliente'];
 
-            $TipoVia_Cliente=$_REQUEST['TipoVia_Cliente'];
-            $NombreVia_Cliente=$_REQUEST['NombreVia_Cliente'];
-            $NumeroVia_Cliente=$_REQUEST['NumeroVia_Cliente'];
+            $TipoVia_Cliente=$_POST['TipoVia_Cliente'];
+            $NombreVia_Cliente=$_POST['NombreVia_Cliente'];
+            $NumeroVia_Cliente=$_POST['NumeroVia_Cliente'];
             
-            $Contrasena_Cliente=$_REQUEST['Contrasena_Cliente']; 
+            $Contrasena_Cliente=$_POST['Contrasena_Cliente']; 
 
             $Eliminar="DELETE FROM CLIENTES WHERE ID_Cliente =$ID_Cliente";
 
@@ -93,9 +93,9 @@
             }
         }
 
-        if (isset($_REQUEST['ID_Cliente'])){
+        if (isset($_POST['ID_Cliente'])){
             
-            $ID_Cliente=$_REQUEST['ID_Cliente'];
+            $ID_Cliente=$_POST['ID_Cliente'];
 
             $sql="SELECT * FROM CLIENTES WHERE ID_Cliente= $ID_Cliente;";
             $resultado=mysql_query($conn,$sql);

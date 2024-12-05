@@ -61,11 +61,11 @@
         <?php
 
 
-        if(isset($_REQUEST['Registro'])){
-            $Estado_Pago=$_REQUEST['Estado_Pago']; 
-            $Metodos_Pago=$_REQUEST['FechaNacimiento_Cliente'];
-            $Fecha_Pago=$_REQUEST['NombreVia_Cliente'];
-            $Cantidad_Pago=$_REQUEST['NumeroVia_Cliente'];
+        if(isset($_POST['Registro'])){
+            $Estado_Pago=$_POST['Estado_Pago']; 
+            $Metodos_Pago=$_POST['FechaNacimiento_Cliente'];
+            $Fecha_Pago=$_POST['NombreVia_Cliente'];
+            $Cantidad_Pago=$_POST['NumeroVia_Cliente'];
             
             $ins = "INSERT INTO pagos(Estado_Pago,Metodos_Pago,Fecha_Pago,Cantidad_Pago)
             VALUES ('$Estado_Pago', '$Metodos_Pago', '$Fecha_Pago', '$Cantidad_Pago')";

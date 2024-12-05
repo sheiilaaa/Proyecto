@@ -65,8 +65,8 @@
                 <div class="central">
                     <div class="titulo">
                     <?php
-                        $Nombre = $_REQUEST["Nombre_Cliente"];
-                        $Apellido = $_REQUEST["Apellido_Cliente"];
+                        $Nombre = $_POST["Nombre_Cliente"];
+                        $Apellido = $_POST["Apellido_Cliente"];
                         echo "$Nombre $Apellido se ha modificado correctamente la contraseña"
                         //De la pantalla de recuperar contraseña, una vez guardada la información en la base de datos nos manda a esta pantalla donde nos dice que se ha guardado correctamente
                     ?>

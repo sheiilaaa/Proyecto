@@ -59,19 +59,19 @@
 
         <?php
 
-        if(isset($_REQUEST['reservarcita'])){
+        if(isset($_POST['reservarcita'])){
         /*INFO ESPECIALISTA*/
-            $ID_Especialista=$_REQUEST['ID_Especialista'];
-            $Nombre_Especialista=$_REQUEST['Nombre_Especialista'];
-            $Apellido_Especialista=$_REQUEST['Apellido_Especialista'];
-            $Cuota_Especialista=$_REQUEST['Cuota_Especialista'];
+            $ID_Especialista=$_POST['ID_Especialista'];
+            $Nombre_Especialista=$_POST['Nombre_Especialista'];
+            $Apellido_Especialista=$_POST['Apellido_Especialista'];
+            $Cuota_Especialista=$_POST['Cuota_Especialista'];
         /*INFO CLIENTE*/
-            $ID_Cliente=$_REQUEST['ID_Cliente'];
-            $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
-            $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
+            $ID_Cliente=$_POST['ID_Cliente'];
+            $Nombre_Cliente=$_POST['Nombre_Cliente'];
+            $Apellido_Cliente=$_POST['Apellido_Cliente'];
 
         /*INFO FORMULARIO*/
-            $Espe_escogida=$_REQUEST['Espe_escogida'];
+            $Espe_escogida=$_POST['Espe_escogida'];
 
         /*RECOPILAR INFORMACION*/
             $sql_espe="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista
@@ -101,9 +101,9 @@
             }
         }
 
-        if (isset($_REQUEST['ID_Especialista'])){
+        if (isset($_POST['ID_Especialista'])){
             
-            $ID_Especialista=$_REQUEST['ID_Especialista'];
+            $ID_Especialista=$_POST['ID_Especialista'];
 
             $sql="SELECT * FROM especialistas WHERE ID_Especialista= $ID_Especialista;";
 
@@ -114,7 +114,7 @@
             {     
             ?>
 <!--FORMULARIO HTML-->
-            <form action="Pago.php" method="get">
+            <form action="Pago.php" method="POST">
                 <fieldset> <!-- INFO ESPECIALISTA--->
                     <legend>Especialista escogido</legend>
                     <div class="registro"></div>
@@ -197,8 +197,6 @@
 
                 hacer un bucle de disponibilidad_especialistas
 
-
-                
                 <br>
                 <fieldset>
                     <legend>¿Qué especialidad deseas escoger?</legend>
@@ -219,7 +217,7 @@
                 </fieldset>
 
 
-
+                
                 <br>
                 <input type="checkbox" name="user" required value="Acepto los terminos de la página">
                     <label for="user">Acepto los terminos de la página</label>

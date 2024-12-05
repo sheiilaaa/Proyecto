@@ -69,8 +69,8 @@
             <div class="central">
                 <div class="titulo">
                     <?php
-                        $Nombre_Cliente = $_REQUEST["Nombre_Cliente"];
-                        $Nombre_Apellido = $_REQUEST["Apellido_Cliente"];
+                        $Nombre_Cliente = $_POST["Nombre_Cliente"];
+                        $Nombre_Apellido = $_POST["Apellido_Cliente"];
                         echo "Bienvenido $Nombre_Cliente $Apellido_Cliente"
                     ?>
                 </div>

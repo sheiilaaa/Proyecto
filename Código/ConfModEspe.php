@@ -63,9 +63,9 @@
             <div class="central">
                 <div class="titulo">
                     <?php
-                        $DNI_Especialista = $_REQUEST["DNI_Especialista"];
-                        $Nombre_Especialista = $_REQUEST["Nombre_Especialista"];
-                        $Apellido_Especialista = $_REQUEST["Apellido_Especialista"];
+                        $DNI_Especialista = $_POST["DNI_Especialista"];
+                        $Nombre_Especialista = $_POST["Nombre_Especialista"];
+                        $Apellido_Especialista = $_POST["Apellido_Especialista"];
 
                         echo "Se ha modificado correctamente el especialista $Nombre_Especialista $Apellido_Especialista con DNI $DNI_Especialista"
                     ?>

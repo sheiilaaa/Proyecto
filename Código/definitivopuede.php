@@ -71,17 +71,17 @@
         <?php
         if ($conn){/* HE AÑADIDO ESTO */
 
-        if(isset($_REQUEST['Ingresar'])){
-            $DNI_Cliente=$_REQUEST['DNI_Cliente'];
-            $NumTelefono_Cliente=$_REQUEST['NumTelefono_Cliente'];
-            $Correo_Cliente=$_REQUEST['Correo_Cliente'];
-            $Nombre_Cliente=$_REQUEST['Nombre_Cliente'];
-            $Apellido_Cliente=$_REQUEST['Apellido_Cliente'];
-            $Contrasena_Cliente=$_REQUEST['Contrasena_Cliente']; 
-            $FechaNacimiento_Cliente=$_REQUEST['FechaNacimiento_Cliente'];
-            $NombreVia_Cliente=$_REQUEST['NombreVia_Cliente'];
-            $NumeroVia_Cliente=$_REQUEST['NumeroVia_Cliente'];
-            $TipoVia_Cliente=$_REQUEST['TipoVia_Cliente'];
+        if(isset($_POST['Ingresar'])){
+            $DNI_Cliente=$_POST['DNI_Cliente'];
+            $NumTelefono_Cliente=$_POST['NumTelefono_Cliente'];
+            $Correo_Cliente=$_POST['Correo_Cliente'];
+            $Nombre_Cliente=$_POST['Nombre_Cliente'];
+            $Apellido_Cliente=$_POST['Apellido_Cliente'];
+            $Contrasena_Cliente=$_POST['Contrasena_Cliente']; 
+            $FechaNacimiento_Cliente=$_POST['FechaNacimiento_Cliente'];
+            $NombreVia_Cliente=$_POST['NombreVia_Cliente'];
+            $NumeroVia_Cliente=$_POST['NumeroVia_Cliente'];
+            $TipoVia_Cliente=$_POST['TipoVia_Cliente'];
 
             $de= "INSERT INTO CLIENTES (DNI_Cliente, NumTelefono_Cliente, Correo_Cliente, Nombre_Cliente, Apellido_Cliente, Contrasena_Cliente, FechaNacimiento_Cliente,NombreVia_Cliente,NumeroVia_Cliente,TipoVia_Cliente)
             VALUES ('$DNI_Cliente','$NumTelefono_Cliente', '$Correo_Cliente', $Nombre_Cliente, '$Apellido_Cliente', '$Contrasena_Cliente', ' $FechaNacimiento_Cliente', '$NombreVia_Cliente','$NumeroVia_Cliente','$TipoVia_Cliente';";
@@ -155,9 +155,9 @@
     ?>
     <!-- INICIO SESIÓN -->
     <?php
-    if(isset($_REQUEST['Ingresar'])){
-        $Nom_cliente=$_REQUEST['Nombre_Cliente'];
-        $Contra_Cliente=$_REQUEST['Contrasena_Cliente'];
+    if(isset($_POST['Ingresar'])){
+        $Nom_cliente=$_POST['Nombre_Cliente'];
+        $Contra_Cliente=$_POST['Contrasena_Cliente'];
         
         $sql= "SELECT * FROM CLIENTES WHERE Nombre_Cliente ='$Nom_cliente';";
 
