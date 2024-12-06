@@ -89,7 +89,7 @@
                 $Coaching7 = $_POST['Coaching_PNL_(Programación_Neurolingüística)'];
                 $Coaching8 = $_POST['Coaching_Coercitivo'];
                 $Tipo =  "espe";
-
+                
                 //INSERTAR INFORMACION ESPECIALISTA
                 $sql= "INSERT INTO especialistas(DNI_Especialista, Nombre_Especialista, Apellido_Especialista, FechaNacimiento_Especialista, NumTelefono_Especialista, Correo_Especialista, 
                 TipoVia_Especialista, NombreVia_Especialista, NumeroVia_Especialista, CuentaBancaria_Especialista, Cuota_Especialista, Contrasena_Especialista, Tipo)
