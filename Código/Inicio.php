@@ -96,19 +96,19 @@ if (!$conn) {
     <div class="form-container login-container">
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['IniciarSesion'])) {
-            $Correo_Cliente =  $_POST['Correo_Cliente'];
+            $DNI_Cliente =  $_POST['DNI_Cliente'];
             $Contrasena_Cliente =  $_POST['Contrasena_Cliente'];
 
-            $sql = "SELECT * FROM CLIENTES WHERE Correo_Cliente = ?";
+            $sql = "SELECT * FROM CLIENTES WHERE DNI_Cliente = ?";
             $stmt = mysqli_prepare($conn, $sql);
-            mysqli_stmt_bind_param($stmt, 's', $Correo_Cliente);
+            mysqli_stmt_bind_param($stmt, 's', $DNI_Cliente);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
 
             if ($result && mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
                 if ($Contrasena_Cliente === $row['Contrasena_Cliente']) {
-                    $_SESSION['Correo_Cliente'] = $row['Correo_Cliente'];
+                    $_SESSION['DNI_Cliente'] = $row['DNI_Cliente'];
                     $_SESSION['Tipo'] = $row['Tipo'];
                     header("Location: ComoTrabajamos.php");
                     exit;
@@ -122,7 +122,7 @@ if (!$conn) {
         ?>
         <form action="" method="post">
             <h1>Iniciar Sesión</h1>
-            <input type="text" name="Correo_Cliente" required placeholder="Correo">
+            <input type="text" name="DNI_Cliente" required placeholder="DNI">
             <input type="password" name="Contrasena_Cliente" required placeholder="Contraseña">
             <button type="submit" name="IniciarSesion">Iniciar Sesión</button>
         </form>

@@ -44,7 +44,7 @@
     $sql_ESPECIALISTAS .= "INSERT INTO ESPECIALISTAS (DNI_Especialista, Nombre_Especialista, Apellido_Especialista, FechaNacimiento_Especialista, NumTelefono_Especialista, Correo_Especialista,
             TipoVia_Especialista, NombreVia_Especialista, NumeroVia_Especialista, CuentaBancaria_Especialista, Cuota_Especialista, Contrasena_Especialista)
         VALUES
-            ('40441106E', 'Sergio', 'Diaz', '1983-11-08', '651300210', 'sdiaz@gmail.com', 'C/', 'de les Delicies', '31', 'C/', 'ES7301087926891955150150', '110.28', ''sergiodiaz);";
+            ('40441106E', 'Sergio', 'Diaz', '1983-11-08', '651300210', 'sdiaz@gmail.com', 'C/', 'de les Delicies', '31', 'ES7301087926891955150150', '110.28', 'sergiodiaz');";
 
     $Resultado= mysqli_multi_query($conn, $sql_ESPECIALISTAS);
 
