@@ -41,7 +41,9 @@ CREATE TABLE ESPECIALISTAS(
 
 	Cuota_Especialista DECIMAL(5,2) NOT NULL,
 
-	Contrasena_Especialista VARCHAR(100)
+	Contrasena_Especialista VARCHAR(100),
+	
+	Tipo ENUM('espe') NOT NULL
 
 	/*Claves Foráneas*/
 );
