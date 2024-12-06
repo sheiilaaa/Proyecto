@@ -89,13 +89,12 @@
                 $Coaching7 = $_POST['Coaching_PNL_(Programación_Neurolingüística)'];
                 $Coaching8 = $_POST['Coaching_Coercitivo'];
                 $Tipo =  "espe";
-                
+
                 //INSERTAR INFORMACION ESPECIALISTA
                 $sql= "INSERT INTO especialistas(DNI_Especialista, Nombre_Especialista, Apellido_Especialista, FechaNacimiento_Especialista, NumTelefono_Especialista, Correo_Especialista, 
-                TipoVia_Especialista, NombreVia_Especialista, NumeroVia_Especialista, CuentaBancaria_Especialista, Cuota_Especialista, Contrasena_Especialista, Tipo)
+                TipoVia_Especialista, NombreVia_Especialista, NumeroVia_Especialista, CuentaBancaria_Especialista, Cuota_Especialista, Contrasena_Especialista, espe)
                 VALUES ('$DNI_Especialista','$Nombre_Especialista', '$Apellido_Especialista','$FechaNacimiento_Especialista', '$NumTelefono_Especialista', '$Correo_Especialista', '$TipoVia_Especialista', 
                 '$NombreVia_Especialista','$NumeroVia_Especialista','$CuentaBancaria_Especialista','$Cuota_Especialista','$Contrasena_Especialista', '$Tipo');";
-
 
 
                 // Assume $conn is your active database connection
@@ -267,6 +266,8 @@
                             <label for="Contrasena_Especialista">Contraseña:</label>
                             <input type="password" name="Contrasena_Especialista" id="Contrasena_Especialista" class="caja"required placeholder="Escribe tu contraseña">
 
+                            <label for="espe">Rol:</label>
+                            <input type="text" id="espe" name="espe" pattern="^espe$" title="Rol" required>
                             <fieldset>
                                 <legend>Disponibilidad Diaria</legend>
                                     <label for="Lunes">Lunes</label>

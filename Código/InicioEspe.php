@@ -65,35 +65,52 @@ include("./GestionBD/1-conexion.php");?>
 
     <!-- INICIO DE SESIÓN -->
     <div class="form-container login-container">
-        <?php
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['IniciarSesion'])) {
-            $Correo_Especialista = mysqli_real_escape_string($conn, $_POST['Correo_Especialista']);
-            $Contrasena_Especialista = mysqli_real_escape_string($conn, $_POST['Contrasena_Especialista']);
+    <?php
 
-            $sql = "SELECT * FROM ESPECIALISTAS WHERE Correo_Especialista = ?";
-            $stmt = mysqli_prepare($conn, $sql);
-            mysqli_stmt_bind_param($stmt, 's', $Correo_Especialista);
-            mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);
+// Verificar conexión
+if (!$conn) {
+    die("Error en la conexión a la base de datos: " . mysqli_connect_error());
+}
 
-            if ($result && mysqli_num_rows($result) > 0) {
-                $row = mysqli_fetch_assoc($result);
-                if ($Contrasena_Especialista === $row['Contrasena_Especialista']) {
-                    $_SESSION['Tipo'] = "Espe";
-                    $_SESSION['Correo_Especialista'] = $row['Correo_Especialista'];
-                    header("Location: ComoTrabajamos.php");
-                    exit;
-                } else {
-                    echo "<script>alert('Contraseña incorrecta');</script>";
-                }
-            } else {
-                echo "<script>alert('Usuario no encontrado');</script>";
-            }
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['IniciarSesion'])) {
+    $DNI_Especialista = mysqli_real_escape_string($conn, $_POST['DNI_Especialista']);
+    $Contrasena_Especialista = mysqli_real_escape_string($conn, $_POST['Contrasena_Especialista']);
+
+    $sql = "SELECT * FROM ESPECIALISTAS WHERE DNI_Especialista = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    // Verificar si la preparación fue exitosa
+    if (!$stmt) {
+        die("Error en la preparación de la consulta: " . mysqli_error($conn));
+    }
+
+    mysqli_stmt_bind_param($stmt, 's', $DNI_Especialista);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    // Verificar si el resultado es válido
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+
+        // Validar contraseña
+        if ($Contrasena_Especialista === $row['Contrasena_Especialista']) {
+            $_SESSION['Tipo'] = "espe";
+            $_SESSION['DNI_Especialista'] = $row['DNI_Especialista'];
+            header("Location: ComoTrabajamos.php");
+            exit;
+        } else {
+            echo "<script>alert('Contraseña incorrecta');</script>";
         }
-        ?>
+    } else {
+        echo "<script>alert('Usuario no encontrado');</script>";
+    }
+}
+?>
+
         <form action="" method="post">
             <h1>Iniciar Sesión</h1>
-            <input type="text" name="Correo_Especialista" required placeholder="Correo">
+            <input type="text" name="DNI_Especialista" required placeholder="Correo">
             <input type="password" name="Contrasena_Especialista" required placeholder="Contraseña">
             <button type="submit" name="IniciarSesion">Iniciar Sesión</button>
         </form>

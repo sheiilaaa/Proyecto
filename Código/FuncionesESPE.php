@@ -59,40 +59,43 @@
             </ul>
         </nav>
     </div>
+    <?php
 
-<?php
 
-    $sql="SELECT * FROM especialistas WHERE DNI_Especialista ='$_SESSION['DNI_Especialista'];'";
-    $result=mysqli_query($conn,$sql);
+// Construir la consulta SQL
+$sql = "SELECT * FROM especialistas WHERE DNI_Especialista = '" . $_SESSION['DNI_Especialista'] . "';";
 
-    if ($result)
-    {
-        $row=mysqli_fetch_assoc($result);
-      
-    }
-    
-/*
-    $DNI_Cliente = $_REQUEST["DNI_Especialista"];
-    $Nombre_Cliente = $_REQUEST["Nombre_Especialista"];
-    $Apellido_Cliente = $_REQUEST["Apellido_Especialista"];
-/*
-    echo "Se ha modificado correctamente el especialista $Nombre_Especialista $Apellido_Especialista con DNI $DNI_Especialista"*/
+// Ejecutar la consulta
+$result = mysqli_query($conn, $sql);
+
+// Validar el resultado de la consulta
+if (!$result) {
+    die("Error en la consulta SQL: " . mysqli_error($conn));
+}
+
+// Obtener los datos
+$row = mysqli_fetch_assoc($result);
+
+// Verificar si se encontraron resultados
+if (!$row) {
+    die("Error: No se encontraron datos para el DNI proporcionado.");
+}
 ?>
 
 <!-- CODIGO -->
-        <div id="contenedor">
-            <div class="central">
-                <div class=""><?php echo "¡Bienvenido  $row['Nombre_Especialista']  $row['Apellido_Especialista']!"; ?></div>
-                <div class="texto">¿Deseas ver las citas que tienes asignadas?</div>   
-                <div>
-                    <a href="MisCitasEspe.php">Haz clic aquí </a>
-                </div>  
-                <div class="texto">¿Necesitas consultar con un administrador?</div>   
-                <div>
-                    <a href="ConsultaESPE.php">Haz clic aquí </a>
-                </div> 
-            </div>
+<div id="contenedor">
+    <div class="central">
+        <div class=""><?php echo "¡Bienvenido " . htmlspecialchars($row['Nombre_Especialista']) . " " . htmlspecialchars($row['Apellido_Especialista']) . "!"; ?></div>
+        <div class="texto">¿Deseas ver las citas que tienes asignadas?</div>   
+        <div>
+            <a href="MisCitasEspe.php">Haz clic aquí </a>
+        </div>  
+        <div class="texto">¿Necesitas consultar con un administrador?</div>   
+        <div>
+            <a href="ConsultaESPE.php">Haz clic aquí </a>
         </div> 
+    </div>
+</div>
 
 
 <!-- PIE DE PAGINA -->

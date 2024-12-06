@@ -54,7 +54,7 @@
                     echo '<br>';
                 }
                 if ($_SESSION['Tipo'] == "espe") { // Si es Especialista, mostrar opciones adicionales
-                    echo "<li><a href='FuncionesESPE.php><i class='fa fa-address-book'></i><span data-translate='ESPECIALISTAS'>ESPECIALISTAS</span></a></li>";
+                    echo "<li><a href='FuncionesEspe.php'><i class='fa fa-address-book'></i><span data-translate='espe'>espe</span></a></li>";
                     echo '<br>';
                 }
                 ?>
