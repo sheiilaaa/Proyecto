@@ -57,7 +57,7 @@ if (!$conn) {
             $NombreVia_Cliente =  $_POST['NombreVia_Cliente'];
             $NumeroVia_Cliente =  $_POST['NumeroVia_Cliente'];
             $TipoVia_Cliente =  $_POST['TipoVia_Cliente'];
-            $Tipo =  "Cliente";
+            $Tipo =  "cliente";
 
             // Consulta para insertar usuario
             $sql = "INSERT INTO CLIENTES 

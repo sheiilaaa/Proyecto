@@ -53,7 +53,7 @@
                     echo "<li><a href='FuncionesAdmin.php'><i class='fa fa-address-book'></i><span data-translate='ADMIN'>Admin</span></a></li>";
                     echo '<br>';
                 }
-                if ($_SESSION['Tipo'] == "Espe") { // Si es Admin, mostrar opciones adicionales
+                if ($_SESSION['Tipo'] == "espe") { // Si es Especialista, mostrar opciones adicionales
                     echo "<li><a href='FuncionesESPE.php><i class='fa fa-address-book'></i><span data-translate='ESPECIALISTAS'>ESPECIALISTAS</span></a></li>";
                     echo '<br>';
                 }
