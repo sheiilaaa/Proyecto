@@ -71,7 +71,7 @@
                     <a href="GestionCli.php">Gestionar Clientes</a>
                 </div>
                 <div class="pie-form">
-                    <a href="ComoTrabajamos.php">Continuar</a>
+                    <a href="ComoTrabajamos.php">Volver</a>
                 </div>   
             </div>
         </div> 

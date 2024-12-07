@@ -48,28 +48,32 @@ if (!$conn) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['RegistrarUsuario'])) {
             // Obtener y validar datos del formulario
             $DNI_Cliente = $_POST['DNI_Cliente'];
-            $NumTelefono_Cliente = $_POST['NumTelefono_Cliente'];
-            $Correo_Cliente = $_POST['Correo_Cliente'];
             $Nombre_Cliente = $_POST['Nombre_Cliente'];
             $Apellido_Cliente =$_POST['Apellido_Cliente'];
-            $Contrasena_Cliente =  $_POST['Contrasena_Cliente'];
             $FechaNacimiento_Cliente =  $_POST['FechaNacimiento_Cliente'];
+            $NumTelefono_Cliente = $_POST['NumTelefono_Cliente'];
+            $Correo_Cliente = $_POST['Correo_Cliente'];
+            $TipoVia_Cliente =  $_POST['TipoVia_Cliente'];
             $NombreVia_Cliente =  $_POST['NombreVia_Cliente'];
             $NumeroVia_Cliente =  $_POST['NumeroVia_Cliente'];
-            $TipoVia_Cliente =  $_POST['TipoVia_Cliente'];
+            $Contrasena_Cliente =  $_POST['Contrasena_Cliente'];
             $Tipo =  "cliente";
-
+            
             // Consulta para insertar usuario
             $sql = "INSERT INTO CLIENTES 
-                        (DNI_Cliente, NumTelefono_Cliente, Correo_Cliente, Nombre_Cliente, Apellido_Cliente, Contrasena_Cliente, FechaNacimiento_Cliente, NombreVia_Cliente, NumeroVia_Cliente, TipoVia_Cliente,Tipo)
+                        (DNI_Cliente, Nombre_Cliente, Apellido_Cliente, FechaNacimiento_Cliente, NumTelefono_Cliente, Correo_Cliente, TipoVia_Cliente,NombreVia_Cliente, NumeroVia_Cliente, Contrasena_Cliente, Tipo)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
             $stmt = mysqli_prepare($conn, $sql);
-            mysqli_stmt_bind_param($stmt, 'sssssssssss', $DNI_Cliente, $NumTelefono_Cliente, $Correo_Cliente, $Nombre_Cliente, $Apellido_Cliente, $Contrasena_Cliente, $FechaNacimiento_Cliente, $NombreVia_Cliente, $NumeroVia_Cliente, $TipoVia_Cliente,$Tipo);
+            mysqli_stmt_bind_param($stmt, 'sssssssssss', $DNI_Cliente, $Nombre_Cliente, $Apellido_Cliente, $FechaNacimiento_Cliente, $NumTelefono_Cliente, $Correo_Cliente, $TipoVia_Cliente, $NombreVia_Cliente, $NumeroVia_Cliente, $Contrasena_Cliente, $Tipo);
 
             if (mysqli_stmt_execute($stmt)) {
-                header("Location: pago.php?Nombre_Cliente=$Nombre_Cliente");
+               /* header("Location: ComoTrabajamos.php?DNI_Cliente=$DNI_Cliente");*/
+                $_SESSION['DNI_Cliente'] = $row['DNI_Cliente'];
+                $_SESSION['Tipo'] = $row['Tipo'];
+                header("Location: ComoTrabajamos.php");
                 exit;
+
             } else {
                 echo "<script>alert('Error al registrar usuario');</script>";
             }
@@ -77,17 +81,39 @@ if (!$conn) {
         ?>
         <form action="" method="post">
             <h1>Regístrate</h1>
-            <input type="text" name="DNI_Cliente" required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI">
-            <input type="tel" name="NumTelefono_Cliente" required placeholder="Teléfono">
-            <input type="email" name="Correo_Cliente" required placeholder="Correo">
-            <input type="text" name="Nombre_Cliente" required pattern="[a-zA-Z\s]+" placeholder="Nombre">
-            <input type="text" name="Apellido_Cliente" required pattern="[a-zA-Z\s]+" placeholder="Apellidos">
-            <input type="password" name="Contrasena_Cliente" required placeholder="Contraseña">
-            <input type="date" name="FechaNacimiento_Cliente" placeholder="Fecha de Nacimiento">
-            <input type="text" name="NombreVia_Cliente" placeholder="Nombre de la vía">
-            <input type="text" name="NumeroVia_Cliente" placeholder="Número de la vía">
-            <input type="text" name="TipoVia_Cliente" placeholder="Tipo de vía">
-            <input type="text" name="Tipo" placeholder="Tipo">
+            <label for="DNI_Cliente">DNI:</label>
+                <input type="text" name="DNI_Cliente" required pattern="[0-9]{8}[A-Za-z]{1}" placeholder="DNI">
+
+            <label for="Nombre_Cliente">Nombre:</label>
+                <input type="text" name="Nombre_Cliente" required pattern="[a-zA-Z\s]+" placeholder="Nombre">
+
+            <label for="Apellido_Cliente">Apellido:</label>
+                <input type="text" name="Apellido_Cliente" required pattern="[a-zA-Z\s]+" placeholder="Apellidos">
+
+            <label for="FechaNacimiento_Cliente">Fecha de nacimiento:</label>
+                <input type="date" name="FechaNacimiento_Cliente" placeholder="Fecha de Nacimiento">
+
+            <label for="NumTelefono_Cliente">Número de telefono:</label>
+                <input type="tel" name="NumTelefono_Cliente" required pattern="[0-9]{9}" placeholder="9 dígitos seguidos">
+
+            <label for="Correo_Cliente">Correo:</label>
+                <input type="email" name="Correo_Cliente" required placeholder="Correo">
+
+            <label for="TipoVia_Cliente">Tipo de via</label>
+                <input type="text" name="TipoVia_Cliente" placeholder="Tipo de vía">
+                
+            <label for="NombreVia_Cliente">Nombre:</label>
+                <input type="text" name="NombreVia_Cliente" placeholder="Nombre de la vía">
+
+            <label for="NumeroVia_Cliente">Número:</label>
+                <input type="text" name="NumeroVia_Cliente" pattern="[0-9]{3}" placeholder="Máximo tres números">
+
+            <label for="Contrasena_Cliente">Contraseña:</label>
+                <input type="password" name="Contrasena_Cliente" required placeholder="Contraseña">
+
+            <!-- <label for="DNI_Cliente">DNI</label>
+            <input type="text" name="Tipo" placeholder="Tipo"> -->
+
             <button type="submit" name="RegistrarUsuario">Registrarse</button>
         </form>
     </div>
