@@ -60,9 +60,7 @@
             <div class="central">
                 <div class="titulo">
                     <?php
-                        $Nombre_Especialista = $_POST["Nombre_Especialista"];
-                        $Apellido_Especialista = $_POST["Apellido_Especialista"];                       
-                        echo "Se ha añadido correctamente el especialista $Nombre_Especialista $Apellido_Especialista"
+                        echo "Se ha añadido correctamente el especialista " . htmlspecialchars($especialista['Nombre_Especialista']) . " " . htmlspecialchars($especialista['Apellido_Especialista']) . ".";                     
                     ?>
                 </div>
                         

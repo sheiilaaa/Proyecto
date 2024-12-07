@@ -69,9 +69,12 @@ if (!$conn) {
 
             if (mysqli_stmt_execute($stmt)) {
                /* header("Location: ComoTrabajamos.php?DNI_Cliente=$DNI_Cliente");*/
-                $_SESSION['DNI_Cliente'] = $row['DNI_Cliente'];
-                $_SESSION['Tipo'] = $row['Tipo'];
-                header("Location: ComoTrabajamos.php");
+
+
+/*ESTO ES LO QUE HE MODICIADO, QUE NO UTILIZO EL ROW */
+                $_SESSION['DNI_Cliente'] = $DNI_Cliente; 
+                $_SESSION['Tipo'] = $Tipo;
+                header("Location: ConfAltaUsuario.php");
                 exit;
 
             } else {
