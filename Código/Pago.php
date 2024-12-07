@@ -12,7 +12,8 @@
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 
     <!-- Link para que funcionen los FA FA -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
 <!-- CONEXIÓN -->
@@ -84,11 +85,11 @@ $especialista = mysqli_fetch_assoc($resultado_especialista);
                     <div class="TIT">Ha escogido a:</div>
                     <div class="SuNOMBRE">
                         <label for="Nombre_Especialista"></label>    
-                        <input type="text" id="Nombre_Especialista" name="Nombre_Especialista" class="caja" value='<?php echo ($especialista['Nombre_Especialista']); ?>'>
+                        <input type="text" id="Nombre_Especialista" name="Nombre_Especialista" class="caja" value='<?php echo ($especialista['Nombre_Especialista']); ?>' readonly>
                     </div>
                     <div class="SuApellido">
                         <label for="Apellido_Especialista"></label>    
-                        <input type="text" id="Apellido_Especialista" name="Apellido_Especialista" class="caja" value='<?php echo ($especialista['Apellido_Especialista']); ?>'>
+                        <input type="text" id="Apellido_Especialista" name="Apellido_Especialista" class="caja" value='<?php echo ($especialista['Apellido_Especialista']); ?>' readonly>
                     </div>
 
                     <br>
@@ -96,50 +97,51 @@ $especialista = mysqli_fetch_assoc($resultado_especialista);
                     <div class="TIT">Cuota del Especialista</div>
                     <div class="MostrarCuota">
                         <label for="Cuota_Especialista"></label>    
-                        <input type="number" id="Cuota_Especialista" name="Cuota_Especialista" class="caja" value='<?php echo ($especialista['Cuota_Especialista']); ?>'>
+                        <input type="number" id="Cuota_Especialista" name="Cuota_Especialista" class="caja" value='<?php echo ($especialista['Cuota_Especialista']); ?>' readonly>
                     </div> <!-- MostrarCuota -->       
                 </div> <!-- infoespecialista -->
             </form> 
 
              <!-- Métodos de pago con FA FA -->
-        <div class="TarPago">
-            <form id="PagoS.php" action="" method="post">
-                <div class="TituloPAGO">Elige tu método de pago</div>
-                <div class="metodoPAGO">
-                    <button class="Tarjeta" type="button">
-                        <i class="fa fa-cc-visa" aria-hidden="true"></i> Visa
-                    </button>
+            <div class="TarPago">
+                <form id="PagoS.php" action="" method="post">
+                    <div class="TituloPAGO">Elige tu método de pago</div>
+                    <div class="metodoPAGO">
+                        <button class="Tarjeta" type="button">
+                            <i class="fa-solid fa-credit-card" aria-hidden="true"></i> Visa
+                        </button>
 
-                    <button class="Tarjeta" type="button">
-                        <i class="fa fa-cc-paypal" aria-hidden="true"></i> PayPal
-                    </button>
+                        <button class="Tarjeta" type="button">
+                            <i class="fa-brands fa-paypal" aria-hidden="true"></i> PayPal
+                        </button>
 
-                    <button class="Tarjeta" type="button">
-                        <i class="fa fa-mobile-alt" aria-hidden="true"></i> Bizum
-                    </button>
+                        <button class="Tarjeta" type="button">
+                            <i class="fa-solid fa-mobile-alt" aria-hidden="true"></i> Bizum
+                        </button>
 
-                    <button class="Tarjeta" type="button">
-                        <i class="fa fa-cc-amex" aria-hidden="true"></i> American Express
-                    </button>
+                        <button class="Tarjeta" type="button">
+                            <i class="fa-brands fa-cc-amex" aria-hidden="true"></i> American Express
+                        </button>
 
-                    <button class="Tarjeta" type="button">
-                        <i class="fa fa-cc-mastercard" aria-hidden="true"></i> MasterCard
-                    </button>
-                </div>  
-            </form>
-        </div>
+                        <button class="Tarjeta" type="button">
+                            <i class="fa-brands fa-cc-mastercard" aria-hidden="true"></i> MasterCard
+                        </button>
+                    </div>  
+                </form>
+            </div>
+
 
             <div class="DatosCliente">
                     <form id="PClien.php" action="" method="post">
                         <div class="UsuarioPago">Datos de pago</div>
                         <label for="Nombre_Cliente">Nombre:</label>
-                            <input type="text" id="Nombre_Cliente" name="Nombre_Cliente" class="cajaPago" value="<?php echo ($cliente['Nombre_Cliente']); ?>">
+                            <input type="text" id="Nombre_Cliente" name="Nombre_Cliente" class="cajaPago" value="<?php echo ($cliente['Nombre_Cliente']); ?>" readonly>
                         
                         <label for="Apellido_Cliente">Apellidos:</label>
-                            <input type="text" id="Apellido_Cliente" name="Apellido_Cliente" class="cajaPago" value="<?php echo ($cliente['Apellido_Cliente']); ?>">
+                            <input type="text" id="Apellido_Cliente" name="Apellido_Cliente" class="cajaPago" value="<?php echo ($cliente['Apellido_Cliente']); ?>" readonly>
                         
                         <label for="DNI_Cliente">DNI:</label>
-                            <input type="text" id="DNI_Cliente" name="DNI_Cliente" class="cajaPago" value="<?php echo ($cliente['DNI_Cliente']); ?>">
+                            <input type="text" id="DNI_Cliente" name="DNI_Cliente" class="cajaPago" value="<?php echo ($cliente['DNI_Cliente']); ?>" readonly>
                         
                         <label for="Estado_Pago">Estado_Pago:</label> 
                             <input type="text" id="Estado_Pago" name="Estado_Pago" class="cajaPago">
