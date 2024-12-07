@@ -11,9 +11,6 @@ include("./GestionBD/1-conexion.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
-
-
-    <!--<script src="script_listado.js" defer></script>-->
     
         <!-- Link hacia el archivo de estilos css -->
         <link rel="stylesheet" href="css/estilo.css">
@@ -58,14 +55,11 @@ include("./GestionBD/1-conexion.php");
         </nav>
     </div>
 
-
-
 <!-- Listado de especialistas -->
 <div class="titulos">Listado de clientes</div>
 <div id="fondo_listado">
 <?php
     $sql = "SELECT * FROM `clientes` WHERE Tipo = 'cliente'";
-    
 
     $result = mysqli_query($conn, $sql);
     $registro=mysqli_num_rows($result);
@@ -80,17 +74,23 @@ include("./GestionBD/1-conexion.php");
             $Final++;
              // Avanzar a la siguiente fila
             echo '<div class="cliente-contenedor">';
+            echo '<h5>ID: '.$row['ID_Cliente'].'</h5>';
             echo '<h5>Cliente: '.$row['Nombre_Cliente'].' '.$row['Apellido_Cliente'].'</h5>';
+            echo '<h5>DNI: '.$row['DNI_Cliente'].'</h5>';
+            echo '<h5>Fecha de nacimiento: '.$row['FechaNacimiento_Cliente'].'</h5>';
+
+            echo '<h5>Contacto:</h5>';
+            echo '<h5>Número de teléfono: '.$row['NumTelefono_Cliente'].'</h5>';
+            echo '<h5>Correo: '.$row['Correo_Cliente'].'</h5>';
+
+            echo '<h5>Dirección: '.$row['TipoVia_Cliente'].' '.$row['NombreVia_Cliente'].', número '.$row['NumeroVia_Cliente'].'</h5>';
+
             echo '<br><a href="Mod_Cli.php?id='.$row['DNI_Cliente'].'">Modificar</a>';
             echo '<br><a href="Elim_Cli.php?id='.$row['DNI_Cliente'].'">Eliminar</a>';
             echo '</div>'; 
             $row = mysqli_fetch_assoc($result);
         }
-       
-                 
-                
-                
-        
+   
     } else {
         echo '<p>No se encontraron clientes.</p>';
     }
