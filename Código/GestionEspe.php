@@ -64,7 +64,10 @@ include("./GestionBD/1-conexion.php");
 <div class="titulos">Listado de especialistas</div>
 <div id="fondo_listado">
     <?php
-    $sql = "SELECT E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista, E.Cuota_Especialista
+    $sql = "SELECT E.ID_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, E.DNI_Especialista,
+                E.FechaNacimiento_Especialista, E.NumTelefono_Especialista, E.Correo_Especialista, E.TipoVia_Especialista,
+                E.NombreVia_Especialista, E.NumeroVia_Especialista, E.CuentaBancaria_Especialista, E.Cuota_Especialista,
+                ES.Especialidad_Especialista
             FROM ESPECIALISTAS E
             JOIN ESPECIALISTA_ESPECIALIDAD EE ON E.ID_Especialista = EE.ID_Especialista_EspeEspe
             JOIN ESPECIALIDAD ES ON EE.ID_Especialidad_EspeEspe = ES.ID_Especialidad";
@@ -77,8 +80,18 @@ include("./GestionBD/1-conexion.php");
         while ($row) { 
             $Esp_Anterior = $row['Nombre_Especialista'];
             echo '<div class="especialista-contenedor">';
+                echo '<h5>ID: '.$row['ID_Especialista'].'</h5>';
                 echo '<h5>Especialista: '.$row['Nombre_Especialista'].' '.$row['Apellido_Especialista'].'</h5>';
-                echo '<p>Cuota: '.$row['Cuota_Especialista'].'€</p>';
+                echo '<h5>DNI: '.$row['DNI_Especialista'].'</h5>';
+                echo '<h5>Fecha de nacimiento: '.$row['FechaNacimiento_Especialista'].'</h5>';
+                echo '<h5>Contacto:</h5>';
+                echo '<h5>Número de teléfono: '.$row['NumTelefono_Especialista'].'</h5>';
+                echo '<h5>Correo: '.$row['Correo_Especialista'].'</h5>';
+
+                echo '<h5>Dirección: '.$row['TipoVia_Especialista'].' '.$row['NombreVia_Especialista'].', número '.$row['NumeroVia_Especialista'].'</h5>';
+                echo '<h5>Correo: '.$row['CuentaBancaria_Especialista'].'</h5>';
+
+                echo '<h5>Cuota: '.$row['Cuota_Especialista'].'€</h5>';
                 echo '<ul>';
                     // Agrupar especialidades por especialista
                     $i = 1;
@@ -89,13 +102,25 @@ include("./GestionBD/1-conexion.php");
                         $row = mysqli_fetch_assoc($result); // Avanzar a la siguiente fila
                     }
                 echo '</ul>';
-                echo '<br><a href="Mod_Espe.php?id='.$Esp_Anterior.'">Modificar</a>';
-                echo '<br><a href="Elim_Espe.php?id='.$Esp_Anterior.'">Eliminar</a>';
+                /*  
+                echo '<br><a href="Mod_Espe.php?id='.$row['ID_Especialista'].'">Modificar</a>';
+                echo '<br><a href="AEE.php?id='.$row['ID_Especialista'].'">Eliminar</a>';
+            */
+            ?>
+            <!--- enclaces para modificar o eliminar cada articulo --->
+            <a href="Mod_Espe.php?id=<?php $row['ID_Especialista'];?>"> Modificar </a> 
+            <br>
+            <a href="Elim_Espe.php?id=<?php $row['ID_Especialista'];?>"> Eliminar </a>
+            <br>
+        <?php
             echo '</div>';
         }
     } else {
+        
         echo '<p>No se encontraron especialistas.</p>';
     }
+
+
     ?>
 </div>
 
