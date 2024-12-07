@@ -98,8 +98,8 @@ if (!$conn) {
             <label for="NumTelefono_Cliente">Número de telefono:</label>
                 <input type="tel" name="NumTelefono_Cliente" required pattern="[0-9]{9}" placeholder="9 dígitos seguidos">
 
-            <label for="Correo_Cliente">Correo:</label>
-                <input type="email" name="Correo_Cliente" required placeholder="Correo">
+            <label for="Correo_Cliente">Email:</label>
+                <input type="email" name="Correo_Cliente" required placeholder="Email">
 
             <label for="TipoVia_Cliente">Tipo de via</label>
                 <input type="text" name="TipoVia_Cliente" pattern="C\/|Av.|Paseo"  placeholder="C/ , Av. , Paseo">
