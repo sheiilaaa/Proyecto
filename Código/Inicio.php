@@ -89,9 +89,11 @@ if (!$conn) {
 
             <label for="Apellido_Cliente">Apellido:</label>
                 <input type="text" name="Apellido_Cliente" required pattern="[a-zA-Z\s]+" placeholder="Apellidos">
-
+            
             <label for="FechaNacimiento_Cliente">Fecha de nacimiento:</label>
-                <input type="date" name="FechaNacimiento_Cliente" placeholder="Fecha de Nacimiento">
+                <input type="date" name="FechaNacimiento_Cliente">
+                <!--Formato en el que se almacena: pattern="\[0-9]{4}\-[0-9]{2}\-[0-9]{2}"-->
+
 
             <label for="NumTelefono_Cliente">Número de telefono:</label>
                 <input type="tel" name="NumTelefono_Cliente" required pattern="[0-9]{9}" placeholder="9 dígitos seguidos">
