@@ -151,6 +151,8 @@ if (!$conn) {
             <input type="password" name="Contrasena_Cliente" required placeholder="Contraseña">
             <button type="submit" name="IniciarSesion">Iniciar Sesión</button>
         </form>
+        <a href="recuperar.php">He olvidado la contraseña</a>
+
         <a href="inicioESPE.php">Iniciar Sesión Especialista</a>
     </div>
 </div>

@@ -65,10 +65,23 @@
                 <div class="central">
                     <div class="titulo">
                     <?php
-                        $Nombre = $_POST["Nombre_Cliente"];
-                        $Apellido = $_POST["Apellido_Cliente"];
-                        echo "$Nombre $Apellido se ha modificado correctamente la contraseña"
-                        //De la pantalla de recuperar contraseña, una vez guardada la información en la base de datos nos manda a esta pantalla donde nos dice que se ha guardado correctamente
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['DNI_Cliente'])) {
+                            $DNI = mysqli_real_escape_string($conn, $_POST['DNI_Cliente']);
+
+                            // Consultar la base de datos
+                            $sql = "SELECT Nombre_Cliente, Apellido_Cliente FROM CLIENTES WHERE DNI_Cliente='$DNI';";
+                            $resultado = mysqli_query($conn, $sql);
+
+                            if ($resultado && mysqli_num_rows($resultado) > 0) {
+                                // Obtener los datos del cliente
+                                $row = mysqli_fetch_assoc($resultado);
+                                $Nombre_Cliente = $row['Nombre_Cliente'];
+                                $Apellido_Cliente = $row['Apellido_Cliente'];
+                                
+                                //Mensaje de confirmación
+                                echo "$Nombre_Cliente $Apellido_Cliente se ha modificado correctamente tu contraseña";
+                            }
+                        }
                     ?>
                     </div>
                     <div class="pie-form">

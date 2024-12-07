@@ -1,31 +1,3 @@
-<?php
-//Esto deberas poner si quieres que todos vayan a la misma pagina
-session_start(); // Asegúrate de que la sesión está iniciada
-
-// Verificar si el usuario ha iniciado sesión
-if (!isset($_SESSION['rol'])) {
-    // Si no está logueado, redirigir a la página de login
-    header("Location: login.php");
-    exit;
-}
-
-// Mostrar contenido basado en el rol
-if ($_SESSION['rol'] == 'cliente') {
-    echo "<h1>Bienvenido, Cliente " . $_SESSION['nombre'] . "</h1>";
-    // Aquí puedes agregar contenido específico para los clientes
-    echo "<p>Contenido exclusivo para clientes...</p>";
-} elseif ($_SESSION['rol'] == 'especialista') {
-    echo "<h1>Bienvenido, Especialista " . $_SESSION['nombre'] . "</h1>";
-    // Aquí puedes agregar contenido específico para los especialistas
-    echo "<p>Contenido exclusivo para especialistas...</p>";
-} elseif ($_SESSION['rol'] == 'admin') {
-    echo "<h1>Hola admin</h1>";
-}else {
-    echo "<h1>Rol desconocido</h1>";
-    // Opcional: Mensaje de error si el rol no es válido
-}
-?>
-
 <!-- Define que el documento esta bajo el estandar de HTML 5 -->
 <!doctype html>
 
