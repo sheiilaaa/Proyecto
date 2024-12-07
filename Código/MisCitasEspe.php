@@ -63,12 +63,12 @@
         $sql_todo="SELECT E.Cuota_Especialista, E.Nombre_Especialista, E.Apellido_Especialista, ES.Especialidad_Especialista, C.Fecha_Cita,
             C.Hora_Cita,C.Coste_Cita, Cl.Nombre_Cliente, Cl.Apellido_Cliente, Cl.DNI_Cliente, E.ID_Especialista
             FROM ESPECIALIDAD ES
-            JOIN ESPECIALISTA_ESPECIALIDAD EE ON EE.ID_Especialidad_EspeEspe = ES.ID_Especialista
+            JOIN ESPECIALISTA_ESPECIALIDAD EE ON EE.ID_Especialidad_EspeEspe = ES.ID_Especialidad
             JOIN ESPECIALISTAS E ON E.ID_Especialista = EE.ID_Especialista_EspeEspe
             JOIN CITAS C ON C.ID_Especialista_Cita = E.ID_Especialista
-            JOIN CLIENTES Cl ON C.ID_Cliente_Cita = Cl.ID_Cliente WHERE ID_Especialista= '$ID_Especialista';";
+            JOIN CLIENTES Cl ON C.ID_Cliente_Cita = Cl.ID_Cliente WHERE DNI_Especialista = '" . $_SESSION['DNI_Especialista'] . "';";
    
-        $result = mysqli_query($conn, $sql_todo)
+        $result = mysqli_query($conn, $sql_todo);
 
         if (mysqli_num_rows($result) > 0) { // Si encuentra resultados
             $Final = 0;
@@ -101,7 +101,7 @@
             echo '<a href="FuncionesESPE.php"><input type="button" id="volver" name="volver" class="boton" value="">Volver</a>';
 
         } else {
-            echo '<p>No se encontraron especialistas.</p>';
+            echo '<p>No tienes ninguna cita asignada.</p>';
         }
         ?>
 
