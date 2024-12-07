@@ -84,18 +84,20 @@
                         // Agrupar especialidades por especialista
                         $i = 1;
                         while ($row && $Esp_Anterior == $row['Nombre_Especialista']) {
+                            /*Info especialidades*/
                             echo '<li>Especialidad '.$i.': '.$row['Especialidad_Especialista'].'</li>';
+                            /*Info cliente*/
+                            echo '<h5>Cliente: '.$row['Nombre_Cliente'].' '.$row['Apellido_Cliente'].'</h5>';
+                            echo '<h5>DNI: '.$row['DNI_Cliente'].'</h5>';
+                            //Info cita
+                            echo '<h5> Cita reservada para el dia: '.$row['Fecha_Cita'].' a las '.$row['Hora_Cita'].'</h5>';
+                            echo '<p>Cuota: '.$row['Coste_Cita'].'€</p>';
+                            /*Punto de control*/
                             $Final++;
                             $i++;
                             $row = mysqli_fetch_assoc($result); // Avanzar a la siguiente fila
                         }
                     echo '</ul>';
-                    //Info usuario
-                    echo '<h5>Cliente: '.$row['Nombre_Cliente'].' '.$row['Apellido_Cliente'].'</h5>';
-                    echo '<h5>DNI: '.$row['DNI_Cliente'].'</h5>';
-                    //Info cita
-                    echo '<h5> Cita reservada para el dia: '.$row['Fecha_Cita'].' a las '.$row['Hora_Cita'].'</h5>';
-                    echo '<p>Cuota: '.$row['Coste_Cita'].'€</p>';
                 echo '</div>';
             }
             echo '<a href="FuncionesESPE.php"><input type="button" id="volver" name="volver" class="boton" value="">Volver</a>';
