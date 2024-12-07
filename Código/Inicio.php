@@ -100,19 +100,16 @@ if (!$conn) {
                 <input type="email" name="Correo_Cliente" required placeholder="Correo">
 
             <label for="TipoVia_Cliente">Tipo de via</label>
-                <input type="text" name="TipoVia_Cliente" placeholder="Tipo de vía">
+                <input type="text" name="TipoVia_Cliente" pattern="C\/|Av.|Paseo"  placeholder="C/ , Av. , Paseo">
                 
             <label for="NombreVia_Cliente">Nombre:</label>
-                <input type="text" name="NombreVia_Cliente" placeholder="Nombre de la vía">
+                <input type="text" name="NombreVia_Cliente" pattern="[a-zA-Z\s]+" placeholder="Nombre de la vía">
 
             <label for="NumeroVia_Cliente">Número:</label>
-                <input type="text" name="NumeroVia_Cliente" pattern="[0-9]{3}" placeholder="Máximo tres números">
+                <input type="text" name="NumeroVia_Cliente" pattern="[0-9]{0,3}" placeholder="Máximo tres números">
 
             <label for="Contrasena_Cliente">Contraseña:</label>
                 <input type="password" name="Contrasena_Cliente" required placeholder="Contraseña">
-
-            <!-- <label for="DNI_Cliente">DNI</label>
-            <input type="text" name="Tipo" placeholder="Tipo"> -->
 
             <button type="submit" name="RegistrarUsuario">Registrarse</button>
         </form>
