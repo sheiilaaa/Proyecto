@@ -244,15 +244,15 @@
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        // Crear el mapa centrado en una ubicación (ejemplo: Madrid)
+        // Para crear el mapa que este centrado en la ubicación que especificamos
         var mapa = L.map('mapa').setView([41.38052522449038, 2.144449785579248], 13);
 
-        // Añadir capa de mapa con OpenStreetMap
+        // Añadimos capa de mapa con OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(mapa);
 
-        // Añadir marcador en la ubicación
+        // Añadimos el marcador en la ubicación que queremos, en nuestro caso, donde estará la empresa
         L.marker([41.38052522449038, 2.144449785579248]).addTo(mapa)
             .bindPopup('Coaching S.L, Barcelona')
             .openPopup();
