@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['IniciarSesion'])) {
         if ($Contrasena_Especialista === $row['Contrasena_Especialista']) {
             $_SESSION['Tipo'] = "espe";
             $_SESSION['DNI_Especialista'] = $row['DNI_Especialista'];
-            header("Location: ComoTrabajamos.php");
+            header("Location: ConfAltaUsuario.php");
             exit;
         } else {
             echo "<script>alert('Contraseña incorrecta');</script>";
