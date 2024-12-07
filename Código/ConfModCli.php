@@ -63,11 +63,16 @@
             <div class="central">
                 <div class="titulo">
                     <?php
+
+                       /* 
                         $DNI_Cliente = $_POST["DNI_Cliente"];
                         $Nombre_Cliente = $_POST["Nombre_Cliente"];
                         $Apellido_Cliente = $_POST["Apellido_Cliente"];
-
                         echo "Se ha modificado correctamente el especialista $Nombre_Cliente $Apellido_Cliente con DNI $DNI_Cliente"
+                    */
+                        echo "Se ha modificado correctamente el especialista " . htmlspecialchars($cliente['Nombre_Cliente']) . " " . htmlspecialchars($cliente['Apellido_Cliente']) . " con DNI " . htmlspecialchars($cliente['DNI_Cliente']) . ".";
+
+                    
                     ?>
                 </div>
                         

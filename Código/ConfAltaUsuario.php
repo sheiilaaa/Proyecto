@@ -64,7 +64,7 @@ $cliente = mysqli_fetch_assoc($resultado_cliente);
     <div class="central">
         <div class="titulo">
             <?php
-            // Mostrar mensaje de bienvenida
+            // Mostrar mensaje de bienvenida al cliente
             echo "Bienvenido " . htmlspecialchars($cliente['Nombre_Cliente']) . " " . htmlspecialchars($cliente['Apellido_Cliente']) . ".";
             ?>
         </div>

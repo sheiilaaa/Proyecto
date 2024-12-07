@@ -55,26 +55,21 @@
     </div>
 
 
+<!-- CODIGO CONFIRMACION -->
+<div id="contenedor">
+    <div class="central">
+        <div class="titulo">
+            <?php
+            // Mostrar mensaje de bienvenida al cliente
+            echo "Se ha realizado correctamente el pado del cliente " . htmlspecialchars($cliente['Nombre_Cliente']) . " " . htmlspecialchars($cliente['Apellido_Cliente']) . ".";
+            ?>
+        </div>
+        <div class="pie-form">
+            <a href="ComoTrabajamos.php">Continuar</a>
+        </div>   
+    </div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 
 <!-- PIE DE PAGINA -->
         <footer>

@@ -66,7 +66,7 @@
             <div class="central">
                 <div class="titulo">
                     <?php
-                        echo "Se ha eliminado correctamente el cliente seleccionado"
+                        echo "Se ha eliminado correctamente el cliente seleccionado."
                     ?>
                 </div>
                     
