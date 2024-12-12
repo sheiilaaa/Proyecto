@@ -84,9 +84,7 @@ CREATE TABLE ESPECIALIDAD(
 CREATE TABLE PAGOS(
 	ID_Pago INT AUTO_INCREMENT PRIMARY KEY,
 	Estado_Pago BOOLEAN NOT NULL, /*BOOLEAN --> CHECK BOX*/
-	Metodos_Pago ENUM('Efectivo','Tarjeta_Credito') NOT NULL,
-	Fecha_Pago DATETIME NOT NULL,
-	Cantidad_Pago INT NOT NULL,
+	Fecha_Pago DATE NOT NULL,
 
 	/*Claves Foráneas*/
 	ID_Pago_Cliente INT
