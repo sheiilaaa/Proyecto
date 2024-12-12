@@ -33,7 +33,7 @@ CREATE TABLE ESPECIALISTAS(
 	NumTelefono_Especialista INT NOT NULL,
 	Correo_Especialista VARCHAR(100) NOT NULL,
 
-	TipoVia_Especialista ENUM('C/', 'Paseo', 'Av.') NOT NULL,
+	TipoVia_Especialista ENUM('C/', 'Paseo', 'Av.','C/.','Pl.') NOT NULL,
 	NombreVia_Especialista VARCHAR(100) NOT NULL,
 	NumeroVia_Especialista INT NOT NULL,
 
